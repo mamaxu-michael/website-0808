@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <nav className="bg-[rgb(0,52,50)] bg-opacity-95 backdrop-blur-sm shadow-lg fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-20 sm:h-24">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0">
               <ClimateSealLogo />
@@ -41,7 +41,7 @@ const Navbar = () => {
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
-                className="text-white hover:text-yellow-400 px-3 py-2 rounded-md text-sm font-medium transition duration-300 cursor-pointer"
+                className="text-white hover:text-yellow-400 px-3 py-2 rounded-md text-lg font-medium transition duration-300 cursor-pointer"
               >
                 {item.name}
               </button>
@@ -51,7 +51,7 @@ const Navbar = () => {
               <div className="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
                 <span className="text-white text-sm">👤</span>
               </div>
-              <span className="text-white text-sm">登入</span>
+              <span className="text-white text-lg">login</span>
             </div>
           </div>
 
@@ -78,7 +78,7 @@ const Navbar = () => {
                 <button
                   key={item.name}
                   onClick={() => handleNavClick(item.href)}
-                  className="text-white hover:text-yellow-400 block px-3 py-2 rounded-md text-base font-medium w-full text-left"
+                  className="text-white hover:text-yellow-400 block px-3 py-2 rounded-md text-lg font-medium w-full text-left"
                 >
                   {item.name}
                 </button>
@@ -88,7 +88,7 @@ const Navbar = () => {
                   <div className="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-2">
                     <span className="text-white text-sm">👤</span>
                   </div>
-                  <span className="text-white text-sm">登入</span>
+                  <span className="text-white text-lg">login</span>
                 </div>
               </div>
             </div>
