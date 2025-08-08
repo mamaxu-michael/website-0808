@@ -341,26 +341,130 @@ export default function Home() {
       </div>
 
       {/* Comparison Section */}
-      <section className="py-8 sm:py-12 lg:py-20 bg-[rgb(0,52,50)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-6 sm:mb-8 lg:mb-16">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-2 sm:mb-4 lg:mb-6">Compare With Traditional Way</h2>
+      <section className="py-4 sm:py-8 lg:py-20 bg-[rgb(0,52,50)]">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+          <div className="text-center mb-3 sm:mb-6 lg:mb-16">
+            <h2 className="text-base sm:text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-1 sm:mb-4 lg:mb-6">Compare With Traditional Way</h2>
           </div>
 
-          <div className="space-y-3 sm:space-y-4 lg:space-y-8">
+          {/* Mobile Layout - Compact but with content */}
+          <div className="block sm:hidden space-y-1">
+            {/* Climate Seal AI - 4 Steps */}
+            <div className="bg-[#9ef894] rounded-xl p-2 shadow-xl">
+              <div className="flex items-center space-x-2">
+                <div className="flex flex-col items-center space-y-1">
+                  <div className="bg-white p-1 rounded-lg">
+                    <span className="text-xs font-bold text-[rgb(0,52,50)]">🤖</span>
+                  </div>
+                  <span className="text-xs font-bold text-[rgb(0,52,50)]">AI</span>
+                </div>
+                <div className="flex flex-col justify-center">
+                  <span className="text-xs font-bold text-[rgb(0,52,50)]">4 STEPS</span>
+                </div>
+                <div className="flex-1 overflow-x-auto">
+                  <div className="flex items-center space-x-1 min-w-max">
+                    <div className="bg-white bg-opacity-80 px-1 py-0.5 rounded-full">
+                      <span className="text-xs font-semibold text-[rgb(0,52,50)]">Minimal Data</span>
+                    </div>
+                    <span className="text-[rgb(0,52,50)]">→</span>
+                    <div className="bg-white bg-opacity-80 px-1 py-0.5 rounded-full">
+                      <span className="text-xs font-semibold text-[rgb(0,52,50)]">Confirm</span>
+                    </div>
+                    <span className="text-[rgb(0,52,50)]">→</span>
+                    <div className="bg-white bg-opacity-80 px-1 py-0.5 rounded-full">
+                      <span className="text-xs font-semibold text-[rgb(0,52,50)]">Send to Verifier</span>
+                    </div>
+                    <span className="text-[rgb(0,52,50)]">→</span>
+                    <div className="bg-white bg-opacity-80 px-1 py-0.5 rounded-full">
+                      <span className="text-xs font-semibold text-[rgb(0,52,50)]">Certification</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Carbon Expert + Software - 11 Steps */}
+            <div className="bg-[#c2f5f7] rounded-xl p-2 shadow-xl">
+              <div className="flex items-center space-x-2">
+                <div className="flex flex-col items-center space-y-1">
+                  <div className="flex items-center space-x-0.5">
+                    <div className="bg-white p-1 rounded-lg">
+                      <span className="text-xs font-bold text-[rgb(0,52,50)]">👨‍💼</span>
+                    </div>
+                    <span className="text-xs text-[rgb(0,52,50)]">+</span>
+                    <div className="bg-white p-1 rounded-lg">
+                      <span className="text-xs font-bold text-[rgb(0,52,50)]">💻</span>
+                    </div>
+                  </div>
+                  <span className="text-xs font-bold text-[rgb(0,52,50)] text-center">Expert+SW</span>
+                </div>
+                <div className="flex flex-col justify-center">
+                  <span className="text-xs font-bold text-[rgb(0,52,50)]">11 STEPS</span>
+                </div>
+                <div className="flex-1 overflow-x-auto">
+                  <div className="flex items-center space-x-0.5 min-w-max">
+                    {[
+                      "Training", "Doc+Reg", "Checklist", "Clean", "Gap Fill", 
+                      "Model", "Match", "Submit", "Issues", "Fix", "Cert"
+                    ].map((step, index) => (
+                      <div key={index} className="flex items-center space-x-0.5">
+                        <div className="bg-white bg-opacity-80 px-1 py-0.5 rounded-full">
+                          <span className="text-xs font-semibold text-[rgb(0,52,50)]">{step}</span>
+                        </div>
+                        {index < 10 && <span className="text-[rgb(0,52,50)]">→</span>}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Carbon Consultant - 12 Steps */}
+            <div className="bg-[#98a2f8] rounded-xl p-2 shadow-xl">
+              <div className="flex items-center space-x-2">
+                <div className="flex flex-col items-center space-y-1">
+                  <div className="bg-white p-1 rounded-lg">
+                    <span className="text-xs font-bold text-[rgb(0,52,50)]">👨‍💼</span>
+                  </div>
+                  <span className="text-xs font-bold text-[rgb(0,52,50)]">Expert</span>
+                </div>
+                <div className="flex flex-col justify-center">
+                  <span className="text-xs font-bold text-[rgb(0,52,50)]">12 STEPS</span>
+                </div>
+                <div className="flex-1 overflow-x-auto">
+                  <div className="flex items-center space-x-0.5 min-w-max">
+                    {[
+                      "Kick-Off", "Search", "Prep", "Interview", "Model", "Calc", 
+                      "Draft", "Review", "Submit", "Feedback", "Fix", "Cert"
+                    ].map((step, index) => (
+                      <div key={index} className="flex items-center space-x-0.5">
+                        <div className="bg-white bg-opacity-80 px-1 py-0.5 rounded-full">
+                          <span className="text-xs font-semibold text-[rgb(0,52,50)]">{step}</span>
+                        </div>
+                        {index < 11 && <span className="text-[rgb(0,52,50)]">→</span>}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop Layout - Perfect Alignment */}
+          <div className="hidden sm:block space-y-3 sm:space-y-4 lg:space-y-8">
             {/* Climate Seal AI - 4 Steps */}
             <div className="bg-[#9ef894] rounded-2xl sm:rounded-3xl p-2 sm:p-4 lg:p-8 shadow-2xl min-h-[80px] sm:min-h-[120px] lg:min-h-[200px] flex items-center">
-              <div className="grid items-center w-full gap-2 sm:gap-4 lg:gap-6" style={{gridTemplateColumns: 'auto auto 1fr'}}>
-                <div className="flex flex-col items-center justify-center space-y-1 sm:space-y-2 lg:space-y-4 min-h-[60px] sm:min-h-[80px] lg:min-h-[120px]">
+              <div className="grid items-center w-full gap-2 sm:gap-4 lg:gap-6" style={{gridTemplateColumns: '280px 100px 1fr'}}>
+                <div className="flex flex-col items-center justify-center space-y-1 sm:space-y-2 lg:space-y-4 min-h-[60px] sm:min-h-[80px] lg:min-h-[120px] w-full">
                   <div className="bg-white p-1 sm:p-2 lg:p-4 rounded-xl sm:rounded-2xl shadow-lg">
                     <div className="text-sm sm:text-lg lg:text-2xl font-bold text-[rgb(0,52,50)]">🤖</div>
                   </div>
-                  <h3 className="text-xs sm:text-sm lg:text-lg font-bold text-[rgb(0,52,50)] text-center">AI Agent</h3>
+                  <h3 className="text-xs sm:text-sm lg:text-lg font-bold text-[rgb(0,52,50)] text-center leading-tight">AI Agent</h3>
                 </div>
-                <div className="flex flex-col items-center justify-center min-h-[60px] sm:min-h-[80px] lg:min-h-[120px]">
+                <div className="flex flex-col items-center justify-center min-h-[60px] sm:min-h-[80px] lg:min-h-[120px] w-full">
                   <p className="text-sm sm:text-xl lg:text-3xl font-bold text-[rgb(0,52,50)] text-center leading-tight">4<br/>STEPS</p>
                 </div>
-                <div className="flex flex-wrap items-center justify-center gap-1 lg:gap-2 min-h-[60px] sm:min-h-[80px] lg:min-h-[120px]">
+                <div className="flex flex-wrap items-center justify-start gap-1 lg:gap-2 min-h-[60px] sm:min-h-[80px] lg:min-h-[120px] w-full">
                   <div className="flex flex-wrap items-center gap-1 lg:gap-2">
                     <div className="bg-white bg-opacity-80 px-1 sm:px-2 lg:px-4 py-1 lg:py-2 rounded-full shadow-md animate-pulse">
                       <span className="text-xs lg:text-sm font-semibold text-[rgb(0,52,50)]">① Minimal Data</span>
@@ -390,8 +494,8 @@ export default function Home() {
 
             {/* Carbon Expert + Software - 11 Steps */}
             <div className="bg-[#c2f5f7] rounded-2xl sm:rounded-3xl p-2 sm:p-4 lg:p-8 shadow-2xl min-h-[80px] sm:min-h-[120px] lg:min-h-[200px] flex items-center">
-              <div className="grid items-center w-full gap-2 sm:gap-4 lg:gap-6" style={{gridTemplateColumns: 'auto auto 1fr'}}>
-                <div className="flex flex-col items-center justify-center space-y-1 sm:space-y-2 lg:space-y-4 min-h-[60px] sm:min-h-[80px] lg:min-h-[120px]">
+              <div className="grid items-center w-full gap-2 sm:gap-4 lg:gap-6" style={{gridTemplateColumns: '280px 100px 1fr'}}>
+                <div className="flex flex-col items-center justify-center space-y-1 sm:space-y-2 lg:space-y-4 min-h-[60px] sm:min-h-[80px] lg:min-h-[120px] w-full">
                   <div className="flex items-center space-x-1 sm:space-x-2">
                     <div className="bg-white p-1 sm:p-2 lg:p-3 rounded-xl sm:rounded-2xl shadow-lg">
                       <div className="text-sm sm:text-lg lg:text-xl font-bold text-[rgb(0,52,50)]">👨‍💼</div>
@@ -401,12 +505,12 @@ export default function Home() {
                       <div className="text-sm sm:text-lg lg:text-xl font-bold text-[rgb(0,52,50)]">💻</div>
                     </div>
                   </div>
-                  <h3 className="text-xs sm:text-sm lg:text-lg font-bold text-[rgb(0,52,50)] text-center leading-tight">Third Party Carbon Consultant + Carbon Accounting Software</h3>
+                  <h3 className="text-xs sm:text-sm lg:text-base font-bold text-[rgb(0,52,50)] text-center leading-tight px-2">Third Party Carbon Consultant + Carbon Accounting Software</h3>
                 </div>
-                <div className="flex flex-col items-center justify-center min-h-[60px] sm:min-h-[80px] lg:min-h-[120px]">
+                <div className="flex flex-col items-center justify-center min-h-[60px] sm:min-h-[80px] lg:min-h-[120px] w-full">
                   <p className="text-sm sm:text-xl lg:text-3xl font-bold text-[rgb(0,52,50)] text-center leading-tight">11<br/>STEPS</p>
                 </div>
-                <div className="flex flex-wrap items-center justify-center gap-1 lg:gap-2 min-h-[60px] sm:min-h-[80px] lg:min-h-[120px]">
+                <div className="flex flex-wrap items-center justify-start gap-1 lg:gap-2 min-h-[60px] sm:min-h-[80px] lg:min-h-[120px] w-full">
                   {[
                     "① Training", "② Doc + Reg Map", "③ Data Checklist", "④ Data Clean",
                     "⑤ Gap Fill", "⑥ Build Model", "⑦ Factor Match", "⑧ Submit",
@@ -431,17 +535,17 @@ export default function Home() {
 
             {/* Carbon Consultant - 12 Steps */}
             <div className="bg-[#98a2f8] rounded-2xl sm:rounded-3xl p-2 sm:p-4 lg:p-8 shadow-2xl min-h-[80px] sm:min-h-[120px] lg:min-h-[200px] flex items-center">
-              <div className="grid items-center w-full gap-2 sm:gap-4 lg:gap-6" style={{gridTemplateColumns: 'auto auto 1fr'}}>
-                <div className="flex flex-col items-center justify-center space-y-1 sm:space-y-2 lg:space-y-4 min-h-[60px] sm:min-h-[80px] lg:min-h-[120px]">
+              <div className="grid items-center w-full gap-2 sm:gap-4 lg:gap-6" style={{gridTemplateColumns: '280px 100px 1fr'}}>
+                <div className="flex flex-col items-center justify-center space-y-1 sm:space-y-2 lg:space-y-4 min-h-[60px] sm:min-h-[80px] lg:min-h-[120px] w-full">
                   <div className="bg-white p-1 sm:p-2 lg:p-4 rounded-xl sm:rounded-2xl shadow-lg">
                     <div className="text-sm sm:text-lg lg:text-2xl font-bold text-[rgb(0,52,50)]">👨‍💼</div>
                   </div>
-                  <h3 className="text-xs sm:text-sm lg:text-lg font-bold text-[rgb(0,52,50)] text-center">Third Party Carbon Consultant</h3>
+                  <h3 className="text-xs sm:text-sm lg:text-lg font-bold text-[rgb(0,52,50)] text-center leading-tight">Third Party Carbon Consultant</h3>
                 </div>
-                <div className="flex flex-col items-center justify-center min-h-[60px] sm:min-h-[80px] lg:min-h-[120px]">
+                <div className="flex flex-col items-center justify-center min-h-[60px] sm:min-h-[80px] lg:min-h-[120px] w-full">
                   <p className="text-sm sm:text-xl lg:text-3xl font-bold text-[rgb(0,52,50)] text-center leading-tight">12<br/>STEPS</p>
                 </div>
-                <div className="flex flex-wrap items-center justify-center gap-1 lg:gap-2 min-h-[60px] sm:min-h-[80px] lg:min-h-[120px]">
+                <div className="flex flex-wrap items-center justify-start gap-1 lg:gap-2 min-h-[60px] sm:min-h-[80px] lg:min-h-[120px] w-full">
                   {[
                     "① Kick-Off", "② Info Search", "③ Data Prep", "④ Clean + Interview",
                     "⑤ Calc Model", "⑥ Factor Calc", "⑦ Draft Report", "⑧ Review",
