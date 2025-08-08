@@ -347,104 +347,106 @@ export default function Home() {
             <h2 className="text-base sm:text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-1 sm:mb-4 lg:mb-6">Compare With Traditional Way</h2>
           </div>
 
-          {/* Mobile Layout - Compact but with content */}
-          <div className="block sm:hidden space-y-1">
+          {/* Mobile Layout - Complete Steps Display */}
+          <div className="block sm:hidden space-y-2">
             {/* Climate Seal AI - 4 Steps */}
-            <div className="bg-[#9ef894] rounded-xl p-2 shadow-xl">
-              <div className="flex items-center space-x-2">
-                <div className="flex flex-col items-center space-y-1">
-                  <div className="bg-white p-1 rounded-lg">
-                    <span className="text-xs font-bold text-[rgb(0,52,50)]">🤖</span>
+            <div className="bg-[#9ef894] rounded-xl p-3 shadow-xl">
+              <div className="flex flex-col space-y-2">
+                <div className="flex items-center space-x-3">
+                  <div className="flex flex-col items-center space-y-1 w-16">
+                    <div className="bg-white p-1.5 rounded-lg">
+                      <span className="text-sm font-bold text-[rgb(0,52,50)]">🤖</span>
+                    </div>
+                    <span className="text-xs font-bold text-[rgb(0,52,50)]">AI Agent</span>
                   </div>
-                  <span className="text-xs font-bold text-[rgb(0,52,50)]">AI</span>
+                  <div className="flex flex-col">
+                    <span className="text-sm font-bold text-[rgb(0,52,50)]">4 STEPS</span>
+                  </div>
                 </div>
-                <div className="flex flex-col justify-center">
-                  <span className="text-xs font-bold text-[rgb(0,52,50)]">4 STEPS</span>
-                </div>
-                <div className="flex-1 overflow-x-auto">
-                  <div className="flex items-center space-x-1 min-w-max">
-                    <div className="bg-white bg-opacity-80 px-1 py-0.5 rounded-full">
-                      <span className="text-xs font-semibold text-[rgb(0,52,50)]">Minimal Data</span>
-                    </div>
-                    <span className="text-[rgb(0,52,50)]">→</span>
-                    <div className="bg-white bg-opacity-80 px-1 py-0.5 rounded-full">
-                      <span className="text-xs font-semibold text-[rgb(0,52,50)]">Confirm</span>
-                    </div>
-                    <span className="text-[rgb(0,52,50)]">→</span>
-                    <div className="bg-white bg-opacity-80 px-1 py-0.5 rounded-full">
-                      <span className="text-xs font-semibold text-[rgb(0,52,50)]">Send to Verifier</span>
-                    </div>
-                    <span className="text-[rgb(0,52,50)]">→</span>
-                    <div className="bg-white bg-opacity-80 px-1 py-0.5 rounded-full">
-                      <span className="text-xs font-semibold text-[rgb(0,52,50)]">Certification</span>
-                    </div>
+                <div className="flex flex-wrap gap-0.5">
+                  <div className="bg-white bg-opacity-80 px-1.5 py-0.5 rounded-full">
+                    <span className="text-xs font-semibold text-[rgb(0,52,50)]">① Minimal Data</span>
+                  </div>
+                  <span className="text-[rgb(0,52,50)] self-center text-xs">→</span>
+                  <div className="bg-white bg-opacity-80 px-1.5 py-0.5 rounded-full">
+                    <span className="text-xs font-semibold text-[rgb(0,52,50)]">② Confirm</span>
+                  </div>
+                  <span className="text-[rgb(0,52,50)] self-center text-xs">→</span>
+                  <div className="bg-white bg-opacity-80 px-1.5 py-0.5 rounded-full">
+                    <span className="text-xs font-semibold text-[rgb(0,52,50)]">③ Send to Verifier</span>
+                  </div>
+                  <span className="text-[rgb(0,52,50)] self-center text-xs">→</span>
+                  <div className="bg-white bg-opacity-80 px-1.5 py-0.5 rounded-full">
+                    <span className="text-xs font-semibold text-[rgb(0,52,50)]">④ Certification</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Carbon Expert + Software - 11 Steps */}
-            <div className="bg-[#c2f5f7] rounded-xl p-2 shadow-xl">
-              <div className="flex items-center space-x-2">
-                <div className="flex flex-col items-center space-y-1">
-                  <div className="flex items-center space-x-0.5">
-                    <div className="bg-white p-1 rounded-lg">
-                      <span className="text-xs font-bold text-[rgb(0,52,50)]">👨‍💼</span>
-                    </div>
-                    <span className="text-xs text-[rgb(0,52,50)]">+</span>
-                    <div className="bg-white p-1 rounded-lg">
-                      <span className="text-xs font-bold text-[rgb(0,52,50)]">💻</span>
-                    </div>
-                  </div>
-                  <span className="text-xs font-bold text-[rgb(0,52,50)] text-center">Expert+SW</span>
-                </div>
-                <div className="flex flex-col justify-center">
-                  <span className="text-xs font-bold text-[rgb(0,52,50)]">11 STEPS</span>
-                </div>
-                <div className="flex-1 overflow-x-auto">
-                  <div className="flex items-center space-x-0.5 min-w-max">
-                    {[
-                      "Training", "Doc+Reg", "Checklist", "Clean", "Gap Fill", 
-                      "Model", "Match", "Submit", "Issues", "Fix", "Cert"
-                    ].map((step, index) => (
-                      <div key={index} className="flex items-center space-x-0.5">
-                        <div className="bg-white bg-opacity-80 px-1 py-0.5 rounded-full">
-                          <span className="text-xs font-semibold text-[rgb(0,52,50)]">{step}</span>
-                        </div>
-                        {index < 10 && <span className="text-[rgb(0,52,50)]">→</span>}
+            <div className="bg-[#c2f5f7] rounded-xl p-2.5 shadow-xl">
+              <div className="flex flex-col space-y-1.5">
+                <div className="flex items-center space-x-3">
+                  <div className="flex flex-col items-center space-y-0.5 w-16">
+                    <div className="flex items-center space-x-0.5">
+                      <div className="bg-white p-1 rounded-lg">
+                        <span className="text-xs font-bold text-[rgb(0,52,50)]">👨‍💼</span>
                       </div>
-                    ))}
+                      <span className="text-xs text-[rgb(0,52,50)]">+</span>
+                      <div className="bg-white p-1 rounded-lg">
+                        <span className="text-xs font-bold text-[rgb(0,52,50)]">💻</span>
+                      </div>
+                    </div>
+                    <span className="text-xs font-bold text-[rgb(0,52,50)] text-center">Expert + Software</span>
                   </div>
+                  <div className="flex flex-col">
+                    <span className="text-sm font-bold text-[rgb(0,52,50)]">11 STEPS</span>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-0.5">
+                  {[
+                    "① Training", "② Doc + Reg Map", "③ Data Checklist", "④ Data Clean",
+                    "⑤ Gap Fill", "⑥ Build Model", "⑦ Factor Match", "⑧ Submit",
+                    "⑨ Issue List", "⑩ Corrections", "⑪ Certification"
+                  ].map((step, index) => (
+                    <div key={index} className="flex items-center">
+                      <div className="bg-white bg-opacity-80 px-1 py-0.5 rounded-full">
+                        <span className="text-xs font-medium text-[rgb(0,52,50)]">{step}</span>
+                      </div>
+                      {index < 10 && <span className="text-[rgb(0,52,50)] mx-0.5 text-xs">→</span>}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
 
             {/* Carbon Consultant - 12 Steps */}
-            <div className="bg-[#98a2f8] rounded-xl p-2 shadow-xl">
-              <div className="flex items-center space-x-2">
-                <div className="flex flex-col items-center space-y-1">
-                  <div className="bg-white p-1 rounded-lg">
-                    <span className="text-xs font-bold text-[rgb(0,52,50)]">👨‍💼</span>
+            <div className="bg-[#98a2f8] rounded-xl p-2.5 shadow-xl">
+              <div className="flex flex-col space-y-1.5">
+                <div className="flex items-center space-x-3">
+                  <div className="flex flex-col items-center space-y-0.5 w-16">
+                    <div className="bg-white p-1 rounded-lg">
+                      <span className="text-xs font-bold text-[rgb(0,52,50)]">👨‍💼</span>
+                    </div>
+                    <span className="text-xs font-bold text-[rgb(0,52,50)]">Expert</span>
                   </div>
-                  <span className="text-xs font-bold text-[rgb(0,52,50)]">Expert</span>
+                  <div className="flex flex-col">
+                    <span className="text-sm font-bold text-[rgb(0,52,50)]">12 STEPS</span>
+                  </div>
                 </div>
-                <div className="flex flex-col justify-center">
-                  <span className="text-xs font-bold text-[rgb(0,52,50)]">12 STEPS</span>
-                </div>
-                <div className="flex-1 overflow-x-auto">
-                  <div className="flex items-center space-x-0.5 min-w-max">
-                    {[
-                      "Kick-Off", "Search", "Prep", "Interview", "Model", "Calc", 
-                      "Draft", "Review", "Submit", "Feedback", "Fix", "Cert"
-                    ].map((step, index) => (
-                      <div key={index} className="flex items-center space-x-0.5">
-                        <div className="bg-white bg-opacity-80 px-1 py-0.5 rounded-full">
-                          <span className="text-xs font-semibold text-[rgb(0,52,50)]">{step}</span>
-                        </div>
-                        {index < 11 && <span className="text-[rgb(0,52,50)]">→</span>}
+                <div className="flex flex-wrap gap-0.5">
+                  {[
+                    "① Kick-Off", "② Info Search", "③ Data Prep", "④ Clean + Interview",
+                    "⑤ Calc Model", "⑥ Factor Calc", "⑦ Draft Report", "⑧ Review",
+                    "⑨ Submit to Verifier", "⑩ Issue Feedback", "⑪ Info Correction", "⑫ Certification"
+                  ].map((step, index) => (
+                    <div key={index} className="flex items-center">
+                      <div className="bg-white bg-opacity-80 px-1 py-0.5 rounded-full">
+                        <span className="text-xs font-medium text-[rgb(0,52,50)]">{step}</span>
                       </div>
-                    ))}
-                  </div>
+                      {index < 11 && <span className="text-[rgb(0,52,50)] mx-0.5 text-xs">→</span>}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
