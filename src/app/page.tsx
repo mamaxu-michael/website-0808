@@ -1,9 +1,64 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 
 export default function Home() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // 验证必需字段
+    if (!formData.name || !formData.email || !formData.message) {
+      setSubmitMessage('请填写所有必需字段');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    try {
+      const response = await fetch('/api/send-contact-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitMessage('消息发送成功！我们会尽快回复您。');
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          message: ''
+        });
+      } else {
+        setSubmitMessage('发送失败，请稍后重试或直接发送邮件至 xuguang.ma@climateseal.net');
+      }
+    } catch (error) {
+      setSubmitMessage('发送失败，请稍后重试或直接发送邮件至 xuguang.ma@climateseal.net');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <>
       <style jsx global>{`
@@ -985,45 +1040,76 @@ export default function Home() {
 
             <div className="bg-[#98a2f8] bg-opacity-90 p-6 sm:p-8 rounded-2xl backdrop-blur-sm self-start order-1 lg:order-2">
               <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-black">Send Message</h3>
-              <form className="space-y-3 sm:space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
                 <div>
-                  <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-black">Name</label>
+                  <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-black">Name*</label>
                   <input 
                     type="text" 
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
                     className="w-full p-2 sm:p-3 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm sm:text-base"
                     placeholder="Please enter your name"
+                    required
                   />
                 </div>
                 <div>
-                  <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-black">Email</label>
+                  <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-black">Email*</label>
                   <input 
                     type="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     className="w-full p-2 sm:p-3 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm sm:text-base"
                     placeholder="Please enter your email"
+                    required
                   />
                 </div>
                 <div>
                   <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-black">Company Name</label>
                   <input 
                     type="text" 
+                    name="company"
+                    value={formData.company}
+                    onChange={handleInputChange}
                     className="w-full p-2 sm:p-3 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm sm:text-base"
                     placeholder="Please enter company name"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-black">Message</label>
+                  <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-black">Message*</label>
                   <textarea 
                     rows={3}
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
                     className="w-full p-2 sm:p-3 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 resize-none text-sm sm:text-base"
                     placeholder="Please describe your needs or questions"
+                    required
                   ></textarea>
                 </div>
-                <a 
-                  href="mailto:xuguang.ma@climateseal.net"
-                  className="w-full bg-yellow-400 hover:bg-yellow-500 text-[rgb(0,52,50)] py-2 sm:py-3 rounded-lg font-semibold transition duration-300 text-center block text-sm sm:text-base"
+                
+                {submitMessage && (
+                  <div className={`text-sm p-3 rounded-lg ${
+                    submitMessage.includes('成功') 
+                      ? 'bg-green-100 text-green-800' 
+                      : 'bg-red-100 text-red-800'
+                  }`}>
+                    {submitMessage}
+                  </div>
+                )}
+                
+                <button 
+                  type="submit"
+                  disabled={isSubmitting}
+                  className={`w-full py-2 sm:py-3 rounded-lg font-semibold transition duration-300 text-center text-sm sm:text-base ${
+                    isSubmitting 
+                      ? 'bg-gray-400 cursor-not-allowed text-gray-600' 
+                      : 'bg-yellow-400 hover:bg-yellow-500 text-[rgb(0,52,50)]'
+                  }`}
                 >
-                  Send Message
-                </a>
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </button>
               </form>
             </div>
           </div>
