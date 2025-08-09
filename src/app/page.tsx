@@ -123,25 +123,25 @@ export default function Home() {
         </div>
 
         {/* Fixed Header - What We Do */}
-        <div className="sticky top-4 z-50 px-4 sm:pl-8 md:pl-16 lg:pl-28 pb-2 lg:pb-4">
-          <div className="bg-[rgb(0,52,50)] bg-opacity-90 p-3 sm:p-4 lg:p-6 rounded-lg backdrop-blur-sm">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center mb-2 lg:mb-4">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 sm:mb-0 sm:mr-6">What We Do</h2>
+        <div className="sticky top-2 z-50 px-4 sm:pl-8 md:pl-16 lg:pl-28 pb-1 sm:pb-2 lg:pb-4">
+          <div className="bg-[rgb(0,52,50)] bg-opacity-90 p-2 sm:p-4 lg:p-6 rounded-lg backdrop-blur-sm">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center mb-1 sm:mb-2 lg:mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1 sm:mb-0 sm:mr-6">What We Do</h2>
               <svg className="w-8 h-4 sm:w-10 h-5 md:w-12 h-6 text-yellow-400" viewBox="0 0 100 50" fill="currentColor">
                 <path d="M10,25 Q50,5 90,25" stroke="currentColor" strokeWidth="3" fill="none"/>
                 <path d="M80,20 L90,25 L80,30" fill="currentColor"/>
               </svg>
             </div>
-            <p className="text-sm sm:text-base lg:text-lg text-white opacity-90 max-w-lg">
+            <p className="text-xs sm:text-base lg:text-lg text-white opacity-90 max-w-lg">
               Get a credible carbon footprint at 1% of the cost and time
             </p>
           </div>
         </div>
 
         {/* Stacked Product Cards */}
-        <div className="relative container mx-auto px-4">
+        <div className="relative container mx-auto px-4 -mt-4 sm:mt-0">
           {/* Card 1 - Blue */}
-          <div className="sticky top-55 z-10 mb-16">
+          <div className="sticky top-28 sm:top-55 z-10 mb-16">
             <div className="bg-gradient-to-r from-[#6195fe] to-[#6195fe] rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-2xl min-h-[420px] lg:min-h-[490px]">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 items-center justify-items-center h-full">
                 <div className="order-2 lg:order-1 w-full">
@@ -176,7 +176,7 @@ export default function Home() {
           </div>
 
           {/* Card 2 - Green */}
-          <div className="sticky top-55 z-20 mb-16">
+          <div className="sticky top-28 sm:top-55 z-20 mb-16">
             <div className="bg-gradient-to-r from-[#9ef894] to-[#9ef894] rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-2xl min-h-[420px] lg:min-h-[490px]">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 items-center justify-items-center h-full">
                 <div className="order-2 lg:order-1 w-full">
@@ -211,7 +211,7 @@ export default function Home() {
           </div>
 
           {/* Card 3 - Purple/Lavender */}
-          <div className="sticky top-55 z-30 mb-16">
+          <div className="sticky top-28 sm:top-55 z-30 mb-16">
             <div className="bg-gradient-to-r from-[#98a2f8] to-[#98a2f8] rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-2xl min-h-[420px] lg:min-h-[490px]">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 items-center justify-items-center h-full">
                 <div className="order-2 lg:order-1 w-full">
@@ -246,7 +246,7 @@ export default function Home() {
           </div>
 
           {/* Card 4 - Peach/Salmon */}
-          <div className="sticky top-55 z-40 mb-16">
+          <div className="sticky top-28 sm:top-55 z-40 mb-16">
             <div className="bg-gradient-to-r from-[#ffe0d0] to-[#ffe0d0] rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-2xl min-h-[420px] lg:min-h-[490px]">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 items-center justify-items-center h-full">
                 <div className="order-2 lg:order-1 w-full">
@@ -281,7 +281,7 @@ export default function Home() {
           </div>
 
           {/* Card 5 - Light Teal/Cyan */}
-          <div className="sticky top-55 z-50 mb-16">
+          <div className="sticky top-28 sm:top-55 z-50 mb-16">
             <div className="bg-gradient-to-r from-[#c2f5f7] to-[#c2f5f7] rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-2xl min-h-[350px] sm:min-h-[400px] md:min-h-[450px] lg:min-h-[490px]">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 items-center justify-items-center h-full">
                 <div className="order-2 lg:order-1 w-full">

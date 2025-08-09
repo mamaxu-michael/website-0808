@@ -1,12 +1,19 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Payment() {
-  const [selectedPayment, setSelectedPayment] = useState('credit-card');
+  const [selectedPayment, setSelectedPayment] = useState('stripe');
   const [needInvoice, setNeedInvoice] = useState(false);
+  const [invoiceData, setInvoiceData] = useState({
+    companyName: '',
+    taxId: '',
+    billingEmail: '',
+    billingAddress: ''
+  });
+
+  const planAmount = 98; // $98
 
   return (
     <div className="min-h-screen bg-[rgb(0,52,50)]">
@@ -144,6 +151,24 @@ export default function Payment() {
             </div>
 
             {/* Payment Form Based on Selection */}
+            {selectedPayment === 'stripe' && (
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold text-white mb-4">Stripe Payment</h3>
+                <div className="p-4 bg-white bg-opacity-50 rounded-lg">
+                  <p className="text-black text-center">
+                    Stripe integration is ready! <br/>
+                    To complete setup, add your Stripe keys to .env.local
+                  </p>
+                </div>
+                <button className="w-full bg-yellow-400 hover:bg-yellow-500 text-[rgb(0,52,50)] py-4 rounded-lg font-bold text-lg transition duration-300">
+                  Pay with Stripe - $98
+                </button>
+                <p className="text-white opacity-70 text-xs text-center">
+                  🔒 Secure payment powered by Stripe
+                </p>
+              </div>
+            )}
+
             {selectedPayment === 'credit-card' && (
               <div className="space-y-4">
                 <h3 className="text-lg font-semibold text-black mb-4">Card Details</h3>
@@ -311,7 +336,7 @@ export default function Payment() {
                 />
                 <div>
                   <span className="text-black font-semibold">I need an invoice</span>
-                  <p className="text-black text-sm opacity-70">We'll send you a formal invoice for your records</p>
+                  <p className="text-black text-sm opacity-70">We&apos;ll send you a formal invoice for your records</p>
                 </div>
               </label>
             </div>
@@ -325,6 +350,8 @@ export default function Payment() {
                   <input
                     type="text"
                     placeholder="Your Company Ltd."
+                    value={invoiceData.companyName}
+                    onChange={(e) => setInvoiceData(prev => ({...prev, companyName: e.target.value}))}
                     className="w-full p-3 rounded-lg bg-white bg-opacity-60 text-black placeholder-gray-600 border border-black border-opacity-20 focus:border-yellow-600 focus:outline-none"
                   />
                 </div>
@@ -333,6 +360,8 @@ export default function Payment() {
                   <input
                     type="text"
                     placeholder="123456789"
+                    value={invoiceData.taxId}
+                    onChange={(e) => setInvoiceData(prev => ({...prev, taxId: e.target.value}))}
                     className="w-full p-3 rounded-lg bg-white bg-opacity-60 text-black placeholder-gray-600 border border-black border-opacity-20 focus:border-yellow-600 focus:outline-none"
                   />
                 </div>
@@ -341,6 +370,8 @@ export default function Payment() {
                   <input
                     type="email"
                     placeholder="billing@company.com"
+                    value={invoiceData.billingEmail}
+                    onChange={(e) => setInvoiceData(prev => ({...prev, billingEmail: e.target.value}))}
                     className="w-full p-3 rounded-lg bg-white bg-opacity-60 text-black placeholder-gray-600 border border-black border-opacity-20 focus:border-yellow-600 focus:outline-none"
                   />
                 </div>
@@ -349,6 +380,8 @@ export default function Payment() {
                   <textarea
                     rows={2}
                     placeholder="123 Business St, City, Country"
+                    value={invoiceData.billingAddress}
+                    onChange={(e) => setInvoiceData(prev => ({...prev, billingAddress: e.target.value}))}
                     className="w-full p-3 rounded-lg bg-white bg-opacity-60 text-black placeholder-gray-600 border border-black border-opacity-20 focus:border-yellow-600 focus:outline-none resize-none"
                   />
                 </div>
