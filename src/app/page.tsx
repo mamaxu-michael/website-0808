@@ -7,6 +7,7 @@ export default function Home() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     company: '',
     message: ''
   });
@@ -47,6 +48,7 @@ export default function Home() {
         setFormData({
           name: '',
           email: '',
+          phone: '',
           company: '',
           message: ''
         });
@@ -1063,6 +1065,17 @@ export default function Home() {
                     className="w-full p-2 sm:p-3 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm sm:text-base"
                     placeholder="Please enter your email"
                     required
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-black">Phone</label>
+                  <input 
+                    type="tel" 
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="w-full p-2 sm:p-3 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm sm:text-base"
+                    placeholder="Please enter your phone number"
                   />
                 </div>
                 <div>
