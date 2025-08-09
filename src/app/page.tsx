@@ -603,7 +603,55 @@ export default function Home() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">Value For User And Enterprise</h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto">
+          {/* Mobile Layout - 2x2 Grid */}
+          <div className="grid grid-cols-2 gap-3 max-w-sm mx-auto sm:hidden">
+            {/* 1% Cost */}
+            <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-2xl p-3 shadow-xl min-h-[160px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
+              <div>
+                <h3 className="text-lg font-bold text-white group-hover:text-yellow-400 mb-2 transition-colors duration-300">1% Cost</h3>
+                <div className="mt-3">
+                  <h4 className="text-sm font-semibold text-white group-hover:text-yellow-400 mb-1 transition-colors duration-300">Cost Reduce</h4>
+                  <p className="text-white group-hover:text-yellow-400 opacity-80 group-hover:opacity-100 transition-all duration-300 text-xs">Less Than $70 Per Report</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Hours */}
+            <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-2xl p-3 shadow-xl min-h-[160px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
+              <div>
+                <h3 className="text-lg font-bold text-white group-hover:text-yellow-400 mb-2 transition-colors duration-300">Hours</h3>
+                <div className="mt-3">
+                  <h4 className="text-sm font-semibold text-white group-hover:text-yellow-400 mb-1 transition-colors duration-300">Time Saving</h4>
+                  <p className="text-white group-hover:text-yellow-400 opacity-80 group-hover:opacity-100 transition-all duration-300 text-xs">From Months To Hours</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Zero Barrier */}
+            <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-2xl p-3 shadow-xl min-h-[160px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
+              <div>
+                <h3 className="text-lg font-bold text-white group-hover:text-yellow-400 mb-2 transition-colors duration-300">Zero Barrier</h3>
+                <div className="mt-3">
+                  <h4 className="text-sm font-semibold text-white group-hover:text-yellow-400 mb-1 transition-colors duration-300">Zero Experience</h4>
+                  <p className="text-white group-hover:text-yellow-400 opacity-80 group-hover:opacity-100 transition-all duration-300 text-xs">Any Role Can Create</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Trusted */}
+            <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-2xl p-3 shadow-xl min-h-[160px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
+              <div>
+                <h3 className="text-lg font-bold text-white group-hover:text-yellow-400 mb-2 transition-colors duration-300">Trusted</h3>
+                <div className="mt-3">
+                  <h4 className="text-sm font-semibold text-white group-hover:text-yellow-400 mb-1 transition-colors duration-300">Verification Level</h4>
+                  <p className="text-white group-hover:text-yellow-400 opacity-80 group-hover:opacity-100 transition-all duration-300 text-xs">Virtual Consultant</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop Layout - Original 1x4 Grid */}
+          <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto">
             {/* 1% Cost */}
             <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-3xl p-6 sm:p-8 shadow-xl min-h-[250px] sm:min-h-[300px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
               <div>
@@ -685,65 +733,63 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
-            <div className="bg-[#6195fe] backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-lg border border-blue-300 flex flex-col justify-between min-h-[350px] sm:min-h-[400px]">
+            <div className="bg-[#6195fe] backdrop-blur-sm p-3 sm:p-8 rounded-2xl shadow-lg border border-blue-300 flex flex-col justify-between min-h-[170px] sm:min-h-[400px]">
               <div>
-                <div className="h-6 sm:h-8 mb-3 sm:mb-4"></div>
-                <h3 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-gray-800 text-center">Free Version</h3>
-                <div className="mb-4 sm:mb-6 text-center">
-                  <span className="text-3xl sm:text-4xl font-bold text-gray-800">$0</span>
-                  <span className="text-gray-600 text-sm sm:text-base">/month</span>
+                <div className="h-2 sm:h-8 mb-1 sm:mb-4"></div>
+                <h3 className="text-base sm:text-2xl font-semibold mb-1 sm:mb-4 text-gray-800 text-center">Free Version</h3>
+                <div className="mb-2 sm:mb-6 text-center">
+                  <span className="text-xl sm:text-4xl font-bold text-gray-800">$0</span>
+                  <span className="text-gray-600 text-xs sm:text-base">/month</span>
                 </div>
-                <div className="min-h-[80px] sm:min-h-[120px]">
-                  <ul className="space-y-2 sm:space-y-3 text-gray-700 text-sm sm:text-base">
-                    <li>✓ 50 free factor matching per month</li>
+                <div className="min-h-[35px] sm:min-h-[120px]">
+                  <ul className="space-y-0.5 sm:space-y-3 text-gray-700 text-xs sm:text-base">
+                    <li>✓ 50 free matching/month</li>
                     <li>✓ Registration required</li>
                   </ul>
                 </div>
               </div>
-              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white py-2 sm:py-3 rounded-lg font-semibold transition duration-300 text-sm sm:text-base">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white py-1 sm:py-3 rounded-lg font-semibold transition duration-300 text-xs sm:text-base">
                 Get Started
               </button>
             </div>
 
-            <div className="bg-[#9ef894] backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl transform lg:scale-105 border border-[#8ee884] flex flex-col justify-between min-h-[350px] sm:min-h-[400px]">
+            <div className="bg-[#9ef894] backdrop-blur-sm p-3 sm:p-8 rounded-2xl shadow-xl transform lg:scale-105 border border-[#8ee884] flex flex-col justify-between min-h-[170px] sm:min-h-[400px]">
               <div>
-                <div className="h-6 sm:h-8 mb-3 sm:mb-4 flex justify-center">
-                  <span className="bg-gray-800 text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">Popular</span>
+                <div className="h-2 sm:h-8 mb-1 sm:mb-4 flex justify-center">
+                  <span className="bg-gray-800 text-white px-1 sm:px-3 py-0.5 rounded-full text-xs sm:text-sm font-semibold">Popular</span>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-gray-800 text-center">Standard Version</h3>
-                <div className="mb-4 sm:mb-6 text-center">
-                  <span className="text-3xl sm:text-4xl font-bold text-gray-800">$98</span>
-                  <span className="text-gray-600 text-sm sm:text-base">/month</span>
+                <h3 className="text-base sm:text-2xl font-semibold mb-1 sm:mb-4 text-gray-800 text-center">Standard Version</h3>
+                <div className="mb-2 sm:mb-6 text-center">
+                  <span className="text-xl sm:text-4xl font-bold text-gray-800">$98</span>
+                  <span className="text-gray-600 text-xs sm:text-base">/month</span>
                 </div>
-                <div className="min-h-[80px] sm:min-h-[120px]">
-                  <ul className="space-y-2 sm:space-y-3 text-gray-700 text-sm sm:text-base">
-                    <li>✓ 200 factor matching per month</li>
-                    <li>✓ Equivalent to 3-5 general product carbon footprint reports</li>
+                <div className="min-h-[35px] sm:min-h-[120px]">
+                  <ul className="space-y-0.5 sm:space-y-3 text-gray-700 text-xs sm:text-base">
+                    <li>✓ 200 matching/month</li>
+                    <li>✓ 3-5 reports equivalent</li>
                   </ul>
                 </div>
               </div>
-              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white py-2 sm:py-3 rounded-lg font-semibold transition duration-300 text-sm sm:text-base">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white py-1 sm:py-3 rounded-lg font-semibold transition duration-300 text-xs sm:text-base">
                 Upgrade Now
               </button>
             </div>
 
-            <div className="bg-[#98a2f8] backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-lg border border-purple-300 flex flex-col justify-between min-h-[350px] sm:min-h-[400px] md:col-span-2 lg:col-span-1">
+            <div className="bg-[#98a2f8] backdrop-blur-sm p-3 sm:p-8 rounded-2xl shadow-lg border border-purple-300 flex flex-col justify-between min-h-[170px] sm:min-h-[400px] md:col-span-2 lg:col-span-1">
               <div>
-                <div className="h-6 sm:h-8 mb-3 sm:mb-4"></div>
-                <h3 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-gray-800 text-center">Enterprise Version</h3>
-                <div className="mb-4 sm:mb-6 text-center">
-                  <span className="text-3xl sm:text-4xl font-bold text-gray-800">Custom</span>
+                <div className="h-2 sm:h-8 mb-1 sm:mb-4"></div>
+                <h3 className="text-base sm:text-2xl font-semibold mb-1 sm:mb-4 text-gray-800 text-center">Enterprise</h3>
+                <div className="mb-2 sm:mb-6 text-center">
+                  <span className="text-xl sm:text-4xl font-bold text-gray-800">Custom</span>
                 </div>
-                <div className="min-h-[80px] sm:min-h-[120px]">
-                  <ul className="space-y-2 sm:space-y-3 text-gray-700 text-sm sm:text-base">
-                    <li>✓ ERP/CRM/SRM integration</li>
-                    <li>✓ Asset development features</li>
-                    <li>✓ Supply chain management</li>
-                    <li>✓ Custom deployment service</li>
+                <div className="min-h-[35px] sm:min-h-[120px]">
+                  <ul className="space-y-0.5 sm:space-y-3 text-gray-700 text-xs sm:text-base">
+                    <li>✓ ERP/CRM integration</li>
+                    <li>✓ Supply chain mgmt</li>
                   </ul>
                 </div>
               </div>
-              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white py-2 sm:py-3 rounded-lg font-semibold transition duration-300 text-sm sm:text-base">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white py-1 sm:py-3 rounded-lg font-semibold transition duration-300 text-xs sm:text-base">
                 Contact Sales
               </button>
             </div>
