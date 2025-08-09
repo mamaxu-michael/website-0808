@@ -1,0 +1,7 @@
+# 如果你选择使用SendGrid，替换为以下配置：
+
+# 邮件服务配置 - 使用SendGrid
+EMAIL_SERVICE=sendgrid
+SENDGRID_API_KEY=your-sendgrid-api-key
+EMAIL_FROM=noreply@climateseal.net  # 需要在SendGrid验证的域名邮箱
+EMAIL_TO=xuguang.ma@climateseal.net

@@ -13,8 +13,6 @@ export default function Payment() {
     billingAddress: ''
   });
 
-  const planAmount = 98; // $98
-
   return (
     <div className="min-h-screen bg-[rgb(0,52,50)]">
       {/* Navigation Bar */}

@@ -55,7 +55,8 @@ export default function Home() {
       } else {
         setSubmitMessage('发送失败，请稍后重试或直接发送邮件至 xuguang.ma@climateseal.net');
       }
-    } catch (error) {
+    } catch (error: unknown) {
+      console.error('Form submission error:', error);
       setSubmitMessage('发送失败，请稍后重试或直接发送邮件至 xuguang.ma@climateseal.net');
     } finally {
       setIsSubmitting(false);

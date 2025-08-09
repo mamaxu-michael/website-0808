@@ -105,10 +105,10 @@ export async function POST(request: NextRequest) {
     }
 
     // 回退到原来的nodemailer方式
-    const nodemailer = require('nodemailer');
+    const nodemailer = await import('nodemailer');
     
     // 创建邮件传输器
-    const transporter = nodemailer.createTransport({
+    const transporter = nodemailer.default.createTransport({
       host: process.env.EMAIL_HOST,
       port: parseInt(process.env.EMAIL_PORT || '587'),
       secure: false,

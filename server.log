@@ -1,0 +1,207 @@
+
+> climate-seal-website@0.1.0 dev
+> next dev -H 0.0.0.0
+
+ ⚠ Warning: Found multiple lockfiles. Selecting /Users/xuguangma/pnpm-lock.yaml.
+   Consider removing the lockfiles at:
+   * /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/climate-seal-website/package-lock.json
+   * /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/pnpm-lock.yaml
+
+   ▲ Next.js 15.4.5
+   - Local:        http://localhost:3000
+   - Network:      http://0.0.0.0:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 3s
+ ○ Compiling / ...
+ ✓ Compiled / in 1279ms (666 modules)
+ GET / 200 in 1612ms
+ GET / 200 in 127ms
+ GET / 200 in 111ms
+ ⚠ Cross origin request detected from 192.168.235.196 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ ✓ Compiled /favicon.ico in 191ms (421 modules)
+ GET /favicon.ico 200 in 278ms
+ ✓ Compiled /payment in 337ms (690 modules)
+ GET /payment 200 in 507ms
+ GET / 200 in 162ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /favicon.ico 200 in 31ms
+ GET /favicon.ico 200 in 6ms
+ GET /payment 200 in 92ms
+ ✓ Compiled in 658ms (673 modules)
+ GET /payment 200 in 118ms
+ GET /payment 200 in 10ms
+ ✓ Compiled /favicon.ico in 88ms (426 modules)
+ GET /favicon.ico 200 in 169ms
+ GET /favicon.ico 200 in 3ms
+ ✓ Compiled in 540ms (690 modules)
+ GET /payment 200 in 61ms
+ GET /payment 200 in 12ms
+ GET /favicon.ico 200 in 20ms
+ GET /favicon.ico 200 in 7ms
+ ✓ Compiled in 410ms (690 modules)
+ GET /payment 200 in 60ms
+ GET /payment 200 in 15ms
+ GET /favicon.ico 200 in 8ms
+ GET /favicon.ico 200 in 4ms
+ ✓ Compiled in 425ms (690 modules)
+ GET /payment 200 in 37ms
+ GET /payment 200 in 14ms
+ GET /favicon.ico 200 in 13ms
+ GET /favicon.ico 200 in 7ms
+ ✓ Compiled in 492ms (690 modules)
+ GET /payment 200 in 40ms
+ GET /payment 200 in 16ms
+ GET /favicon.ico 200 in 20ms
+ GET /favicon.ico 200 in 4ms
+ ✓ Compiled in 319ms (264 modules)
+ GET /payment 200 in 82ms
+ GET /payment 200 in 56ms
+ GET /favicon.ico 200 in 9ms
+ GET /favicon.ico 200 in 3ms
+   Reload env: .env.local
+ ✓ Compiled in 347ms (676 modules)
+ GET /payment 200 in 67ms
+ GET /payment 200 in 13ms
+ GET /favicon.ico 200 in 15ms
+ GET /favicon.ico 200 in 3ms
+ ✓ Compiled in 490ms (676 modules)
+ GET /payment 200 in 292ms
+ GET /payment 200 in 11ms
+ GET /payment 200 in 14ms
+ GET /payment 200 in 10ms
+ GET /favicon.ico 200 in 12ms
+ GET /favicon.ico 200 in 4ms
+ ✓ Compiled in 690ms (673 modules)
+ GET /payment 200 in 120ms
+ GET /payment 200 in 18ms
+ ✓ Compiled /favicon.ico in 69ms (426 modules)
+ GET /favicon.ico 200 in 151ms
+ GET /favicon.ico 200 in 3ms
+ ✓ Compiled in 583ms (690 modules)
+ GET /payment 200 in 64ms
+ GET /payment 200 in 9ms
+ GET /favicon.ico 200 in 13ms
+ GET /favicon.ico 200 in 4ms
+   Reload env: .env.local
+ ✓ Compiled in 460ms (659 modules)
+ GET /payment 200 in 112ms
+   Reload env: .env.local
+ ✓ Compiled in 321ms (659 modules)
+ GET /payment 200 in 48ms
+   Reload env: .env.local
+ ✓ Compiled in 276ms (659 modules)
+ GET /payment 200 in 48ms
+ ✓ Compiled in 244ms (264 modules)
+ GET /payment 200 in 44ms
+ ✓ Compiled in 344ms (264 modules)
+ GET /payment 200 in 43ms
+   Reload env: .env.local
+ ✓ Compiled in 378ms (673 modules)
+ GET /payment 200 in 41ms
+   Reload env: .env.local
+ ✓ Compiled in 455ms (659 modules)
+ GET /payment 200 in 44ms
+ ○ Compiling /api/send-contact-email ...
+ ✓ Compiled /api/send-contact-email in 647ms (729 modules)
+Resend error: {
+  statusCode: 403,
+  error: 'You can only send testing emails to your own email address (michaelmaplus@gmail.com). To send emails to other recipients, please verify a domain at resend.com/domains, and change the `from` address to an email using this domain.'
+}
+Resend failed, falling back to nodemailer: Error: Failed to send with Resend
+    at POST (src/app/api/send-contact-email/route.ts:84:16)
+  82 |         if (error) {
+  83 |           console.error('Resend error:', error);
+> 84 |           throw new Error('Failed to send with Resend');
+     |                ^
+  85 |         }
+  86 |
+  87 |         return NextResponse.json(
+邮件发送失败: TypeError: nodemailer.createTransporter is not a function
+    at POST (src/app/api/send-contact-email/route.ts:100:35)
+   98 |     
+   99 |     // 创建邮件传输器
+> 100 |     const transporter = nodemailer.createTransporter({
+      |                                   ^
+  101 |       host: process.env.EMAIL_HOST,
+  102 |       port: parseInt(process.env.EMAIL_PORT || '587'),
+  103 |       secure: false,
+ POST /api/send-contact-email 500 in 3306ms
+   Reload env: .env.local
+ ✓ Compiled in 321ms (729 modules)
+ GET /payment 200 in 66ms
+ ✓ Compiled in 462ms (743 modules)
+ GET /payment 200 in 41ms
+ POST /api/send-contact-email 200 in 1053ms
+ GET /payment 200 in 59ms
+ GET /payment 200 in 19ms
+ GET /payment 200 in 33ms
+ GET /payment 200 in 22ms
+ GET /payment 200 in 13ms
+ GET /payment 200 in 13ms
+ GET /payment 200 in 14ms
+ GET /payment 200 in 16ms
+ GET /payment 200 in 16ms
+ ✓ Compiled /favicon.ico in 203ms (480 modules)
+ GET /favicon.ico 200 in 232ms
+ GET /favicon.ico 200 in 3ms
+   Reload env: .env.local
+ ✓ Compiled in 552ms (660 modules)
+ GET /payment 200 in 163ms
+ ✓ Compiled /api/send-contact-email in 295ms (478 modules)
+ POST /api/send-contact-email 200 in 2399ms
+ ✓ Compiled in 603ms (674 modules)
+ GET /payment 200 in 161ms
+ ✓ Compiled /api/send-contact-email in 403ms (478 modules)
+ GET /payment 200 in 44ms
+ POST /api/send-contact-email 200 in 4447ms
+ GET / 200 in 243ms
+ ✓ Compiled in 1058ms (674 modules)
+ GET / 200 in 121ms
+ ✓ Compiled in 558ms (674 modules)
+ GET / 200 in 65ms
+ GET /payment 200 in 70ms
+ GET /payment 200 in 31ms
+ GET /payment 200 in 22ms
+ GET /payment 200 in 23ms
+ GET /payment 200 in 20ms
+ ✓ Compiled /favicon.ico in 192ms (426 modules)
+ GET /favicon.ico 200 in 295ms
+ GET /favicon.ico 200 in 5ms
+ GET / 200 in 238ms
+ GET /favicon.ico 200 in 7ms
+ GET /payment 200 in 92ms
+ GET /favicon.ico 200 in 4ms
+ GET /favicon.ico 200 in 5ms
+ ✓ Compiled in 709ms (691 modules)
+ GET / 200 in 67ms
+ ✓ Compiled in 384ms (265 modules)
+ GET / 200 in 44ms
+ ✓ Compiled in 233ms (265 modules)
+ GET / 200 in 39ms
+ ✓ Compiled in 272ms (265 modules)
+ GET / 200 in 37ms
+ ✓ Compiled in 823ms (265 modules)
+ ✓ Compiled in 881ms (674 modules)
+ ✓ Compiled in 618ms (674 modules)
+ ✓ Compiled in 266ms (265 modules)
+ ✓ Compiled in 339ms (265 modules)
+ ✓ Compiled in 293ms (265 modules)
+ ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+   ▲ Next.js 15.4.5
+   - Local:        http://localhost:3000
+   - Network:      http://0.0.0.0:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 3s
+ ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+   ▲ Next.js 15.4.5
+   - Local:        http://localhost:3000
+   - Network:      http://0.0.0.0:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 3.2s

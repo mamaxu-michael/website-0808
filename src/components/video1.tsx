@@ -167,7 +167,7 @@ export default function LCAModelV1EnhancedFinal() {
         setCoverageValue(0);
       }, 4000);
     }
-  }, [phase]);
+  }, [phase, statusLines]);
 
   return (
     <div
