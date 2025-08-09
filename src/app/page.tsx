@@ -57,9 +57,12 @@ export default function Home() {
             <p className="text-lg sm:text-xl md:text-2xl mb-8 font-light opacity-90">
               Credibility Drives Better Climate
             </p>
-            <button className="bg-yellow-400 hover:bg-yellow-500 text-[rgb(0,52,50)] px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold text-base sm:text-lg transition duration-300">
+            <a 
+              href="#contact"
+              className="bg-yellow-400 hover:bg-yellow-500 text-[rgb(0,52,50)] px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold text-base sm:text-lg transition duration-300 inline-block"
+            >
               Get Trial
-            </button>
+            </a>
           </div>
           
           {/* Polar Bears Image */}
@@ -651,45 +654,45 @@ export default function Home() {
           </div>
 
           {/* Desktop Layout - Original 1x4 Grid */}
-          <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto">
-            {/* 1% Cost */}
-            <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-3xl p-6 sm:p-8 shadow-xl min-h-[250px] sm:min-h-[300px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
-              <div>
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white group-hover:text-yellow-400 mb-3 sm:mb-4 transition-colors duration-300">1% Cost</h3>
-                <div className="mt-6 sm:mt-8">
+          <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto items-end">
+            {/* 1% Cost - Card #1 - 15% Increased */}
+            <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-3xl p-6 sm:p-8 shadow-xl min-h-[216px] sm:min-h-[259px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
+              <div className="flex-1 flex flex-col justify-between">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white group-hover:text-yellow-400 transition-colors duration-300">1% Cost</h3>
+                <div className="mt-auto">
                   <h4 className="text-base sm:text-lg font-semibold text-white group-hover:text-yellow-400 mb-2 transition-colors duration-300">Cost Reduce</h4>
                   <p className="text-white group-hover:text-yellow-400 opacity-80 group-hover:opacity-100 transition-all duration-300 text-sm sm:text-base">Less Than $70 Per Credible Report</p>
                 </div>
               </div>
             </div>
 
-            {/* Hours */}
-            <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-3xl p-6 sm:p-8 shadow-xl min-h-[250px] sm:min-h-[300px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
-              <div>
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white group-hover:text-yellow-400 mb-3 sm:mb-4 transition-colors duration-300">Hours</h3>
-                <div className="mt-6 sm:mt-8">
+            {/* Hours - Card #2 - 15% Increased */}
+            <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-3xl p-6 sm:p-8 shadow-xl min-h-[216px] sm:min-h-[259px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
+              <div className="flex-1 flex flex-col justify-between">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white group-hover:text-yellow-400 transition-colors duration-300">Hours</h3>
+                <div className="mt-auto">
                   <h4 className="text-base sm:text-lg font-semibold text-white group-hover:text-yellow-400 mb-2 transition-colors duration-300">Time Saving</h4>
                   <p className="text-white group-hover:text-yellow-400 opacity-80 group-hover:opacity-100 transition-all duration-300 text-sm sm:text-base">From Months To Hours</p>
                 </div>
               </div>
             </div>
 
-            {/* Zero Barrier */}
-            <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-3xl p-6 sm:p-8 shadow-xl min-h-[280px] sm:min-h-[320px] lg:min-h-[390px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
-              <div>
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white group-hover:text-yellow-400 mb-3 sm:mb-4 transition-colors duration-300">Zero Barrier</h3>
-                <div className="mt-6 sm:mt-8">
+            {/* Zero Barrier - Card #3 - 20% Increased from 25% reduced base */}
+            <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-3xl p-6 sm:p-8 shadow-xl min-h-[252px] sm:min-h-[288px] lg:min-h-[350px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
+              <div className="flex-1 flex flex-col justify-between">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white group-hover:text-yellow-400 transition-colors duration-300">Zero Barrier</h3>
+                <div className="mt-auto">
                   <h4 className="text-base sm:text-lg font-semibold text-white group-hover:text-yellow-400 mb-2 transition-colors duration-300">Zero Experience Requirement</h4>
                   <p className="text-white group-hover:text-yellow-400 opacity-80 group-hover:opacity-100 transition-all duration-300 text-sm sm:text-base">Any Role Can Create Credible Result</p>
                 </div>
               </div>
             </div>
 
-            {/* Trusted */}
-            <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-3xl p-6 sm:p-8 shadow-xl min-h-[250px] sm:min-h-[300px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
-              <div>
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white group-hover:text-yellow-400 mb-3 sm:mb-4 transition-colors duration-300">Trusted</h3>
-                <div className="mt-6 sm:mt-8">
+            {/* Trusted - Card #4 - 15% Increased */}
+            <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-3xl p-6 sm:p-8 shadow-xl min-h-[216px] sm:min-h-[259px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
+              <div className="flex-1 flex flex-col justify-between">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white group-hover:text-yellow-400 transition-colors duration-300">Trusted</h3>
+                <div className="mt-auto">
                   <h4 className="text-base sm:text-lg font-semibold text-white group-hover:text-yellow-400 mb-2 transition-colors duration-300">Verification Level Credibility</h4>
                   <p className="text-white group-hover:text-yellow-400 opacity-80 group-hover:opacity-100 transition-all duration-300 text-sm sm:text-base">Virtual Certification Consultant</p>
                 </div>
@@ -748,9 +751,12 @@ export default function Home() {
                   </ul>
                 </div>
               </div>
-              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white py-1 sm:py-3 rounded-lg font-semibold transition duration-300 text-xs sm:text-base">
+              <a 
+                href="#contact"
+                className="w-full bg-gray-800 hover:bg-gray-700 text-white py-1 sm:py-3 rounded-lg font-semibold transition duration-300 text-xs sm:text-base text-center block"
+              >
                 Get Started
-              </button>
+              </a>
             </div>
 
             <div className="bg-[#9ef894] backdrop-blur-sm p-3 sm:p-8 rounded-2xl shadow-xl transform lg:scale-105 border border-[#8ee884] flex flex-col justify-between min-h-[170px] sm:min-h-[400px]">
@@ -770,9 +776,12 @@ export default function Home() {
                   </ul>
                 </div>
               </div>
-              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white py-1 sm:py-3 rounded-lg font-semibold transition duration-300 text-xs sm:text-base">
+              <a 
+                href="/payment"
+                className="w-full bg-gray-800 hover:bg-gray-700 text-white py-1 sm:py-3 rounded-lg font-semibold transition duration-300 text-xs sm:text-base text-center block"
+              >
                 Upgrade Now
-              </button>
+              </a>
             </div>
 
             <div className="bg-[#98a2f8] backdrop-blur-sm p-3 sm:p-8 rounded-2xl shadow-lg border border-purple-300 flex flex-col justify-between min-h-[170px] sm:min-h-[400px] md:col-span-2 lg:col-span-1">
@@ -789,9 +798,12 @@ export default function Home() {
                   </ul>
                 </div>
               </div>
-              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white py-1 sm:py-3 rounded-lg font-semibold transition duration-300 text-xs sm:text-base">
+              <a 
+                href="#contact"
+                className="w-full bg-gray-800 hover:bg-gray-700 text-white py-1 sm:py-3 rounded-lg font-semibold transition duration-300 text-xs sm:text-base text-center block"
+              >
                 Contact Sales
-              </button>
+              </a>
             </div>
           </div>
         </div>
