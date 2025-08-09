@@ -344,7 +344,7 @@ export default function Home() {
       <section className="py-4 sm:py-8 lg:py-20 bg-[rgb(0,52,50)]">
         <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
           <div className="text-center mb-3 sm:mb-6 lg:mb-16">
-            <h2 className="text-base sm:text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-1 sm:mb-4 lg:mb-6">Compare With Traditional Way</h2>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-1 sm:mb-4 lg:mb-6">Compare With Traditional Way</h2>
           </div>
 
           {/* Mobile Layout - Complete Steps Display */}
@@ -723,11 +723,11 @@ export default function Home() {
       </div>
 
       {/* Pricing Section */}
-      <section id="pricing" className="min-h-screen py-20 bg-[rgb(0,52,50)]">
+      <section id="pricing" className="min-h-screen py-12 sm:py-20 bg-[rgb(0,52,50)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">Pricing Plans</h2>
-            <p className="text-lg sm:text-xl text-white opacity-90 max-w-3xl mx-auto">
+          <div className="text-center mb-6 sm:mb-16">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-2 sm:mb-6">Pricing Plans</h2>
+            <p className="text-base sm:text-xl text-white opacity-90 max-w-3xl mx-auto">
               Choose the right plan to start your carbon footprint journey
             </p>
           </div>
@@ -755,8 +755,8 @@ export default function Home() {
 
             <div className="bg-[#9ef894] backdrop-blur-sm p-3 sm:p-8 rounded-2xl shadow-xl transform lg:scale-105 border border-[#8ee884] flex flex-col justify-between min-h-[170px] sm:min-h-[400px]">
               <div>
-                <div className="h-2 sm:h-8 mb-1 sm:mb-4 flex justify-center">
-                  <span className="bg-gray-800 text-white px-1 sm:px-3 py-0.5 rounded-full text-xs sm:text-sm font-semibold">Popular</span>
+                <div className="h-3 sm:h-8 mb-1 sm:mb-4 flex justify-center items-start">
+                  <span className="bg-gray-800 text-white px-1.5 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold -mt-1">Popular</span>
                 </div>
                 <h3 className="text-base sm:text-2xl font-semibold mb-1 sm:mb-4 text-gray-800 text-center">Standard Version</h3>
                 <div className="mb-2 sm:mb-6 text-center">
