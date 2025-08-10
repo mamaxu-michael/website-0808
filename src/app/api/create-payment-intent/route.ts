@@ -1,12 +1,23 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+// 检查环境变量是否存在，如果不存在则使用占位符
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY || 'sk_test_placeholder';
+
+const stripe = new Stripe(stripeSecretKey, {
   apiVersion: '2025-07-30.basil',
 });
 
 export async function POST(request: NextRequest) {
   try {
+    // 在运行时检查是否有真实的 Stripe 密钥
+    if (!process.env.STRIPE_SECRET_KEY) {
+      return NextResponse.json(
+        { error: 'Stripe configuration is missing. Please contact support.' },
+        { status: 500 }
+      );
+    }
+
     const { amount, currency = 'usd', needInvoice, invoiceData } = await request.json();
 
     // 创建客户（如果需要发票）
