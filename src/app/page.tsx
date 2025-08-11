@@ -2,8 +2,10 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Home() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,7 +29,7 @@ export default function Home() {
     
     // 验证必需字段
     if (!formData.name || !formData.email || !formData.phone || !formData.company || !formData.message) {
-      setSubmitMessage('请填写所有必需字段');
+      setSubmitMessage(t.contact.messages.validation);
       return;
     }
 
@@ -44,7 +46,7 @@ export default function Home() {
       });
 
       if (response.ok) {
-        setSubmitMessage('消息发送成功！我们会尽快回复您。');
+        setSubmitMessage(t.contact.messages.success);
         setFormData({
           name: '',
           email: '',
@@ -53,11 +55,11 @@ export default function Home() {
           message: ''
         });
       } else {
-        setSubmitMessage('发送失败，请稍后重试或直接发送邮件至 xuguang.ma@climateseal.net');
+        setSubmitMessage(t.contact.messages.error);
       }
     } catch (error: unknown) {
       console.error('Form submission error:', error);
-      setSubmitMessage('发送失败，请稍后重试或直接发送邮件至 xuguang.ma@climateseal.net');
+      setSubmitMessage(t.contact.messages.error);
     } finally {
       setIsSubmitting(false);
     }
@@ -107,19 +109,19 @@ export default function Home() {
         <div className="relative z-10 min-h-screen grid grid-cols-1 lg:grid-cols-2 items-center">
           <div className="text-center lg:text-left text-white px-4 lg:px-16 order-2 lg:order-1 -mt-4 lg:mt-0">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4">
-              Climate Seal
+              {t.hero.title}
             </h1>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-6">
-              AI Carbon Footprint
+              {t.hero.subtitle}
             </h2>
             <p className="text-lg sm:text-xl md:text-2xl mb-8 font-light opacity-90">
-              Credibility Drives Better Climate
+              {t.hero.description}
             </p>
             <a 
               href="#contact"
               className="bg-yellow-400 hover:bg-yellow-500 text-[rgb(0,52,50)] px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold text-base sm:text-lg transition duration-300 inline-block"
             >
-              Get Trial
+              {t.hero.getStarted}
             </a>
           </div>
           
@@ -221,12 +223,12 @@ export default function Home() {
                   <div className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white bg-opacity-30 rounded-full mb-2 sm:mb-3 lg:mb-6">
                     <span className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800">01</span>
                   </div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 lg:mb-4">Auto Regulation Match & LCA Build</h3>
+                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 lg:mb-4">{t.features.card1.title}</h3>
                   <p className="text-xs sm:text-sm md:text-base lg:text-lg mb-2 sm:mb-3 lg:mb-4 opacity-95">
-                    Enter a product name and sales region, and the engine fetches the newest EU Battery Regulation 2023/1542 and ISO 14067 requirements, then spins up a compliant boundary and base LCA in 30 seconds.
+                    {t.features.card1.description}
                   </p>
                   <p className="text-xs sm:text-xs md:text-sm lg:text-base opacity-90">
-                    Eliminates 90% of regulatory research effort and ships a multi-standard-ready model that sails through audits and customer reviews.
+                    {t.features.card1.detail}
                   </p>
                 </div>
               </div>
@@ -256,12 +258,12 @@ export default function Home() {
                   <div className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white bg-opacity-30 rounded-full mb-2 sm:mb-3 lg:mb-6">
                     <span className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800">02</span>
                   </div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 lg:mb-4">BOM Parsing in Seconds</h3>
+                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 lg:mb-4">{t.features.card2.title}</h3>
                   <p className="text-xs sm:text-sm md:text-base lg:text-lg mb-2 sm:mb-3 lg:mb-4 opacity-95">
-                    Drop an Excel or ERP BOM and the system instantly extracts hierarchy, quantities and materials—no line-by-line typing.
+                    {t.features.card2.description}
                   </p>
                   <p className="text-xs sm:text-xs md:text-sm lg:text-base opacity-90">
-                    Thousands-part assemblies become calculation-ready in minutes, and engineering, finance and carbon teams work off the same structured table.
+                    {t.features.card2.detail}
                   </p>
                 </div>
               </div>
@@ -291,12 +293,12 @@ export default function Home() {
                   <div className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white bg-opacity-30 rounded-full mb-2 sm:mb-3 lg:mb-6">
                     <span className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800">03</span>
                   </div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 lg:mb-4">Smart Emission-Factor Matching</h3>
+                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 lg:mb-4">{t.features.card3.title}</h3>
                   <p className="text-xs sm:text-sm md:text-base lg:text-lg mb-2 sm:mb-3 lg:mb-4 opacity-95">
-                    The engine live-matches BOM lines, energy and logistics data against ecoinvent and other libraries, returning the optimal factor, provenance
+                    {t.features.card3.description}
                   </p>
                   <p className="text-xs sm:text-xs md:text-sm lg:text-base opacity-90">
-                    Cuts weeks of manual lookup, while fully traceable factors pass audits or customer spot-checks instantly.
+                    {t.features.card3.detail}
                   </p>
                 </div>
               </div>
@@ -326,12 +328,12 @@ export default function Home() {
                   <div className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white bg-opacity-50 rounded-full mb-2 sm:mb-3 lg:mb-6">
                     <span className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800">04</span>
                   </div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 lg:mb-4">Quality & Risk Analytics</h3>
+                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 lg:mb-4">{t.features.card4.title}</h3>
                   <p className="text-xs sm:text-sm md:text-base lg:text-lg mb-2 sm:mb-3 lg:mb-4 opacity-90">
-                    One click builds a data-quality radar, a ±95% Monte-Carlo band, and a heat-map that flags high-impact, low-quality items—then rolls up an overall trust score.
+                    {t.features.card4.description}
                   </p>
                   <p className="text-xs sm:text-xs md:text-sm lg:text-base opacity-80">
-                    Teams see the critical 20% of inputs that drive 80% of uncertainty, and quantified CIs give investors, auditors and insurers a solid risk metric.
+                    {t.features.card4.detail}
                   </p>
                 </div>
               </div>
@@ -361,12 +363,12 @@ export default function Home() {
                   <div className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white bg-opacity-50 rounded-full mb-2 sm:mb-3 lg:mb-6">
                     <span className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800">05</span>
                   </div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 lg:mb-4">End-to-End Custom Service</h3>
+                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 lg:mb-4">{t.features.card5.title}</h3>
                   <p className="text-xs sm:text-sm md:text-base lg:text-lg mb-2 sm:mb-3 lg:mb-4 opacity-90">
-                    The supply-chain module bulk-invites Tier-2/3 suppliers, lets AI auto-calculate their footprints, and syncs bidirectionally with SAP Green Ledger, Oracle NetSuite and other ERP/SRM suites. Credit-scored, high-quality data can be packaged into carbon assets and linked to finance partners.
+                    {t.features.card5.description}
                   </p>
                   <p className="text-xs sm:text-xs md:text-sm lg:text-base opacity-80">
-                    Suppliers create audit-grade reports at just 1% of the usual time and cost, sharing only final numbers to stay secure; brands obtain high-trust results and cut supply-chain carbon-management costs by 90%+. Credit-approved data can be monetised as carbon assets or collateral for green loans, unlocking climate value early.
+                    {t.features.card5.detail}
                   </p>
                 </div>
               </div>
@@ -990,9 +992,9 @@ export default function Home() {
       <section id="contact" className="min-h-screen py-20 bg-[rgb(0,52,50)] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Contact Us</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">{t.contact.title}</h2>
             <p className="text-lg sm:text-xl opacity-90 max-w-3xl mx-auto">
-              Ready to start your carbon neutral journey? Our expert team is here to support you
+              {t.contact.subtitle}
             </p>
           </div>
 
@@ -1042,65 +1044,65 @@ export default function Home() {
             </div>
 
             <div className="bg-[#98a2f8] bg-opacity-90 p-6 sm:p-8 rounded-2xl backdrop-blur-sm self-start order-1 lg:order-2">
-              <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-black">Send Message</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-black">{t.contact.form.submit}</h3>
               <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
                 <div>
-                  <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-black">Name*</label>
+                  <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-black">{t.contact.form.name}*</label>
                   <input 
                     type="text" 
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
                     className="w-full p-2 sm:p-3 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm sm:text-base"
-                    placeholder="Please enter your name"
+                    placeholder={t.contact.form.placeholder.name}
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-black">Email*</label>
+                  <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-black">{t.contact.form.email}*</label>
                   <input 
                     type="email" 
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
                     className="w-full p-2 sm:p-3 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm sm:text-base"
-                    placeholder="Please enter your email"
+                    placeholder={t.contact.form.placeholder.email}
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-black">Phone*</label>
+                  <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-black">{t.contact.form.phone}*</label>
                   <input 
                     type="tel" 
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
                     className="w-full p-2 sm:p-3 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm sm:text-base"
-                    placeholder="Please enter your phone number"
+                    placeholder={t.contact.form.placeholder.phone}
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-black">Company Name*</label>
+                  <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-black">{t.contact.form.company}*</label>
                   <input 
                     type="text" 
                     name="company"
                     value={formData.company}
                     onChange={handleInputChange}
                     className="w-full p-2 sm:p-3 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm sm:text-base"
-                    placeholder="Please enter company name"
+                    placeholder={t.contact.form.placeholder.company}
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-black">Message*</label>
+                  <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-black">{t.contact.form.message}*</label>
                   <textarea 
                     rows={3}
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
                     className="w-full p-2 sm:p-3 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 resize-none text-sm sm:text-base"
-                    placeholder="Please describe your needs or questions"
+                    placeholder={t.contact.form.placeholder.message}
                     required
                   ></textarea>
                 </div>
@@ -1124,7 +1126,7 @@ export default function Home() {
                       : 'bg-yellow-400 hover:bg-yellow-500 text-[rgb(0,52,50)]'
                   }`}
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  {isSubmitting ? t.contact.form.submitting : t.contact.form.submit}
                 </button>
               </form>
             </div>

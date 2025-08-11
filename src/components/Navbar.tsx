@@ -4,16 +4,18 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import ClimateSealLogo from './ClimateSealLogo';
+import { useLanguage, LanguageSwitcher } from '@/contexts/LanguageContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useLanguage();
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Product', href: '#products' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact Us', href: '#contact' },
+    { name: t.nav.home, href: '#home' },
+    { name: t.nav.products, href: '#products' },
+    { name: t.nav.pricing, href: '#pricing' },
+    { name: t.nav.about, href: '#about' },
+    { name: t.nav.contact, href: '#contact' },
   ];
 
   const handleNavClick = (href: string) => {
@@ -46,6 +48,8 @@ const Navbar = () => {
                 {item.name}
               </button>
             ))}
+            {/* Language Switcher */}
+            <LanguageSwitcher />
             {/* User Login Button */}
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
@@ -84,11 +88,14 @@ const Navbar = () => {
                 </button>
               ))}
               <div className="border-t border-teal-700 pt-3 mt-3">
-                <div className="flex items-center px-3 py-2">
-                  <div className="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-2">
-                    <span className="text-white text-sm">👤</span>
+                <div className="flex items-center justify-between px-3 py-2">
+                  <div className="flex items-center">
+                    <div className="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-2">
+                      <span className="text-white text-sm">👤</span>
+                    </div>
+                    <span className="text-white text-lg">login</span>
                   </div>
-                  <span className="text-white text-lg">login</span>
+                  <LanguageSwitcher />
                 </div>
               </div>
             </div>
