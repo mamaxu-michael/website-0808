@@ -10,9 +10,9 @@ export async function POST(request: NextRequest) {
     const { name, email, phone, company, message } = body;
 
     // 验证必需字段
-    if (!name || !email || !message) {
+    if (!name || !email || !phone || !company || !message) {
       return NextResponse.json(
-        { error: 'Name, email, and message are required' },
+        { error: 'Name, email, phone, company, and message are required' },
         { status: 400 }
       );
     }
