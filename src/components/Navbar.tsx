@@ -55,7 +55,7 @@ const Navbar = () => {
               <div className="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
                 <span className="text-white text-sm">👤</span>
               </div>
-              <span className="text-white text-lg">login</span>
+              <span className="text-white text-lg">{t.nav.login}</span>
             </div>
           </div>
 
@@ -93,7 +93,7 @@ const Navbar = () => {
                     <div className="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-2">
                       <span className="text-white text-sm">👤</span>
                     </div>
-                    <span className="text-white text-lg">login</span>
+                    <span className="text-white text-lg">{t.nav.login}</span>
                   </div>
                   <LanguageSwitcher />
                 </div>

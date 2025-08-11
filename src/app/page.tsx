@@ -111,7 +111,7 @@ export default function Home() {
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4">
               {t.hero.title}
             </h1>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-6 whitespace-pre-line">
               {t.hero.subtitle}
             </h2>
             <p className="text-lg sm:text-xl md:text-2xl mb-8 font-light opacity-90">
@@ -160,21 +160,15 @@ export default function Home() {
           <div className="whitespace-nowrap">
             {/* First Row - Moving Right */}
             <div className="flex animate-scroll-right text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold text-cyan-custom opacity-80 mb-4">
-              <span className="mx-4 sm:mx-6 md:mx-8">Gain Credibility At Low Cost</span>
-              <span className="mx-4 sm:mx-6 md:mx-8">Gain Credibility At Low Cost</span>
-              <span className="mx-4 sm:mx-6 md:mx-8">Gain Credibility At Low Cost</span>
-              <span className="mx-4 sm:mx-6 md:mx-8">Gain Credibility At Low Cost</span>
-              <span className="mx-4 sm:mx-6 md:mx-8">Gain Credibility At Low Cost</span>
-              <span className="mx-4 sm:mx-6 md:mx-8">Gain Credibility At Low Cost</span>
+              {Array.from({length: 6}, (_, i) => (
+                <span key={i} className="mx-4 sm:mx-6 md:mx-8">{t.sections.whatWeDo.scrollingText1}</span>
+              ))}
             </div>
             {/* Second Row - Moving Left */}
             <div className="flex animate-scroll-left text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold text-[#9ef894] opacity-80">
-              <span className="mx-4 sm:mx-6 md:mx-8">Use Credit At Low Cost</span>
-              <span className="mx-4 sm:mx-6 md:mx-8">Use Credit At Low Cost</span>
-              <span className="mx-4 sm:mx-6 md:mx-8">Use Credit At Low Cost</span>
-              <span className="mx-4 sm:mx-6 md:mx-8">Use Credit At Low Cost</span>
-              <span className="mx-4 sm:mx-6 md:mx-8">Use Credit At Low Cost</span>
-              <span className="mx-4 sm:mx-6 md:mx-8">Use Credit At Low Cost</span>
+              {Array.from({length: 6}, (_, i) => (
+                <span key={i} className="mx-4 sm:mx-6 md:mx-8">{t.sections.whatWeDo.scrollingText2}</span>
+              ))}
             </div>
           </div>
           
@@ -186,14 +180,14 @@ export default function Home() {
         <div className="sticky top-2 z-50 px-4 sm:pl-8 md:pl-16 lg:pl-28 pb-1 sm:pb-2 lg:pb-4">
           <div className="bg-[rgb(0,52,50)] bg-opacity-90 p-2 sm:p-4 lg:p-6 rounded-lg backdrop-blur-sm">
             <div className="flex flex-col sm:flex-row items-start sm:items-center mb-1 sm:mb-2 lg:mb-4">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1 sm:mb-0 sm:mr-6">What We Do</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1 sm:mb-0 sm:mr-6">{t.sections.whatWeDo.title}</h2>
               <svg className="w-8 h-4 sm:w-10 h-5 md:w-12 h-6 text-yellow-400" viewBox="0 0 100 50" fill="currentColor">
                 <path d="M10,25 Q50,5 90,25" stroke="currentColor" strokeWidth="3" fill="none"/>
                 <path d="M80,20 L90,25 L80,30" fill="currentColor"/>
               </svg>
             </div>
             <p className="text-xs sm:text-base lg:text-lg text-white opacity-90 max-w-lg">
-              Get a credible carbon footprint at 1% of the cost and time
+              {t.sections.whatWeDo.subtitle}
             </p>
           </div>
         </div>
@@ -407,7 +401,7 @@ export default function Home() {
       <section className="py-4 sm:py-8 lg:py-20 bg-[rgb(0,52,50)]">
         <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
           <div className="text-center mb-3 sm:mb-6 lg:mb-16">
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-1 sm:mb-4 lg:mb-6">Compare With Traditional Way</h2>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-1 sm:mb-4 lg:mb-6">{t.sections.comparison.title}</h2>
           </div>
 
           {/* Mobile Layout - Complete Steps Display */}
@@ -423,25 +417,18 @@ export default function Home() {
                     <span className="text-xs font-bold text-[rgb(0,52,50)]">AI Agent</span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-sm font-bold text-[rgb(0,52,50)]">4 STEPS</span>
+                    <span className="text-sm font-bold text-[rgb(0,52,50)]">{t.comparison.aiAgent.steps}</span>
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-0.5">
-                  <div className="bg-white bg-opacity-80 px-1.5 py-0.5 rounded-full">
-                    <span className="text-xs font-semibold text-[rgb(0,52,50)]">① Minimal Data</span>
-                  </div>
-                  <span className="text-[rgb(0,52,50)] self-center text-xs">→</span>
-                  <div className="bg-white bg-opacity-80 px-1.5 py-0.5 rounded-full">
-                    <span className="text-xs font-semibold text-[rgb(0,52,50)]">② Confirm</span>
-                  </div>
-                  <span className="text-[rgb(0,52,50)] self-center text-xs">→</span>
-                  <div className="bg-white bg-opacity-80 px-1.5 py-0.5 rounded-full">
-                    <span className="text-xs font-semibold text-[rgb(0,52,50)]">③ Send to Verifier</span>
-                  </div>
-                  <span className="text-[rgb(0,52,50)] self-center text-xs">→</span>
-                  <div className="bg-white bg-opacity-80 px-1.5 py-0.5 rounded-full">
-                    <span className="text-xs font-semibold text-[rgb(0,52,50)]">④ Certification</span>
-                  </div>
+                  {t.comparison.aiAgent.stepList.map((step, index) => (
+                    <div key={index} className="flex items-center">
+                      <div className="bg-white bg-opacity-80 px-1.5 py-0.5 rounded-full">
+                        <span className="text-xs font-semibold text-[rgb(0,52,50)]">{step}</span>
+                      </div>
+                      {index < 3 && <span className="text-[rgb(0,52,50)] mx-0.5 text-xs">→</span>}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -463,15 +450,11 @@ export default function Home() {
                     <span className="text-xs font-bold text-[rgb(0,52,50)] text-center">Expert + Software</span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-sm font-bold text-[rgb(0,52,50)]">11 STEPS</span>
+                    <span className="text-sm font-bold text-[rgb(0,52,50)]">{t.comparison.consultant.steps}</span>
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-0.5">
-                  {[
-                    "① Training", "② Doc + Reg Map", "③ Data Checklist", "④ Data Clean",
-                    "⑤ Gap Fill", "⑥ Build Model", "⑦ Factor Match", "⑧ Submit",
-                    "⑨ Issue List", "⑩ Corrections", "⑪ Certification"
-                  ].map((step, index) => (
+                  {t.comparison.consultant.stepList.map((step, index) => (
                     <div key={index} className="flex items-center">
                       <div className="bg-white bg-opacity-80 px-1 py-0.5 rounded-full">
                         <span className="text-xs font-medium text-[rgb(0,52,50)]">{step}</span>
@@ -494,15 +477,11 @@ export default function Home() {
                     <span className="text-xs font-bold text-[rgb(0,52,50)]">Expert</span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-sm font-bold text-[rgb(0,52,50)]">12 STEPS</span>
+                    <span className="text-sm font-bold text-[rgb(0,52,50)]">{t.comparison.traditional.steps}</span>
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-0.5">
-                  {[
-                    "① Kick-Off", "② Info Search", "③ Data Prep", "④ Clean + Interview",
-                    "⑤ Calc Model", "⑥ Factor Calc", "⑦ Draft Report", "⑧ Review",
-                    "⑨ Submit to Verifier", "⑩ Issue Feedback", "⑪ Info Correction", "⑫ Certification"
-                  ].map((step, index) => (
+                  {t.comparison.traditional.stepList.map((step, index) => (
                     <div key={index} className="flex items-center">
                       <div className="bg-white bg-opacity-80 px-1 py-0.5 rounded-full">
                         <span className="text-xs font-medium text-[rgb(0,52,50)]">{step}</span>
@@ -524,33 +503,33 @@ export default function Home() {
                   <div className="bg-white p-1 sm:p-2 lg:p-4 rounded-xl sm:rounded-2xl shadow-lg">
                     <div className="text-sm sm:text-lg lg:text-2xl font-bold text-[rgb(0,52,50)]">🤖</div>
                   </div>
-                  <h3 className="text-xs sm:text-sm lg:text-lg font-bold text-[rgb(0,52,50)] text-center leading-tight">AI Agent</h3>
+                  <h3 className="text-xs sm:text-sm lg:text-lg font-bold text-[rgb(0,52,50)] text-center leading-tight">{t.comparison.aiAgent.title}</h3>
                 </div>
                 <div className="flex flex-col items-center justify-center min-h-[60px] sm:min-h-[80px] lg:min-h-[120px] w-full">
-                  <p className="text-sm sm:text-xl lg:text-3xl font-bold text-[rgb(0,52,50)] text-center leading-tight">4<br/>STEPS</p>
+                  <p className="text-sm sm:text-xl lg:text-3xl font-bold text-[rgb(0,52,50)] text-center leading-tight whitespace-pre-line">{t.comparison.aiAgent.steps}</p>
                 </div>
                 <div className="flex flex-wrap items-center justify-start gap-1 lg:gap-2 min-h-[60px] sm:min-h-[80px] lg:min-h-[120px] w-full">
                   <div className="flex flex-wrap items-center gap-1 lg:gap-2">
                     <div className="bg-white bg-opacity-80 px-1 sm:px-2 lg:px-4 py-1 lg:py-2 rounded-full shadow-md animate-pulse">
-                      <span className="text-xs lg:text-sm font-semibold text-[rgb(0,52,50)]">① Minimal Data</span>
+                      <span className="text-xs lg:text-sm font-semibold text-[rgb(0,52,50)]">{t.comparison.aiAgent.stepList[0]}</span>
                     </div>
                     <div className="w-2 h-2 sm:w-3 sm:h-3 lg:w-6 lg:h-6 bg-[rgb(0,52,50)] rounded-full flex items-center justify-center animate-bounce">
                       <span className="text-white text-xs">→</span>
                     </div>
                     <div className="bg-white bg-opacity-80 px-1 sm:px-2 lg:px-4 py-1 lg:py-2 rounded-full shadow-md animate-pulse delay-300">
-                      <span className="text-xs lg:text-sm font-semibold text-[rgb(0,52,50)]">② Confirm</span>
+                      <span className="text-xs lg:text-sm font-semibold text-[rgb(0,52,50)]">{t.comparison.aiAgent.stepList[1]}</span>
                     </div>
                     <div className="w-2 h-2 sm:w-3 sm:h-3 lg:w-6 lg:h-6 bg-[rgb(0,52,50)] rounded-full flex items-center justify-center animate-bounce delay-300">
                       <span className="text-white text-xs">→</span>
                     </div>
                     <div className="bg-white bg-opacity-80 px-1 sm:px-2 lg:px-4 py-1 lg:py-2 rounded-full shadow-md animate-pulse delay-500">
-                      <span className="text-xs lg:text-sm font-semibold text-[rgb(0,52,50)]">③ Send to Verifier</span>
+                      <span className="text-xs lg:text-sm font-semibold text-[rgb(0,52,50)]">{t.comparison.aiAgent.stepList[2]}</span>
                     </div>
                     <div className="w-2 h-2 sm:w-3 sm:h-3 lg:w-6 lg:h-6 bg-[rgb(0,52,50)] rounded-full flex items-center justify-center animate-bounce delay-500">
                       <span className="text-white text-xs">→</span>
                     </div>
                     <div className="bg-white bg-opacity-80 px-1 sm:px-2 lg:px-4 py-1 lg:py-2 rounded-full shadow-md animate-pulse delay-700">
-                      <span className="text-xs lg:text-sm font-semibold text-[rgb(0,52,50)]">④ Certification</span>
+                      <span className="text-xs lg:text-sm font-semibold text-[rgb(0,52,50)]">{t.comparison.aiAgent.stepList[3]}</span>
                     </div>
                   </div>
                 </div>
@@ -570,17 +549,13 @@ export default function Home() {
                       <div className="text-sm sm:text-lg lg:text-xl font-bold text-[rgb(0,52,50)]">💻</div>
                     </div>
                   </div>
-                  <h3 className="text-xs sm:text-sm lg:text-base font-bold text-[rgb(0,52,50)] text-center leading-tight px-2">Third Party Carbon Consultant + Carbon Accounting Software</h3>
+                  <h3 className="text-xs sm:text-sm lg:text-base font-bold text-[rgb(0,52,50)] text-center leading-tight px-2">{t.comparison.consultant.title}</h3>
                 </div>
                 <div className="flex flex-col items-center justify-center min-h-[60px] sm:min-h-[80px] lg:min-h-[120px] w-full">
-                  <p className="text-sm sm:text-xl lg:text-3xl font-bold text-[rgb(0,52,50)] text-center leading-tight">11<br/>STEPS</p>
+                  <p className="text-sm sm:text-xl lg:text-3xl font-bold text-[rgb(0,52,50)] text-center leading-tight whitespace-pre-line">{t.comparison.consultant.steps}</p>
                 </div>
                 <div className="flex flex-wrap items-center justify-start gap-1 lg:gap-2 min-h-[60px] sm:min-h-[80px] lg:min-h-[120px] w-full">
-                  {[
-                    "① Training", "② Doc + Reg Map", "③ Data Checklist", "④ Data Clean",
-                    "⑤ Gap Fill", "⑥ Build Model", "⑦ Factor Match", "⑧ Submit",
-                    "⑨ Issue List", "⑩ Corrections", "⑪ Certification"
-                  ].map((step, index) => (
+                  {t.comparison.consultant.stepList.map((step, index) => (
                     <div key={index} className="flex items-center space-x-0.5 sm:space-x-1">
                       <div className={`bg-white bg-opacity-80 px-1 sm:px-2 lg:px-3 py-0.5 sm:py-1 rounded-full shadow-md text-xs lg:text-xs font-semibold text-[rgb(0,52,50)] animate-pulse`} 
                            style={{animationDelay: `${index * 200}ms`}}>
@@ -605,17 +580,13 @@ export default function Home() {
                   <div className="bg-white p-1 sm:p-2 lg:p-4 rounded-xl sm:rounded-2xl shadow-lg">
                     <div className="text-sm sm:text-lg lg:text-2xl font-bold text-[rgb(0,52,50)]">👨‍💼</div>
                   </div>
-                  <h3 className="text-xs sm:text-sm lg:text-lg font-bold text-[rgb(0,52,50)] text-center leading-tight">Third Party Carbon Consultant</h3>
+                  <h3 className="text-xs sm:text-sm lg:text-lg font-bold text-[rgb(0,52,50)] text-center leading-tight">{t.comparison.traditional.title}</h3>
                 </div>
                 <div className="flex flex-col items-center justify-center min-h-[60px] sm:min-h-[80px] lg:min-h-[120px] w-full">
-                  <p className="text-sm sm:text-xl lg:text-3xl font-bold text-[rgb(0,52,50)] text-center leading-tight">12<br/>STEPS</p>
+                  <p className="text-sm sm:text-xl lg:text-3xl font-bold text-[rgb(0,52,50)] text-center leading-tight whitespace-pre-line">{t.comparison.traditional.steps}</p>
                 </div>
                 <div className="flex flex-wrap items-center justify-start gap-1 lg:gap-2 min-h-[60px] sm:min-h-[80px] lg:min-h-[120px] w-full">
-                  {[
-                    "① Kick-Off", "② Info Search", "③ Data Prep", "④ Clean + Interview",
-                    "⑤ Calc Model", "⑥ Factor Calc", "⑦ Draft Report", "⑧ Review",
-                    "⑨ Submit to Verifier", "⑩ Issue Feedback", "⑪ Info Correction", "⑫ Certification"
-                  ].map((step, index) => (
+                  {t.comparison.traditional.stepList.map((step, index) => (
                     <div key={index} className="flex items-center space-x-0.5 sm:space-x-1">
                       <div className={`bg-white bg-opacity-80 px-1 sm:px-2 lg:px-3 py-0.5 sm:py-1 rounded-full shadow-md text-xs lg:text-xs font-semibold text-[rgb(0,52,50)] animate-pulse`}
                            style={{animationDelay: `${index * 150}ms`}}>
@@ -663,7 +634,7 @@ export default function Home() {
       <section className="py-20 bg-[rgb(0,52,50)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">Value For User And Enterprise</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">{t.sections.valueForUser.title}</h2>
           </div>
 
           {/* Mobile Layout - 2x2 Grid */}
@@ -671,10 +642,10 @@ export default function Home() {
             {/* 1% Cost */}
             <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-2xl p-3 shadow-xl min-h-[160px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
               <div>
-                <h3 className="text-lg font-bold text-white group-hover:text-yellow-400 mb-2 transition-colors duration-300">1% Cost</h3>
+                <h3 className="text-lg font-bold text-white group-hover:text-yellow-400 mb-2 transition-colors duration-300">{t.sections.value.cards.cost.title}</h3>
                 <div className="mt-3">
-                  <h4 className="text-sm font-semibold text-white group-hover:text-yellow-400 mb-1 transition-colors duration-300">Cost Reduce</h4>
-                  <p className="text-white group-hover:text-yellow-400 opacity-80 group-hover:opacity-100 transition-all duration-300 text-xs">Less Than $70 Per Report</p>
+                  <h4 className="text-sm font-semibold text-white group-hover:text-yellow-400 mb-1 transition-colors duration-300">{t.sections.value.cards.cost.subtitle}</h4>
+                  <p className="text-white group-hover:text-yellow-400 opacity-80 group-hover:opacity-100 transition-all duration-300 text-xs">{t.sections.value.cards.cost.description}</p>
                 </div>
               </div>
             </div>
@@ -682,10 +653,10 @@ export default function Home() {
             {/* Hours */}
             <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-2xl p-3 shadow-xl min-h-[160px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
               <div>
-                <h3 className="text-lg font-bold text-white group-hover:text-yellow-400 mb-2 transition-colors duration-300">Hours</h3>
+                <h3 className="text-lg font-bold text-white group-hover:text-yellow-400 mb-2 transition-colors duration-300">{t.sections.value.cards.time.title}</h3>
                 <div className="mt-3">
-                  <h4 className="text-sm font-semibold text-white group-hover:text-yellow-400 mb-1 transition-colors duration-300">Time Saving</h4>
-                  <p className="text-white group-hover:text-yellow-400 opacity-80 group-hover:opacity-100 transition-all duration-300 text-xs">From Months To Hours</p>
+                  <h4 className="text-sm font-semibold text-white group-hover:text-yellow-400 mb-1 transition-colors duration-300">{t.sections.value.cards.time.subtitle}</h4>
+                  <p className="text-white group-hover:text-yellow-400 opacity-80 group-hover:opacity-100 transition-all duration-300 text-xs">{t.sections.value.cards.time.description}</p>
                 </div>
               </div>
             </div>
@@ -693,10 +664,10 @@ export default function Home() {
             {/* Zero Barrier */}
             <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-2xl p-3 shadow-xl min-h-[160px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
               <div>
-                <h3 className="text-lg font-bold text-white group-hover:text-yellow-400 mb-2 transition-colors duration-300">Zero Barrier</h3>
+                <h3 className="text-lg font-bold text-white group-hover:text-yellow-400 mb-2 transition-colors duration-300">{t.sections.value.cards.barrier.title}</h3>
                 <div className="mt-3">
-                  <h4 className="text-sm font-semibold text-white group-hover:text-yellow-400 mb-1 transition-colors duration-300">Zero Experience</h4>
-                  <p className="text-white group-hover:text-yellow-400 opacity-80 group-hover:opacity-100 transition-all duration-300 text-xs">Any Role Can Create</p>
+                  <h4 className="text-sm font-semibold text-white group-hover:text-yellow-400 mb-1 transition-colors duration-300">{t.sections.value.cards.barrier.subtitle}</h4>
+                  <p className="text-white group-hover:text-yellow-400 opacity-80 group-hover:opacity-100 transition-all duration-300 text-xs">{t.sections.value.cards.barrier.description}</p>
                 </div>
               </div>
             </div>
@@ -704,10 +675,10 @@ export default function Home() {
             {/* Trusted */}
             <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-2xl p-3 shadow-xl min-h-[160px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
               <div>
-                <h3 className="text-lg font-bold text-white group-hover:text-yellow-400 mb-2 transition-colors duration-300">Trusted</h3>
+                <h3 className="text-lg font-bold text-white group-hover:text-yellow-400 mb-2 transition-colors duration-300">{t.sections.value.cards.trusted.title}</h3>
                 <div className="mt-3">
-                  <h4 className="text-sm font-semibold text-white group-hover:text-yellow-400 mb-1 transition-colors duration-300">Verification Level</h4>
-                  <p className="text-white group-hover:text-yellow-400 opacity-80 group-hover:opacity-100 transition-all duration-300 text-xs">Virtual Consultant</p>
+                  <h4 className="text-sm font-semibold text-white group-hover:text-yellow-400 mb-1 transition-colors duration-300">{t.sections.value.cards.trusted.subtitle}</h4>
+                  <p className="text-white group-hover:text-yellow-400 opacity-80 group-hover:opacity-100 transition-all duration-300 text-xs">{t.sections.value.cards.trusted.description}</p>
                 </div>
               </div>
             </div>
@@ -718,10 +689,10 @@ export default function Home() {
             {/* 1% Cost - Card #1 - 15% Increased */}
             <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-3xl p-6 sm:p-8 shadow-xl min-h-[216px] sm:min-h-[259px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
               <div className="flex-1 flex flex-col justify-between">
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white group-hover:text-yellow-400 transition-colors duration-300">1% Cost</h3>
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white group-hover:text-yellow-400 transition-colors duration-300">{t.sections.value.cards.cost.title}</h3>
                 <div className="mt-auto">
-                  <h4 className="text-base sm:text-lg font-semibold text-white group-hover:text-yellow-400 mb-2 transition-colors duration-300">Cost Reduce</h4>
-                  <p className="text-white group-hover:text-yellow-400 opacity-80 group-hover:opacity-100 transition-all duration-300 text-sm sm:text-base">Less Than $70 Per Credible Report</p>
+                  <h4 className="text-base sm:text-lg font-semibold text-white group-hover:text-yellow-400 mb-2 transition-colors duration-300">{t.sections.value.cards.cost.subtitle}</h4>
+                  <p className="text-white group-hover:text-yellow-400 opacity-80 group-hover:opacity-100 transition-all duration-300 text-sm sm:text-base">{t.sections.value.cards.cost.description}</p>
                 </div>
               </div>
             </div>
@@ -729,10 +700,10 @@ export default function Home() {
             {/* Hours - Card #2 - 15% Increased */}
             <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-3xl p-6 sm:p-8 shadow-xl min-h-[216px] sm:min-h-[259px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
               <div className="flex-1 flex flex-col justify-between">
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white group-hover:text-yellow-400 transition-colors duration-300">Hours</h3>
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white group-hover:text-yellow-400 transition-colors duration-300">{t.sections.value.cards.time.title}</h3>
                 <div className="mt-auto">
-                  <h4 className="text-base sm:text-lg font-semibold text-white group-hover:text-yellow-400 mb-2 transition-colors duration-300">Time Saving</h4>
-                  <p className="text-white group-hover:text-yellow-400 opacity-80 group-hover:opacity-100 transition-all duration-300 text-sm sm:text-base">From Months To Hours</p>
+                  <h4 className="text-base sm:text-lg font-semibold text-white group-hover:text-yellow-400 mb-2 transition-colors duration-300">{t.sections.value.cards.time.subtitle}</h4>
+                  <p className="text-white group-hover:text-yellow-400 opacity-80 group-hover:opacity-100 transition-all duration-300 text-sm sm:text-base">{t.sections.value.cards.time.description}</p>
                 </div>
               </div>
             </div>
@@ -740,10 +711,10 @@ export default function Home() {
             {/* Zero Barrier - Card #3 - 20% Increased from 25% reduced base */}
             <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-3xl p-6 sm:p-8 shadow-xl min-h-[252px] sm:min-h-[288px] lg:min-h-[350px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
               <div className="flex-1 flex flex-col justify-between">
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white group-hover:text-yellow-400 transition-colors duration-300">Zero Barrier</h3>
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white group-hover:text-yellow-400 transition-colors duration-300">{t.sections.value.cards.barrier.title}</h3>
                 <div className="mt-auto">
-                  <h4 className="text-base sm:text-lg font-semibold text-white group-hover:text-yellow-400 mb-2 transition-colors duration-300">Zero Experience Requirement</h4>
-                  <p className="text-white group-hover:text-yellow-400 opacity-80 group-hover:opacity-100 transition-all duration-300 text-sm sm:text-base">Any Role Can Create Credible Result</p>
+                  <h4 className="text-base sm:text-lg font-semibold text-white group-hover:text-yellow-400 mb-2 transition-colors duration-300">{t.sections.value.cards.barrier.subtitle}</h4>
+                  <p className="text-white group-hover:text-yellow-400 opacity-80 group-hover:opacity-100 transition-all duration-300 text-sm sm:text-base">{t.sections.value.cards.barrier.description}</p>
                 </div>
               </div>
             </div>
@@ -751,10 +722,10 @@ export default function Home() {
             {/* Trusted - Card #4 - 15% Increased */}
             <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-3xl p-6 sm:p-8 shadow-xl min-h-[216px] sm:min-h-[259px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
               <div className="flex-1 flex flex-col justify-between">
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white group-hover:text-yellow-400 transition-colors duration-300">Trusted</h3>
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white group-hover:text-yellow-400 transition-colors duration-300">{t.sections.value.cards.trusted.title}</h3>
                 <div className="mt-auto">
-                  <h4 className="text-base sm:text-lg font-semibold text-white group-hover:text-yellow-400 mb-2 transition-colors duration-300">Verification Level Credibility</h4>
-                  <p className="text-white group-hover:text-yellow-400 opacity-80 group-hover:opacity-100 transition-all duration-300 text-sm sm:text-base">Virtual Certification Consultant</p>
+                  <h4 className="text-base sm:text-lg font-semibold text-white group-hover:text-yellow-400 mb-2 transition-colors duration-300">{t.sections.value.cards.trusted.subtitle}</h4>
+                  <p className="text-white group-hover:text-yellow-400 opacity-80 group-hover:opacity-100 transition-all duration-300 text-sm sm:text-base">{t.sections.value.cards.trusted.description}</p>
                 </div>
               </div>
             </div>
@@ -789,9 +760,9 @@ export default function Home() {
       <section id="pricing" className="min-h-screen py-12 sm:py-20 bg-[rgb(0,52,50)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6 sm:mb-16">
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-2 sm:mb-6">Pricing Plans</h2>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-2 sm:mb-6">{t.sections.pricing.title}</h2>
             <p className="text-base sm:text-xl text-white opacity-90 max-w-3xl mx-auto">
-              Choose the right plan to start your carbon footprint journey
+              {t.sections.pricing.subtitle}
             </p>
           </div>
 
@@ -799,15 +770,16 @@ export default function Home() {
             <div className="bg-[#6195fe] backdrop-blur-sm p-3 sm:p-8 rounded-2xl shadow-lg border border-blue-300 flex flex-col justify-between min-h-[170px] sm:min-h-[400px]">
               <div>
                 <div className="h-2 sm:h-8 mb-1 sm:mb-4"></div>
-                <h3 className="text-base sm:text-2xl font-semibold mb-1 sm:mb-4 text-gray-800 text-center">Free Version</h3>
+                <h3 className="text-base sm:text-2xl font-semibold mb-1 sm:mb-4 text-gray-800 text-center">{t.sections.pricing.plans.free.title}</h3>
                 <div className="mb-2 sm:mb-6 text-center">
-                  <span className="text-xl sm:text-4xl font-bold text-gray-800">$0</span>
+                  <span className="text-xl sm:text-4xl font-bold text-gray-800">{t.sections.pricing.plans.free.price}</span>
                   <span className="text-gray-600 text-xs sm:text-base">/month</span>
                 </div>
                 <div className="min-h-[35px] sm:min-h-[120px]">
                   <ul className="space-y-0.5 sm:space-y-3 text-gray-700 text-xs sm:text-base">
-                    <li>✓ 50 free matching/month</li>
-                    <li>✓ Registration required</li>
+                    {t.sections.pricing.plans.free.features.map((feature, index) => (
+                      <li key={index}>✓ {feature}</li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -815,24 +787,25 @@ export default function Home() {
                 href="#contact"
                 className="w-full bg-gray-800 hover:bg-gray-700 text-white py-1 sm:py-3 rounded-lg font-semibold transition duration-300 text-xs sm:text-base text-center block"
               >
-                Get Started
+                {t.sections.pricing.plans.free.button}
               </a>
             </div>
 
             <div className="bg-[#9ef894] backdrop-blur-sm p-3 sm:p-8 rounded-2xl shadow-xl transform lg:scale-105 border border-[#8ee884] flex flex-col justify-between min-h-[170px] sm:min-h-[400px]">
               <div>
                 <div className="h-3 sm:h-8 mb-1 sm:mb-4 flex justify-center items-start">
-                  <span className="bg-gray-800 text-white px-1.5 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold -mt-1">Popular</span>
+                  <span className="bg-gray-800 text-white px-1.5 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold -mt-1">{t.sections.pricing.plans.standard.popular}</span>
                 </div>
-                <h3 className="text-base sm:text-2xl font-semibold mb-1 sm:mb-4 text-gray-800 text-center">Standard Version</h3>
+                <h3 className="text-base sm:text-2xl font-semibold mb-1 sm:mb-4 text-gray-800 text-center">{t.sections.pricing.plans.standard.title}</h3>
                 <div className="mb-2 sm:mb-6 text-center">
-                  <span className="text-xl sm:text-4xl font-bold text-gray-800">$98</span>
+                  <span className="text-xl sm:text-4xl font-bold text-gray-800">{t.sections.pricing.plans.standard.price}</span>
                   <span className="text-gray-600 text-xs sm:text-base">/month</span>
                 </div>
                 <div className="min-h-[35px] sm:min-h-[120px]">
                   <ul className="space-y-0.5 sm:space-y-3 text-gray-700 text-xs sm:text-base">
-                    <li>✓ 200 matching/month</li>
-                    <li>✓ 3-5 reports equivalent</li>
+                    {t.sections.pricing.plans.standard.features.map((feature, index) => (
+                      <li key={index}>✓ {feature}</li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -840,21 +813,22 @@ export default function Home() {
                 href="/payment"
                 className="w-full bg-gray-800 hover:bg-gray-700 text-white py-1 sm:py-3 rounded-lg font-semibold transition duration-300 text-xs sm:text-base text-center block"
               >
-                Upgrade Now
+                {t.sections.pricing.plans.standard.button}
               </a>
             </div>
 
             <div className="bg-[#98a2f8] backdrop-blur-sm p-3 sm:p-8 rounded-2xl shadow-lg border border-purple-300 flex flex-col justify-between min-h-[170px] sm:min-h-[400px] md:col-span-2 lg:col-span-1">
               <div>
                 <div className="h-2 sm:h-8 mb-1 sm:mb-4"></div>
-                <h3 className="text-base sm:text-2xl font-semibold mb-1 sm:mb-4 text-gray-800 text-center">Enterprise</h3>
+                <h3 className="text-base sm:text-2xl font-semibold mb-1 sm:mb-4 text-gray-800 text-center">{t.sections.pricing.plans.enterprise.title}</h3>
                 <div className="mb-2 sm:mb-6 text-center">
-                  <span className="text-xl sm:text-4xl font-bold text-gray-800">Custom</span>
+                  <span className="text-xl sm:text-4xl font-bold text-gray-800">{t.sections.pricing.plans.enterprise.price}</span>
                 </div>
                 <div className="min-h-[35px] sm:min-h-[120px]">
                   <ul className="space-y-0.5 sm:space-y-3 text-gray-700 text-xs sm:text-base">
-                    <li>✓ ERP/CRM integration</li>
-                    <li>✓ Supply chain mgmt</li>
+                    {t.sections.pricing.plans.enterprise.features.map((feature, index) => (
+                      <li key={index}>✓ {feature}</li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -862,7 +836,7 @@ export default function Home() {
                 href="#contact"
                 className="w-full bg-gray-800 hover:bg-gray-700 text-white py-1 sm:py-3 rounded-lg font-semibold transition duration-300 text-xs sm:text-base text-center block"
               >
-                Contact Sales
+                {t.sections.pricing.plans.enterprise.button}
               </a>
             </div>
           </div>
@@ -914,28 +888,27 @@ export default function Home() {
               <div className="text-center space-y-8 sm:space-y-10 md:space-y-12">
                 {/* About Us title - centered */}
                 <div className="mb-4 sm:mb-6 md:mb-8">
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">About Us</h2>
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">{t.sections.aboutUs.title}</h2>
                 </div>
                 
                 {/* First section - centered */}
                 <div className="space-y-4 sm:space-y-6">
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight">
-                    Gain Credibility At Low Cost
+                    {t.sections.aboutUs.subtitle1}
                   </h3>
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight">
-                    Use Credit At Low Cost
+                    {t.sections.aboutUs.subtitle2}
                   </h3>
                 </div>
                 
                 {/* Second section - centered with green highlight */}
                 <div className="space-y-4 sm:space-y-6">
                   <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
-                    Leave More Time And<br />
-                    Budget To
+                    {t.sections.aboutUs.subtitle3}
                   </h3>
                   <div className="relative inline-block">
                     <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#9ef894] leading-tight">
-                      Decarbonization
+                      {t.sections.aboutUs.highlightText}
                     </h3>
                     {/* Hand-drawn style underline */}
                     <div className="absolute -bottom-2 sm:-bottom-3 md:-bottom-4 left-0 right-0 flex justify-center">
@@ -1000,7 +973,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 max-w-6xl mx-auto">
             <div className="flex flex-col justify-center order-2 lg:order-1">
-              <h3 className="text-xl sm:text-2xl font-semibold mb-6 sm:mb-8">Get More Information</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold mb-6 sm:mb-8">{t.sections.moreInfo}</h3>
               <div className="space-y-4 sm:space-y-6">
                 <div className="flex items-center">
                   <span className="text-xl sm:text-2xl mr-3 sm:mr-4">📧</span>

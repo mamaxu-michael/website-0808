@@ -9,6 +9,7 @@ export interface TranslationData {
     about: string;
     contact: string;
     pricing: string;
+    login: string;
   };
   
   // 主页标题和描述
@@ -19,6 +20,81 @@ export interface TranslationData {
     getStarted: string;
     learnMore: string;
     trustedBy: string;
+  };
+
+  // 页面部分
+  sections: {
+    whatWeDo: {
+      title: string;
+      subtitle: string;
+      scrollingText1: string;
+      scrollingText2: string;
+    };
+    comparison: {
+      title: string;
+      subtitle: string;
+    };
+    valueForUser: {
+      title: string;
+      subtitle: string;
+    };
+    aboutUs: {
+      title: string;
+      subtitle1: string;
+      subtitle2: string;
+      subtitle3: string;
+      highlightText: string;
+    };
+    pricing: {
+      title: string;
+      subtitle: string;
+      plans: {
+        free: {
+          title: string;
+          price: string;
+          features: string[];
+          button: string;
+        };
+        standard: {
+          title: string;
+          price: string;
+          popular: string;
+          features: string[];
+          button: string;
+        };
+        enterprise: {
+          title: string;
+          price: string;
+          features: string[];
+          button: string;
+        };
+      };
+    };
+    value: {
+      cards: {
+        cost: {
+          title: string;
+          subtitle: string;
+          description: string;
+        };
+        time: {
+          title: string;
+          subtitle: string;
+          description: string;
+        };
+        barrier: {
+          title: string;
+          subtitle: string;
+          description: string;
+        };
+        trusted: {
+          title: string;
+          subtitle: string;
+          description: string;
+        };
+      };
+    };
+    moreInfo: string;
   };
   
   // 功能特性卡片
@@ -133,15 +209,90 @@ export const translations: Record<Language, TranslationData> = {
       products: 'Products',
       about: 'About',
       contact: 'Contact',
-      pricing: 'Pricing'
+      pricing: 'Pricing',
+      login: 'login'
     },
     hero: {
       title: 'Climate Seal',
-      subtitle: 'AI-Powered Carbon Accounting',
-      description: 'Transform your sustainability journey with intelligent carbon footprint analysis and reporting.',
+      subtitle: 'Product Carbon Footprint\nAI Agent',
+      description: 'Get a credible carbon footprint at 1% of the cost and time',
       getStarted: 'Get Started',
       learnMore: 'Learn More',
       trustedBy: 'Trusted by'
+    },
+
+    sections: {
+      whatWeDo: {
+        title: 'What We Do',
+        subtitle: 'Get a credible carbon footprint at 1% of the cost and time',
+        scrollingText1: 'Gain Credibility At Low Cost',
+        scrollingText2: 'Use Credit At Low Cost'
+      },
+      comparison: {
+        title: 'Compare With Traditional Way',
+        subtitle: 'Why Choose Climate Seal AI?'
+      },
+      valueForUser: {
+        title: 'Value For User And Enterprise',
+        subtitle: 'Choose the right plan to start your carbon footprint journey'
+      },
+      aboutUs: {
+        title: 'About Us',
+        subtitle1: 'Gain Credibility At Low Cost',
+        subtitle2: 'Use Credit At Low Cost',
+        subtitle3: 'Leave More Time And Budget To',
+        highlightText: 'Decarbonization'
+      },
+      pricing: {
+        title: 'Pricing Plans',
+        subtitle: 'Choose the right plan to start your carbon footprint journey',
+        plans: {
+          free: {
+            title: 'Free Version',
+            price: '$0',
+            features: ['50 free matching/month', 'Registration required'],
+            button: 'Get Started'
+          },
+          standard: {
+            title: 'Standard Version',
+            price: '$98',
+            popular: 'Popular',
+            features: ['200 matching/month', '3-5 reports equivalent'],
+            button: 'Upgrade Now'
+          },
+          enterprise: {
+            title: 'Enterprise',
+            price: 'Custom',
+            features: ['ERP/CRM integration', 'Supply chain mgmt'],
+            button: 'Contact Sales'
+          }
+        }
+      },
+      value: {
+        cards: {
+          cost: {
+            title: '1% Cost',
+            subtitle: 'Cost Reduce',
+            description: 'Less Than $70 Per Credible Report'
+          },
+          time: {
+            title: 'Hours',
+            subtitle: 'Time Saving',
+            description: 'From Months To Hours'
+          },
+          barrier: {
+            title: 'Zero Barrier',
+            subtitle: 'Zero Experience Requirement',
+            description: 'Any Role Can Create Credible Result'
+          },
+          trusted: {
+            title: 'Trusted',
+            subtitle: 'Verification Level Credibility',
+            description: 'Virtual Certification Consultant'
+          }
+        }
+      },
+      moreInfo: 'Get More Information'
     },
     features: {
       card1: {
@@ -175,17 +326,17 @@ export const translations: Record<Language, TranslationData> = {
       subtitle: 'Compare traditional approaches with our AI-powered solution',
       aiAgent: {
         title: 'AI Agent',
-        steps: '4 STEPS',
+        steps: '4\nSTEPS',
         stepList: ['① Minimal Data', '② Confirm', '③ Send to Verifier', '④ Certification']
       },
       consultant: {
         title: 'Third Party Carbon Consultant + Carbon Accounting Software',
-        steps: '11 STEPS',
+        steps: '11\nSTEPS',
         stepList: ['① Training', '② Doc + Reg Map', '③ Data Checklist', '④ Data Clean', '⑤ Gap Fill', '⑥ Build Model', '⑦ Factor Match', '⑧ Submit', '⑨ Issue List', '⑩ Corrections', '⑪ Certification']
       },
       traditional: {
-        title: 'Carbon Consultant',
-        steps: '12 STEPS',
+        title: 'Third Party Carbon Consultant',
+        steps: '12\nSTEPS',
         stepList: ['① Kick-Off', '② Info Search', '③ Data Prep', '④ Clean + Interview', '⑤ Calc Model', '⑥ Factor Calc', '⑦ Draft Report', '⑧ Review', '⑨ Submit to Verifier', '⑩ Issue Feedback', '⑪ Info Correction', '⑫ Certification']
       }
     },
@@ -245,15 +396,90 @@ export const translations: Record<Language, TranslationData> = {
       products: '产品',
       about: '关于我们',
       contact: '联系我们',
-      pricing: '价格'
+      pricing: '价格',
+      login: '登录'
     },
     hero: {
       title: 'Climate Seal',
-      subtitle: 'AI驱动的碳核算',
-      description: '通过智能碳足迹分析和报告，转型您的可持续发展之旅。',
+      subtitle: 'Product Carbon Footprint\nAI Agent',
+      description: '以1%的成本和时间获得可信的碳足迹',
       getStarted: '开始使用',
       learnMore: '了解更多',
       trustedBy: '信赖我们的客户'
+    },
+
+    sections: {
+      whatWeDo: {
+        title: '我们的服务',
+        subtitle: '以1%的成本和时间获得可信的碳足迹',
+        scrollingText1: 'Gain Credibility At Low Cost',
+        scrollingText2: 'Use Credit At Low Cost'
+      },
+      comparison: {
+        title: '与传统方式对比',
+        subtitle: '为什么选择Climate Seal AI？'
+      },
+      valueForUser: {
+        title: '用户与企业价值',
+        subtitle: '选择合适的方案开始您的碳足迹之旅'
+      },
+      aboutUs: {
+        title: '关于我们',
+        subtitle1: '低成本获得可信度',
+        subtitle2: '低成本使用信用',
+        subtitle3: '留出更多时间和预算用于',
+        highlightText: '脱碳化'
+      },
+      pricing: {
+        title: '价格方案',
+        subtitle: '选择合适的方案开始您的碳足迹之旅',
+        plans: {
+          free: {
+            title: '免费版',
+            price: '$0',
+            features: ['每月免费匹配50次', '需要注册'],
+            button: '开始使用'
+          },
+          standard: {
+            title: '标准版',
+            price: '$98',
+            popular: '热门',
+            features: ['每月200次匹配', '相当于3-5份报告'],
+            button: '立即升级'
+          },
+          enterprise: {
+            title: '企业版',
+            price: '定制',
+            features: ['ERP/CRM集成', '供应链管理'],
+            button: '联系销售'
+          }
+        }
+      },
+      value: {
+        cards: {
+          cost: {
+            title: '1%成本',
+            subtitle: '成本降低',
+            description: '每份可信报告低于70美元'
+          },
+          time: {
+            title: '小时级',
+            subtitle: '时间节省',
+            description: '从数月到数小时'
+          },
+          barrier: {
+            title: '零门槛',
+            subtitle: '零经验要求',
+            description: '任何角色都能创建可信结果'
+          },
+          trusted: {
+            title: '可信赖',
+            subtitle: '验证级可信度',
+            description: '虚拟认证顾问'
+          }
+        }
+      },
+      moreInfo: '获取更多信息'
     },
     features: {
       card1: {
@@ -287,17 +513,17 @@ export const translations: Record<Language, TranslationData> = {
       subtitle: '传统方法与我们AI驱动解决方案的对比',
       aiAgent: {
         title: 'AI智能体',
-        steps: '4步骤',
+        steps: '4\n步骤',
         stepList: ['① 最少数据', '② 确认', '③ 发送验证方', '④ 认证']
       },
       consultant: {
         title: '第三方碳顾问 + 碳核算软件',
-        steps: '11步骤',
+        steps: '11\n步骤',
         stepList: ['① 培训', '② 文档+法规映射', '③ 数据清单', '④ 数据清理', '⑤ 填补空缺', '⑥ 构建模型', '⑦ 因子匹配', '⑧ 提交', '⑨ 问题清单', '⑩ 修正', '⑪ 认证']
       },
       traditional: {
-        title: '碳顾问',
-        steps: '12步骤',
+        title: '第三方碳顾问',
+        steps: '12\n步骤',
         stepList: ['① 启动', '② 信息搜索', '③ 数据准备', '④ 清理+访谈', '⑤ 计算模型', '⑥ 因子计算', '⑦ 报告草案', '⑧ 审查', '⑨ 提交验证方', '⑩ 问题反馈', '⑪ 信息修正', '⑫ 认证']
       }
     },
