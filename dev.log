@@ -1,0 +1,109 @@
+
+> climate-seal-website@0.1.0 dev
+> next dev
+
+ ⚠ Found lockfile missing swc dependencies, patching...
+ ⚠ Warning: Found multiple lockfiles. Selecting /Users/xuguangma/pnpm-lock.yaml.
+   Consider removing the lockfiles at:
+   * /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/climate-seal-website/package-lock.json
+   * /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/pnpm-lock.yaml
+
+   ▲ Next.js 15.4.5
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.20.24:3000
+
+ ✓ Starting...
+ ⚠ Found lockfile missing swc dependencies, patching...
+ ⚠ Lockfile was successfully patched, please run "npm install" to ensure @next/swc dependencies are downloaded
+ ⚠ Lockfile was successfully patched, please run "npm install" to ensure @next/swc dependencies are downloaded
+ ✓ Ready in 2s
+ ○ Compiling / ...
+ ✓ Compiled / in 1317ms (666 modules)
+ GET / 200 in 1635ms
+ GET / 200 in 96ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 598ms (671 modules)
+ GET /company-logo.png 404 in 734ms
+ ⨯ The requested resource isn't a valid image for /company-logo.png received null
+[Error: The requested resource isn't a valid image.] { statusCode: 400 }
+ GET /about-logo.png 404 in 57ms
+ GET / 200 in 144ms
+ ⚠ Cross origin request detected from 192.168.20.24 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ ✓ Compiled /favicon.ico in 183ms (421 modules)
+ GET /favicon.ico 200 in 267ms
+ GET / 200 in 206ms
+ GET /favicon.ico 200 in 7ms
+ GET / 200 in 128ms
+ GET /favicon.ico 200 in 13ms
+ ✓ Compiled in 714ms (666 modules)
+ GET / 200 in 132ms
+ GET / 200 in 23ms
+ ✓ Compiled /favicon.ico in 118ms (421 modules)
+ GET /favicon.ico 200 in 246ms
+ GET /favicon.ico 200 in 3ms
+ GET / 200 in 239ms
+ GET /favicon.ico 200 in 11ms
+ ✓ Compiled in 788ms (666 modules)
+ GET / 200 in 173ms
+ GET / 200 in 206ms
+ ✓ Compiled /favicon.ico in 100ms (421 modules)
+ GET /favicon.ico 200 in 195ms
+ GET / 200 in 266ms
+ ✓ Compiled in 830ms (666 modules)
+ GET / 200 in 155ms
+ ✓ Compiled /_not-found in 498ms (657 modules)
+ GET /_next/static/css/app/layout.css?v=1754665790671 404 in 723ms
+ GET / 200 in 316ms
+ GET /_next/static/css/app/layout.css?v=1754665791478 404 in 29ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 688ms (422 modules)
+ ⨯ Error: Cannot find module './985.js'
+Require stack:
+- /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/climate-seal-website/.next/server/webpack-runtime.js
+- /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/climate-seal-website/.next/server/app/favicon.ico/route.js
+- /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/climate-seal-website/node_modules/next/dist/server/require.js
+- /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/climate-seal-website/node_modules/next/dist/server/load-components.js
+- /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/climate-seal-website/node_modules/next/dist/build/utils.js
+- /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/climate-seal-website/node_modules/next/dist/build/swc/options.js
+- /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/climate-seal-website/node_modules/next/dist/build/swc/index.js
+- /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/climate-seal-website/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/climate-seal-website/node_modules/next/dist/server/config.js
+- /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/climate-seal-website/node_modules/next/dist/server/next.js
+- /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/climate-seal-website/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/favicon.ico/route.js:1:68919)
+    at Object.<anonymous> (.next/server/app/favicon.ico/route.js:1:68964) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/favicon.ico'
+}
+ GET /favicon.ico 500 in 733ms
+ ⨯ Error: Cannot find module './985.js'
+Require stack:
+- /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/climate-seal-website/.next/server/webpack-runtime.js
+- /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/climate-seal-website/.next/server/app/favicon.ico/route.js
+- /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/climate-seal-website/node_modules/next/dist/server/require.js
+- /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/climate-seal-website/node_modules/next/dist/server/load-components.js
+- /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/climate-seal-website/node_modules/next/dist/build/utils.js
+- /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/climate-seal-website/node_modules/next/dist/build/swc/options.js
+- /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/climate-seal-website/node_modules/next/dist/build/swc/index.js
+- /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/climate-seal-website/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/climate-seal-website/node_modules/next/dist/server/config.js
+- /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/climate-seal-website/node_modules/next/dist/server/next.js
+- /Users/xuguangma/Downloads/ClimateSeal-demo0728-e3e85b39f9bf2d0a61ef04303c7b561bd166697b/climate-seal-website/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/favicon.ico/route.js:1:68919)
+    at Object.<anonymous> (.next/server/app/favicon.ico/route.js:1:68964) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/favicon.ico'
+}
+ GET /favicon.ico 500 in 27ms
+ GET / 200 in 280ms
+ GET /_next/static/css/app/layout.css?v=1754665798658 404 in 60ms
+ GET /_next/static/chunks/main-app.js?v=1754665798658 404 in 118ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 123ms
+ GET / 200 in 141ms
+ GET /_next/static/css/app/layout.css?v=1754665808939 404 in 85ms
+ GET /_next/static/chunks/main-app.js?v=1754665808939 404 in 127ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 122ms
+[?25h
