@@ -109,7 +109,7 @@ export default function Home() {
         {/* Background overlay - removed for unified color */}
         
         <div className="relative z-10 min-h-screen grid grid-cols-1 lg:grid-cols-2 items-center">
-          <div className="text-center lg:text-left text-white px-4 lg:px-16 order-2 lg:order-1 -mt-4 lg:mt-0" style={{ transform: 'translateX(2cm)' }}>
+          <div className="text-center lg:text-left text-white px-4 lg:px-16 order-2 lg:order-1 mt-6 lg:mt-0" style={{ transform: 'translateX(2cm) translateY(1cm)' }}>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4">
               {t.hero.title}
             </h1>
@@ -1124,22 +1124,22 @@ export default function Home() {
                   </div>
                 </div>
                 
-                {/* New About Logo */}
-                <div className="mt-6 sm:mt-8 pt-4 sm:pt-6">
-                  <div className="flex justify-start">
-                    <Image
-                      src="/about-logo.png"
-                      alt="Climate Seal About Logo"
-                      width={400}
-                      height={120}
-                      className="object-contain w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px]"
-                      unoptimized={true}
-                      style={{
-                        clipPath: 'inset(0 0 15% 0)'
-                      }}
-                    />
-                  </div>
-                </div>
+                {/* New Contact Logo */}
+<div className="mt-6 sm:mt-8 pt-4 sm:pt-6">
+  <div className="flex justify-start">
+    <Image
+      src="/new-contact-logo.png"
+      alt="Climate Seal Contact Logo"
+      width={280}
+      height={84}
+      className="object-contain w-full max-w-[210px] sm:max-w-[280px] md:max-w-[350px] lg:max-w-[420px]"
+      unoptimized={true}
+      style={{
+        clipPath: 'inset(0 0.5% 2% 0)'
+      }}
+    />
+  </div>
+</div>
               </div>
             </div>
 
