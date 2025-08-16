@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -16,6 +16,38 @@ export default function Home() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
+  const [visibleCards, setVisibleCards] = useState({ card2: false, card3: false });
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '-100px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const cardId = entry.target.getAttribute('data-card-id');
+          if (cardId === 'card2') {
+            setVisibleCards(prev => ({ ...prev, card2: true }));
+          } else if (cardId === 'card3') {
+            setVisibleCards(prev => ({ ...prev, card3: true }));
+          }
+        }
+      });
+    }, observerOptions);
+    
+    const card2 = document.querySelector('[data-card-id="card2"]');
+    const card3 = document.querySelector('[data-card-id="card3"]');
+    
+    if (card2) observer.observe(card2);
+    if (card3) observer.observe(card3);
+    
+    return () => {
+      if (card2) observer.unobserve(card2);
+      if (card3) observer.unobserve(card3);
+    };
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -159,126 +191,95 @@ export default function Home() {
       </section>
 
       {/* Scenarios & Value Section */}
-<section id="scenarios-value" className="relative bg-[rgb(0,52,50)] py-12 sm:py-20 -mt-px">
-  <div className="relative container mx-auto px-4">
-    {/* Section Title */}
-    <div className="text-center mb-12 sm:mb-16">
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
-        {t.sections.scenarios?.title || '场景与价值'}
-      </h2>
-    </div>
-
-    {/* Three Column Layout - Equal width columns */}
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-12">
-      
-      {/* Column 1: Why You Need It - Equal width */}
-      <div className="space-y-8">
-        <h3 className="text-xl sm:text-2xl font-bold text-white text-center mb-8">
-          {t.sections.scenarios?.whyNeed?.title || '为什么需要产品碳足迹CPF？'}
-        </h3>
-        
-        {/* Fixed height cards - each 200px for better proportion */}
-        <div className="bg-[#6195fe] rounded-2xl sm:rounded-3xl p-6 shadow-xl hover:scale-105 transition-all duration-300 scenarios-card h-[200px] flex flex-col justify-center text-center" style={{ animationDelay: '0.1s' }}>
-          <h4 className="text-lg font-bold text-white mb-4">{t.sections.scenarios?.whyNeed?.export?.title || '出口'}</h4>
-          <p className="text-white text-sm leading-relaxed" style={{ whiteSpace: 'pre-line' }}>
-            {t.sections.scenarios?.whyNeed?.export?.description || 'CBAM 采用默认值成本高\nESPR/DPP: 多品类要"产品护照"\n以披露: 粗披露遭遇被动核查(卫星)\n电池相关: "产品级碳足迹+电子护照"'}
-          </p>
-        </div>
-
-        <div className="bg-[#6195fe] rounded-2xl sm:rounded-3xl p-6 shadow-xl hover:scale-105 transition-all duration-300 scenarios-card h-[200px] flex flex-col justify-center text-center" style={{ animationDelay: '0.2s' }}>
-          <h4 className="text-lg font-bold text-white mb-4">{t.sections.scenarios?.whyNeed?.procurement?.title || '采购/绿色供应链'}</h4>
-          <p className="text-white text-sm leading-relaxed" style={{ whiteSpace: 'pre-line' }}>
-            {t.sections.scenarios?.whyNeed?.procurement?.description || '品牌方: SBTi要覆盖67%Scope 3\n品牌方: 碳表现写进供方条款\n供应链压力: 数据质量要求高、成本高、碳基础差'}
-          </p>
-        </div>
-
-        <div className="bg-[#6195fe] rounded-2xl sm:rounded-3xl p-6 shadow-xl hover:scale-105 transition-all duration-300 scenarios-card h-[200px] flex flex-col justify-center text-center" style={{ animationDelay: '0.3s' }}>
-          <h4 className="text-lg font-bold text-white mb-4">{t.sections.scenarios?.whyNeed?.government?.title || '政府绿色采购 & 绿建EPD'}</h4>
-          <p className="text-white text-sm leading-relaxed" style={{ whiteSpace: 'pre-line' }}>
-            {t.sections.scenarios?.whyNeed?.government?.description || '政府绿色采购：无PCF/LCA不能参与\n工程/建材：无EPD不能投标或减分'}
-          </p>
-        </div>
-      </div>
-
-      {/* Column 2: Pain Points - Equal width */}
-      <div className="space-y-8">
-        <h3 className="text-xl sm:text-2xl font-bold text-white text-center mb-8">
-          {t.sections.scenarios?.painPoints?.title || '完成产品碳足迹CPF过程中的痛点'}
-        </h3>
-        
-        {/* Fixed height horizontal bars - adjusted to match left/right column total height */}
-        <div className="bg-[#98a2f8] rounded-2xl p-4 shadow-xl hover:scale-105 transition-all duration-300 scenarios-card h-[108px] flex items-center" style={{ animationDelay: '0.4s' }}>
-          <div className="w-full text-center">
-            <h4 className="text-lg font-bold text-gray-800 mb-2">{t.sections.scenarios?.painPoints?.highBarrier?.title || '门槛高'}</h4>
-            <p className="text-gray-800 text-sm" style={{ whiteSpace: 'pre-line' }}>{t.sections.scenarios?.painPoints?.highBarrier?.description || '需要懂方法+懂交付的碳专家参与\n碳法规和标准多'}</p>
-          </div>
-        </div>
-
-        <div className="bg-[#98a2f8] rounded-2xl p-4 shadow-xl hover:scale-105 transition-all duration-300 scenarios-card h-[108px] flex items-center" style={{ animationDelay: '0.5s' }}>
-          <div className="w-full text-center">
-            <h4 className="text-lg font-bold text-gray-800 mb-2">{t.sections.scenarios?.painPoints?.highCost?.title || '成本高'}</h4>
-            <p className="text-gray-800 text-sm">{t.sections.scenarios?.painPoints?.highCost?.description || 'PCF或LCA报告需要数万美金'}</p>
-          </div>
-        </div>
-
-        <div className="bg-[#98a2f8] rounded-2xl p-4 shadow-xl hover:scale-105 transition-all duration-300 scenarios-card h-[108px] flex items-center" style={{ animationDelay: '0.6s' }}>
-          <div className="w-full text-center">
-            <h4 className="text-lg font-bold text-gray-800 mb-2">{t.sections.scenarios?.painPoints?.longCycle?.title || '周期长'}</h4>
-            <p className="text-gray-800 text-sm">{t.sections.scenarios?.painPoints?.longCycle?.description || 'PCF1-3个月/EPD 需要 3-6个月'}</p>
-          </div>
-        </div>
-
-        <div className="bg-[#98a2f8] rounded-2xl p-4 shadow-xl hover:scale-105 transition-all duration-300 scenarios-card h-[108px] flex items-center" style={{ animationDelay: '0.7s' }}>
-          <div className="w-full text-center">
-            <h4 className="text-lg font-bold text-gray-800 mb-2">{t.sections.scenarios?.painPoints?.supplyChainPressure?.title || '供应链压力大'}</h4>
-            <p className="text-gray-800 text-sm" style={{ whiteSpace: 'pre-line' }}>{t.sections.scenarios?.painPoints?.supplyChainPressure?.description || '供应链企业碳基础差、数据质量差、成本高\n品牌方碳管理成本高'}</p>
-          </div>
-        </div>
-
-        <div className="bg-[#98a2f8] rounded-2xl p-4 shadow-xl hover:scale-105 transition-all duration-300 scenarios-card h-[108px] flex items-center" style={{ animationDelay: '0.8s' }}>
-          <div className="w-full text-center">
-            <h4 className="text-lg font-bold text-gray-800 mb-2">{t.sections.scenarios?.painPoints?.hiddenCost?.title || '隐形成本'}</h4>
-            <p className="text-gray-800 text-sm" style={{ whiteSpace: 'pre-line' }}>{t.sections.scenarios?.painPoints?.hiddenCost?.description || 'CBAM用默认值成本高\nPCF缺项被核验机构打回返工'}</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Column 3: What We're Offering - Equal width */}
-      <div className="space-y-8">
-        <h3 className="text-xl sm:text-2xl font-bold text-white text-center mb-8" style={{ whiteSpace: 'pre-line' }}>
-          {t.sections.scenarios?.ourSolution?.title || '我们提供的方案'}
-        </h3>
-        
-        {/* Fixed height cards - each 200px, same as left column */}
-        <div className="bg-[#9ef894] rounded-2xl sm:rounded-3xl p-6 shadow-xl hover:scale-105 transition-all duration-300 scenarios-card h-[200px] flex flex-col justify-center text-center" style={{ animationDelay: '0.9s' }}>
-          <h4 className="text-lg font-bold text-gray-800 mb-4">{t.sections.scenarios?.ourSolution?.zeroBarrier?.title || '0门槛'}</h4>
-          <p className="text-gray-800 text-sm leading-relaxed" style={{ whiteSpace: 'pre-line' }}>
-            {t.sections.scenarios?.ourSolution?.zeroBarrier?.description || '专家级碳顾问和认证顾问全程引导/无需专业背景'}
-          </p>
-        </div>
-
-        <div className="bg-[#9ef894] rounded-2xl sm:rounded-3xl p-6 shadow-xl hover:scale-105 transition-all duration-300 scenarios-card relative h-[200px] flex flex-col justify-center text-center" style={{ animationDelay: '1.0s' }}>
-          <h4 className="text-lg font-bold text-gray-800 mb-4">{t.sections.scenarios?.ourSolution?.lowCost?.title || '成本(百元) / 周期(小时)'}</h4>
-          <div className="flex items-center justify-center">
-            <span className="text-3xl sm:text-4xl font-bold text-[#fbbf24] animate-pulse">{t.sections.scenarios?.ourSolution?.lowCost?.description || '99%'}</span>
-            <div className="ml-3 flex flex-col items-center animate-bounce">
-              <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </svg>
+      <section id="scenarios-value" className="relative bg-[rgb(0,52,50)] py-12 sm:py-20 -mt-px">
+        <div className="relative container mx-auto px-4">
+          {/* Sticky Title and First Card Container */}
+          <div className="sticky top-32 sm:top-40 lg:top-48 z-10 bg-[rgb(0,52,50)]">
+            {/* Section Title */}
+            <div className="text-center mb-8 sm:mb-12">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
+                {t.sections.scenarios?.title || '场景与价值'}
+              </h2>
+            </div>
+            
+            {/* Bar 1 - 出口合规 - Always Visible with Title */}
+            <div className="w-full h-[288px] sm:h-[384px] lg:h-[480px] xl:h-[576px] rounded-3xl overflow-hidden shadow-2xl bg-[rgb(0,52,50)] transform transition-transform duration-700">
+              <Image
+                src="/scenarios-bar-1.png"
+                alt="出口合规场景"
+                fill
+                className="object-contain object-center p-4"
+                quality={100}
+                unoptimized={true}
+              />
             </div>
           </div>
-        </div>
 
-        <div className="bg-[#9ef894] rounded-2xl sm:rounded-3xl p-6 shadow-xl hover:scale-105 transition-all duration-300 scenarios-card h-[200px] flex flex-col justify-center text-center" style={{ animationDelay: '1.1s' }}>
-          <h4 className="text-lg font-bold text-gray-800 mb-4">{t.sections.scenarios?.ourSolution?.preValidation?.title || '专家级"预核验"'}</h4>
-          <p className="text-gray-800 text-sm leading-relaxed" style={{ whiteSpace: 'pre-line' }}>
-            {t.sections.scenarios?.ourSolution?.preValidation?.description || '拒绝返工/隐形成本'}
-          </p>
+          {/* Stacked Horizontal Bar Images - Sequential Reveal */}
+          <div className="relative container mx-auto px-4">
+            {/* Spacer for scroll trigger */}
+            <div className="h-[60vh]"></div>
+
+            {/* Bar 2 - 采购/绿色供应链管理 - Scroll-triggered */}
+            <div 
+              className={`sticky top-32 sm:top-40 lg:top-48 z-20 transform transition-all duration-800 ease-out ${
+                visibleCards.card2 ? 'translate-y-0 opacity-100' : 'translate-y-[60vh] opacity-0'
+              }`}
+              data-card-id="card2"
+            >
+              <div className="bg-[rgb(0,52,50)] pb-4">
+                <div className="text-center mb-8 sm:mb-12">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
+                    {t.sections.scenarios?.title || '场景与价值'}
+                  </h2>
+                </div>
+                <div className="w-full h-[288px] sm:h-[384px] lg:h-[480px] xl:h-[576px] rounded-3xl overflow-hidden shadow-2xl bg-[rgb(0,52,50)]">
+                  <Image
+                    src="/scenarios-bar-2.png"
+                    alt="采购/绿色供应链管理场景"
+                    fill
+                    className="object-contain object-center p-4"
+                    quality={100}
+                    unoptimized={true}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Spacer between cards */}
+            <div className="h-[60vh]"></div>
+
+            {/* Bar 3 - 政府采购与行业要求 - Last to appear */}
+            <div 
+              className={`sticky top-32 sm:top-40 lg:top-48 z-30 transform transition-all duration-800 ease-out delay-200 ${
+                visibleCards.card3 ? 'translate-y-0 opacity-100' : 'translate-y-[60vh] opacity-0'
+              }`}
+              data-card-id="card3"
+            >
+              <div className="bg-[rgb(0,52,50)] pb-4">
+                <div className="text-center mb-8 sm:mb-12">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
+                    {t.sections.scenarios?.title || '场景与价值'}
+                  </h2>
+                </div>
+                <div className="w-full h-[288px] sm:h-[384px] lg:h-[480px] xl:h-[576px] rounded-3xl overflow-hidden shadow-2xl bg-[rgb(0,52,50)]">
+                  <Image
+                    src="/scenarios-bar-3.png"
+                    alt="政府采购与行业要求场景"
+                    fill
+                    className="object-contain object-center p-4"
+                    quality={100}
+                    unoptimized={true}
+                  />
+                </div>
+              </div>
+            </div>
+            
+            {/* Final spacing - reduced to allow natural scroll to next section */}
+            <div className="h-[30vh]"></div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* Products Section - Stacked Cards */}
       <section id="products" className="relative bg-[rgb(0,52,50)] -mt-px">
