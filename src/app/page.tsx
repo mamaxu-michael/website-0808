@@ -11,12 +11,13 @@ export default function Home() {
     email: '',
     phone: '',
     company: '',
+    industry: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -28,7 +29,7 @@ export default function Home() {
     e.preventDefault();
     
     // 验证必需字段
-    if (!formData.name || !formData.email || !formData.phone || !formData.company || !formData.message) {
+    if (!formData.name || !formData.email || !formData.phone || !formData.company || !formData.industry || !formData.message) {
       setSubmitMessage(t.contact.messages.validation);
       return;
     }
@@ -52,6 +53,7 @@ export default function Home() {
           email: '',
           phone: '',
           company: '',
+          industry: '',
           message: ''
         });
       } else {
@@ -157,12 +159,12 @@ export default function Home() {
       </section>
 
       {/* Scenarios & Value Section */}
-<section id="scenarios-value" className="relative bg-[rgb(0,52,50)] py-12 sm:py-20">
+<section id="scenarios-value" className="relative bg-[rgb(0,52,50)] py-12 sm:py-20 -mt-px">
   <div className="relative container mx-auto px-4">
     {/* Section Title */}
     <div className="text-center mb-12 sm:mb-16">
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
-        {t.scenarios?.title || '场景与价值'}
+        {t.sections.scenarios?.title || '场景与价值'}
       </h2>
     </div>
 
@@ -172,34 +174,28 @@ export default function Home() {
       {/* Column 1: Why You Need It - Equal width */}
       <div className="space-y-8">
         <h3 className="text-xl sm:text-2xl font-bold text-white text-center mb-8">
-          为什么需要产品碳足迹CPF？
+          {t.sections.scenarios?.whyNeed?.title || '为什么需要产品碳足迹CPF？'}
         </h3>
         
         {/* Fixed height cards - each 200px for better proportion */}
         <div className="bg-[#6195fe] rounded-2xl sm:rounded-3xl p-6 shadow-xl hover:scale-105 transition-all duration-300 scenarios-card h-[200px] flex flex-col justify-center text-center" style={{ animationDelay: '0.1s' }}>
-          <h4 className="text-lg font-bold text-white mb-4">出口</h4>
-          <p className="text-white text-sm leading-relaxed">
-            CBAM 采用默认值成本高<br/>
-            ESPR/DPP: 多品类要"产品护照"<br/>
-            以披露: 粗披露遭遇被动核查(卫星)<br/>
-            电池相关: "产品级碳足迹+电子护照"
+          <h4 className="text-lg font-bold text-white mb-4">{t.sections.scenarios?.whyNeed?.export?.title || '出口'}</h4>
+          <p className="text-white text-sm leading-relaxed" style={{ whiteSpace: 'pre-line' }}>
+            {t.sections.scenarios?.whyNeed?.export?.description || 'CBAM 采用默认值成本高\nESPR/DPP: 多品类要"产品护照"\n以披露: 粗披露遭遇被动核查(卫星)\n电池相关: "产品级碳足迹+电子护照"'}
           </p>
         </div>
 
         <div className="bg-[#6195fe] rounded-2xl sm:rounded-3xl p-6 shadow-xl hover:scale-105 transition-all duration-300 scenarios-card h-[200px] flex flex-col justify-center text-center" style={{ animationDelay: '0.2s' }}>
-          <h4 className="text-lg font-bold text-white mb-4">采购/绿色供应链</h4>
-          <p className="text-white text-sm leading-relaxed">
-            品牌方: SBTi要覆盖67%Scope 3<br/>
-            品牌方: 碳表现写进供方条款<br/>
-            供应链压力: 数据质量要求高、成本高、碳基础差
+          <h4 className="text-lg font-bold text-white mb-4">{t.sections.scenarios?.whyNeed?.procurement?.title || '采购/绿色供应链'}</h4>
+          <p className="text-white text-sm leading-relaxed" style={{ whiteSpace: 'pre-line' }}>
+            {t.sections.scenarios?.whyNeed?.procurement?.description || '品牌方: SBTi要覆盖67%Scope 3\n品牌方: 碳表现写进供方条款\n供应链压力: 数据质量要求高、成本高、碳基础差'}
           </p>
         </div>
 
         <div className="bg-[#6195fe] rounded-2xl sm:rounded-3xl p-6 shadow-xl hover:scale-105 transition-all duration-300 scenarios-card h-[200px] flex flex-col justify-center text-center" style={{ animationDelay: '0.3s' }}>
-          <h4 className="text-lg font-bold text-white mb-4">政府绿色采购 & 绿建EPD</h4>
-          <p className="text-white text-sm leading-relaxed">
-            政府绿色采购：无PCF/LCA不能参与<br/>
-            工程/建材：无EPD不能投标或减分
+          <h4 className="text-lg font-bold text-white mb-4">{t.sections.scenarios?.whyNeed?.government?.title || '政府绿色采购 & 绿建EPD'}</h4>
+          <p className="text-white text-sm leading-relaxed" style={{ whiteSpace: 'pre-line' }}>
+            {t.sections.scenarios?.whyNeed?.government?.description || '政府绿色采购：无PCF/LCA不能参与\n工程/建材：无EPD不能投标或减分'}
           </p>
         </div>
       </div>
@@ -207,64 +203,64 @@ export default function Home() {
       {/* Column 2: Pain Points - Equal width */}
       <div className="space-y-8">
         <h3 className="text-xl sm:text-2xl font-bold text-white text-center mb-8">
-          完成产品碳足迹CPF过程中的痛点
+          {t.sections.scenarios?.painPoints?.title || '完成产品碳足迹CPF过程中的痛点'}
         </h3>
         
         {/* Fixed height horizontal bars - adjusted to match left/right column total height */}
         <div className="bg-[#98a2f8] rounded-2xl p-4 shadow-xl hover:scale-105 transition-all duration-300 scenarios-card h-[108px] flex items-center" style={{ animationDelay: '0.4s' }}>
           <div className="w-full text-center">
-            <h4 className="text-lg font-bold text-gray-800 mb-2">门槛高</h4>
-            <p className="text-gray-800 text-sm">需要懂方法+懂交付的碳专家参与<br/>碳法规和标准多</p>
+            <h4 className="text-lg font-bold text-gray-800 mb-2">{t.sections.scenarios?.painPoints?.highBarrier?.title || '门槛高'}</h4>
+            <p className="text-gray-800 text-sm" style={{ whiteSpace: 'pre-line' }}>{t.sections.scenarios?.painPoints?.highBarrier?.description || '需要懂方法+懂交付的碳专家参与\n碳法规和标准多'}</p>
           </div>
         </div>
 
         <div className="bg-[#98a2f8] rounded-2xl p-4 shadow-xl hover:scale-105 transition-all duration-300 scenarios-card h-[108px] flex items-center" style={{ animationDelay: '0.5s' }}>
           <div className="w-full text-center">
-            <h4 className="text-lg font-bold text-gray-800 mb-2">成本高</h4>
-            <p className="text-gray-800 text-sm">PCF或LCA报告需要数万美金</p>
+            <h4 className="text-lg font-bold text-gray-800 mb-2">{t.sections.scenarios?.painPoints?.highCost?.title || '成本高'}</h4>
+            <p className="text-gray-800 text-sm">{t.sections.scenarios?.painPoints?.highCost?.description || 'PCF或LCA报告需要数万美金'}</p>
           </div>
         </div>
 
         <div className="bg-[#98a2f8] rounded-2xl p-4 shadow-xl hover:scale-105 transition-all duration-300 scenarios-card h-[108px] flex items-center" style={{ animationDelay: '0.6s' }}>
           <div className="w-full text-center">
-            <h4 className="text-lg font-bold text-gray-800 mb-2">周期长</h4>
-            <p className="text-gray-800 text-sm">PCF1-3个月/EPD 需要 3-6个月</p>
+            <h4 className="text-lg font-bold text-gray-800 mb-2">{t.sections.scenarios?.painPoints?.longCycle?.title || '周期长'}</h4>
+            <p className="text-gray-800 text-sm">{t.sections.scenarios?.painPoints?.longCycle?.description || 'PCF1-3个月/EPD 需要 3-6个月'}</p>
           </div>
         </div>
 
         <div className="bg-[#98a2f8] rounded-2xl p-4 shadow-xl hover:scale-105 transition-all duration-300 scenarios-card h-[108px] flex items-center" style={{ animationDelay: '0.7s' }}>
           <div className="w-full text-center">
-            <h4 className="text-lg font-bold text-gray-800 mb-2">供应链压力大</h4>
-            <p className="text-gray-800 text-sm">供应链企业碳基础差、数据质量差、成本高<br/>品牌方碳管理成本高</p>
+            <h4 className="text-lg font-bold text-gray-800 mb-2">{t.sections.scenarios?.painPoints?.supplyChainPressure?.title || '供应链压力大'}</h4>
+            <p className="text-gray-800 text-sm" style={{ whiteSpace: 'pre-line' }}>{t.sections.scenarios?.painPoints?.supplyChainPressure?.description || '供应链企业碳基础差、数据质量差、成本高\n品牌方碳管理成本高'}</p>
           </div>
         </div>
 
         <div className="bg-[#98a2f8] rounded-2xl p-4 shadow-xl hover:scale-105 transition-all duration-300 scenarios-card h-[108px] flex items-center" style={{ animationDelay: '0.8s' }}>
           <div className="w-full text-center">
-            <h4 className="text-lg font-bold text-gray-800 mb-2">隐形成本</h4>
-            <p className="text-gray-800 text-sm">CBAM用默认值成本高<br/>PCF缺项被核验机构打回返工</p>
+            <h4 className="text-lg font-bold text-gray-800 mb-2">{t.sections.scenarios?.painPoints?.hiddenCost?.title || '隐形成本'}</h4>
+            <p className="text-gray-800 text-sm" style={{ whiteSpace: 'pre-line' }}>{t.sections.scenarios?.painPoints?.hiddenCost?.description || 'CBAM用默认值成本高\nPCF缺项被核验机构打回返工'}</p>
           </div>
         </div>
       </div>
 
       {/* Column 3: What We're Offering - Equal width */}
       <div className="space-y-8">
-        <h3 className="text-xl sm:text-2xl font-bold text-white text-center mb-8">
-          我们提供的方案
+        <h3 className="text-xl sm:text-2xl font-bold text-white text-center mb-8" style={{ whiteSpace: 'pre-line' }}>
+          {t.sections.scenarios?.ourSolution?.title || '我们提供的方案'}
         </h3>
         
         {/* Fixed height cards - each 200px, same as left column */}
         <div className="bg-[#9ef894] rounded-2xl sm:rounded-3xl p-6 shadow-xl hover:scale-105 transition-all duration-300 scenarios-card h-[200px] flex flex-col justify-center text-center" style={{ animationDelay: '0.9s' }}>
-          <h4 className="text-lg font-bold text-gray-800 mb-4">0门槛</h4>
-          <p className="text-gray-800 text-sm leading-relaxed">
-            专家级碳顾问和认证顾问全程引导/无需专业背景
+          <h4 className="text-lg font-bold text-gray-800 mb-4">{t.sections.scenarios?.ourSolution?.zeroBarrier?.title || '0门槛'}</h4>
+          <p className="text-gray-800 text-sm leading-relaxed" style={{ whiteSpace: 'pre-line' }}>
+            {t.sections.scenarios?.ourSolution?.zeroBarrier?.description || '专家级碳顾问和认证顾问全程引导/无需专业背景'}
           </p>
         </div>
 
         <div className="bg-[#9ef894] rounded-2xl sm:rounded-3xl p-6 shadow-xl hover:scale-105 transition-all duration-300 scenarios-card relative h-[200px] flex flex-col justify-center text-center" style={{ animationDelay: '1.0s' }}>
-          <h4 className="text-lg font-bold text-gray-800 mb-4">成本(百元) / 周期(小时)</h4>
+          <h4 className="text-lg font-bold text-gray-800 mb-4">{t.sections.scenarios?.ourSolution?.lowCost?.title || '成本(百元) / 周期(小时)'}</h4>
           <div className="flex items-center justify-center">
-            <span className="text-3xl sm:text-4xl font-bold text-[#fbbf24] animate-pulse">99%</span>
+            <span className="text-3xl sm:text-4xl font-bold text-[#fbbf24] animate-pulse">{t.sections.scenarios?.ourSolution?.lowCost?.description || '99%'}</span>
             <div className="ml-3 flex flex-col items-center animate-bounce">
               <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -274,9 +270,9 @@ export default function Home() {
         </div>
 
         <div className="bg-[#9ef894] rounded-2xl sm:rounded-3xl p-6 shadow-xl hover:scale-105 transition-all duration-300 scenarios-card h-[200px] flex flex-col justify-center text-center" style={{ animationDelay: '1.1s' }}>
-          <h4 className="text-lg font-bold text-gray-800 mb-4">专家级"预核验"</h4>
-          <p className="text-gray-800 text-sm leading-relaxed">
-            拒绝返工/隐形成本
+          <h4 className="text-lg font-bold text-gray-800 mb-4">{t.sections.scenarios?.ourSolution?.preValidation?.title || '专家级"预核验"'}</h4>
+          <p className="text-gray-800 text-sm leading-relaxed" style={{ whiteSpace: 'pre-line' }}>
+            {t.sections.scenarios?.ourSolution?.preValidation?.description || '拒绝返工/隐形成本'}
           </p>
         </div>
       </div>
@@ -285,9 +281,9 @@ export default function Home() {
 </section>
 
       {/* Products Section - Stacked Cards */}
-      <section id="products" className="relative bg-[rgb(0,52,50)]">
+      <section id="products" className="relative bg-[rgb(0,52,50)] -mt-px">
         {/* Scrolling Text Section */}
-        <div className="relative overflow-hidden py-16 bg-[rgb(0,52,50)]">
+        <div className="relative overflow-hidden py-16 bg-[rgb(0,52,50)] -mt-px">
           <div className="whitespace-nowrap">
             {/* First Row - Moving Right */}
             <div className="flex animate-scroll-right text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold text-cyan-custom opacity-80 mb-4">
@@ -506,7 +502,7 @@ export default function Home() {
       </section>
 
       {/* Section Divider */}
-      <div className="bg-[rgb(0,52,50)] py-8">
+      <div className="bg-[rgb(0,52,50)] py-8 -my-px">
         <div className="flex justify-center">
           <svg width="300" height="12" viewBox="0 0 300 12" className="text-[#9ef894]">
             <path 
@@ -739,7 +735,7 @@ export default function Home() {
       </section>
 
       {/* Section Divider */}
-      <div className="bg-[rgb(0,52,50)] py-8">
+      <div className="bg-[rgb(0,52,50)] py-8 -my-px">
         <div className="flex justify-center">
           <svg width="300" height="12" viewBox="0 0 300 12" className="text-[#9ef894]">
             <path 
@@ -865,7 +861,7 @@ export default function Home() {
       </section>
 
       {/* Section Divider */}
-      <div className="bg-[rgb(0,52,50)] py-8">
+      <div className="bg-[rgb(0,52,50)] py-8 -my-px">
         <div className="flex justify-center">
           <svg width="300" height="12" viewBox="0 0 300 12" className="text-[#9ef894]">
             <path 
@@ -888,7 +884,7 @@ export default function Home() {
       </div>
 
       {/* Pricing Section */}
-      <section id="pricing" className="min-h-screen py-12 sm:py-20 bg-[rgb(0,52,50)]">
+      <section id="pricing" className="min-h-screen py-12 sm:py-20 bg-[rgb(0,52,50)] -mt-px">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6 sm:mb-16">
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-2 sm:mb-6">{t.sections.pricing.title}</h2>
@@ -941,7 +937,7 @@ export default function Home() {
                 </div>
               </div>
               <a 
-                href="/payment"
+                href="#contact"
                 className="w-full bg-gray-800 hover:bg-gray-700 text-white py-1 sm:py-3 rounded-lg font-semibold transition duration-300 text-xs sm:text-base text-center block"
               >
                 {t.sections.pricing.plans.standard.button}
@@ -975,7 +971,7 @@ export default function Home() {
       </section>
 
       {/* Section Divider */}
-      <div className="bg-[rgb(0,52,50)] py-8">
+      <div className="bg-[rgb(0,52,50)] py-8 -my-px">
         <div className="flex justify-center">
           <svg width="300" height="12" viewBox="0 0 300 12" className="text-[#9ef894]">
             <path 
@@ -1070,7 +1066,7 @@ export default function Home() {
       </section>
 
       {/* Section Divider */}
-      <div className="bg-[rgb(0,52,50)] py-8">
+      <div className="bg-[rgb(0,52,50)] py-8 -my-px">
         <div className="flex justify-center">
           <svg width="300" height="12" viewBox="0 0 300 12" className="text-[#9ef894]">
             <path 
@@ -1147,72 +1143,103 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="bg-[#98a2f8] bg-opacity-90 p-6 sm:p-8 rounded-2xl backdrop-blur-sm self-start order-1 lg:order-2">
-              <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-black">{t.contact.form.submit}</h3>
-              <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+            <div className="bg-[#98a2f8] bg-opacity-90 p-4 sm:p-6 rounded-2xl backdrop-blur-sm self-start order-1 lg:order-2">
+              <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-black">{t.contact.form.submit}</h3>
+              <form onSubmit={handleSubmit} className="space-y-1.5 sm:space-y-2">
                 <div>
-                  <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-black">{t.contact.form.name}*</label>
+                  <label className="block text-xs sm:text-sm font-medium mb-1 text-black">{t.contact.form.name}*</label>
                   <input 
                     type="text" 
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full p-2 sm:p-3 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm sm:text-base"
+                    className="w-full p-1.5 sm:p-2 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm"
                     placeholder={t.contact.form.placeholder.name}
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-black">{t.contact.form.email}*</label>
+                  <label className="block text-xs sm:text-sm font-medium mb-1 text-black">{t.contact.form.email}*</label>
                   <input 
                     type="email" 
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full p-2 sm:p-3 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm sm:text-base"
+                    className="w-full p-1.5 sm:p-2 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm"
                     placeholder={t.contact.form.placeholder.email}
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-black">{t.contact.form.phone}*</label>
+                  <label className="block text-xs sm:text-sm font-medium mb-1 text-black">{t.contact.form.phone}*</label>
                   <input 
                     type="tel" 
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full p-2 sm:p-3 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm sm:text-base"
+                    className="w-full p-1.5 sm:p-2 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm"
                     placeholder={t.contact.form.placeholder.phone}
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-black">{t.contact.form.company}*</label>
+                  <label className="block text-xs sm:text-sm font-medium mb-1 text-black">{t.contact.form.company}*</label>
                   <input 
                     type="text" 
                     name="company"
                     value={formData.company}
                     onChange={handleInputChange}
-                    className="w-full p-2 sm:p-3 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm sm:text-base"
+                    className="w-full p-1.5 sm:p-2 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm"
                     placeholder={t.contact.form.placeholder.company}
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-black">{t.contact.form.message}*</label>
+                  <label className="block text-xs sm:text-sm font-medium mb-1 text-black">{t.contact.form.industry || '行业'}*</label>
+                  <select 
+                    name="industry"
+                    value={formData.industry}
+                    onChange={handleInputChange}
+                    className="w-full p-1.5 sm:p-2 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm"
+                    required
+                  >
+                    <option value="">{t.contact.form.placeholder?.industry || '请选择您的行业'}</option>
+                    <option value="automotive">{t.contact.form.industries?.automotive || '汽车制造业'}</option>
+                    <option value="electronics">{t.contact.form.industries?.electronics || '电子电器'}</option>
+                    <option value="textiles">{t.contact.form.industries?.textiles || '纺织服装'}</option>
+                    <option value="chemicals">{t.contact.form.industries?.chemicals || '化工化学'}</option>
+                    <option value="food-beverage">{t.contact.form.industries?.foodBeverage || '食品饮料'}</option>
+                    <option value="construction">{t.contact.form.industries?.construction || '建筑建材'}</option>
+                    <option value="metals">{t.contact.form.industries?.metals || '钢铁金属'}</option>
+                    <option value="plastics">{t.contact.form.industries?.plastics || '塑料橡胶'}</option>
+                    <option value="packaging">{t.contact.form.industries?.packaging || '包装印刷'}</option>
+                    <option value="pharmaceuticals">{t.contact.form.industries?.pharmaceuticals || '医药医疗'}</option>
+                    <option value="energy">{t.contact.form.industries?.energy || '能源电力'}</option>
+                    <option value="manufacturing">{t.contact.form.industries?.manufacturing || '机械制造'}</option>
+                    <option value="furniture">{t.contact.form.industries?.furniture || '家具家居'}</option>
+                    <option value="cosmetics">{t.contact.form.industries?.cosmetics || '美妆个护'}</option>
+                    <option value="toys">{t.contact.form.industries?.toys || '玩具用品'}</option>
+                    <option value="agriculture">{t.contact.form.industries?.agriculture || '农业食品'}</option>
+                    <option value="transportation">{t.contact.form.industries?.transportation || '交通运输'}</option>
+                    <option value="retail">{t.contact.form.industries?.retail || '零售贸易'}</option>
+                    <option value="other">{t.contact.form.industries?.other || '其他'}</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs sm:text-sm font-medium mb-1 text-black">{t.contact.form.message}*</label>
                   <textarea 
-                    rows={3}
+                    rows={2}
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
-                    className="w-full p-2 sm:p-3 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 resize-none text-sm sm:text-base"
+                    className="w-full p-1.5 sm:p-2 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 resize-none text-sm"
                     placeholder={t.contact.form.placeholder.message}
                     required
                   ></textarea>
                 </div>
                 
                 {submitMessage && (
-                  <div className={`text-sm p-3 rounded-lg ${
+                  <div className={`text-sm p-2 rounded-lg ${
                     submitMessage.includes('成功') 
                       ? 'bg-green-100 text-green-800' 
                       : 'bg-red-100 text-red-800'
@@ -1224,7 +1251,7 @@ export default function Home() {
                 <button 
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full py-2 sm:py-3 rounded-lg font-semibold transition duration-300 text-center text-sm sm:text-base ${
+                  className={`w-full py-1.5 sm:py-2 rounded-lg font-semibold transition duration-300 text-center text-sm ${
                     isSubmitting 
                       ? 'bg-gray-400 cursor-not-allowed text-gray-600' 
                       : 'bg-yellow-400 hover:bg-yellow-500 text-[rgb(0,52,50)]'

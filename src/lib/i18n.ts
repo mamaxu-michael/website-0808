@@ -30,6 +30,62 @@ export interface TranslationData {
       scrollingText1: string;
       scrollingText2: string;
     };
+    scenarios: {
+      title: string;
+      whyNeed: {
+        title: string;
+        export: {
+          title: string;
+          description: string;
+        };
+        procurement: {
+          title: string;
+          description: string;
+        };
+        government: {
+          title: string;
+          description: string;
+        };
+      };
+      painPoints: {
+        title: string;
+        highBarrier: {
+          title: string;
+          description: string;
+        };
+        highCost: {
+          title: string;
+          description: string;
+        };
+        longCycle: {
+          title: string;
+          description: string;
+        };
+        supplyChainPressure: {
+          title: string;
+          description: string;
+        };
+        hiddenCost: {
+          title: string;
+          description: string;
+        };
+      };
+      ourSolution: {
+        title: string;
+        zeroBarrier: {
+          title: string;
+          description: string;
+        };
+        lowCost: {
+          title: string;
+          description: string;
+        };
+        preValidation: {
+          title: string;
+          description: string;
+        };
+      };
+    };
     comparison: {
       title: string;
       subtitle: string;
@@ -157,6 +213,7 @@ export interface TranslationData {
       email: string;
       phone: string;
       company: string;
+      industry: string;
       message: string;
       submit: string;
       submitting: string;
@@ -165,7 +222,29 @@ export interface TranslationData {
         email: string;
         phone: string;
         company: string;
+        industry: string;
         message: string;
+      };
+      industries: {
+        automotive: string;
+        electronics: string;
+        textiles: string;
+        chemicals: string;
+        foodBeverage: string;
+        construction: string;
+        metals: string;
+        plastics: string;
+        packaging: string;
+        pharmaceuticals: string;
+        energy: string;
+        manufacturing: string;
+        furniture: string;
+        cosmetics: string;
+        toys: string;
+        agriculture: string;
+        transportation: string;
+        retail: string;
+        other: string;
       };
     };
     messages: {
@@ -227,6 +306,62 @@ export const translations: Record<Language, TranslationData> = {
         subtitle: 'Get a credible carbon footprint at 1% of the cost and time',
         scrollingText1: 'Gain Credibility At Low Cost',
         scrollingText2: 'Use Credit At Low Cost'
+      },
+      scenarios: {
+        title: 'Scenarios & Value',
+        whyNeed: {
+          title: 'Why Do You Need Product Carbon Footprint (PCF)?',
+          export: {
+            title: 'Export',
+            description: 'CBAM default values are costly\nESPR/DPP: Multiple categories require "product passports"\nDisclosure: Rough disclosure faces passive verification (satellite)\nBattery-related: "Product-level carbon footprint + electronic passport"'
+          },
+          procurement: {
+            title: 'Procurement/Green Supply Chain',
+            description: 'Brands: SBTi requires 67% Scope 3 coverage\nBrands: Carbon performance written into supplier terms\nSupply chain pressure: High data quality requirements, high costs, poor carbon foundation'
+          },
+          government: {
+            title: 'Government Green Procurement & Green Building EPD',
+            description: 'Government green procurement: Cannot participate without PCF/LCA\nEngineering/Building materials: Cannot bid or lose points without EPD'
+          }
+        },
+        painPoints: {
+          title: 'Pain Points in Completing Product Carbon Footprint (PCF)',
+          highBarrier: {
+            title: 'High Barrier',
+            description: 'Requires carbon experts who understand both methodology and delivery\nMany carbon regulations and standards'
+          },
+          highCost: {
+            title: 'High Cost',
+            description: 'PCF or LCA reports require tens of thousands of dollars'
+          },
+          longCycle: {
+            title: 'Long Cycle',
+            description: 'PCF takes 1-3 months / EPD takes 3-6 months'
+          },
+          supplyChainPressure: {
+            title: 'High Supply Chain Pressure',
+            description: 'Supply chain companies have poor carbon foundation, poor data quality, high costs\nBrands have high carbon management costs'
+          },
+          hiddenCost: {
+            title: 'Hidden Costs',
+            description: 'CBAM default values are costly\nPCF missing items rejected by verification agencies for rework'
+          }
+        },
+        ourSolution: {
+          title: 'What we are offering?\nOur Solution',
+          zeroBarrier: {
+            title: 'Zero Barrier',
+            description: 'Expert-level guidance\nNo professional background required'
+          },
+          lowCost: {
+            title: 'Cost (Hundreds) / Cycle (Hours)',
+            description: '99% reduction'
+          },
+          preValidation: {
+            title: 'Expert "Pre-validation"',
+            description: 'Reject rework & hidden costs'
+          }
+        }
       },
       comparison: {
         title: 'Compare With Traditional Way',
@@ -349,6 +484,7 @@ export const translations: Record<Language, TranslationData> = {
         email: 'Email',
         phone: 'Phone',
         company: 'Company Name',
+        industry: 'Industry',
         message: 'Message',
         submit: 'Send Message',
         submitting: 'Sending...',
@@ -357,7 +493,29 @@ export const translations: Record<Language, TranslationData> = {
           email: 'Please enter your email',
           phone: 'Please enter your phone number',
           company: 'Please enter company name',
+          industry: 'Please select your industry',
           message: 'Please describe your needs or questions'
+        },
+        industries: {
+          automotive: 'Automotive Manufacturing',
+          electronics: 'Electronics & Electrical',
+          textiles: 'Textiles & Apparel',
+          chemicals: 'Chemicals & Chemical Engineering',
+          foodBeverage: 'Food & Beverage',
+          construction: 'Construction & Building Materials',
+          metals: 'Steel & Metals',
+          plastics: 'Plastics & Rubber',
+          packaging: 'Packaging & Printing',
+          pharmaceuticals: 'Pharmaceuticals & Medical',
+          energy: 'Energy & Power',
+          manufacturing: 'Mechanical Manufacturing',
+          furniture: 'Furniture & Home',
+          cosmetics: 'Cosmetics & Personal Care',
+          toys: 'Toys & Consumer Goods',
+          agriculture: 'Agriculture & Food',
+          transportation: 'Transportation & Logistics',
+          retail: 'Retail & Trade',
+          other: 'Other'
         }
       },
       messages: {
@@ -414,6 +572,62 @@ export const translations: Record<Language, TranslationData> = {
         subtitle: '以1%的成本和时间获得可信的碳足迹',
         scrollingText1: 'Gain Credibility At Low Cost',
         scrollingText2: 'Use Credit At Low Cost'
+      },
+      scenarios: {
+        title: '场景与价值',
+        whyNeed: {
+          title: '为什么需要产品碳足迹CPF？',
+          export: {
+            title: '出口',
+            description: 'CBAM 采用默认值成本高\nESPR/DPP: 多品类要"产品护照"\n以披露: 粗披露遭遇被动核查(卫星)\n电池相关: "产品级碳足迹+电子护照"'
+          },
+          procurement: {
+            title: '采购/绿色供应链',
+            description: '品牌方: SBTi要覆盖67%Scope 3\n品牌方: 碳表现写进供方条款\n供应链压力: 数据质量要求高、成本高、碳基础差'
+          },
+          government: {
+            title: '政府绿色采购 & 绿建EPD',
+            description: '政府绿色采购：无PCF/LCA不能参与\n工程/建材：无EPD不能投标或减分'
+          }
+        },
+        painPoints: {
+          title: '完成产品碳足迹CPF过程中的痛点',
+          highBarrier: {
+            title: '门槛高',
+            description: '需要懂方法+懂交付的碳专家参与\n碳法规和标准多'
+          },
+          highCost: {
+            title: '成本高',
+            description: 'PCF或LCA报告需要数万美金'
+          },
+          longCycle: {
+            title: '周期长',
+            description: 'PCF1-3个月/EPD 需要 3-6个月'
+          },
+          supplyChainPressure: {
+            title: '供应链压力大',
+            description: '供应链企业碳基础差、数据质量差、成本高\n品牌方碳管理成本高'
+          },
+          hiddenCost: {
+            title: '隐形成本',
+            description: 'CBAM用默认值成本高\nPCF缺项被核验机构打回返工'
+          }
+        },
+        ourSolution: {
+          title: '我们能为您提供什么？\n我们提供的方案',
+          zeroBarrier: {
+            title: '0门槛',
+            description: '专家级碳顾问和认证顾问全程引导/无需专业背景'
+          },
+          lowCost: {
+            title: '成本(百元) / 周期(小时)',
+            description: '99%'
+          },
+          preValidation: {
+            title: '专家级"预核验"',
+            description: '拒绝返工/隐形成本'
+          }
+        }
       },
       comparison: {
         title: '与传统方式对比',
@@ -536,6 +750,7 @@ export const translations: Record<Language, TranslationData> = {
         email: '邮箱',
         phone: '电话',
         company: '公司名称',
+        industry: '行业',
         message: '留言',
         submit: '发送消息',
         submitting: '发送中...',
@@ -544,7 +759,29 @@ export const translations: Record<Language, TranslationData> = {
           email: '请输入您的邮箱',
           phone: '请输入您的电话号码',
           company: '请输入公司名称',
+          industry: '请选择您的行业',
           message: '请描述您的需求或问题'
+        },
+        industries: {
+          automotive: '汽车制造业',
+          electronics: '电子电器',
+          textiles: '纺织服装',
+          chemicals: '化工化学',
+          foodBeverage: '食品饮料',
+          construction: '建筑建材',
+          metals: '钢铁金属',
+          plastics: '塑料橡胶',
+          packaging: '包装印刷',
+          pharmaceuticals: '医药医疗',
+          energy: '能源电力',
+          manufacturing: '机械制造',
+          furniture: '家具家居',
+          cosmetics: '美妆个护',
+          toys: '玩具用品',
+          agriculture: '农业食品',
+          transportation: '交通运输',
+          retail: '零售贸易',
+          other: '其他'
         }
       },
       messages: {

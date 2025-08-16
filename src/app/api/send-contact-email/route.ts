@@ -7,12 +7,12 @@ const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KE
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, phone, company, message } = body;
+    const { name, email, phone, company, industry, message } = body;
 
     // 验证必需字段
-    if (!name || !email || !phone || !company || !message) {
+    if (!name || !email || !phone || !company || !industry || !message) {
       return NextResponse.json(
-        { error: 'Name, email, phone, company, and message are required' },
+        { error: 'Name, email, phone, company, industry, and message are required' },
         { status: 400 }
       );
     }
@@ -60,6 +60,12 @@ export async function POST(request: NextRequest) {
                     <tr>
                       <td style="padding: 10px 0; border-bottom: 1px solid #eee; font-weight: bold; color: #555;">公司:</td>
                       <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #333;">${company}</td>
+                    </tr>
+                    ` : ''}
+                    ${industry ? `
+                    <tr>
+                      <td style="padding: 10px 0; border-bottom: 1px solid #eee; font-weight: bold; color: #555;">行业:</td>
+                      <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #333;">${industry}</td>
                     </tr>
                     ` : ''}
                     <tr>
@@ -156,6 +162,12 @@ export async function POST(request: NextRequest) {
                 <tr>
                   <td style="padding: 10px 0; border-bottom: 1px solid #eee; font-weight: bold; color: #555;">公司:</td>
                   <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #333;">${company}</td>
+                </tr>
+                ` : ''}
+                ${industry ? `
+                <tr>
+                  <td style="padding: 10px 0; border-bottom: 1px solid #eee; font-weight: bold; color: #555;">行业:</td>
+                  <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #333;">${industry}</td>
                 </tr>
                 ` : ''}
                 <tr>
