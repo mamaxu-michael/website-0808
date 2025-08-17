@@ -22,6 +22,8 @@ export default function Home() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [painSectionTop, setPainSectionTop] = useState(0);
   const [painSectionBottom, setPainSectionBottom] = useState(0);
+  const [isScrolling, setIsScrolling] = useState(false);
+  const [scrollTimeout, setScrollTimeout] = useState<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     // 滚动控制和横幅显示逻辑
@@ -29,19 +31,36 @@ export default function Home() {
       const currentScrollY = window.scrollY;
       const direction = currentScrollY > lastScrollY ? 'down' : 'up';
       setScrollDirection(direction);
+      setIsScrolling(true);
       
-      // 检查是否在痛点区域附近
-      const isNearPainSection = currentScrollY >= painSectionTop - 300 && currentScrollY <= painSectionBottom + 300;
+      // 清除之前的滚动停止计时器
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+      
+      // 设置新的滚动停止计时器
+      const newTimeout = setTimeout(() => {
+        setIsScrolling(false);
+      }, 150); // 150ms后认为滚动停止
+      setScrollTimeout(newTimeout);
+      
+      // 检查是否在痛点区域附近 - 适中触发时机
+      const windowHeight = window.innerHeight;
+      const triggerPoint = painSectionTop - windowHeight * 0.3; // 在标题距离顶部30%屏幕高度时触发
+      const isNearPainSection = currentScrollY >= triggerPoint && currentScrollY <= painSectionBottom + 300;
       
       if (isNearPainSection && painSectionTop > 0) {
-        // 在痛点区域，向上滑动时显示横幅
-        if (direction === 'up') {
-          setSolutionBarVisible(true);
+        // 在痛点区域进入视口前就显示横幅
+        setSolutionBarVisible(true);
+        
+        // 只有在滚动时才根据方向控制横幅隐藏
+        if (isScrolling) {
+          // 向下滑动且超过痛点区域底部时隐藏横幅
+          if (direction === 'down' && currentScrollY > painSectionBottom - 100) {
+            setSolutionBarVisible(false);
+          }
         }
-        // 向下滑动且滚动超过痛点区域中间位置时隐藏横幅
-        else if (direction === 'down' && currentScrollY > painSectionTop + (painSectionBottom - painSectionTop) / 2) {
-          setSolutionBarVisible(false);
-        }
+        // 不滚动时保持横幅显示
       } else {
         // 完全离开痛点区域时隐藏横幅
         setSolutionBarVisible(false);
@@ -98,8 +117,11 @@ export default function Home() {
     
     return () => {
       clearTimeout(timer);
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
     };
-  }, [lastScrollY, painSectionTop, painSectionBottom]);
+  }, [lastScrollY, painSectionTop, painSectionBottom, scrollTimeout]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -260,21 +282,20 @@ export default function Home() {
                 {/* Left Square Card - 市场准入与跨境合规 */}
                 <div className="w-[400px] sm:w-[480px] lg:w-[560px] xl:w-[640px] bg-[#a8b3ff] rounded-2xl p-8 flex flex-col justify-between">
                   <div style={{transform: 'translateY(1cm)'}}>
-                    <h3 className="text-4xl font-bold text-[rgb(0,52,50)] mb-8">市场准入与跨境合规</h3>
+                    <h3 className="text-4xl font-bold text-[rgb(0,52,50)] mb-8">{t.sections.scenarios.scenarioCards.marketAccess.title}</h3>
                     <div className="space-y-0 text-[rgb(0,52,50)]">
                       <p className="text-sm leading-relaxed">
-                        <span className="font-semibold">企业类型：</span>出口型企业
+                        <span className="font-semibold">{t.language === 'en' ? 'Company Type:' : '企业类型：'}</span>{t.sections.scenarios.scenarioCards.marketAccess.companyType}
                       </p>
                       <p className="text-sm leading-relaxed">
-                        <span className="font-semibold">涉及行业：</span>钢铁、铝材、水泥、化肥、电池、纺织、家具、轮胎、氢、
+                        <span className="font-semibold">{t.language === 'en' ? 'Industries:' : '涉及行业：'}</span>{t.sections.scenarios.scenarioCards.marketAccess.industries}
                       </p>
                       <p className="text-sm leading-relaxed">
-                        <span className="font-semibold">核心说明：</span>准入门槛、合规成本；政策核查风险；
+                        <span className="font-semibold">{t.language === 'en' ? 'Core Description:' : '核心说明：'}</span>{t.sections.scenarios.scenarioCards.marketAccess.coreDescription}
                       </p>
                       <div className="mt-24 p-4 bg-white bg-opacity-10 rounded-lg" style={{transform: 'translateY(1cm)'}}>
                         <p className="text-sm leading-relaxed text-[rgb(0,52,50)]">
-                          一份能够被续及客户接受的准确、核验级）PCF产品碳足迹报告与数据包，
-                          能降低合规成本、合规风险、提高竞争力/上架速度，避免退运与罚款。
+                          {t.sections.scenarios.scenarioCards.marketAccess.detailDescription}
                         </p>
                       </div>
                     </div>
@@ -295,37 +316,29 @@ export default function Home() {
                 <div className="flex-1 grid grid-cols-2 gap-4">
                   {/* CBAM - Short (Top Left) */}
                   <div className="bg-[#a8b3ff] rounded-xl p-4 flex flex-col justify-center">
-                    <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">CBAM</h4>
-                    <p className="text-sm text-[rgb(0,52,50)] leading-relaxed">
-                      采用默认值成本高<br/>
-                      错报漏报产生罚款
+                    <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">{t.sections.scenarios.scenarioCards.marketAccess.miniCards.cbam.title}</h4>
+                    <p className="text-sm text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.marketAccess.miniCards.cbam.description}}>
                     </p>
                   </div>
 
                   {/* 电池相关 - Tall (Top Right) */}
                   <div className="bg-[#a8b3ff] rounded-xl p-4 flex flex-col justify-center row-span-3">
-                    <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">电池相关</h4>
-                    <p className="text-sm text-[rgb(0,52,50)] leading-relaxed">
-                      电池相关上下游需要"产品级碳
-                      足迹 + 电子护照"
+                    <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">{t.sections.scenarios.scenarioCards.marketAccess.miniCards.batteryRelated.title}</h4>
+                    <p className="text-sm text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.marketAccess.miniCards.batteryRelated.description}}>
                     </p>
                   </div>
 
                   {/* ESPR/DPP - Tall (Bottom Left) */}
                   <div className="bg-[#a8b3ff] rounded-xl p-4 flex flex-col justify-center row-span-3">
-                    <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">ESPR/DPP</h4>
-                    <p className="text-sm text-[rgb(0,52,50)] leading-relaxed">
-                      多品类欧洲销售需要"产品数字
-                      护照"
+                    <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">{t.sections.scenarios.scenarioCards.marketAccess.miniCards.esprDpp.title}</h4>
+                    <p className="text-sm text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.marketAccess.miniCards.esprDpp.description}}>
                     </p>
                   </div>
 
                   {/* 被动核查 - Short (Bottom Right) */}
                   <div className="bg-[#a8b3ff] rounded-xl p-4 flex flex-col justify-center">
-                    <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">被动核查</h4>
-                    <p className="text-sm text-[rgb(0,52,50)] leading-relaxed">
-                      粗放露漏遭被动卫星核查/产生罚款
-                      (EUDR)
+                    <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">{t.sections.scenarios.scenarioCards.marketAccess.miniCards.passiveVerification.title}</h4>
+                    <p className="text-sm text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.marketAccess.miniCards.passiveVerification.description}}>
                     </p>
                   </div>
                 </div>              </div>
@@ -355,22 +368,20 @@ export default function Home() {
                     {/* Left Square Card - 供应链与大品牌采购 */}
                     <div className="w-[400px] sm:w-[480px] lg:w-[560px] xl:w-[640px] bg-[#9ef894] rounded-2xl p-8 flex flex-col justify-between">
                       <div style={{transform: 'translateY(1cm)'}}>
-                        <h3 className="text-4xl font-bold text-[rgb(0,52,50)] mb-8">供应链与大品牌采购</h3>
+                        <h3 className="text-4xl font-bold text-[rgb(0,52,50)] mb-8">{t.sections.scenarios.scenarioCards.supplyChain.title}</h3>
                         <div className="space-y-0 text-[rgb(0,52,50)]">
                           <p className="text-sm leading-relaxed">
-                            <span className="font-semibold">企业类型：</span>品牌方和供应链
+                            <span className="font-semibold">{t.language === 'en' ? 'Company Type:' : '企业类型：'}</span>{t.sections.scenarios.scenarioCards.supplyChain.companyType}
                           </p>
                           <p className="text-sm leading-relaxed">
-                            <span className="font-semibold">涉及行业：</span>汽车、化工与材料、电子、燃料、钢铁铝大宗、医疗器械；
+                            <span className="font-semibold">{t.language === 'en' ? 'Industries:' : '涉及行业：'}</span>{t.sections.scenarios.scenarioCards.supplyChain.industries}
                           </p>
                           <p className="text-sm leading-relaxed">
-                            <span className="font-semibold">核心概念：</span>招标准入；客户优先；
+                            <span className="font-semibold">{t.language === 'en' ? 'Core Concept:' : '核心概念：'}</span>{t.sections.scenarios.scenarioCards.supplyChain.coreConcept}
                           </p>
                           <div className="mt-24 p-4 bg-gray-800 bg-opacity-10 rounded-lg" style={{transform: 'translateY(1cm)'}}>
                             <p className="text-sm leading-relaxed text-[rgb(0,52,50)]">
-                              一份能够按照客户接受的PCF产品碳足迹报告+可追溯/可交换的数据包，成
-                              为RFI/RFQ入场券，可以满足国家级、企业级、低碳绝对字母代，
-                              帮助企业进入白名单，拿到更好条款，把成交量和利润提高。
+                              {t.sections.scenarios.scenarioCards.supplyChain.detailDescription}
                             </p>
                           </div>
                         </div>
@@ -391,41 +402,29 @@ export default function Home() {
                     <div className="flex-1 grid grid-cols-2 gap-4">
                       {/* SBTi - Tall (Top Left) */}
                       <div className="bg-[#9ef894] rounded-xl p-4 flex flex-col justify-center">
-                        <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">SBTi</h4>
-                        <p className="text-sm text-[rgb(0,52,50)] leading-relaxed">
-                          SBTi 要求品牌方覆盖
-                          67%Scope 3
+                        <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.sbti.title}</h4>
+                        <p className="text-sm text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.sbti.description}}>
                         </p>
                       </div>
 
                       {/* 投标入口 - Short (Top Right) */}
                       <div className="bg-[#9ef894] rounded-xl p-4 flex flex-col justify-center row-span-3">
-                        <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">投标入口</h4>
-                        <p className="text-sm text-[rgb(0,52,50)] leading-relaxed">
-                          供应商缺乏现与进招标要求<br/>
-                          供方条款（高性强制）
+                        <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.biddingEntry.title}</h4>
+                        <p className="text-sm text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.biddingEntry.description}}>
                         </p>
                       </div>
 
                       {/* 供应链碳表现 - Short (Bottom Left) */}
                       <div className="bg-[#9ef894] rounded-xl p-4 flex flex-col justify-center row-span-3">
-                        <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">供应链碳表现</h4>
-                        <p className="text-sm text-[rgb(0,52,50)] leading-relaxed">
-                          品牌方的数据质量要求高<br/>
-                          供应链碳合规成本高<br/>
-                          碳基础差<br/>
-                          数据质量差
+                        <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.supplyChainPerformance.title}</h4>
+                        <p className="text-sm text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.supplyChainPerformance.description}}>
                         </p>
                       </div>
 
                       {/* 数据交换标准 - Tall (Bottom Right) */}
                       <div className="bg-[#9ef894] rounded-xl p-4 flex flex-col justify-center">
-                        <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">数据交换标准</h4>
-                        <p className="text-sm text-[rgb(0,52,50)] leading-relaxed">
-                          按照行业标准提交碳数据<br/>
-                          汽车Catena-X<br/>
-                          化学TfS<br/>
-                          跨行业：WBCSD PACT
+                        <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.dataExchangeStandards.title}</h4>
+                        <p className="text-sm text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.dataExchangeStandards.description}}>
                         </p>
                       </div>
                     </div>
@@ -455,23 +454,20 @@ export default function Home() {
                     {/* Left Square Card - 政府采购与行业要求 */}
                     <div className="w-[400px] sm:w-[480px] lg:w-[560px] xl:w-[640px] bg-[#6195fe] rounded-2xl p-8 flex flex-col justify-between">
                       <div style={{transform: 'translateY(1cm)'}}>
-                        <h3 className="text-4xl font-bold text-white mb-8">政府采购与行业要求</h3>
+                        <h3 className="text-4xl font-bold text-white mb-8">{t.sections.scenarios.scenarioCards.governmentProcurement.title}</h3>
                         <div className="space-y-0 text-white">
                           <p className="text-sm leading-relaxed">
-                            <span className="font-semibold">企业类型：</span>工程企业和特定行业
+                            <span className="font-semibold">{t.language === 'en' ? 'Company Type:' : '企业类型：'}</span>{t.sections.scenarios.scenarioCards.governmentProcurement.companyType}
                           </p>
                           <p className="text-sm leading-relaxed">
-                            <span className="font-semibold">涉及行业：</span>建筑、工程、医疗卫生、电子ICT、家具办公、光伏、物流；
+                            <span className="font-semibold">{t.language === 'en' ? 'Industries:' : '涉及行业：'}</span>{t.sections.scenarios.scenarioCards.governmentProcurement.industries}
                           </p>
                           <p className="text-sm leading-relaxed">
-                            <span className="font-semibold">核心说明：</span>政府buy clean招标准入；绿色选价；销售收入；
+                            <span className="font-semibold">{t.language === 'en' ? 'Core Description:' : '核心说明：'}</span>{t.sections.scenarios.scenarioCards.governmentProcurement.coreDescription}
                           </p>
                           <div className="mt-24 p-4 bg-white bg-opacity-10 rounded-lg" style={{transform: 'translateY(1cm)'}}>
                             <p className="text-sm leading-relaxed">
-                              一份能够政府该商的PCF/EPD产品碳足迹报告+数据包，成为政府绿
-                              色采购或行业采购的关键资源，公共与机构采购或比可打分，没有合
-                              规文件=无资格或显著减分，数据不对，直接失标。把产品碳足迹与
-                              证据鏾提供的政策投标模式，是拿下长期合约与目标上案的关键。
+                              {t.sections.scenarios.scenarioCards.governmentProcurement.detailDescription}
                             </p>
                           </div>
                         </div>
@@ -492,32 +488,22 @@ export default function Home() {
                     <div className="flex-1 grid grid-cols-2 gap-4">
                       {/* 政府Buy Clean - Short (Top Left) */}
                       <div className="bg-[#6195fe] rounded-xl p-4 flex flex-col justify-center">
-                        <h4 className="text-4xl font-bold text-white mb-3">政府Buy Clean</h4>
-                        <p className="text-sm text-white leading-relaxed">
-                          强制提交第三类EPD<br/>
-                          设置GWP门槛/优先
+                        <h4 className="text-4xl font-bold text-white mb-3">{t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.governmentBuyClean.title}</h4>
+                        <p className="text-sm text-white leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.governmentBuyClean.description}}>
                         </p>
                       </div>
 
                       {/* 绿色建筑 - Tall (Top Right) */}
                       <div className="bg-[#6195fe] rounded-xl p-4 flex flex-col justify-center row-span-3" style={{height: 'calc(100% - 3cm)'}}>
-                        <h4 className="text-4xl font-bold text-white mb-3">绿色建筑</h4>
-                        <p className="text-sm text-white leading-relaxed">
-                          绿建产品EPD；<br/>
-                          欧美申方力/欧引用到投标文件，
-                          作为招标门槛
+                        <h4 className="text-4xl font-bold text-white mb-3">{t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.greenBuilding.title}</h4>
+                        <p className="text-sm text-white leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.greenBuilding.description}}>
                         </p>
                       </div>
 
                       {/* 行业要求 - Tall (Bottom Left) */}
                       <div className="bg-[#6195fe] rounded-xl p-4 flex flex-col justify-center row-span-3">
-                        <h4 className="text-4xl font-bold text-white mb-3">行业要求</h4>
-                        <p className="text-sm text-white leading-relaxed">
-                          ICT硬件=EPEAT 气候标准<br/>
-                          航空燃油=SAF<br/>
-                          医疗与生命科学=英国NHS<br/>
-                          家具与办公用品=BIFMA LEVEL<br/>
-                          时装/纺织=法国AGEC/ESPR/DPP
+                        <h4 className="text-4xl font-bold text-white mb-3">{t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.industryRequirements.title}</h4>
+                        <p className="text-sm text-white leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.industryRequirements.description}}>
                         </p>
                       </div>
 
@@ -542,7 +528,7 @@ export default function Home() {
         <div className="relative container mx-auto px-4">
           <div className="text-center mb-12 sm:mb-20 lg:mb-24">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
-              我们理解你完成碳足迹的痛苦
+              {t.sections.scenarios.painSection.title}
             </h2>
           </div>
 
@@ -552,10 +538,9 @@ export default function Home() {
             {/* 成本高 - Purple */}
             <div className="bg-[#a8b3ff] rounded-2xl p-6 sm:p-8 shadow-xl min-h-[200px] sm:min-h-[240px] flex flex-col justify-center">
               <div className="text-center">
-                <h3 className="text-2xl sm:text-3xl font-bold text-[rgb(0,52,50)] mb-3 sm:mb-4">成本高</h3>
+                <h3 className="text-2xl sm:text-3xl font-bold text-[rgb(0,52,50)] mb-3 sm:mb-4">{t.sections.scenarios.painSection.cards.costHigh.title}</h3>
                 <div className="w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-4 sm:mb-6"></div>
-                <p className="text-sm sm:text-base text-[rgb(0,52,50)] leading-relaxed">
-                  完整LCA/EPD需要<br/>几千到几万美金<br/><br/>
+                <p className="text-sm sm:text-base text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.costHigh.description}}>
                 </p>
               </div>
             </div>
@@ -563,10 +548,9 @@ export default function Home() {
             {/* 周期长 - Green */}
             <div className="bg-[#9ef894] rounded-2xl p-6 sm:p-8 shadow-xl min-h-[200px] sm:min-h-[240px] flex flex-col justify-center">
               <div className="text-center">
-                <h3 className="text-2xl sm:text-3xl font-bold text-[rgb(0,52,50)] mb-3 sm:mb-4">周期长</h3>
+                <h3 className="text-2xl sm:text-3xl font-bold text-[rgb(0,52,50)] mb-3 sm:mb-4">{t.sections.scenarios.painSection.cards.cycleLong.title}</h3>
                 <div className="w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-4 sm:mb-6"></div>
-                <p className="text-sm sm:text-base text-[rgb(0,52,50)] leading-relaxed">
-                  PCF1-3个月<br/>EPD 3-6个月<br/>容易超期且不可靠
+                <p className="text-sm sm:text-base text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.cycleLong.description}}>
                 </p>
               </div>
             </div>
@@ -574,10 +558,9 @@ export default function Home() {
             {/* 门槛高 - Blue */}
             <div className="bg-[#6195fe] rounded-2xl p-6 sm:p-8 shadow-xl min-h-[200px] sm:min-h-[240px] flex flex-col justify-center">
               <div className="text-center">
-                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">门槛高</h3>
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">{t.sections.scenarios.painSection.cards.barrierHigh.title}</h3>
                 <div className="w-12 h-0.5 bg-white mx-auto mb-4 sm:mb-6"></div>
-                <p className="text-sm sm:text-base text-white leading-relaxed">
-                  标准法规多头<br/>法规动态更新变化快<br/>需要懂方法+懂交付专家参与
+                <p className="text-sm sm:text-base text-white leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.barrierHigh.description}}>
                 </p>
               </div>
             </div>
@@ -591,7 +574,7 @@ export default function Home() {
               <div className="bg-white bg-opacity-30 backdrop-blur-xl rounded-2xl p-4 sm:p-6 shadow-2xl w-full mx-4 border border-white border-opacity-40 pointer-events-auto" style={{height: '216px'}}>
                 <div className="text-center mb-3">
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[rgb(0,52,50)] mb-3 drop-shadow-lg">
-                    Climate Seal希望改变这一切
+                    {t.sections.scenarios.painSection.solutionTitle}
                   </h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
@@ -599,12 +582,11 @@ export default function Home() {
                   <div className="text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-xl p-3 sm:p-4 border border-white border-opacity-50 shadow-lg flex items-center justify-center" style={{minHeight: '104px'}}>
                     <div className="flex items-center justify-center gap-6">
                       <div className="flex items-center">
-                        <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-[rgb(0,52,50)] drop-shadow-md mr-1">↓</span>
-                        <h4 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[rgb(0,52,50)] drop-shadow-md">99%</h4>
+                        <h4 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[rgb(0,52,50)] drop-shadow-md">{t.sections.scenarios.painSection.solution.costReduction.title}</h4>
                       </div>
                       <div className="text-left">
-                        <p className="text-xs sm:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">成本（百元级）</p>
-                        <p className="text-xs sm:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">周期（小时级）</p>
+                        <div dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.solution.costReduction.description}} className="text-xs sm:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -612,10 +594,10 @@ export default function Home() {
                   {/* 0门槛 */}
                   <div className="text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-xl p-3 sm:p-4 border border-white border-opacity-50 shadow-lg flex items-center justify-center" style={{minHeight: '104px'}}>
                     <div className="flex items-center justify-center gap-6">
-                      <h4 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[rgb(0,52,50)] drop-shadow-md">0门槛</h4>
+                      <h4 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[rgb(0,52,50)] drop-shadow-md">{t.sections.scenarios.painSection.solution.zeroBarrier.title}</h4>
                       <div className="text-left">
-                        <p className="text-xs sm:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">专家级碳顾问全程引导</p>
-                        <p className="text-xs sm:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">无需专业背景</p>
+                        <div dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.solution.zeroBarrier.description}} className="text-xs sm:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -623,10 +605,10 @@ export default function Home() {
                   {/* 预核验 */}
                   <div className="text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-xl p-3 sm:p-4 border border-white border-opacity-50 shadow-lg flex items-center justify-center" style={{minHeight: '104px'}}>
                     <div className="flex items-center justify-center gap-6">
-                      <h4 className="text-xl sm:text-2xl md:text-3xl font-bold text-[rgb(0,52,50)] drop-shadow-md">预核验</h4>
+                      <h4 className="text-xl sm:text-2xl md:text-3xl font-bold text-[rgb(0,52,50)] drop-shadow-md">{t.sections.scenarios.painSection.solution.preValidation.title}</h4>
                       <div className="text-left">
-                        <p className="text-xs sm:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">专家级预先核验</p>
-                        <p className="text-xs sm:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">拒绝返工&隐形成本</p>
+                        <div dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.solution.preValidation.description}} className="text-xs sm:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -638,10 +620,9 @@ export default function Home() {
             {/* 供应链压力大 - Light Green */}
             <div className="bg-[#c2f0c2] rounded-2xl p-6 sm:p-8 shadow-xl min-h-[200px] sm:min-h-[240px] flex flex-col justify-center">
               <div className="text-center">
-                <h3 className="text-2xl sm:text-3xl font-bold text-[rgb(0,52,50)] mb-3 sm:mb-4">供应链压力大</h3>
+                <h3 className="text-2xl sm:text-3xl font-bold text-[rgb(0,52,50)] mb-3 sm:mb-4">{t.sections.scenarios.painSection.cards.supplyChainPressure.title}</h3>
                 <div className="w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-4 sm:mb-6"></div>
-                <p className="text-sm sm:text-base text-[rgb(0,52,50)] leading-relaxed">
-                  品牌方供应链管理压力大<br/>(覆盖67%Scope 3)<br/>供应商碳基础差（外采服务成本高）<br/>供应商数据质量/可信度差
+                <p className="text-sm sm:text-base text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.supplyChainPressure.description}}>
                 </p>
               </div>
             </div>
@@ -649,10 +630,9 @@ export default function Home() {
             {/* 隐形成本 - Light Blue */}
             <div className="bg-[#c2f5f7] rounded-2xl p-6 sm:p-8 shadow-xl min-h-[200px] sm:min-h-[240px] flex flex-col justify-center">
               <div className="text-center">
-                <h3 className="text-2xl sm:text-3xl font-bold text-[rgb(0,52,50)] mb-3 sm:mb-4">隐形成本</h3>
+                <h3 className="text-2xl sm:text-3xl font-bold text-[rgb(0,52,50)] mb-3 sm:mb-4">{t.sections.scenarios.painSection.cards.hiddenCost.title}</h3>
                 <div className="w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-4 sm:mb-6"></div>
-                <p className="text-sm sm:text-base text-[rgb(0,52,50)] leading-relaxed">
-                  (CBAM)<br/>用默认值成本高<br/>容易漏报和错报-罚款<br/>逐年增加需要评估预算
+                <p className="text-sm sm:text-base text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.hiddenCost.description}}>
                 </p>
               </div>
             </div>
@@ -660,10 +640,9 @@ export default function Home() {
             {/* 反复返工 - Light Pink */}
             <div className="bg-[#ffe0d0] rounded-2xl p-6 sm:p-8 shadow-xl min-h-[200px] sm:min-h-[240px] flex flex-col justify-center">
               <div className="text-center">
-                <h3 className="text-2xl sm:text-3xl font-bold text-[rgb(0,52,50)] mb-3 sm:mb-4">反复返工</h3>
+                <h3 className="text-2xl sm:text-3xl font-bold text-[rgb(0,52,50)] mb-3 sm:mb-4">{t.sections.scenarios.painSection.cards.rework.title}</h3>
                 <div className="w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-4 sm:mb-6"></div>
-                <p className="text-sm sm:text-base text-[rgb(0,52,50)] leading-relaxed">
-                  数据口径与核查机构偏差<br/>出现数据缺漏或者口径不一致<br/>重复打回和修改
+                <p className="text-sm sm:text-base text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.rework.description}}>
                 </p>
               </div>
             </div>

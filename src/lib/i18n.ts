@@ -47,6 +47,79 @@ export interface TranslationData {
           description: string;
         };
       };
+              scenarioCards: {
+          marketAccess: {
+            title: string;
+            companyType: string;
+            industries: string;
+            coreDescription: string;
+            detailDescription: string;
+            miniCards: {
+              cbam: {
+                title: string;
+                description: string;
+              };
+              batteryRelated: {
+                title: string;
+                description: string;
+              };
+              esprDpp: {
+                title: string;
+                description: string;
+              };
+              passiveVerification: {
+                title: string;
+                description: string;
+              };
+            };
+          };
+          supplyChain: {
+            title: string;
+            companyType: string;
+            industries: string;
+            coreConcept: string;
+            detailDescription: string;
+            miniCards: {
+              sbti: {
+                title: string;
+                description: string;
+              };
+              biddingEntry: {
+                title: string;
+                description: string;
+              };
+              supplyChainPerformance: {
+                title: string;
+                description: string;
+              };
+              dataExchangeStandards: {
+                title: string;
+                description: string;
+              };
+            };
+          };
+          governmentProcurement: {
+            title: string;
+            companyType: string;
+            industries: string;
+            coreDescription: string;
+            detailDescription: string;
+            miniCards: {
+              governmentBuyClean: {
+                title: string;
+                description: string;
+              };
+              greenBuilding: {
+                title: string;
+                description: string;
+              };
+              industryRequirements: {
+                title: string;
+                description: string;
+              };
+            };
+          };
+        };
       painPoints: {
         title: string;
         highBarrier: {
@@ -68,6 +141,50 @@ export interface TranslationData {
         hiddenCost: {
           title: string;
           description: string;
+        };
+      };
+      painSection: {
+        title: string;
+        solutionTitle: string;
+        cards: {
+          costHigh: {
+            title: string;
+            description: string;
+          };
+          cycleLong: {
+            title: string;
+            description: string;
+          };
+          barrierHigh: {
+            title: string;
+            description: string;
+          };
+          supplyChainPressure: {
+            title: string;
+            description: string;
+          };
+          hiddenCost: {
+            title: string;
+            description: string;
+          };
+          rework: {
+            title: string;
+            description: string;
+          };
+        };
+        solution: {
+          costReduction: {
+            title: string;
+            description: string;
+          };
+          zeroBarrier: {
+            title: string;
+            description: string;
+          };
+          preValidation: {
+            title: string;
+            description: string;
+          };
         };
       };
       ourSolution: {
@@ -324,6 +441,79 @@ export const translations: Record<Language, TranslationData> = {
             description: 'Government green procurement: Cannot participate without PCF/LCA\nEngineering/Building materials: Cannot bid or lose points without EPD'
           }
         },
+        scenarioCards: {
+          marketAccess: {
+            title: 'Market Access & Cross-Border Compliance',
+            companyType: 'Export-oriented enterprises',
+            industries: 'Steel, aluminum, cement, fertilizer, batteries, textiles, furniture, tires, hydrogen',
+            coreDescription: 'Entry barriers, compliance costs; policy review risks;',
+            detailDescription: 'A product carbon footprint report and data package that can be accepted by customs and customers can reduce compliance costs, compliance risks, improve competitiveness/listing speed, and avoid returns and fines.',
+            miniCards: {
+              cbam: {
+                title: 'CBAM',
+                description: 'High cost using default values<br/>Fines for misreporting and omissions'
+              },
+              batteryRelated: {
+                title: 'Battery Related',
+                description: 'Battery upstream and downstream require "product-level carbon<br/>footprint + digital passport"'
+              },
+              esprDpp: {
+                title: 'ESPR/DPP',
+                description: 'Multi-category European sales require "digital<br/>product passport"'
+              },
+              passiveVerification: {
+                title: 'Passive Verification',
+                description: 'Extensive leakage subject to passive satellite verification/fines (EUDR)'
+              }
+            }
+          },
+          supplyChain: {
+            title: 'Supply Chain & Major Brand Procurement',
+            companyType: 'Brands and supply chains',
+            industries: 'Automotive, chemicals & materials, electronics, fuels, steel & aluminum commodities, medical devices;',
+            coreConcept: 'Bidding entry; customer priority;',
+            detailDescription: 'A PCF product carbon footprint report + traceable/exchangeable data package that can be accepted by customers becomes an RFI/RFQ entry ticket, which can meet national-level, enterprise-level, and low-carbon absolute letter requirements, improving supply chain carbon competitiveness and reducing carbon compliance costs.',
+            miniCards: {
+              sbti: {
+                title: 'SBTi',
+                description: 'SBTi requires brands to cover<br/>67% Scope 3'
+              },
+              biddingEntry: {
+                title: 'Bidding Entry',
+                description: 'Suppliers lack compliance with bidding requirements<br/>Supplier terms (highly mandatory)'
+              },
+              supplyChainPerformance: {
+                title: 'Supply Chain Carbon Performance',
+                description: 'Brands have high data quality requirements<br/>High supply chain carbon compliance costs<br/>Poor carbon foundation<br/>Poor data quality'
+              },
+              dataExchangeStandards: {
+                title: 'Data Exchange Standards',
+                description: 'Submit carbon data according to industry standards<br/>Automotive Catena-X<br/>Chemical TfS<br/>Cross-industry: WBCSD PACT'
+              }
+            }
+          },
+          governmentProcurement: {
+            title: 'Government Procurement & Industry Requirements',
+            companyType: 'Engineering enterprises and specific industries',
+            industries: 'Construction, engineering, healthcare, electronics ICT, furniture office, photovoltaic, logistics;',
+            coreDescription: 'Government buy clean bidding entry; green pricing; sales revenue;',
+            detailDescription: 'A PCF/EPD product carbon footprint report + data package that can be accepted by the government becomes a key resource for government green procurement or industry procurement. Public and institutional procurement can be scored, and without compliance, there is no opportunity to participate in bidding.',
+            miniCards: {
+              governmentBuyClean: {
+                title: 'Government Buy Clean',
+                description: 'Mandatory submission of Type III EPD<br/>Set GWP thresholds/priorities'
+              },
+              greenBuilding: {
+                title: 'Green Building',
+                description: 'Green building product EPD;<br/>EU/US applications/European references in bid documents,<br/>as bidding thresholds'
+              },
+              industryRequirements: {
+                title: 'Industry Requirements',
+                description: 'ICT hardware = EPEAT climate standards<br/>Aviation fuel = SAF<br/>Healthcare & Life Sciences = UK NHS<br/>Furniture & Office = BIFMA LEVEL<br/>Fashion/Textiles = French AGEC/ESPR/DPP'
+              }
+            }
+          }
+        },
         painPoints: {
           title: 'Pain Points in Completing Product Carbon Footprint (PCF)',
           highBarrier: {
@@ -345,6 +535,50 @@ export const translations: Record<Language, TranslationData> = {
           hiddenCost: {
             title: 'Hidden Costs',
             description: 'CBAM default values are costly\nPCF missing items rejected by verification agencies for rework'
+          }
+        },
+        painSection: {
+          title: 'We Understand Your Carbon Footprint Pain',
+          solutionTitle: 'Climate Seal Hopes to Change All This',
+          cards: {
+            costHigh: {
+              title: 'High Cost',
+              description: 'Complete LCA/EPD requires<br/>thousands to tens of thousands of dollars<br/><br/>'
+            },
+            cycleLong: {
+              title: 'Long Cycle',
+              description: 'PCF 1-3 months<br/>EPD 3-6 months<br/>Easy to exceed deadlines and unreliable'
+            },
+            barrierHigh: {
+              title: 'High Barrier',
+              description: 'Multiple standards and regulations<br/>Regulations update rapidly<br/>Requires experts who understand methodology + delivery'
+            },
+            supplyChainPressure: {
+              title: 'High Supply Chain Pressure',
+              description: 'Brand supply chain management pressure (covers 67% Scope 3)<br/>Suppliers have poor carbon foundation (high outsourcing costs)<br/>Poor supplier data quality/credibility'
+            },
+            hiddenCost: {
+              title: 'Hidden Costs',
+              description: '(CBAM)<br/>Using default values is costly<br/>Easy to miss reports and errors - fines<br/>Yearly increases require budget assessment'
+            },
+            rework: {
+              title: 'Repeated Rework',
+              description: 'Data caliber deviates from verification agencies<br/>Data gaps or inconsistent calibers<br/>Repeated rejections and revisions'
+            }
+          },
+          solution: {
+            costReduction: {
+              title: '↓99%',
+              description: 'Cost (hundred-dollar level)<br/>Cycle (hour level)'
+            },
+            zeroBarrier: {
+              title: 'Zero Barrier',
+              description: 'Expert-level carbon consultant guidance<br/>No professional background required'
+            },
+            preValidation: {
+              title: 'Pre-validation',
+              description: 'Expert-level pre-validation<br/>Reject rework & hidden costs'
+            }
           }
         },
         ourSolution: {
@@ -590,6 +824,79 @@ export const translations: Record<Language, TranslationData> = {
             description: '政府绿色采购：无PCF/LCA不能参与\n工程/建材：无EPD不能投标或减分'
           }
         },
+        scenarioCards: {
+          marketAccess: {
+            title: '市场准入与跨境合规',
+            companyType: '出口型企业',
+            industries: '钢铁、铝材、水泥、化肥、电池、纺织、家具、轮胎、氢',
+            coreDescription: '准入门槛、合规成本；政策核查风险；',
+            detailDescription: '一份能够被续及客户接受的准确、核验级）PCF产品碳足迹报告与数据包，能降低合规成本、合规风险、提高竞争力/上架速度，避免退运与罚款。',
+            miniCards: {
+              cbam: {
+                title: 'CBAM',
+                description: '采用默认值成本高<br/>错报漏报产生罚款'
+              },
+              batteryRelated: {
+                title: '电池相关',
+                description: '电池相关上下游需要"产品级碳<br/>足迹 + 电子护照"'
+              },
+              esprDpp: {
+                title: 'ESPR/DPP',
+                description: '多品类欧洲销售需要"产品数字<br/>护照"'
+              },
+              passiveVerification: {
+                title: '被动核查',
+                description: '粗放露漏遭被动卫星核查/产生罚款 (EUDR)'
+              }
+            }
+          },
+          supplyChain: {
+            title: '供应链与大品牌采购',
+            companyType: '品牌方和供应链',
+            industries: '汽车、化工与材料、电子、燃料、钢铁铝大宗、医疗器械；',
+            coreConcept: '招标准入；客户优先；',
+            detailDescription: '一份能够按照客户接受的PCF产品碳足迹报告+可追溯/可交换的数据包，成为RFI/RFQ入场券，可以满足国家级、企业级、低碳绝对字母代，提高供应链碳竞争力，降低碳合规成本。',
+            miniCards: {
+              sbti: {
+                title: 'SBTi',
+                description: 'SBTi 要求品牌方覆盖<br/>67%Scope 3'
+              },
+              biddingEntry: {
+                title: '投标入口',
+                description: '供应商缺乏现与进招标要求<br/>供方条款（高性强制）'
+              },
+              supplyChainPerformance: {
+                title: '供应链碳表现',
+                description: '品牌方的数据质量要求高<br/>供应链碳合规成本高<br/>碳基础差<br/>数据质量差'
+              },
+              dataExchangeStandards: {
+                title: '数据交换标准',
+                description: '按照行业标准提交碳数据<br/>汽车Catena-X<br/>化学TfS<br/>跨行业：WBCSD PACT'
+              }
+            }
+          },
+          governmentProcurement: {
+            title: '政府采购与行业要求',
+            companyType: '工程企业和特定行业',
+            industries: '建筑、工程、医疗卫生、电子ICT、家具办公、光伏、物流；',
+            coreDescription: '政府buy clean招标准入；绿色选价；销售收入；',
+            detailDescription: '一份能够政府该商的PCF/EPD产品碳足迹报告+数据包，成为政府绿色采购或行业采购的关键资源，公共与机构采购或比可打分，没有合规就没有机会参与投标。',
+            miniCards: {
+              governmentBuyClean: {
+                title: '政府Buy Clean',
+                description: '强制提交第三类EPD<br/>设置GWP门槛/优先'
+              },
+              greenBuilding: {
+                title: '绿色建筑',
+                description: '绿建产品EPD；<br/>欧美申方力/欧引用到投标文件，<br/>作为招标门槛'
+              },
+              industryRequirements: {
+                title: '行业要求',
+                description: 'ICT硬件=EPEAT 气候标准<br/>航空燃油=SAF<br/>医疗与生命科学=英国NHS<br/>家具与办公用品=BIFMA LEVEL<br/>时装/纺织=法国AGEC/ESPR/DPP'
+              }
+            }
+          }
+        },
         painPoints: {
           title: '完成产品碳足迹CPF过程中的痛点',
           highBarrier: {
@@ -611,6 +918,50 @@ export const translations: Record<Language, TranslationData> = {
           hiddenCost: {
             title: '隐形成本',
             description: 'CBAM用默认值成本高\nPCF缺项被核验机构打回返工'
+          }
+        },
+        painSection: {
+          title: '我们理解你完成碳足迹的痛苦',
+          solutionTitle: 'Climate Seal希望改变这一切',
+          cards: {
+            costHigh: {
+              title: '成本高',
+              description: '完整LCA/EPD需要<br/>几千到几万美金<br/><br/>'
+            },
+            cycleLong: {
+              title: '周期长',
+              description: 'PCF1-3个月<br/>EPD 3-6个月<br/>容易超期且不可靠'
+            },
+            barrierHigh: {
+              title: '门槛高',
+              description: '标准法规多头<br/>法规动态更新变化快<br/>需要懂方法+懂交付专家参与'
+            },
+            supplyChainPressure: {
+              title: '供应链压力大',
+              description: '品牌方供应链管理压力大<br/>(覆盖67%Scope 3)<br/>供应商碳基础差（外采服务成本高）<br/>供应商数据质量/可信度差'
+            },
+            hiddenCost: {
+              title: '隐形成本',
+              description: '(CBAM)<br/>用默认值成本高<br/>容易漏报和错报-罚款<br/>逐年增加需要评估预算'
+            },
+            rework: {
+              title: '反复返工',
+              description: '数据口径与核查机构偏差<br/>出现数据缺漏或者口径不一致<br/>重复打回和修改'
+            }
+          },
+          solution: {
+            costReduction: {
+              title: '↓99%',
+              description: '成本（百元级）<br/>周期（小时级）'
+            },
+            zeroBarrier: {
+              title: '0门槛',
+              description: '专家级碳顾问全程引导<br/>无需专业背景'
+            },
+            preValidation: {
+              title: '预核验',
+              description: '专家级预先核验<br/>拒绝返工&隐形成本'
+            }
           }
         },
         ourSolution: {
