@@ -20,45 +20,57 @@ export default function Home() {
   const [solutionBarVisible, setSolutionBarVisible] = useState(false);
   const [scrollDirection, setScrollDirection] = useState('down');
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [inPainSection, setInPainSection] = useState(false);
+  const [painSectionTop, setPainSectionTop] = useState(0);
+  const [painSectionBottom, setPainSectionBottom] = useState(0);
 
   useEffect(() => {
-    // 滚动方向检测
-    const handleScroll = () => {
+    // 滚动控制和横幅显示逻辑
+    const handleScroll = (e) => {
       const currentScrollY = window.scrollY;
       const direction = currentScrollY > lastScrollY ? 'down' : 'up';
       setScrollDirection(direction);
+      
+      // 检查是否在痛点区域附近
+      const isNearPainSection = currentScrollY >= painSectionTop - 300 && currentScrollY <= painSectionBottom + 300;
+      
+      if (isNearPainSection && painSectionTop > 0) {
+        // 在痛点区域，向上滑动时显示横幅
+        if (direction === 'up') {
+          setSolutionBarVisible(true);
+        }
+        // 向下滑动且滚动超过痛点区域中间位置时隐藏横幅
+        else if (direction === 'down' && currentScrollY > painSectionTop + (painSectionBottom - painSectionTop) / 2) {
+          setSolutionBarVisible(false);
+        }
+      } else {
+        // 完全离开痛点区域时隐藏横幅
+        setSolutionBarVisible(false);
+      }
+      
       setLastScrollY(currentScrollY);
     };
 
     // 延迟一点确保DOM已经渲染
     const timer = setTimeout(() => {
       const observerOptions = {
-        threshold: 0.3,
-        rootMargin: '0px 0px -200px 0px'
+        threshold: 0.1,
+        rootMargin: '0px 0px 0px 0px'
       };
       
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          console.log('Observer triggered:', entry.target.getAttribute('data-card-id'), 'isIntersecting:', entry.isIntersecting);
-          if (entry.isIntersecting) {
-            const cardId = entry.target.getAttribute('data-card-id');
-            console.log('Intersecting:', cardId); // 调试日志
-            if (cardId === 'card2') {
-              setVisibleCards(prev => ({ ...prev, card2: true }));
-            } else if (cardId === 'card3') {
-              setVisibleCards(prev => ({ ...prev, card3: true }));
-            } else if (cardId === 'pain-cards') {
-              console.log('进入痛点区域'); // 调试日志
-              setInPainSection(true);
-            }
-          } else {
-            const cardId = entry.target.getAttribute('data-card-id');
-            if (cardId === 'pain-cards') {
-              console.log('离开痛点区域'); // 调试日志
-              setInPainSection(false);
-              setSolutionBarVisible(false);
-            }
+          const cardId = entry.target.getAttribute('data-card-id');
+          
+          if (cardId === 'card2' && entry.isIntersecting) {
+            setVisibleCards(prev => ({ ...prev, card2: true }));
+          } else if (cardId === 'card3' && entry.isIntersecting) {
+            setVisibleCards(prev => ({ ...prev, card3: true }));
+          } else if (cardId === 'pain-cards') {
+            // 记录痛点区域的位置
+            const rect = entry.target.getBoundingClientRect();
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            setPainSectionTop(scrollTop + rect.top);
+            setPainSectionBottom(scrollTop + rect.bottom);
           }
         });
       }, observerOptions);
@@ -67,12 +79,9 @@ export default function Home() {
       const card3 = document.querySelector('[data-card-id="card3"]');
       const painCards = document.querySelector('[data-card-id="pain-cards"]');
       
-      console.log('Elements found:', { card2, card3, painCards }); // 调试日志
-      
       if (card2) observer.observe(card2);
       if (card3) observer.observe(card3);
       if (painCards) {
-        console.log('Observing pain cards element');
         observer.observe(painCards);
       }
 
@@ -90,7 +99,7 @@ export default function Home() {
     return () => {
       clearTimeout(timer);
     };
-  }, [lastScrollY]);
+  }, [lastScrollY, painSectionTop, painSectionBottom]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -535,11 +544,6 @@ export default function Home() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
               我们理解你完成碳足迹的痛苦
             </h2>
-            {/* 调试信息 */}
-            <div className="text-white text-sm mt-2 p-4 bg-black bg-opacity-50 rounded">
-              <p>横条状态: {solutionBarVisible ? '✅ 显示' : '❌ 隐藏'}</p>
-              <p>滚动检测: {solutionBarVisible ? '✅ 已触发' : '⏳ 等待触发'}</p>
-            </div>
           </div>
 
           {/* Cards Grid */}
@@ -579,8 +583,10 @@ export default function Home() {
             </div>
 
             {/* Solution Bar - Animated Overlay */}
-            <div className={`absolute inset-0 flex items-center justify-center z-20 transition-all duration-1000 ease-out pointer-events-none ${
-              solutionBarVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'
+            <div className={`absolute inset-0 flex items-center justify-center z-20 transition-all duration-800 ease-out pointer-events-none ${
+              solutionBarVisible 
+                ? 'opacity-100 translate-y-0 scale-100' 
+                : 'opacity-0 translate-y-20 scale-90'
             }`} style={{left: '-10%', right: '-10%', transform: 'translateY(-1.5cm)'}}>
               <div className="bg-white bg-opacity-30 backdrop-blur-xl rounded-2xl p-4 sm:p-6 shadow-2xl w-full mx-4 border border-white border-opacity-40 pointer-events-auto" style={{height: '216px'}}>
                 <div className="text-center mb-3">
