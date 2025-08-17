@@ -17,37 +17,80 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
   const [visibleCards, setVisibleCards] = useState({ card2: false, card3: false });
+  const [solutionBarVisible, setSolutionBarVisible] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState('down');
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [inPainSection, setInPainSection] = useState(false);
 
   useEffect(() => {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '-100px 0px -100px 0px'
+    // 滚动方向检测
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const direction = currentScrollY > lastScrollY ? 'down' : 'up';
+      setScrollDirection(direction);
+      setLastScrollY(currentScrollY);
     };
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const cardId = entry.target.getAttribute('data-card-id');
-          if (cardId === 'card2') {
-            setVisibleCards(prev => ({ ...prev, card2: true }));
-          } else if (cardId === 'card3') {
-            setVisibleCards(prev => ({ ...prev, card3: true }));
+
+    // 延迟一点确保DOM已经渲染
+    const timer = setTimeout(() => {
+      const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '0px 0px -200px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          console.log('Observer triggered:', entry.target.getAttribute('data-card-id'), 'isIntersecting:', entry.isIntersecting);
+          if (entry.isIntersecting) {
+            const cardId = entry.target.getAttribute('data-card-id');
+            console.log('Intersecting:', cardId); // 调试日志
+            if (cardId === 'card2') {
+              setVisibleCards(prev => ({ ...prev, card2: true }));
+            } else if (cardId === 'card3') {
+              setVisibleCards(prev => ({ ...prev, card3: true }));
+            } else if (cardId === 'pain-cards') {
+              console.log('进入痛点区域'); // 调试日志
+              setInPainSection(true);
+            }
+          } else {
+            const cardId = entry.target.getAttribute('data-card-id');
+            if (cardId === 'pain-cards') {
+              console.log('离开痛点区域'); // 调试日志
+              setInPainSection(false);
+              setSolutionBarVisible(false);
+            }
           }
-        }
-      });
-    }, observerOptions);
-    
-    const card2 = document.querySelector('[data-card-id="card2"]');
-    const card3 = document.querySelector('[data-card-id="card3"]');
-    
-    if (card2) observer.observe(card2);
-    if (card3) observer.observe(card3);
+        });
+      }, observerOptions);
+      
+      const card2 = document.querySelector('[data-card-id="card2"]');
+      const card3 = document.querySelector('[data-card-id="card3"]');
+      const painCards = document.querySelector('[data-card-id="pain-cards"]');
+      
+      console.log('Elements found:', { card2, card3, painCards }); // 调试日志
+      
+      if (card2) observer.observe(card2);
+      if (card3) observer.observe(card3);
+      if (painCards) {
+        console.log('Observing pain cards element');
+        observer.observe(painCards);
+      }
+
+      // 添加滚动监听器
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      
+      return () => {
+        if (card2) observer.unobserve(card2);
+        if (card3) observer.unobserve(card3);
+        if (painCards) observer.unobserve(painCards);
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, 100);
     
     return () => {
-      if (card2) observer.unobserve(card2);
-      if (card3) observer.unobserve(card3);
+      clearTimeout(timer);
     };
-  }, []);
+  }, [lastScrollY]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -481,6 +524,143 @@ export default function Home() {
             
             {/* Final spacing - reduced to allow natural scroll to next section */}
             <div className="h-[30vh]"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* We Understand Your Pain Section */}
+      <section className="py-12 sm:py-20 bg-[rgb(0,52,50)] -mt-px">
+        <div className="relative container mx-auto px-4">
+          <div className="text-center mb-12 sm:mb-20 lg:mb-24">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
+              我们理解你完成碳足迹的痛苦
+            </h2>
+            {/* 调试信息 */}
+            <div className="text-white text-sm mt-2 p-4 bg-black bg-opacity-50 rounded">
+              <p>横条状态: {solutionBarVisible ? '✅ 显示' : '❌ 隐藏'}</p>
+              <p>滚动检测: {solutionBarVisible ? '✅ 已触发' : '⏳ 等待触发'}</p>
+            </div>
+          </div>
+
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 lg:gap-16 relative" data-card-id="pain-cards">
+            {/* Top Row */}
+            {/* 成本高 - Purple */}
+            <div className="bg-[#a8b3ff] rounded-2xl p-6 sm:p-8 shadow-xl min-h-[200px] sm:min-h-[240px] flex flex-col justify-center">
+              <div className="text-center">
+                <h3 className="text-2xl sm:text-3xl font-bold text-[rgb(0,52,50)] mb-3 sm:mb-4">成本高</h3>
+                <div className="w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-4 sm:mb-6"></div>
+                <p className="text-sm sm:text-base text-[rgb(0,52,50)] leading-relaxed">
+                  完整LCA/EPD需要<br/>几千到几万美金<br/><br/>
+                </p>
+              </div>
+            </div>
+
+            {/* 周期长 - Green */}
+            <div className="bg-[#9ef894] rounded-2xl p-6 sm:p-8 shadow-xl min-h-[200px] sm:min-h-[240px] flex flex-col justify-center">
+              <div className="text-center">
+                <h3 className="text-2xl sm:text-3xl font-bold text-[rgb(0,52,50)] mb-3 sm:mb-4">周期长</h3>
+                <div className="w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-4 sm:mb-6"></div>
+                <p className="text-sm sm:text-base text-[rgb(0,52,50)] leading-relaxed">
+                  PCF1-3个月<br/>EPD 3-6个月<br/>容易超期且不可靠
+                </p>
+              </div>
+            </div>
+
+            {/* 门槛高 - Blue */}
+            <div className="bg-[#6195fe] rounded-2xl p-6 sm:p-8 shadow-xl min-h-[200px] sm:min-h-[240px] flex flex-col justify-center">
+              <div className="text-center">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">门槛高</h3>
+                <div className="w-12 h-0.5 bg-white mx-auto mb-4 sm:mb-6"></div>
+                <p className="text-sm sm:text-base text-white leading-relaxed">
+                  标准法规多头<br/>法规动态更新变化快<br/>需要懂方法+懂交付专家参与
+                </p>
+              </div>
+            </div>
+
+            {/* Solution Bar - Animated Overlay */}
+            <div className={`absolute inset-0 flex items-center justify-center z-20 transition-all duration-1000 ease-out pointer-events-none ${
+              solutionBarVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'
+            }`} style={{left: '-10%', right: '-10%', transform: 'translateY(-1.5cm)'}}>
+              <div className="bg-white bg-opacity-30 backdrop-blur-xl rounded-2xl p-4 sm:p-6 shadow-2xl w-full mx-4 border border-white border-opacity-40 pointer-events-auto" style={{height: '216px'}}>
+                <div className="text-center mb-3">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[rgb(0,52,50)] mb-3 drop-shadow-lg">
+                    Climate Seal希望改变这一切
+                  </h3>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
+                  {/* 下降99% 成本降低 */}
+                  <div className="text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-xl p-3 sm:p-4 border border-white border-opacity-50 shadow-lg flex items-center justify-center" style={{minHeight: '104px'}}>
+                    <div className="flex items-center justify-center gap-6">
+                      <div className="flex items-center">
+                        <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-[rgb(0,52,50)] drop-shadow-md mr-1">↓</span>
+                        <h4 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[rgb(0,52,50)] drop-shadow-md">99%</h4>
+                      </div>
+                      <div className="text-left">
+                        <p className="text-xs sm:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">成本（百元级）</p>
+                        <p className="text-xs sm:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">周期（小时级）</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* 0门槛 */}
+                  <div className="text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-xl p-3 sm:p-4 border border-white border-opacity-50 shadow-lg flex items-center justify-center" style={{minHeight: '104px'}}>
+                    <div className="flex items-center justify-center gap-6">
+                      <h4 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[rgb(0,52,50)] drop-shadow-md">0门槛</h4>
+                      <div className="text-left">
+                        <p className="text-xs sm:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">专家级碳顾问全程引导</p>
+                        <p className="text-xs sm:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">无需专业背景</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* 预核验 */}
+                  <div className="text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-xl p-3 sm:p-4 border border-white border-opacity-50 shadow-lg flex items-center justify-center" style={{minHeight: '104px'}}>
+                    <div className="flex items-center justify-center gap-6">
+                      <h4 className="text-xl sm:text-2xl md:text-3xl font-bold text-[rgb(0,52,50)] drop-shadow-md">预核验</h4>
+                      <div className="text-left">
+                        <p className="text-xs sm:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">专家级预先核验</p>
+                        <p className="text-xs sm:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">拒绝返工&隐形成本</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Row */}
+            {/* 供应链压力大 - Light Green */}
+            <div className="bg-[#c2f0c2] rounded-2xl p-6 sm:p-8 shadow-xl min-h-[200px] sm:min-h-[240px] flex flex-col justify-center">
+              <div className="text-center">
+                <h3 className="text-2xl sm:text-3xl font-bold text-[rgb(0,52,50)] mb-3 sm:mb-4">供应链压力大</h3>
+                <div className="w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-4 sm:mb-6"></div>
+                <p className="text-sm sm:text-base text-[rgb(0,52,50)] leading-relaxed">
+                  品牌方供应链管理压力大<br/>(覆盖67%Scope 3)<br/>供应商碳基础差（外采服务成本高）<br/>供应商数据质量/可信度差
+                </p>
+              </div>
+            </div>
+
+            {/* 隐形成本 - Light Blue */}
+            <div className="bg-[#c2f5f7] rounded-2xl p-6 sm:p-8 shadow-xl min-h-[200px] sm:min-h-[240px] flex flex-col justify-center">
+              <div className="text-center">
+                <h3 className="text-2xl sm:text-3xl font-bold text-[rgb(0,52,50)] mb-3 sm:mb-4">隐形成本</h3>
+                <div className="w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-4 sm:mb-6"></div>
+                <p className="text-sm sm:text-base text-[rgb(0,52,50)] leading-relaxed">
+                  (CBAM)<br/>用默认值成本高<br/>容易漏报和错报-罚款<br/>逐年增加需要评估预算
+                </p>
+              </div>
+            </div>
+
+            {/* 反复返工 - Light Pink */}
+            <div className="bg-[#ffe0d0] rounded-2xl p-6 sm:p-8 shadow-xl min-h-[200px] sm:min-h-[240px] flex flex-col justify-center">
+              <div className="text-center">
+                <h3 className="text-2xl sm:text-3xl font-bold text-[rgb(0,52,50)] mb-3 sm:mb-4">反复返工</h3>
+                <div className="w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-4 sm:mb-6"></div>
+                <p className="text-sm sm:text-base text-[rgb(0,52,50)] leading-relaxed">
+                  数据口径与核查机构偏差<br/>出现数据缺漏或者口径不一致<br/>重复打回和修改
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
