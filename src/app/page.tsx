@@ -202,16 +202,81 @@ export default function Home() {
               </h2>
             </div>
             
-            {/* Bar 1 - 出口合规 - Always Visible with Title */}
-            <div className="w-full h-[288px] sm:h-[384px] lg:h-[480px] xl:h-[576px] rounded-3xl overflow-hidden shadow-2xl bg-[rgb(0,52,50)] transform transition-transform duration-700">
-              <Image
-                src="/scenarios-bar-1.png"
-                alt="出口合规场景"
-                fill
-                className="object-contain object-center p-4"
-                quality={100}
-                unoptimized={true}
-              />
+            {/* Card 1 - 市场准入与跨境合规 */}
+            <div className="w-full h-[400px] sm:h-[480px] lg:h-[560px] xl:h-[640px] rounded-3xl overflow-hidden shadow-2xl bg-[rgb(0,52,50)] transform transition-transform duration-700">
+              <div className="h-full flex gap-12 p-6">
+                {/* Left Square Card - 市场准入与跨境合规 */}
+                <div className="w-[400px] sm:w-[480px] lg:w-[560px] xl:w-[640px] bg-[#a8b3ff] rounded-2xl p-8 flex flex-col justify-between">
+                  <div style={{transform: 'translateY(1cm)'}}>
+                    <h3 className="text-4xl font-bold text-[rgb(0,52,50)] mb-8">市场准入与跨境合规</h3>
+                    <div className="space-y-0 text-[rgb(0,52,50)]">
+                      <p className="text-sm leading-relaxed">
+                        <span className="font-semibold">企业类型：</span>出口型企业
+                      </p>
+                      <p className="text-sm leading-relaxed">
+                        <span className="font-semibold">涉及行业：</span>钢铁、铝材、水泥、化肥、电池、纺织、家具、轮胎、氢、
+                      </p>
+                      <p className="text-sm leading-relaxed">
+                        <span className="font-semibold">核心说明：</span>准入门槛、合规成本；政策核查风险；
+                      </p>
+                      <div className="mt-24 p-4 bg-white bg-opacity-20 rounded-lg" style={{transform: 'translateY(1cm)'}}>
+                        <p className="text-sm leading-relaxed text-[rgb(0,52,50)]">
+                          一份能够被续及客户接受的准确、核验级）PCF产品碳足迹报告与数据包，
+                          能降低合规成本、合规风险、提高竞争力/上架速度，避免退运与罚款。
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-auto pt-6">
+                    <button className="bg-[rgb(0,52,50)] text-white px-6 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-2">
+                      Try Now (2 Free Reports)
+                      <div className="w-8 h-8 bg-[#a8b3ff] rounded-full flex items-center justify-center">
+                        <svg className="w-4 h-4 text-[rgb(0,52,50)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Right Grid - Small Cards with Varying Heights */}
+                <div className="flex-1 grid grid-cols-2 gap-4">
+                  {/* CBAM - Short (Top Left) */}
+                  <div className="bg-[#a8b3ff] rounded-xl p-4 flex flex-col justify-center">
+                    <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">CBAM</h4>
+                    <p className="text-sm text-[rgb(0,52,50)] leading-relaxed">
+                      采用默认值成本高/错报漏报产
+                      生罚款
+                    </p>
+                  </div>
+
+                  {/* 电池相关 - Tall (Top Right) */}
+                  <div className="bg-[#a8b3ff] rounded-xl p-4 flex flex-col justify-center row-span-3">
+                    <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">电池相关</h4>
+                    <p className="text-sm text-[rgb(0,52,50)] leading-relaxed">
+                      电池相关上下游需要"产品级碳
+                      足迹 + 电子护照"
+                    </p>
+                  </div>
+
+                  {/* ESPR/DPP - Tall (Bottom Left) */}
+                  <div className="bg-[#a8b3ff] rounded-xl p-4 flex flex-col justify-center row-span-3">
+                    <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">ESPR/DPP</h4>
+                    <p className="text-sm text-[rgb(0,52,50)] leading-relaxed">
+                      多品类欧洲销售需要"产品数字
+                      护照"
+                    </p>
+                  </div>
+
+                  {/* 被动核查 - Short (Bottom Right) */}
+                  <div className="bg-[#a8b3ff] rounded-xl p-4 flex flex-col justify-center">
+                    <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">被动核查</h4>
+                    <p className="text-sm text-[rgb(0,52,50)] leading-relaxed">
+                      粗放露漏遭被动卫星核查/产生罚款
+                      (EUDR)
+                    </p>
+                  </div>
+                </div>              </div>
             </div>
           </div>
 
@@ -220,7 +285,7 @@ export default function Home() {
             {/* Spacer for scroll trigger */}
             <div className="h-[60vh]"></div>
 
-            {/* Bar 2 - 采购/绿色供应链管理 - Scroll-triggered */}
+            {/* Card 2 - 供应链与大品牌采购 */}
             <div 
               className={`sticky top-32 sm:top-40 lg:top-48 z-20 transform transition-all duration-800 ease-out ${
                 visibleCards.card2 ? 'translate-y-0 opacity-100' : 'translate-y-[60vh] opacity-0'
@@ -233,15 +298,86 @@ export default function Home() {
                     {t.sections.scenarios?.title || '场景与价值'}
                   </h2>
                 </div>
-                <div className="w-full h-[288px] sm:h-[384px] lg:h-[480px] xl:h-[576px] rounded-3xl overflow-hidden shadow-2xl bg-[rgb(0,52,50)]">
-                  <Image
-                    src="/scenarios-bar-2.png"
-                    alt="采购/绿色供应链管理场景"
-                    fill
-                    className="object-contain object-center p-4"
-                    quality={100}
-                    unoptimized={true}
-                  />
+                <div className="w-full h-[400px] sm:h-[480px] lg:h-[560px] xl:h-[640px] rounded-3xl overflow-hidden shadow-2xl bg-[rgb(0,52,50)]">
+                  <div className="h-full flex gap-12 p-6">
+                    {/* Left Square Card - 供应链与大品牌采购 */}
+                    <div className="w-[400px] sm:w-[480px] lg:w-[560px] xl:w-[640px] bg-[#9ef894] rounded-2xl p-8 flex flex-col justify-between">
+                      <div style={{transform: 'translateY(1cm)'}}>
+                        <h3 className="text-4xl font-bold text-[rgb(0,52,50)] mb-8">供应链与大品牌采购</h3>
+                        <div className="space-y-0 text-[rgb(0,52,50)]">
+                          <p className="text-sm leading-relaxed">
+                            <span className="font-semibold">企业类型：</span>品牌方和供应链
+                          </p>
+                          <p className="text-sm leading-relaxed">
+                            <span className="font-semibold">涉及行业：</span>汽车、化工与材料、电子、燃料、钢铁铝大宗、医疗器械；
+                          </p>
+                          <p className="text-sm leading-relaxed">
+                            <span className="font-semibold">核心概念：</span>招标准入；客户优先；
+                          </p>
+                          <div className="mt-24 p-4 bg-gray-800 bg-opacity-20 rounded-lg" style={{transform: 'translateY(1cm)'}}>
+                            <p className="text-sm leading-relaxed text-[rgb(0,52,50)]">
+                              一份能够按照客户接受的PCF产品碳足迹报告+可追溯/可交换的数据包，成
+                              为RFI/RFQ入场券，可以满足国家级、企业级、低碳绝对字母代，
+                              帮助企业进入白名单，拿到更好条款，把成交量和利润提高。
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="mt-auto pt-6">
+                        <button className="bg-[rgb(0,52,50)] text-white px-6 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-2">
+                          Try Now (2 Free Reports)
+                          <div className="w-8 h-8 bg-[#9ef894] rounded-full flex items-center justify-center">
+                            <svg className="w-4 h-4 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Right Grid - Small Cards with Varying Heights */}
+                    <div className="flex-1 grid grid-cols-2 gap-4">
+                      {/* SBTi - Tall (Top Left) */}
+                      <div className="bg-[#9ef894] rounded-xl p-4 flex flex-col justify-center">
+                        <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">SBTi</h4>
+                        <p className="text-sm text-[rgb(0,52,50)] leading-relaxed">
+                          SBTi 要求品牌方覆盖
+                          67%Scope 3
+                        </p>
+                      </div>
+
+                      {/* 投标入口 - Short (Top Right) */}
+                      <div className="bg-[#9ef894] rounded-xl p-4 flex flex-col justify-center row-span-3">
+                        <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">投标入口</h4>
+                        <p className="text-sm text-[rgb(0,52,50)] leading-relaxed">
+                          供应商缺乏现与进招标要求/
+                          供方条款（高性强制）
+                        </p>
+                      </div>
+
+                      {/* 供应链碳表现 - Short (Bottom Left) */}
+                      <div className="bg-[#9ef894] rounded-xl p-4 flex flex-col justify-center row-span-3">
+                        <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">供应链碳表现</h4>
+                        <p className="text-sm text-[rgb(0,52,50)] leading-relaxed">
+                          品牌方的数据质量要求高
+                          供应链碳合规成本高
+                          碳基础差
+                          数据质量差
+                        </p>
+                      </div>
+
+                      {/* 数据交换标准 - Tall (Bottom Right) */}
+                      <div className="bg-[#9ef894] rounded-xl p-4 flex flex-col justify-center">
+                        <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">数据交换标准</h4>
+                        <p className="text-sm text-[rgb(0,52,50)] leading-relaxed">
+                          按照行业标准提交碳数据
+                          汽车Catena-X
+                          化学TfS
+                          跨行业：WBCSD PACT
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -249,7 +385,7 @@ export default function Home() {
             {/* Spacer between cards */}
             <div className="h-[60vh]"></div>
 
-            {/* Bar 3 - 政府采购与行业要求 - Last to appear */}
+            {/* Card 3 - 政府采购与行业要求 */}
             <div 
               className={`sticky top-32 sm:top-40 lg:top-48 z-30 transform transition-all duration-800 ease-out delay-200 ${
                 visibleCards.card3 ? 'translate-y-0 opacity-100' : 'translate-y-[60vh] opacity-0'
@@ -262,15 +398,83 @@ export default function Home() {
                     {t.sections.scenarios?.title || '场景与价值'}
                   </h2>
                 </div>
-                <div className="w-full h-[288px] sm:h-[384px] lg:h-[480px] xl:h-[576px] rounded-3xl overflow-hidden shadow-2xl bg-[rgb(0,52,50)]">
-                  <Image
-                    src="/scenarios-bar-3.png"
-                    alt="政府采购与行业要求场景"
-                    fill
-                    className="object-contain object-center p-4"
-                    quality={100}
-                    unoptimized={true}
-                  />
+                <div className="w-full h-[400px] sm:h-[480px] lg:h-[560px] xl:h-[640px] rounded-3xl overflow-hidden shadow-2xl bg-[rgb(0,52,50)]">
+                  <div className="h-full flex gap-12 p-6">
+                    {/* Left Square Card - 政府采购与行业要求 */}
+                    <div className="w-[400px] sm:w-[480px] lg:w-[560px] xl:w-[640px] bg-[#6195fe] rounded-2xl p-8 flex flex-col justify-between">
+                      <div style={{transform: 'translateY(1cm)'}}>
+                        <h3 className="text-4xl font-bold text-white mb-8">政府采购与行业要求</h3>
+                        <div className="space-y-0 text-white">
+                          <p className="text-sm leading-relaxed">
+                            <span className="font-semibold">企业类型：</span>工程企业和特定行业
+                          </p>
+                          <p className="text-sm leading-relaxed">
+                            <span className="font-semibold">涉及行业：</span>建筑、工程、医疗卫生、电子ICT、家具办公、光伏、物流；
+                          </p>
+                          <p className="text-sm leading-relaxed">
+                            <span className="font-semibold">核心说明：</span>政府buy clean招标准入；绿色选价；销售收入；
+                          </p>
+                          <div className="mt-24 p-4 bg-white bg-opacity-20 rounded-lg" style={{transform: 'translateY(1cm)'}}>
+                            <p className="text-sm leading-relaxed">
+                              一份能够政府该商的PCF/EPD产品碳足迹报告+数据包，成为政府绿
+                              色采购或行业采购的关键资源，公共与机构采购或比可打分，没有合
+                              规文件=无资格或显著减分，数据不对，直接失标。把产品碳足迹与
+                              证据鏾提供的政策投标模式，是拿下长期合约与目标上案的关键。
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="mt-auto pt-6">
+                        <button className="bg-[rgb(0,52,50)] text-white px-6 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-2">
+                          Try Now (2 Free Reports)
+                          <div className="w-8 h-8 bg-[#6195fe] rounded-full flex items-center justify-center">
+                            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Right Grid - Small Cards with Varying Heights */}
+                    <div className="flex-1 grid grid-cols-2 gap-4">
+                      {/* 政府Buy Clean - Short (Top Left) */}
+                      <div className="bg-[#6195fe] rounded-xl p-4 flex flex-col justify-center">
+                        <h4 className="text-4xl font-bold text-white mb-3">政府Buy Clean</h4>
+                        <p className="text-sm text-white leading-relaxed">
+                          强制提交第三类EPD
+                          设置GWP门槛/优先
+                        </p>
+                      </div>
+
+                      {/* 绿色建筑 - Tall (Top Right) */}
+                      <div className="bg-[#6195fe] rounded-xl p-4 flex flex-col justify-center row-span-3">
+                        <h4 className="text-4xl font-bold text-white mb-3">绿色建筑</h4>
+                        <p className="text-sm text-white leading-relaxed">
+                          绿建产品EPD；
+                          欧美申方力/欧引用到投标文件，
+                          作为招标门槛
+                        </p>
+                      </div>
+
+                      {/* 行业要求 - Tall (Bottom Left) */}
+                      <div className="bg-[#6195fe] rounded-xl p-4 flex flex-col justify-center row-span-3">
+                        <h4 className="text-4xl font-bold text-white mb-3">行业要求</h4>
+                        <p className="text-sm text-white leading-relaxed">
+                          ICT硬件=EPEAT 气候标准<br/>
+                          航空燃油=SAF<br/>
+                          医疗与生命科学=英国NHS<br/>
+                          家具与办公用品=BIFMA LEVEL<br/>
+                          时装/纺织=法国AGEC/ESPR/DPP
+                        </p>
+                      </div>
+
+                      {/* 空白卡片 - Small-Medium (Bottom Right) */}
+                      <div className="bg-[#6195fe] rounded-xl p-4 flex flex-col justify-center" style={{gridRowEnd: 'span 1.6'}}>
+                        
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
