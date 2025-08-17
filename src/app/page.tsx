@@ -198,7 +198,7 @@ export default function Home() {
             {/* Section Title */}
             <div className="text-center mb-8 sm:mb-12">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
-                {t.sections.scenarios?.title || '场景与价值'}
+                {t.sections.scenarios?.title || 'Scenarios you need carbon footprint'}
               </h2>
             </div>
             
@@ -219,7 +219,7 @@ export default function Home() {
                       <p className="text-sm leading-relaxed">
                         <span className="font-semibold">核心说明：</span>准入门槛、合规成本；政策核查风险；
                       </p>
-                      <div className="mt-24 p-4 bg-white bg-opacity-20 rounded-lg" style={{transform: 'translateY(1cm)'}}>
+                      <div className="mt-24 p-4 bg-white bg-opacity-10 rounded-lg" style={{transform: 'translateY(1cm)'}}>
                         <p className="text-sm leading-relaxed text-[rgb(0,52,50)]">
                           一份能够被续及客户接受的准确、核验级）PCF产品碳足迹报告与数据包，
                           能降低合规成本、合规风险、提高竞争力/上架速度，避免退运与罚款。
@@ -245,8 +245,8 @@ export default function Home() {
                   <div className="bg-[#a8b3ff] rounded-xl p-4 flex flex-col justify-center">
                     <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">CBAM</h4>
                     <p className="text-sm text-[rgb(0,52,50)] leading-relaxed">
-                      采用默认值成本高/错报漏报产
-                      生罚款
+                      采用默认值成本高<br/>
+                      错报漏报产生罚款
                     </p>
                   </div>
 
@@ -295,7 +295,7 @@ export default function Home() {
               <div className="bg-[rgb(0,52,50)] pb-4">
                 <div className="text-center mb-8 sm:mb-12">
                   <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
-                    {t.sections.scenarios?.title || '场景与价值'}
+                    {t.sections.scenarios?.title || 'Scenarios you need carbon footprint'}
                   </h2>
                 </div>
                 <div className="w-full h-[400px] sm:h-[480px] lg:h-[560px] xl:h-[640px] rounded-3xl overflow-hidden shadow-2xl bg-[rgb(0,52,50)]">
@@ -314,7 +314,7 @@ export default function Home() {
                           <p className="text-sm leading-relaxed">
                             <span className="font-semibold">核心概念：</span>招标准入；客户优先；
                           </p>
-                          <div className="mt-24 p-4 bg-gray-800 bg-opacity-20 rounded-lg" style={{transform: 'translateY(1cm)'}}>
+                          <div className="mt-24 p-4 bg-gray-800 bg-opacity-10 rounded-lg" style={{transform: 'translateY(1cm)'}}>
                             <p className="text-sm leading-relaxed text-[rgb(0,52,50)]">
                               一份能够按照客户接受的PCF产品碳足迹报告+可追溯/可交换的数据包，成
                               为RFI/RFQ入场券，可以满足国家级、企业级、低碳绝对字母代，
@@ -350,7 +350,7 @@ export default function Home() {
                       <div className="bg-[#9ef894] rounded-xl p-4 flex flex-col justify-center row-span-3">
                         <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">投标入口</h4>
                         <p className="text-sm text-[rgb(0,52,50)] leading-relaxed">
-                          供应商缺乏现与进招标要求/
+                          供应商缺乏现与进招标要求<br/>
                           供方条款（高性强制）
                         </p>
                       </div>
@@ -359,9 +359,9 @@ export default function Home() {
                       <div className="bg-[#9ef894] rounded-xl p-4 flex flex-col justify-center row-span-3">
                         <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">供应链碳表现</h4>
                         <p className="text-sm text-[rgb(0,52,50)] leading-relaxed">
-                          品牌方的数据质量要求高
-                          供应链碳合规成本高
-                          碳基础差
+                          品牌方的数据质量要求高<br/>
+                          供应链碳合规成本高<br/>
+                          碳基础差<br/>
                           数据质量差
                         </p>
                       </div>
@@ -370,9 +370,9 @@ export default function Home() {
                       <div className="bg-[#9ef894] rounded-xl p-4 flex flex-col justify-center">
                         <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">数据交换标准</h4>
                         <p className="text-sm text-[rgb(0,52,50)] leading-relaxed">
-                          按照行业标准提交碳数据
-                          汽车Catena-X
-                          化学TfS
+                          按照行业标准提交碳数据<br/>
+                          汽车Catena-X<br/>
+                          化学TfS<br/>
                           跨行业：WBCSD PACT
                         </p>
                       </div>
@@ -395,7 +395,7 @@ export default function Home() {
               <div className="bg-[rgb(0,52,50)] pb-4">
                 <div className="text-center mb-8 sm:mb-12">
                   <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
-                    {t.sections.scenarios?.title || '场景与价值'}
+                    {t.sections.scenarios?.title || 'Scenarios you need carbon footprint'}
                   </h2>
                 </div>
                 <div className="w-full h-[400px] sm:h-[480px] lg:h-[560px] xl:h-[640px] rounded-3xl overflow-hidden shadow-2xl bg-[rgb(0,52,50)]">
@@ -414,7 +414,7 @@ export default function Home() {
                           <p className="text-sm leading-relaxed">
                             <span className="font-semibold">核心说明：</span>政府buy clean招标准入；绿色选价；销售收入；
                           </p>
-                          <div className="mt-24 p-4 bg-white bg-opacity-20 rounded-lg" style={{transform: 'translateY(1cm)'}}>
+                          <div className="mt-24 p-4 bg-white bg-opacity-10 rounded-lg" style={{transform: 'translateY(1cm)'}}>
                             <p className="text-sm leading-relaxed">
                               一份能够政府该商的PCF/EPD产品碳足迹报告+数据包，成为政府绿
                               色采购或行业采购的关键资源，公共与机构采购或比可打分，没有合
@@ -442,16 +442,16 @@ export default function Home() {
                       <div className="bg-[#6195fe] rounded-xl p-4 flex flex-col justify-center">
                         <h4 className="text-4xl font-bold text-white mb-3">政府Buy Clean</h4>
                         <p className="text-sm text-white leading-relaxed">
-                          强制提交第三类EPD
+                          强制提交第三类EPD<br/>
                           设置GWP门槛/优先
                         </p>
                       </div>
 
                       {/* 绿色建筑 - Tall (Top Right) */}
-                      <div className="bg-[#6195fe] rounded-xl p-4 flex flex-col justify-center row-span-3">
+                      <div className="bg-[#6195fe] rounded-xl p-4 flex flex-col justify-center row-span-3" style={{height: 'calc(100% - 3cm)'}}>
                         <h4 className="text-4xl font-bold text-white mb-3">绿色建筑</h4>
                         <p className="text-sm text-white leading-relaxed">
-                          绿建产品EPD；
+                          绿建产品EPD；<br/>
                           欧美申方力/欧引用到投标文件，
                           作为招标门槛
                         </p>
@@ -470,7 +470,7 @@ export default function Home() {
                       </div>
 
                       {/* 空白卡片 - Small-Medium (Bottom Right) */}
-                      <div className="bg-[#6195fe] rounded-xl p-4 flex flex-col justify-center" style={{gridRowEnd: 'span 1.6'}}>
+                      <div className="bg-[#6195fe] rounded-xl p-4 flex flex-col justify-center" style={{gridRowEnd: 'span 1.6', height: 'calc(100% + 3cm)', marginTop: '-3cm'}}>
                         
                       </div>
                     </div>

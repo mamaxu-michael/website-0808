@@ -308,7 +308,7 @@ export const translations: Record<Language, TranslationData> = {
         scrollingText2: 'Use Credit At Low Cost'
       },
       scenarios: {
-        title: 'Scenarios & Value',
+        title: 'Scenarios you need carbon footprint',
         whyNeed: {
           title: 'Why Do You Need Product Carbon Footprint (PCF)?',
           export: {
