@@ -44,9 +44,9 @@ export default function Home() {
       }, 150); // 150ms后认为滚动停止
       setScrollTimeout(newTimeout);
       
-      // 检查是否在痛点区域附近 - 适中触发时机
+      // 检查是否在痛点区域附近 - 调整触发时机
       const windowHeight = window.innerHeight;
-      const triggerPoint = painSectionTop - windowHeight * 0.3; // 在标题距离顶部30%屏幕高度时触发
+      const triggerPoint = painSectionTop - windowHeight * 0.1; // 痛点区域即将进入视口时触发
       const isNearPainSection = currentScrollY >= triggerPoint && currentScrollY <= painSectionBottom + 300;
       
       if (isNearPainSection && painSectionTop > 0) {
@@ -725,34 +725,34 @@ export default function Home() {
           </div>
 
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 lg:gap-16 relative" data-card-id="pain-cards">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 lg:gap-6 relative" data-card-id="pain-cards">
             {/* Top Row */}
             {/* 成本高 - Purple */}
-            <div className="bg-[#a8b3ff] rounded-2xl p-6 sm:p-8 shadow-xl min-h-[200px] sm:min-h-[240px] flex flex-col justify-center">
+            <div className="bg-[#a8b3ff] rounded-lg p-2 sm:p-3 shadow-lg min-h-[60px] sm:min-h-[70px] flex flex-col justify-center">
               <div className="text-center">
-                <h3 className="text-2xl sm:text-3xl font-bold text-[rgb(0,52,50)] mb-3 sm:mb-4">{t.sections.scenarios.painSection.cards.costHigh.title}</h3>
-                <div className="w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-4 sm:mb-6"></div>
-                <p className="text-sm sm:text-base text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.costHigh.description}}>
+                <h3 className="text-sm sm:text-lg font-bold text-[rgb(0,52,50)] mb-1 sm:mb-2">{t.sections.scenarios.painSection.cards.costHigh.title}</h3>
+                <div className="w-6 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-1 sm:mb-2"></div>
+                <p className="text-xs sm:text-sm text-[rgb(0,52,50)] leading-tight" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.costHigh.description}}>
                 </p>
               </div>
             </div>
 
             {/* 周期长 - Green */}
-            <div className="bg-[#9ef894] rounded-2xl p-6 sm:p-8 shadow-xl min-h-[200px] sm:min-h-[240px] flex flex-col justify-center">
+            <div className="bg-[#9ef894] rounded-lg p-2 sm:p-3 shadow-lg min-h-[60px] sm:min-h-[70px] flex flex-col justify-center">
               <div className="text-center">
-                <h3 className="text-2xl sm:text-3xl font-bold text-[rgb(0,52,50)] mb-3 sm:mb-4">{t.sections.scenarios.painSection.cards.cycleLong.title}</h3>
-                <div className="w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-4 sm:mb-6"></div>
-                <p className="text-sm sm:text-base text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.cycleLong.description}}>
+                <h3 className="text-sm sm:text-lg font-bold text-[rgb(0,52,50)] mb-1 sm:mb-2">{t.sections.scenarios.painSection.cards.cycleLong.title}</h3>
+                <div className="w-6 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-1 sm:mb-2"></div>
+                <p className="text-xs sm:text-sm text-[rgb(0,52,50)] leading-tight" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.cycleLong.description}}>
                 </p>
               </div>
             </div>
 
             {/* 门槛高 - Blue */}
-            <div className="bg-[#6195fe] rounded-2xl p-6 sm:p-8 shadow-xl min-h-[200px] sm:min-h-[240px] flex flex-col justify-center">
+            <div className="bg-[#6195fe] rounded-lg p-2 sm:p-3 shadow-lg min-h-[60px] sm:min-h-[70px] flex flex-col justify-center">
               <div className="text-center">
-                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">{t.sections.scenarios.painSection.cards.barrierHigh.title}</h3>
-                <div className="w-12 h-0.5 bg-white mx-auto mb-4 sm:mb-6"></div>
-                <p className="text-sm sm:text-base text-white leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.barrierHigh.description}}>
+                <h3 className="text-sm sm:text-lg font-bold text-white mb-1 sm:mb-2">{t.sections.scenarios.painSection.cards.barrierHigh.title}</h3>
+                <div className="w-6 h-0.5 bg-white mx-auto mb-1 sm:mb-2"></div>
+                <p className="text-xs sm:text-sm text-white leading-tight" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.barrierHigh.description}}>
                 </p>
               </div>
             </div>
@@ -762,17 +762,17 @@ export default function Home() {
               solutionBarVisible 
                 ? 'opacity-100 translate-y-0 scale-100' 
                 : 'opacity-0 translate-y-20 scale-90'
-            }`} style={{left: '-10%', right: '-10%', transform: 'translateY(-1.5cm)'}}>
-              <div className="bg-white bg-opacity-30 backdrop-blur-xl rounded-2xl p-4 sm:p-6 shadow-2xl w-full mx-4 border border-white border-opacity-40 pointer-events-auto" style={{height: '216px'}}>
+            }`} style={{left: '-10%', right: '-10%', transform: 'translateY(4cm)'}}>
+              <div className="bg-white bg-opacity-30 backdrop-blur-xl rounded-2xl p-4 sm:p-6 shadow-2xl w-full mx-4 border border-white border-opacity-40 pointer-events-auto" style={{height: '350px'}}>
                 <div className="text-center mb-3">
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[rgb(0,52,50)] mb-3 drop-shadow-lg">
                     {t.sections.scenarios.painSection.solutionTitle}
                   </h3>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-0 h-full">
                   {/* 下降99% 成本降低 */}
-                  <div className="text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-xl p-3 sm:p-4 border border-white border-opacity-50 shadow-lg flex items-center justify-center" style={{minHeight: '104px'}}>
-                    <div className="flex items-center justify-center gap-6">
+                  <div className="text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-xl p-1 sm:p-1 border border-white border-opacity-50 shadow-lg flex items-center justify-center mt-4" style={{height: '80px'}}>
+                    <div className="flex items-center justify-center gap-3">
                       <div className="flex items-center">
                         <h4 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[rgb(0,52,50)] drop-shadow-md">{t.sections.scenarios.painSection.solution.costReduction.title}</h4>
                       </div>
@@ -784,8 +784,8 @@ export default function Home() {
                   </div>
                   
                   {/* 0门槛 */}
-                  <div className="text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-xl p-3 sm:p-4 border border-white border-opacity-50 shadow-lg flex items-center justify-center" style={{minHeight: '104px'}}>
-                    <div className="flex items-center justify-center gap-6">
+                  <div className="text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-xl p-1 sm:p-1 border border-white border-opacity-50 shadow-lg flex items-center justify-center" style={{height: '80px'}}>
+                    <div className="flex items-center justify-center gap-3">
                       <h4 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[rgb(0,52,50)] drop-shadow-md">{t.sections.scenarios.painSection.solution.zeroBarrier.title}</h4>
                       <div className="text-left">
                         <div dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.solution.zeroBarrier.description}} className="text-xs sm:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">
@@ -795,8 +795,8 @@ export default function Home() {
                   </div>
                   
                   {/* 预核验 */}
-                  <div className="text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-xl p-3 sm:p-4 border border-white border-opacity-50 shadow-lg flex items-center justify-center" style={{minHeight: '104px'}}>
-                    <div className="flex items-center justify-center gap-6">
+                  <div className="text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-xl p-1 sm:p-1 border border-white border-opacity-50 shadow-lg flex items-center justify-center" style={{height: '80px'}}>
+                    <div className="flex items-center justify-center gap-3">
                       <h4 className="text-xl sm:text-2xl md:text-3xl font-bold text-[rgb(0,52,50)] drop-shadow-md">{t.sections.scenarios.painSection.solution.preValidation.title}</h4>
                       <div className="text-left">
                         <div dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.solution.preValidation.description}} className="text-xs sm:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">
@@ -810,31 +810,31 @@ export default function Home() {
 
             {/* Bottom Row */}
             {/* 供应链压力大 - Light Green */}
-            <div className="bg-[#c2f0c2] rounded-2xl p-6 sm:p-8 shadow-xl min-h-[200px] sm:min-h-[240px] flex flex-col justify-center">
+            <div className="bg-[#c2f0c2] rounded-lg p-2 sm:p-3 shadow-lg min-h-[60px] sm:min-h-[70px] flex flex-col justify-center">
               <div className="text-center">
-                <h3 className="text-2xl sm:text-3xl font-bold text-[rgb(0,52,50)] mb-3 sm:mb-4">{t.sections.scenarios.painSection.cards.supplyChainPressure.title}</h3>
-                <div className="w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-4 sm:mb-6"></div>
-                <p className="text-sm sm:text-base text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.supplyChainPressure.description}}>
+                <h3 className="text-sm sm:text-lg font-bold text-[rgb(0,52,50)] mb-1 sm:mb-2">{t.sections.scenarios.painSection.cards.supplyChainPressure.title}</h3>
+                <div className="w-6 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-1 sm:mb-2"></div>
+                <p className="text-xs sm:text-sm text-[rgb(0,52,50)] leading-tight" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.supplyChainPressure.description}}>
                 </p>
               </div>
             </div>
 
             {/* 隐形成本 - Light Blue */}
-            <div className="bg-[#c2f5f7] rounded-2xl p-6 sm:p-8 shadow-xl min-h-[200px] sm:min-h-[240px] flex flex-col justify-center">
+            <div className="bg-[#c2f5f7] rounded-lg p-2 sm:p-3 shadow-lg min-h-[60px] sm:min-h-[70px] flex flex-col justify-center">
               <div className="text-center">
-                <h3 className="text-2xl sm:text-3xl font-bold text-[rgb(0,52,50)] mb-3 sm:mb-4">{t.sections.scenarios.painSection.cards.hiddenCost.title}</h3>
-                <div className="w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-4 sm:mb-6"></div>
-                <p className="text-sm sm:text-base text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.hiddenCost.description}}>
+                <h3 className="text-sm sm:text-lg font-bold text-[rgb(0,52,50)] mb-1 sm:mb-2">{t.sections.scenarios.painSection.cards.hiddenCost.title}</h3>
+                <div className="w-6 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-1 sm:mb-2"></div>
+                <p className="text-xs sm:text-sm text-[rgb(0,52,50)] leading-tight" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.hiddenCost.description}}>
                 </p>
               </div>
             </div>
 
             {/* 反复返工 - Light Pink */}
-            <div className="bg-[#ffe0d0] rounded-2xl p-6 sm:p-8 shadow-xl min-h-[200px] sm:min-h-[240px] flex flex-col justify-center">
+            <div className="bg-[#ffe0d0] rounded-lg p-2 sm:p-3 shadow-lg min-h-[60px] sm:min-h-[70px] flex flex-col justify-center">
               <div className="text-center">
-                <h3 className="text-2xl sm:text-3xl font-bold text-[rgb(0,52,50)] mb-3 sm:mb-4">{t.sections.scenarios.painSection.cards.rework.title}</h3>
-                <div className="w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-4 sm:mb-6"></div>
-                <p className="text-sm sm:text-base text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.rework.description}}>
+                <h3 className="text-sm sm:text-lg font-bold text-[rgb(0,52,50)] mb-1 sm:mb-2">{t.sections.scenarios.painSection.cards.rework.title}</h3>
+                <div className="w-6 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-1 sm:mb-2"></div>
+                <p className="text-xs sm:text-sm text-[rgb(0,52,50)] leading-tight" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.rework.description}}>
                 </p>
               </div>
             </div>
