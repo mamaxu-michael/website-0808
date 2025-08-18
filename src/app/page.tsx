@@ -356,12 +356,6 @@ export default function Home() {
                 <div className="text-left flex-1">
                   <h3 className="text-lg sm:text-xl font-bold text-[rgb(0,52,50)] mb-2 sm:mb-3">{t.sections.scenarios.scenarioCards.marketAccess.title}</h3>
                   <div className="space-y-1 text-[rgb(0,52,50)] text-xs sm:text-sm">
-                    <p className="leading-tight text-left">
-                      <span className="font-semibold">{t.language === 'en' ? 'Company Type:' : '企业类型：'}</span>{t.sections.scenarios.scenarioCards.marketAccess.companyType}
-                    </p>
-                    <p className="leading-tight text-left">
-                      <span className="font-semibold">{t.language === 'en' ? 'Industries:' : '涉及行业：'}</span>{t.sections.scenarios.scenarioCards.marketAccess.industries}
-                    </p>
                     <div className="mt-2 p-2 sm:p-3 bg-white bg-opacity-10 rounded-md">
                       <p className="text-xs sm:text-sm text-[rgb(0,52,50)] leading-tight text-left">
                         {t.sections.scenarios.scenarioCards.marketAccess.detailDescription}
@@ -423,151 +417,148 @@ export default function Home() {
             <div 
               className={`sticky top-32 sm:top-40 lg:top-48 z-20 transform transition-all duration-800 ease-out ${
                 visibleCards.card2 ? 'translate-y-0 opacity-100' : 'translate-y-[60vh] opacity-0'
-              } lg:block hidden`}
+              }`}
               data-card-id="card2"
             >
               <div className="bg-[rgb(0,52,50)] pb-4">
-                <div className="text-center mb-8 sm:mb-12">
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
-                    {t.sections.scenarios?.title || 'Scenarios you need carbon footprint'}
-                  </h2>
-                </div>
-                <div className="w-full h-[400px] sm:h-[480px] lg:h-[560px] xl:h-[640px] rounded-3xl overflow-hidden shadow-2xl bg-[rgb(0,52,50)]">
-                  <div className="h-full flex gap-12 p-6">
-                    {/* Left Square Card - 供应链与大品牌采购 */}
-                    <div className="w-[400px] sm:w-[480px] lg:w-[560px] xl:w-[640px] bg-[#9ef894] rounded-2xl p-8 flex flex-col justify-between">
-                      <div style={{transform: 'translateY(1cm)'}}>
-                        <h3 className="text-4xl font-bold text-[rgb(0,52,50)] mb-8">{t.sections.scenarios.scenarioCards.supplyChain.title}</h3>
-                        <div className="space-y-0 text-[rgb(0,52,50)]">
-                          <p className="text-sm leading-relaxed">
-                            <span className="font-semibold">{t.language === 'en' ? 'Company Type:' : '企业类型：'}</span>{t.sections.scenarios.scenarioCards.supplyChain.companyType}
-                          </p>
-                          <p className="text-sm leading-relaxed">
-                            <span className="font-semibold">{t.language === 'en' ? 'Industries:' : '涉及行业：'}</span>{t.sections.scenarios.scenarioCards.supplyChain.industries}
-                          </p>
-                          <p className="text-sm leading-relaxed">
-                            <span className="font-semibold">{t.language === 'en' ? 'Core Concept:' : '核心概念：'}</span>{t.sections.scenarios.scenarioCards.supplyChain.coreConcept}
-                          </p>
-                          <div className="mt-24 p-4 bg-gray-800 bg-opacity-10 rounded-lg" style={{transform: 'translateY(1cm)'}}>
-                            <p className="text-sm leading-relaxed text-[rgb(0,52,50)]">
-                              {t.sections.scenarios.scenarioCards.supplyChain.detailDescription}
+                {/* Desktop Layout */}
+                <div className="lg:block hidden">
+                  <div className="text-center mb-8 sm:mb-12">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
+                      {t.sections.scenarios?.title || 'Scenarios you need carbon footprint'}
+                    </h2>
+                  </div>
+                  <div className="w-full h-[400px] sm:h-[480px] lg:h-[560px] xl:h-[640px] rounded-3xl overflow-hidden shadow-2xl bg-[rgb(0,52,50)]">
+                    <div className="h-full flex gap-12 p-6">
+                      {/* Left Square Card - 供应链与大品牌采购 */}
+                      <div className="w-[400px] sm:w-[480px] lg:w-[560px] xl:w-[640px] bg-[#9ef894] rounded-2xl p-8 flex flex-col justify-between">
+                        <div style={{transform: 'translateY(1cm)'}}>
+                          <h3 className="text-4xl font-bold text-[rgb(0,52,50)] mb-8">{t.sections.scenarios.scenarioCards.supplyChain.title}</h3>
+                          <div className="space-y-0 text-[rgb(0,52,50)]">
+                            <p className="text-sm leading-relaxed">
+                              <span className="font-semibold">{t.language === 'en' ? 'Company Type:' : '企业类型：'}</span>{t.sections.scenarios.scenarioCards.supplyChain.companyType}
                             </p>
+                            <p className="text-sm leading-relaxed">
+                              <span className="font-semibold">{t.language === 'en' ? 'Industries:' : '涉及行业：'}</span>{t.sections.scenarios.scenarioCards.supplyChain.industries}
+                            </p>
+                            <p className="text-sm leading-relaxed">
+                              <span className="font-semibold">{t.language === 'en' ? 'Core Concept:' : '核心概念：'}</span>{t.sections.scenarios.scenarioCards.supplyChain.coreConcept}
+                            </p>
+                            <div className="mt-24 p-4 bg-gray-800 bg-opacity-10 rounded-lg" style={{transform: 'translateY(1cm)'}}>
+                              <p className="text-sm leading-relaxed text-[rgb(0,52,50)]">
+                                {t.sections.scenarios.scenarioCards.supplyChain.detailDescription}
+                              </p>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div className="mt-auto pt-6">
-                        <button className="bg-[rgb(0,52,50)] text-white px-6 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-2">
-                          Try Now (2 Free Reports)
-                          <div className="w-8 h-8 bg-[#9ef894] rounded-full flex items-center justify-center">
-                            <svg className="w-4 h-4 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                            </svg>
-                          </div>
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Right Grid - Small Cards with Varying Heights */}
-                    <div className="flex-1 grid grid-cols-2 gap-4">
-                      {/* SBTi - Tall (Top Left) */}
-                      <div className="bg-[#9ef894] rounded-xl p-4 flex flex-col justify-center">
-                        <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.sbti.title}</h4>
-                        <p className="text-sm text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.sbti.description}}>
-                        </p>
+                        <div className="mt-auto pt-6">
+                          <button className="bg-[rgb(0,52,50)] text-white px-6 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-2">
+                            Try Now (2 Free Reports)
+                            <div className="w-8 h-8 bg-[#9ef894] rounded-full flex items-center justify-center">
+                              <svg className="w-4 h-4 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                              </svg>
+                            </div>
+                          </button>
+                        </div>
                       </div>
 
-                      {/* 投标入口 - Short (Top Right) */}
-                      <div className="bg-[#9ef894] rounded-xl p-4 flex flex-col justify-center row-span-3">
-                        <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.biddingEntry.title}</h4>
-                        <p className="text-sm text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.biddingEntry.description}}>
-                        </p>
-                      </div>
+                      {/* Right Grid - Small Cards with Varying Heights */}
+                      <div className="flex-1 grid grid-cols-2 gap-4">
+                        {/* SBTi - Tall (Top Left) */}
+                        <div className="bg-[#9ef894] rounded-xl p-4 flex flex-col justify-center">
+                          <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.sbti.title}</h4>
+                          <p className="text-sm text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.sbti.description}}>
+                          </p>
+                        </div>
 
-                      {/* 供应链碳表现 - Short (Bottom Left) */}
-                      <div className="bg-[#9ef894] rounded-xl p-4 flex flex-col justify-center row-span-3">
-                        <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.supplyChainPerformance.title}</h4>
-                        <p className="text-sm text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.supplyChainPerformance.description}}>
-                        </p>
-                      </div>
+                        {/* 投标入口 - Short (Top Right) */}
+                        <div className="bg-[#9ef894] rounded-xl p-4 flex flex-col justify-center row-span-3">
+                          <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.biddingEntry.title}</h4>
+                          <p className="text-sm text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.biddingEntry.description}}>
+                          </p>
+                        </div>
 
-                      {/* 数据交换标准 - Tall (Bottom Right) */}
-                      <div className="bg-[#9ef894] rounded-xl p-4 flex flex-col justify-center">
-                        <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.dataExchangeStandards.title}</h4>
-                        <p className="text-sm text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.dataExchangeStandards.description}}>
-                        </p>
+                        {/* 供应链碳表现 - Short (Bottom Left) */}
+                        <div className="bg-[#9ef894] rounded-xl p-4 flex flex-col justify-center row-span-3">
+                          <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.supplyChainPerformance.title}</h4>
+                          <p className="text-sm text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.supplyChainPerformance.description}}>
+                          </p>
+                        </div>
+
+                        {/* 数据交换标准 - Tall (Bottom Right) */}
+                        <div className="bg-[#9ef894] rounded-xl p-4 flex flex-col justify-center">
+                          <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.dataExchangeStandards.title}</h4>
+                          <p className="text-sm text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.dataExchangeStandards.description}}>
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            {/* Mobile Layout Card 2 - Only visible on mobile/tablet */}
-            <div className="w-full space-y-3 sm:space-y-4 lg:hidden">
-              <div className="text-center mb-6 sm:mb-8">
-                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-3">
-                  {t.sections.scenarios?.title || 'Scenarios you need carbon footprint'}
-                </h2>
-              </div>
-              
-              {/* Top Large Card - 供应链与大品牌采购 */}
-              <div className="w-full bg-[#9ef894] rounded-xl p-3 sm:p-4 shadow-xl h-[35vh] sm:h-[40vh] flex flex-col">
-                <div className="text-left flex-1">
-                  <h3 className="text-lg sm:text-xl font-bold text-[rgb(0,52,50)] mb-2 sm:mb-3">{t.sections.scenarios.scenarioCards.supplyChain.title}</h3>
-                  <div className="space-y-1 text-[rgb(0,52,50)] text-xs sm:text-sm">
-                    <p className="leading-tight text-left">
-                      <span className="font-semibold">{t.language === 'en' ? 'Company Type:' : '企业类型：'}</span>{t.sections.scenarios.scenarioCards.supplyChain.companyType}
-                    </p>
-                    <p className="leading-tight text-left">
-                      <span className="font-semibold">{t.language === 'en' ? 'Industries:' : '涉及行业：'}</span>{t.sections.scenarios.scenarioCards.supplyChain.industries}
-                    </p>
-                    <div className="mt-2 p-2 sm:p-3 bg-gray-800 bg-opacity-10 rounded-md">
-                      <p className="text-xs sm:text-sm text-[rgb(0,52,50)] leading-tight text-left">
-                        {t.sections.scenarios.scenarioCards.supplyChain.detailDescription}
+                {/* Mobile Layout Card 2 - Only visible on mobile/tablet */}
+                <div className="w-full space-y-3 sm:space-y-4 lg:hidden">
+                  <div className="text-center mb-6 sm:mb-8">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-3">
+                      {t.sections.scenarios?.title || 'Scenarios you need carbon footprint'}
+                    </h2>
+                  </div>
+                  
+                  {/* Top Large Card - 供应链与大品牌采购 */}
+                  <div className="w-full bg-[#9ef894] rounded-xl p-3 sm:p-4 shadow-xl h-[35vh] sm:h-[40vh] flex flex-col">
+                    <div className="text-left flex-1">
+                      <h3 className="text-lg sm:text-xl font-bold text-[rgb(0,52,50)] mb-2 sm:mb-3">{t.sections.scenarios.scenarioCards.supplyChain.title}</h3>
+                      <div className="space-y-1 text-[rgb(0,52,50)] text-xs sm:text-sm">
+                        <div className="mt-2 p-2 sm:p-3 bg-gray-800 bg-opacity-10 rounded-md">
+                          <p className="text-xs sm:text-sm text-[rgb(0,52,50)] leading-tight text-left">
+                            {t.sections.scenarios.scenarioCards.supplyChain.detailDescription}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="mt-2 sm:mt-3">
+                      <button className="bg-[rgb(0,52,50)] text-white px-3 py-1 rounded-full text-xs font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-1">
+                        Try Now (2 Free Reports)
+                        <div className="w-4 h-4 bg-[#9ef894] rounded-full flex items-center justify-center">
+                          <svg className="w-2 h-2 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Bottom 2x2 Grid - Four Small Cards */}
+                  <div className="flex flex-wrap justify-between gap-2">
+                    {/* SBTi */}
+                    <div className="bg-[#9ef894] rounded-lg p-2 sm:p-3 shadow-lg h-[15vh] sm:h-[17vh] flex flex-col justify-center" style={{width: '48.5%'}}>
+                      <h4 className="text-xs sm:text-sm font-bold text-[rgb(0,52,50)] mb-1">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.sbti.title}</h4>
+                      <p className="text-[10px] sm:text-xs text-[rgb(0,52,50)] leading-tight line-clamp-3" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.sbti.description}}>
+                      </p>
+                    </div>
+
+                    {/* 投标入口 */}
+                    <div className="bg-[#9ef894] rounded-lg p-2 sm:p-3 shadow-lg h-[15vh] sm:h-[17vh] flex flex-col justify-center" style={{width: '48.5%'}}>
+                      <h4 className="text-xs sm:text-sm font-bold text-[rgb(0,52,50)] mb-1">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.biddingEntry.title}</h4>
+                      <p className="text-[10px] sm:text-xs text-[rgb(0,52,50)] leading-tight line-clamp-3" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.biddingEntry.description}}>
+                      </p>
+                    </div>
+
+                    {/* 供应链碳表现 */}
+                    <div className="bg-[#9ef894] rounded-lg p-2 sm:p-3 shadow-lg h-[15vh] sm:h-[17vh] flex flex-col justify-center" style={{width: '48.5%'}}>
+                      <h4 className="text-xs sm:text-sm font-bold text-[rgb(0,52,50)] mb-1">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.supplyChainPerformance.title}</h4>
+                      <p className="text-[10px] sm:text-xs text-[rgb(0,52,50)] leading-tight line-clamp-3" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.supplyChainPerformance.description}}>
+                      </p>
+                    </div>
+
+                    {/* 数据交换标准 */}
+                    <div className="bg-[#9ef894] rounded-lg p-2 sm:p-3 shadow-lg h-[15vh] sm:h-[17vh] flex flex-col justify-center" style={{width: '48.5%'}}>
+                      <h4 className="text-xs sm:text-sm font-bold text-[rgb(0,52,50)] mb-1">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.dataExchangeStandards.title}</h4>
+                      <p className="text-[10px] sm:text-xs text-[rgb(0,52,50)] leading-tight line-clamp-3" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.dataExchangeStandards.description}}>
                       </p>
                     </div>
                   </div>
-                </div>
-                <div className="mt-2 sm:mt-3">
-                  <button className="bg-[rgb(0,52,50)] text-white px-3 py-1 rounded-full text-xs font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-1">
-                    Try Now (2 Free Reports)
-                    <div className="w-4 h-4 bg-[#9ef894] rounded-full flex items-center justify-center">
-                      <svg className="w-2 h-2 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </button>
-                </div>
-              </div>
-
-              {/* Bottom 2x2 Grid - Four Small Cards */}
-              <div className="flex flex-wrap justify-between gap-2">
-                {/* SBTi */}
-                <div className="bg-[#9ef894] rounded-lg p-2 sm:p-3 shadow-lg h-[15vh] sm:h-[17vh] flex flex-col justify-center" style={{width: '48.5%'}}>
-                  <h4 className="text-xs sm:text-sm font-bold text-[rgb(0,52,50)] mb-1">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.sbti.title}</h4>
-                  <p className="text-[10px] sm:text-xs text-[rgb(0,52,50)] leading-tight line-clamp-3" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.sbti.description}}>
-                  </p>
-                </div>
-
-                {/* 投标入口 */}
-                <div className="bg-[#9ef894] rounded-lg p-2 sm:p-3 shadow-lg h-[15vh] sm:h-[17vh] flex flex-col justify-center" style={{width: '48.5%'}}>
-                  <h4 className="text-xs sm:text-sm font-bold text-[rgb(0,52,50)] mb-1">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.biddingEntry.title}</h4>
-                  <p className="text-[10px] sm:text-xs text-[rgb(0,52,50)] leading-tight line-clamp-3" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.biddingEntry.description}}>
-                  </p>
-                </div>
-
-                {/* 供应链碳表现 */}
-                <div className="bg-[#9ef894] rounded-lg p-2 sm:p-3 shadow-lg h-[15vh] sm:h-[17vh] flex flex-col justify-center" style={{width: '48.5%'}}>
-                  <h4 className="text-xs sm:text-sm font-bold text-[rgb(0,52,50)] mb-1">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.supplyChainPerformance.title}</h4>
-                  <p className="text-[10px] sm:text-xs text-[rgb(0,52,50)] leading-tight line-clamp-3" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.supplyChainPerformance.description}}>
-                  </p>
-                </div>
-
-                {/* 数据交换标准 */}
-                <div className="bg-[#9ef894] rounded-lg p-2 sm:p-3 shadow-lg h-[15vh] sm:h-[17vh] flex flex-col justify-center" style={{width: '48.5%'}}>
-                  <h4 className="text-xs sm:text-sm font-bold text-[rgb(0,52,50)] mb-1">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.dataExchangeStandards.title}</h4>
-                  <p className="text-[10px] sm:text-xs text-[rgb(0,52,50)] leading-tight line-clamp-3" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.dataExchangeStandards.description}}>
-                  </p>
                 </div>
               </div>
             </div>
@@ -583,73 +574,133 @@ export default function Home() {
               data-card-id="card3"
             >
               <div className="bg-[rgb(0,52,50)] pb-4">
-                <div className="text-center mb-8 sm:mb-12">
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
-                    {t.sections.scenarios?.title || 'Scenarios you need carbon footprint'}
-                  </h2>
-                </div>
-                <div className="w-full h-[400px] sm:h-[480px] lg:h-[560px] xl:h-[640px] rounded-3xl overflow-hidden shadow-2xl bg-[rgb(0,52,50)]">
-                  <div className="h-full flex gap-12 p-6">
-                    {/* Left Square Card - 政府采购与行业要求 */}
-                    <div className="w-[400px] sm:w-[480px] lg:w-[560px] xl:w-[640px] bg-[#6195fe] rounded-2xl p-8 flex flex-col justify-between">
-                      <div style={{transform: 'translateY(1cm)'}}>
-                        <h3 className="text-4xl font-bold text-white mb-8">{t.sections.scenarios.scenarioCards.governmentProcurement.title}</h3>
-                        <div className="space-y-0 text-white">
-                          <p className="text-sm leading-relaxed">
-                            <span className="font-semibold">{t.language === 'en' ? 'Company Type:' : '企业类型：'}</span>{t.sections.scenarios.scenarioCards.governmentProcurement.companyType}
-                          </p>
-                          <p className="text-sm leading-relaxed">
-                            <span className="font-semibold">{t.language === 'en' ? 'Industries:' : '涉及行业：'}</span>{t.sections.scenarios.scenarioCards.governmentProcurement.industries}
-                          </p>
-                          <p className="text-sm leading-relaxed">
-                            <span className="font-semibold">{t.language === 'en' ? 'Core Description:' : '核心说明：'}</span>{t.sections.scenarios.scenarioCards.governmentProcurement.coreDescription}
-                          </p>
-                          <div className="mt-24 p-4 bg-white bg-opacity-10 rounded-lg" style={{transform: 'translateY(1cm)'}}>
+                {/* Desktop Layout */}
+                <div className="lg:block hidden">
+                  <div className="text-center mb-8 sm:mb-12">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
+                      {t.sections.scenarios?.title || 'Scenarios you need carbon footprint'}
+                    </h2>
+                  </div>
+                  <div className="w-full h-[400px] sm:h-[480px] lg:h-[560px] xl:h-[640px] rounded-3xl overflow-hidden shadow-2xl bg-[rgb(0,52,50)]">
+                    <div className="h-full flex gap-12 p-6">
+                      {/* Left Square Card - 政府采购与行业要求 */}
+                      <div className="w-[400px] sm:w-[480px] lg:w-[560px] xl:w-[640px] bg-[#6195fe] rounded-2xl p-8 flex flex-col justify-between">
+                        <div style={{transform: 'translateY(1cm)'}}>
+                          <h3 className="text-4xl font-bold text-white mb-8">{t.sections.scenarios.scenarioCards.governmentProcurement.title}</h3>
+                          <div className="space-y-0 text-white">
                             <p className="text-sm leading-relaxed">
-                              {t.sections.scenarios.scenarioCards.governmentProcurement.detailDescription}
+                              <span className="font-semibold">{t.language === 'en' ? 'Company Type:' : '企业类型：'}</span>{t.sections.scenarios.scenarioCards.governmentProcurement.companyType}
                             </p>
+                            <p className="text-sm leading-relaxed">
+                              <span className="font-semibold">{t.language === 'en' ? 'Industries:' : '涉及行业：'}</span>{t.sections.scenarios.scenarioCards.governmentProcurement.industries}
+                            </p>
+                            <p className="text-sm leading-relaxed">
+                              <span className="font-semibold">{t.language === 'en' ? 'Core Description:' : '核心说明：'}</span>{t.sections.scenarios.scenarioCards.governmentProcurement.coreDescription}
+                            </p>
+                            <div className="mt-24 p-4 bg-white bg-opacity-10 rounded-lg" style={{transform: 'translateY(1cm)'}}>
+                              <p className="text-sm leading-relaxed">
+                                {t.sections.scenarios.scenarioCards.governmentProcurement.detailDescription}
+                              </p>
+                            </div>
                           </div>
                         </div>
+                        <div className="mt-auto pt-6">
+                          <button className="bg-[rgb(0,52,50)] text-white px-6 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-2">
+                            Try Now (2 Free Reports)
+                            <div className="w-8 h-8 bg-[#6195fe] rounded-full flex items-center justify-center">
+                              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                              </svg>
+                            </div>
+                          </button>
+                        </div>
                       </div>
-                      <div className="mt-auto pt-6">
-                        <button className="bg-[rgb(0,52,50)] text-white px-6 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-2">
-                          Try Now (2 Free Reports)
-                          <div className="w-8 h-8 bg-[#6195fe] rounded-full flex items-center justify-center">
-                            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                            </svg>
-                          </div>
-                        </button>
+
+                      {/* Right Grid - Small Cards with Varying Heights */}
+                      <div className="flex-1 grid grid-cols-2 gap-4">
+                        {/* 政府Buy Clean - Short (Top Left) */}
+                        <div className="bg-[#6195fe] rounded-xl p-4 flex flex-col justify-center">
+                          <h4 className="text-4xl font-bold text-white mb-3">{t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.governmentBuyClean.title}</h4>
+                          <p className="text-sm text-white leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.governmentBuyClean.description}}>
+                          </p>
+                        </div>
+
+                        {/* 绿色建筑 - Tall (Top Right) */}
+                        <div className="bg-[#6195fe] rounded-xl p-4 flex flex-col justify-center row-span-3" style={{height: 'calc(100% - 3cm)'}}>
+                          <h4 className="text-4xl font-bold text-white mb-3">{t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.greenBuilding.title}</h4>
+                          <p className="text-sm text-white leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.greenBuilding.description}}>
+                          </p>
+                        </div>
+
+                        {/* 行业要求 - Tall (Bottom Left) */}
+                        <div className="bg-[#6195fe] rounded-xl p-4 flex flex-col justify-center row-span-3">
+                          <h4 className="text-4xl font-bold text-white mb-3">{t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.industryRequirements.title}</h4>
+                          <p className="text-sm text-white leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.industryRequirements.description}}>
+                          </p>
+                        </div>
+
+                        {/* 空白卡片 - Small-Medium (Bottom Right) */}
+                        <div className="bg-[#6195fe] rounded-xl p-4 flex flex-col justify-center" style={{gridRowEnd: 'span 1.6', height: 'calc(100% + 3cm)', marginTop: '-3cm'}}>
+                          
+                        </div>
                       </div>
                     </div>
+                  </div>
+                </div>
 
-                    {/* Right Grid - Small Cards with Varying Heights */}
-                    <div className="flex-1 grid grid-cols-2 gap-4">
-                      {/* 政府Buy Clean - Short (Top Left) */}
-                      <div className="bg-[#6195fe] rounded-xl p-4 flex flex-col justify-center">
-                        <h4 className="text-4xl font-bold text-white mb-3">{t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.governmentBuyClean.title}</h4>
-                        <p className="text-sm text-white leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.governmentBuyClean.description}}>
-                        </p>
+                {/* Mobile Layout Card 3 - Only visible on mobile/tablet */}
+                <div className="w-full space-y-3 sm:space-y-4 lg:hidden">
+                  <div className="text-center mb-6 sm:mb-8">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-3">
+                      {t.sections.scenarios?.title || 'Scenarios you need carbon footprint'}
+                    </h2>
+                  </div>
+                  
+                  {/* Top Large Card - 政府采购与行业要求 */}
+                  <div className="w-full bg-[#6195fe] rounded-xl p-3 sm:p-4 shadow-xl h-[35vh] sm:h-[40vh] flex flex-col">
+                    <div className="text-left flex-1">
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">{t.sections.scenarios.scenarioCards.governmentProcurement.title}</h3>
+                      <div className="space-y-1 text-white text-xs sm:text-sm">
+                        <div className="mt-2 p-2 sm:p-3 bg-white bg-opacity-10 rounded-md">
+                          <p className="text-xs sm:text-sm text-white leading-tight text-left">
+                            {t.sections.scenarios.scenarioCards.governmentProcurement.detailDescription}
+                          </p>
+                        </div>
                       </div>
+                    </div>
+                    <div className="mt-2 sm:mt-3">
+                      <button className="bg-[rgb(0,52,50)] text-white px-3 py-1 rounded-full text-xs font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-1">
+                        Try Now (2 Free Reports)
+                        <div className="w-4 h-4 bg-[#6195fe] rounded-full flex items-center justify-center">
+                          <svg className="w-2 h-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
 
-                      {/* 绿色建筑 - Tall (Top Right) */}
-                      <div className="bg-[#6195fe] rounded-xl p-4 flex flex-col justify-center row-span-3" style={{height: 'calc(100% - 3cm)'}}>
-                        <h4 className="text-4xl font-bold text-white mb-3">{t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.greenBuilding.title}</h4>
-                        <p className="text-sm text-white leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.greenBuilding.description}}>
-                        </p>
-                      </div>
+                  {/* Bottom 2x2 Grid - Three Small Cards (no empty card in mobile) */}
+                  <div className="flex flex-wrap justify-between gap-2">
+                    {/* 政府Buy Clean */}
+                    <div className="bg-[#6195fe] rounded-lg p-2 sm:p-3 shadow-lg h-[15vh] sm:h-[17vh] flex flex-col justify-center" style={{width: '48.5%'}}>
+                      <h4 className="text-xs sm:text-sm font-bold text-white mb-1">{t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.governmentBuyClean.title}</h4>
+                      <p className="text-[10px] sm:text-xs text-white leading-tight line-clamp-3" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.governmentBuyClean.description}}>
+                      </p>
+                    </div>
 
-                      {/* 行业要求 - Tall (Bottom Left) */}
-                      <div className="bg-[#6195fe] rounded-xl p-4 flex flex-col justify-center row-span-3">
-                        <h4 className="text-4xl font-bold text-white mb-3">{t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.industryRequirements.title}</h4>
-                        <p className="text-sm text-white leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.industryRequirements.description}}>
-                        </p>
-                      </div>
+                    {/* 绿色建筑 */}
+                    <div className="bg-[#6195fe] rounded-lg p-2 sm:p-3 shadow-lg h-[15vh] sm:h-[17vh] flex flex-col justify-center" style={{width: '48.5%'}}>
+                      <h4 className="text-xs sm:text-sm font-bold text-white mb-1">{t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.greenBuilding.title}</h4>
+                      <p className="text-[10px] sm:text-xs text-white leading-tight line-clamp-3" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.greenBuilding.description}}>
+                      </p>
+                    </div>
 
-                      {/* 空白卡片 - Small-Medium (Bottom Right) */}
-                      <div className="bg-[#6195fe] rounded-xl p-4 flex flex-col justify-center" style={{gridRowEnd: 'span 1.6', height: 'calc(100% + 3cm)', marginTop: '-3cm'}}>
-                        
-                      </div>
+                    {/* 行业要求 */}
+                    <div className="bg-[#6195fe] rounded-lg p-2 sm:p-3 shadow-lg h-[15vh] sm:h-[17vh] flex flex-col justify-center" style={{width: '48.5%'}}>
+                      <h4 className="text-xs sm:text-sm font-bold text-white mb-1">{t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.industryRequirements.title}</h4>
+                      <p className="text-[10px] sm:text-xs text-white leading-tight line-clamp-3" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.industryRequirements.description}}>
+                      </p>
                     </div>
                   </div>
                 </div>
