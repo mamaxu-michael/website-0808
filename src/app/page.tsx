@@ -270,7 +270,7 @@ export default function Home() {
 
       {/* Scenarios & Value Section */}
       <section id="scenarios-value" className="relative bg-[rgb(0,52,50)] py-12 sm:py-20 -mt-px">
-        <div className="relative container mx-auto px-4">
+        <div className="relative w-full mx-auto px-4">
           {/* Sticky Title and First Card Container */}
           <div className="sticky top-32 sm:top-40 lg:top-48 z-10 bg-[rgb(0,52,50)]">
             {/* Section Title */}
@@ -406,10 +406,12 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
+
           </div>
 
           {/* Stacked Horizontal Bar Images - Sequential Reveal */}
-          <div className="relative container mx-auto px-4">
+          <div className="relative w-full mx-auto">
             {/* Spacer for scroll trigger */}
             <div className="h-[60vh]"></div>
 
@@ -417,9 +419,15 @@ export default function Home() {
             <div 
               className={`sticky top-32 sm:top-40 lg:top-48 z-20 transform transition-all duration-800 ease-out ${
                 visibleCards.card2 ? 'translate-y-0 opacity-100' : 'translate-y-[60vh] opacity-0'
-              }`}
+              } bg-[rgb(0,52,50)]`}
               data-card-id="card2"
             >
+              {/* Section Title */}
+              <div className="text-center mb-8 sm:mb-12">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
+                  {t.sections.scenarios?.title || 'Scenarios you need carbon footprint'}
+                </h2>
+              </div>
               <div className="bg-[rgb(0,52,50)] pb-4">
                 {/* Desktop Layout */}
                 <div className="lg:block hidden">
@@ -498,13 +506,7 @@ export default function Home() {
                 </div>
 
                 {/* Mobile Layout Card 2 - Only visible on mobile/tablet */}
-                <div className="w-full space-y-3 sm:space-y-4 lg:hidden">
-                  <div className="text-center mb-6 sm:mb-8">
-                    <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-3">
-                      {t.sections.scenarios?.title || 'Scenarios you need carbon footprint'}
-                    </h2>
-                  </div>
-                  
+                <div className="w-full space-y-3 sm:space-y-4 lg:hidden px-4">
                   {/* Top Large Card - 供应链与大品牌采购 */}
                   <div className="w-full bg-[#9ef894] rounded-xl p-3 sm:p-4 shadow-xl h-[35vh] sm:h-[40vh] flex flex-col">
                     <div className="text-left flex-1">
@@ -564,15 +566,21 @@ export default function Home() {
             </div>
 
             {/* Spacer between cards */}
-            <div className="h-[60vh]"></div>
+            <div className="h-[32vh] sm:h-[40vh] lg:h-[48vh]"></div>
 
             {/* Card 3 - 政府采购与行业要求 */}
             <div 
               className={`sticky top-32 sm:top-40 lg:top-48 z-30 transform transition-all duration-800 ease-out delay-200 ${
                 visibleCards.card3 ? 'translate-y-0 opacity-100' : 'translate-y-[60vh] opacity-0'
-              }`}
+              } bg-[rgb(0,52,50)]`}
               data-card-id="card3"
             >
+              {/* Section Title */}
+              <div className="text-center mb-8 sm:mb-12">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
+                  {t.sections.scenarios?.title || 'Scenarios you need carbon footprint'}
+                </h2>
+              </div>
               <div className="bg-[rgb(0,52,50)] pb-4">
                 {/* Desktop Layout */}
                 <div className="lg:block hidden">
@@ -649,13 +657,7 @@ export default function Home() {
                 </div>
 
                 {/* Mobile Layout Card 3 - Only visible on mobile/tablet */}
-                <div className="w-full space-y-3 sm:space-y-4 lg:hidden">
-                  <div className="text-center mb-6 sm:mb-8">
-                    <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-3">
-                      {t.sections.scenarios?.title || 'Scenarios you need carbon footprint'}
-                    </h2>
-                  </div>
-                  
+                <div className="w-full space-y-3 sm:space-y-4 lg:hidden px-4">
                   {/* Top Large Card - 政府采购与行业要求 */}
                   <div className="w-full bg-[#6195fe] rounded-xl p-3 sm:p-4 shadow-xl h-[35vh] sm:h-[40vh] flex flex-col">
                     <div className="text-left flex-1">
@@ -708,7 +710,7 @@ export default function Home() {
             </div>
             
             {/* Final spacing - reduced to allow natural scroll to next section */}
-            <div className="h-[30vh]"></div>
+            <div className="h-[100vh]"></div>
           </div>
         </div>
       </section>
