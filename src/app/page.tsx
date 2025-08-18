@@ -890,12 +890,16 @@ export default function Home() {
                 <div className="order-2 lg:order-1 w-full">
                   <div className="bg-gray-900 rounded-2xl p-2">
                     <video 
-                      className="w-full bg-gray-800 rounded-xl object-cover h-[150px] sm:h-[200px] lg:h-[430px]"
+                      className="w-full bg-gray-800 rounded-xl object-cover h-[170px] sm:h-[220px] lg:h-[430px] cursor-pointer"
                       style={{ aspectRatio: '16/9' }}
                       autoPlay 
                       loop 
                       muted 
                       playsInline
+                      controls={window.innerWidth <= 768}
+                      onClick={(e) => {
+                        e.target.play().catch(() => {});
+                      }}
                     >
                       <source src="/videos/video1.mp4" type="video/mp4" />
                       <span className="text-white text-lg">视频加载中...</span>
@@ -926,12 +930,16 @@ export default function Home() {
                 <div className="order-2 lg:order-1 w-full">
                   <div className="bg-gray-900 rounded-2xl p-2">
                     <video 
-                      className="w-full bg-gray-800 rounded-xl object-cover h-[150px] sm:h-[200px] lg:h-[430px]"
+                      className="w-full bg-gray-800 rounded-xl object-cover h-[170px] sm:h-[220px] lg:h-[430px] cursor-pointer"
                       style={{ aspectRatio: '16/9' }}
                       autoPlay 
                       loop 
                       muted 
                       playsInline
+                      controls={window.innerWidth <= 768}
+                      onClick={(e) => {
+                        e.target.play().catch(() => {});
+                      }}
                     >
                       <source src="/videos/video2.mp4" type="video/mp4" />
                       <span className="text-white text-lg">视频加载中...</span>
@@ -962,12 +970,16 @@ export default function Home() {
                 <div className="order-2 lg:order-1 w-full">
                   <div className="bg-gray-900 rounded-2xl p-2">
                     <video 
-                      className="w-full bg-gray-800 rounded-xl object-cover h-[150px] sm:h-[200px] lg:h-[430px]"
+                      className="w-full bg-gray-800 rounded-xl object-cover h-[170px] sm:h-[220px] lg:h-[430px] cursor-pointer"
                       style={{ aspectRatio: '16/9' }}
                       autoPlay 
                       loop 
                       muted 
                       playsInline
+                      controls={window.innerWidth <= 768}
+                      onClick={(e) => {
+                        e.target.play().catch(() => {});
+                      }}
                     >
                       <source src="/videos/video3.mp4" type="video/mp4" />
                       <span className="text-white text-lg">视频加载中...</span>
@@ -998,12 +1010,16 @@ export default function Home() {
                 <div className="order-2 lg:order-1 w-full">
                   <div className="bg-gray-900 rounded-2xl p-2">
                     <video 
-                      className="w-full bg-gray-800 rounded-xl object-cover h-[150px] sm:h-[200px] lg:h-[430px]"
+                      className="w-full bg-gray-800 rounded-xl object-cover h-[170px] sm:h-[220px] lg:h-[430px] cursor-pointer"
                       style={{ aspectRatio: '16/9' }}
                       autoPlay 
                       loop 
                       muted 
                       playsInline
+                      controls={window.innerWidth <= 768}
+                      onClick={(e) => {
+                        e.target.play().catch(() => {});
+                      }}
                     >
                       <source src="/videos/video4.mp4" type="video/mp4" />
                       <span className="text-white text-lg">视频加载中...</span>
@@ -1034,12 +1050,16 @@ export default function Home() {
                 <div className="order-2 lg:order-1 w-full">
                   <div className="bg-gray-900 rounded-2xl p-2">
                     <video 
-                      className="w-full bg-gray-800 rounded-xl object-cover h-[150px] sm:h-[200px] lg:h-[430px]"
+                      className="w-full bg-gray-800 rounded-xl object-cover h-[170px] sm:h-[220px] lg:h-[430px] cursor-pointer"
                       style={{ aspectRatio: '16/9' }}
                       autoPlay 
                       loop 
                       muted 
                       playsInline
+                      controls={window.innerWidth <= 768}
+                      onClick={(e) => {
+                        e.target.play().catch(() => {});
+                      }}
                     >
                       <source src="/videos/video5.mp4" type="video/mp4" />
                       <span className="text-white text-lg">视频加载中...</span>
