@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,6 +24,21 @@ export default function Home() {
   const [painSectionBottom, setPainSectionBottom] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
   const [scrollTimeout, setScrollTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // 检测是否为移动端
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
 
   useEffect(() => {
     // 滚动控制和横幅显示逻辑
@@ -46,7 +61,7 @@ export default function Home() {
       
       // 检查是否在痛点区域附近 - 调整触发时机
       const windowHeight = window.innerHeight;
-      const triggerPoint = painSectionTop - windowHeight * 0.1; // 痛点区域即将进入视口时触发
+      const triggerPoint = painSectionTop + windowHeight * 0.25; // 痛点区域滚动到25%时触发
       const isNearPainSection = currentScrollY >= triggerPoint && currentScrollY <= painSectionBottom + 300;
       
       if (isNearPainSection && painSectionTop > 0) {
@@ -289,13 +304,13 @@ export default function Home() {
                     <h3 className="text-4xl font-bold text-[rgb(0,52,50)] mb-8">{t.sections.scenarios.scenarioCards.marketAccess.title}</h3>
                     <div className="space-y-0 text-[rgb(0,52,50)]">
                       <p className="text-sm leading-relaxed">
-                        <span className="font-semibold">{t.language === 'en' ? 'Company Type:' : '企业类型：'}</span>{t.sections.scenarios.scenarioCards.marketAccess.companyType}
+                        <span className="font-semibold">{language === 'en' ? 'Company Type:' : '企业类型：'}</span>{t.sections.scenarios.scenarioCards.marketAccess.companyType}
                       </p>
                       <p className="text-sm leading-relaxed">
-                        <span className="font-semibold">{t.language === 'en' ? 'Industries:' : '涉及行业：'}</span>{t.sections.scenarios.scenarioCards.marketAccess.industries}
+                        <span className="font-semibold">{language === 'en' ? 'Industries:' : '涉及行业：'}</span>{t.sections.scenarios.scenarioCards.marketAccess.industries}
                       </p>
                       <p className="text-sm leading-relaxed">
-                        <span className="font-semibold">{t.language === 'en' ? 'Core Description:' : '核心说明：'}</span>{t.sections.scenarios.scenarioCards.marketAccess.coreDescription}
+                        <span className="font-semibold">{language === 'en' ? 'Core Description:' : '核心说明：'}</span>{t.sections.scenarios.scenarioCards.marketAccess.coreDescription}
                       </p>
                       <div className="mt-24 p-4 bg-white bg-opacity-10 rounded-lg" style={{transform: 'translateY(1cm)'}}>
                         <p className="text-sm leading-relaxed text-[rgb(0,52,50)]">
@@ -305,7 +320,10 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="mt-auto pt-6">
-                    <button className="bg-[rgb(0,52,50)] text-white px-6 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-2">
+                    <button 
+                      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                      className="bg-[rgb(0,52,50)] text-white px-6 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-2"
+                    >
                       Try Now (2 Free Reports)
                       <div className="w-8 h-8 bg-[#a8b3ff] rounded-full flex items-center justify-center">
                         <svg className="w-4 h-4 text-[rgb(0,52,50)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -364,7 +382,10 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="mt-2 sm:mt-3">
-                  <button className="bg-[rgb(0,52,50)] text-white px-3 py-1 rounded-full text-xs font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-1">
+                  <button 
+                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="bg-[rgb(0,52,50)] text-white px-3 py-1 rounded-full text-xs font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-1"
+                  >
                     Try Now (2 Free Reports)
                     <div className="w-4 h-4 bg-[#a8b3ff] rounded-full flex items-center justify-center">
                       <svg className="w-2 h-2 text-[rgb(0,52,50)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -431,11 +452,7 @@ export default function Home() {
               <div className="bg-[rgb(0,52,50)] pb-4">
                 {/* Desktop Layout */}
                 <div className="lg:block hidden">
-                  <div className="text-center mb-8 sm:mb-12">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
-                      {t.sections.scenarios?.title || 'Scenarios you need carbon footprint'}
-                    </h2>
-                  </div>
+
                   <div className="w-full h-[400px] sm:h-[480px] lg:h-[560px] xl:h-[640px] rounded-3xl overflow-hidden shadow-2xl bg-[rgb(0,52,50)]">
                     <div className="h-full flex gap-12 p-6">
                       {/* Left Square Card - 供应链与大品牌采购 */}
@@ -444,13 +461,13 @@ export default function Home() {
                           <h3 className="text-4xl font-bold text-[rgb(0,52,50)] mb-8">{t.sections.scenarios.scenarioCards.supplyChain.title}</h3>
                           <div className="space-y-0 text-[rgb(0,52,50)]">
                             <p className="text-sm leading-relaxed">
-                              <span className="font-semibold">{t.language === 'en' ? 'Company Type:' : '企业类型：'}</span>{t.sections.scenarios.scenarioCards.supplyChain.companyType}
+                              <span className="font-semibold">{language === 'en' ? 'Company Type:' : '企业类型：'}</span>{t.sections.scenarios.scenarioCards.supplyChain.companyType}
                             </p>
                             <p className="text-sm leading-relaxed">
-                              <span className="font-semibold">{t.language === 'en' ? 'Industries:' : '涉及行业：'}</span>{t.sections.scenarios.scenarioCards.supplyChain.industries}
+                              <span className="font-semibold">{language === 'en' ? 'Industries:' : '涉及行业：'}</span>{t.sections.scenarios.scenarioCards.supplyChain.industries}
                             </p>
                             <p className="text-sm leading-relaxed">
-                              <span className="font-semibold">{t.language === 'en' ? 'Core Concept:' : '核心概念：'}</span>{t.sections.scenarios.scenarioCards.supplyChain.coreConcept}
+                              <span className="font-semibold">{language === 'en' ? 'Core Concept:' : '核心概念：'}</span>{t.sections.scenarios.scenarioCards.supplyChain.coreConcept}
                             </p>
                             <div className="mt-24 p-4 bg-gray-800 bg-opacity-10 rounded-lg" style={{transform: 'translateY(1cm)'}}>
                               <p className="text-sm leading-relaxed text-[rgb(0,52,50)]">
@@ -460,7 +477,10 @@ export default function Home() {
                           </div>
                         </div>
                         <div className="mt-auto pt-6">
-                          <button className="bg-[rgb(0,52,50)] text-white px-6 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-2">
+                          <button 
+                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="bg-[rgb(0,52,50)] text-white px-6 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-2"
+                          >
                             Try Now (2 Free Reports)
                             <div className="w-8 h-8 bg-[#9ef894] rounded-full flex items-center justify-center">
                               <svg className="w-4 h-4 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -520,7 +540,10 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="mt-2 sm:mt-3">
-                      <button className="bg-[rgb(0,52,50)] text-white px-3 py-1 rounded-full text-xs font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-1">
+                      <button 
+                        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                        className="bg-[rgb(0,52,50)] text-white px-3 py-1 rounded-full text-xs font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-1"
+                      >
                         Try Now (2 Free Reports)
                         <div className="w-4 h-4 bg-[#9ef894] rounded-full flex items-center justify-center">
                           <svg className="w-2 h-2 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -584,11 +607,7 @@ export default function Home() {
               <div className="bg-[rgb(0,52,50)] pb-4">
                 {/* Desktop Layout */}
                 <div className="lg:block hidden">
-                  <div className="text-center mb-8 sm:mb-12">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
-                      {t.sections.scenarios?.title || 'Scenarios you need carbon footprint'}
-                    </h2>
-                  </div>
+
                   <div className="w-full h-[400px] sm:h-[480px] lg:h-[560px] xl:h-[640px] rounded-3xl overflow-hidden shadow-2xl bg-[rgb(0,52,50)]">
                     <div className="h-full flex gap-12 p-6">
                       {/* Left Square Card - 政府采购与行业要求 */}
@@ -597,13 +616,13 @@ export default function Home() {
                           <h3 className="text-4xl font-bold text-white mb-8">{t.sections.scenarios.scenarioCards.governmentProcurement.title}</h3>
                           <div className="space-y-0 text-white">
                             <p className="text-sm leading-relaxed">
-                              <span className="font-semibold">{t.language === 'en' ? 'Company Type:' : '企业类型：'}</span>{t.sections.scenarios.scenarioCards.governmentProcurement.companyType}
+                              <span className="font-semibold">{language === 'en' ? 'Company Type:' : '企业类型：'}</span>{t.sections.scenarios.scenarioCards.governmentProcurement.companyType}
                             </p>
                             <p className="text-sm leading-relaxed">
-                              <span className="font-semibold">{t.language === 'en' ? 'Industries:' : '涉及行业：'}</span>{t.sections.scenarios.scenarioCards.governmentProcurement.industries}
+                              <span className="font-semibold">{language === 'en' ? 'Industries:' : '涉及行业：'}</span>{t.sections.scenarios.scenarioCards.governmentProcurement.industries}
                             </p>
                             <p className="text-sm leading-relaxed">
-                              <span className="font-semibold">{t.language === 'en' ? 'Core Description:' : '核心说明：'}</span>{t.sections.scenarios.scenarioCards.governmentProcurement.coreDescription}
+                              <span className="font-semibold">{language === 'en' ? 'Core Description:' : '核心说明：'}</span>{t.sections.scenarios.scenarioCards.governmentProcurement.coreDescription}
                             </p>
                             <div className="mt-24 p-4 bg-white bg-opacity-10 rounded-lg" style={{transform: 'translateY(1cm)'}}>
                               <p className="text-sm leading-relaxed">
@@ -613,7 +632,10 @@ export default function Home() {
                           </div>
                         </div>
                         <div className="mt-auto pt-6">
-                          <button className="bg-[rgb(0,52,50)] text-white px-6 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-2">
+                          <button 
+                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="bg-[rgb(0,52,50)] text-white px-6 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-2"
+                          >
                             Try Now (2 Free Reports)
                             <div className="w-8 h-8 bg-[#6195fe] rounded-full flex items-center justify-center">
                               <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -671,7 +693,10 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="mt-2 sm:mt-3">
-                      <button className="bg-[rgb(0,52,50)] text-white px-3 py-1 rounded-full text-xs font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-1">
+                      <button 
+                        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                        className="bg-[rgb(0,52,50)] text-white px-3 py-1 rounded-full text-xs font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-1"
+                      >
                         Try Now (2 Free Reports)
                         <div className="w-4 h-4 bg-[#6195fe] rounded-full flex items-center justify-center">
                           <svg className="w-2 h-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -716,43 +741,43 @@ export default function Home() {
       </section>
 
       {/* We Understand Your Pain Section */}
-      <section className="py-12 sm:py-20 bg-[rgb(0,52,50)] -mt-px">
+      <section className="py-6 md:py-12 lg:py-20 bg-[rgb(0,52,50)] -mt-px">
         <div className="relative container mx-auto px-4">
-          <div className="text-center mb-12 sm:mb-20 lg:mb-24">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
+          <div className="text-center mb-6 md:mb-12 lg:mb-20 xl:mb-24">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-2 md:mb-4 lg:mb-6">
               {t.sections.scenarios.painSection.title}
             </h2>
           </div>
 
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 lg:gap-6 relative" data-card-id="pain-cards">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8 lg:gap-16 relative" data-card-id="pain-cards">
             {/* Top Row */}
             {/* 成本高 - Purple */}
-            <div className="bg-[#a8b3ff] rounded-lg p-2 sm:p-3 shadow-lg min-h-[60px] sm:min-h-[70px] flex flex-col justify-center">
+            <div className="bg-[#a8b3ff] rounded-xl md:rounded-2xl p-3 md:p-6 lg:p-8 shadow-xl min-h-[80px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
               <div className="text-center">
-                <h3 className="text-sm sm:text-lg font-bold text-[rgb(0,52,50)] mb-1 sm:mb-2">{t.sections.scenarios.painSection.cards.costHigh.title}</h3>
-                <div className="w-6 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-1 sm:mb-2"></div>
-                <p className="text-xs sm:text-sm text-[rgb(0,52,50)] leading-tight" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.costHigh.description}}>
+                <h3 className="text-lg md:text-2xl lg:text-3xl font-bold text-[rgb(0,52,50)] mb-2 md:mb-3 lg:mb-4">{t.sections.scenarios.painSection.cards.costHigh.title}</h3>
+                <div className="w-8 md:w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-2 md:mb-4 lg:mb-6"></div>
+                <p className="text-xs md:text-sm lg:text-base text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.costHigh.description}}>
                 </p>
               </div>
             </div>
 
             {/* 周期长 - Green */}
-            <div className="bg-[#9ef894] rounded-lg p-2 sm:p-3 shadow-lg min-h-[60px] sm:min-h-[70px] flex flex-col justify-center">
+            <div className="bg-[#9ef894] rounded-xl md:rounded-2xl p-3 md:p-6 lg:p-8 shadow-xl min-h-[80px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
               <div className="text-center">
-                <h3 className="text-sm sm:text-lg font-bold text-[rgb(0,52,50)] mb-1 sm:mb-2">{t.sections.scenarios.painSection.cards.cycleLong.title}</h3>
-                <div className="w-6 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-1 sm:mb-2"></div>
-                <p className="text-xs sm:text-sm text-[rgb(0,52,50)] leading-tight" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.cycleLong.description}}>
+                <h3 className="text-lg md:text-2xl lg:text-3xl font-bold text-[rgb(0,52,50)] mb-2 md:mb-3 lg:mb-4">{t.sections.scenarios.painSection.cards.cycleLong.title}</h3>
+                <div className="w-8 md:w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-2 md:mb-4 lg:mb-6"></div>
+                <p className="text-xs md:text-sm lg:text-base text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.cycleLong.description}}>
                 </p>
               </div>
             </div>
 
             {/* 门槛高 - Blue */}
-            <div className="bg-[#6195fe] rounded-lg p-2 sm:p-3 shadow-lg min-h-[60px] sm:min-h-[70px] flex flex-col justify-center">
+            <div className="bg-[#6195fe] rounded-xl md:rounded-2xl p-3 md:p-6 lg:p-8 shadow-xl min-h-[80px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
               <div className="text-center">
-                <h3 className="text-sm sm:text-lg font-bold text-white mb-1 sm:mb-2">{t.sections.scenarios.painSection.cards.barrierHigh.title}</h3>
-                <div className="w-6 h-0.5 bg-white mx-auto mb-1 sm:mb-2"></div>
-                <p className="text-xs sm:text-sm text-white leading-tight" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.barrierHigh.description}}>
+                <h3 className="text-lg md:text-2xl lg:text-3xl font-bold text-[rgb(0,52,50)] mb-2 md:mb-3 lg:mb-4">{t.sections.scenarios.painSection.cards.barrierHigh.title}</h3>
+                <div className="w-8 md:w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-2 md:mb-4 lg:mb-6"></div>
+                <p className="text-xs md:text-sm lg:text-base text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.barrierHigh.description}}>
                 </p>
               </div>
             </div>
@@ -762,44 +787,44 @@ export default function Home() {
               solutionBarVisible 
                 ? 'opacity-100 translate-y-0 scale-100' 
                 : 'opacity-0 translate-y-20 scale-90'
-            }`} style={{left: '-10%', right: '-10%', transform: 'translateY(4cm)'}}>
-              <div className="bg-white bg-opacity-30 backdrop-blur-xl rounded-2xl p-4 sm:p-6 shadow-2xl w-full mx-4 border border-white border-opacity-40 pointer-events-auto" style={{height: '350px'}}>
-                <div className="text-center mb-3">
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[rgb(0,52,50)] mb-3 drop-shadow-lg">
+            }`} style={{left: '-5%', right: '-5%', transform: 'translateY(3.5cm)'}}>
+              <div className="bg-white bg-opacity-30 backdrop-blur-xl rounded-xl md:rounded-2xl p-3 md:p-4 lg:p-6 shadow-2xl w-full mx-2 md:mx-4 border border-white border-opacity-40 pointer-events-auto" style={{minHeight: '160px'}}>
+                <div className="text-center mb-2 md:mb-3">
+                  <h3 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-[rgb(0,52,50)] mb-2 md:mb-3 drop-shadow-lg">
                     {t.sections.scenarios.painSection.solutionTitle}
                   </h3>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-0 h-full">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3 lg:gap-4">
                   {/* 下降99% 成本降低 */}
-                  <div className="text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-xl p-1 sm:p-1 border border-white border-opacity-50 shadow-lg flex items-center justify-center mt-4" style={{height: '80px'}}>
-                    <div className="flex items-center justify-center gap-3">
+                  <div className="text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-lg md:rounded-xl p-3 md:p-3 border border-white border-opacity-50 shadow-lg flex items-center justify-center" style={{minHeight: '70px'}}>
+                    <div className="flex items-center justify-center gap-2 md:gap-6">
                       <div className="flex items-center">
-                        <h4 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[rgb(0,52,50)] drop-shadow-md">{t.sections.scenarios.painSection.solution.costReduction.title}</h4>
+                        <h4 className="text-lg md:text-2xl lg:text-3xl xl:text-4xl font-bold text-[rgb(0,52,50)] drop-shadow-md">{t.sections.scenarios.painSection.solution.costReduction.title}</h4>
                       </div>
                       <div className="text-left">
-                        <div dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.solution.costReduction.description}} className="text-xs sm:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">
+                        <div dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.solution.costReduction.description}} className="text-xs md:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">
                         </div>
                       </div>
                     </div>
                   </div>
                   
                   {/* 0门槛 */}
-                  <div className="text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-xl p-1 sm:p-1 border border-white border-opacity-50 shadow-lg flex items-center justify-center" style={{height: '80px'}}>
-                    <div className="flex items-center justify-center gap-3">
-                      <h4 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[rgb(0,52,50)] drop-shadow-md">{t.sections.scenarios.painSection.solution.zeroBarrier.title}</h4>
+                  <div className="text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-lg md:rounded-xl p-3 md:p-3 border border-white border-opacity-50 shadow-lg flex items-center justify-center" style={{minHeight: '70px'}}>
+                    <div className="flex items-center justify-center gap-2 md:gap-6">
+                      <h4 className="text-lg md:text-2xl lg:text-3xl xl:text-4xl font-bold text-[rgb(0,52,50)] drop-shadow-md">{t.sections.scenarios.painSection.solution.zeroBarrier.title}</h4>
                       <div className="text-left">
-                        <div dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.solution.zeroBarrier.description}} className="text-xs sm:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">
+                        <div dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.solution.zeroBarrier.description}} className="text-xs md:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">
                         </div>
                       </div>
                     </div>
                   </div>
                   
                   {/* 预核验 */}
-                  <div className="text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-xl p-1 sm:p-1 border border-white border-opacity-50 shadow-lg flex items-center justify-center" style={{height: '80px'}}>
-                    <div className="flex items-center justify-center gap-3">
-                      <h4 className="text-xl sm:text-2xl md:text-3xl font-bold text-[rgb(0,52,50)] drop-shadow-md">{t.sections.scenarios.painSection.solution.preValidation.title}</h4>
+                  <div className="text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-lg md:rounded-xl p-3 md:p-3 border border-white border-opacity-50 shadow-lg flex items-center justify-center" style={{minHeight: '70px'}}>
+                    <div className="flex items-center justify-center gap-2 md:gap-6">
+                      <h4 className="text-sm md:text-xl lg:text-2xl xl:text-3xl font-bold text-[rgb(0,52,50)] drop-shadow-md">{t.sections.scenarios.painSection.solution.preValidation.title}</h4>
                       <div className="text-left">
-                        <div dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.solution.preValidation.description}} className="text-xs sm:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">
+                        <div dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.solution.preValidation.description}} className="text-xs md:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">
                         </div>
                       </div>
                     </div>
@@ -810,31 +835,31 @@ export default function Home() {
 
             {/* Bottom Row */}
             {/* 供应链压力大 - Light Green */}
-            <div className="bg-[#c2f0c2] rounded-lg p-2 sm:p-3 shadow-lg min-h-[60px] sm:min-h-[70px] flex flex-col justify-center">
+            <div className="bg-[#c2f0c2] rounded-xl md:rounded-2xl p-3 md:p-6 lg:p-8 shadow-xl min-h-[80px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
               <div className="text-center">
-                <h3 className="text-sm sm:text-lg font-bold text-[rgb(0,52,50)] mb-1 sm:mb-2">{t.sections.scenarios.painSection.cards.supplyChainPressure.title}</h3>
-                <div className="w-6 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-1 sm:mb-2"></div>
-                <p className="text-xs sm:text-sm text-[rgb(0,52,50)] leading-tight" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.supplyChainPressure.description}}>
+                <h3 className="text-lg md:text-2xl lg:text-3xl font-bold text-[rgb(0,52,50)] mb-2 md:mb-3 lg:mb-4">{t.sections.scenarios.painSection.cards.supplyChainPressure.title}</h3>
+                <div className="w-8 md:w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-2 md:mb-4 lg:mb-6"></div>
+                <p className="text-xs md:text-sm lg:text-base text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.supplyChainPressure.description}}>
                 </p>
               </div>
             </div>
 
             {/* 隐形成本 - Light Blue */}
-            <div className="bg-[#c2f5f7] rounded-lg p-2 sm:p-3 shadow-lg min-h-[60px] sm:min-h-[70px] flex flex-col justify-center">
+            <div className="bg-[#c2f5f7] rounded-xl md:rounded-2xl p-3 md:p-6 lg:p-8 shadow-xl min-h-[80px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
               <div className="text-center">
-                <h3 className="text-sm sm:text-lg font-bold text-[rgb(0,52,50)] mb-1 sm:mb-2">{t.sections.scenarios.painSection.cards.hiddenCost.title}</h3>
-                <div className="w-6 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-1 sm:mb-2"></div>
-                <p className="text-xs sm:text-sm text-[rgb(0,52,50)] leading-tight" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.hiddenCost.description}}>
+                <h3 className="text-lg md:text-2xl lg:text-3xl font-bold text-[rgb(0,52,50)] mb-2 md:mb-3 lg:mb-4">{t.sections.scenarios.painSection.cards.hiddenCost.title}</h3>
+                <div className="w-8 md:w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-2 md:mb-4 lg:mb-6"></div>
+                <p className="text-xs md:text-sm lg:text-base text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.hiddenCost.description}}>
                 </p>
               </div>
             </div>
 
             {/* 反复返工 - Light Pink */}
-            <div className="bg-[#ffe0d0] rounded-lg p-2 sm:p-3 shadow-lg min-h-[60px] sm:min-h-[70px] flex flex-col justify-center">
+            <div className="bg-[#ffe0d0] rounded-xl md:rounded-2xl p-3 md:p-6 lg:p-8 shadow-xl min-h-[80px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
               <div className="text-center">
-                <h3 className="text-sm sm:text-lg font-bold text-[rgb(0,52,50)] mb-1 sm:mb-2">{t.sections.scenarios.painSection.cards.rework.title}</h3>
-                <div className="w-6 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-1 sm:mb-2"></div>
-                <p className="text-xs sm:text-sm text-[rgb(0,52,50)] leading-tight" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.rework.description}}>
+                <h3 className="text-lg md:text-2xl lg:text-3xl font-bold text-[rgb(0,52,50)] mb-2 md:mb-3 lg:mb-4">{t.sections.scenarios.painSection.cards.rework.title}</h3>
+                <div className="w-8 md:w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-2 md:mb-4 lg:mb-6"></div>
+                <p className="text-xs md:text-sm lg:text-base text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.rework.description}}>
                 </p>
               </div>
             </div>
@@ -896,7 +921,7 @@ export default function Home() {
                       loop 
                       muted 
                       playsInline
-                      controls={window.innerWidth <= 768}
+                      controls={isMobile}
                       onClick={(e) => {
                         e.target.play().catch(() => {});
                       }}
@@ -936,7 +961,7 @@ export default function Home() {
                       loop 
                       muted 
                       playsInline
-                      controls={window.innerWidth <= 768}
+                      controls={isMobile}
                       onClick={(e) => {
                         e.target.play().catch(() => {});
                       }}
@@ -976,7 +1001,7 @@ export default function Home() {
                       loop 
                       muted 
                       playsInline
-                      controls={window.innerWidth <= 768}
+                      controls={isMobile}
                       onClick={(e) => {
                         e.target.play().catch(() => {});
                       }}
@@ -1016,7 +1041,7 @@ export default function Home() {
                       loop 
                       muted 
                       playsInline
-                      controls={window.innerWidth <= 768}
+                      controls={isMobile}
                       onClick={(e) => {
                         e.target.play().catch(() => {});
                       }}
@@ -1056,7 +1081,7 @@ export default function Home() {
                       loop 
                       muted 
                       playsInline
-                      controls={window.innerWidth <= 768}
+                      controls={isMobile}
                       onClick={(e) => {
                         e.target.play().catch(() => {});
                       }}
