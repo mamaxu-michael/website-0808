@@ -923,7 +923,8 @@ export default function Home() {
                       playsInline
                       controls={isMobile}
                       onClick={(e) => {
-                        e.target.play().catch(() => {});
+                        const video = e.target as HTMLVideoElement;
+                        video.play().catch(() => {});
                       }}
                     >
                       <source src="/videos/video1.mp4" type="video/mp4" />
@@ -963,7 +964,8 @@ export default function Home() {
                       playsInline
                       controls={isMobile}
                       onClick={(e) => {
-                        e.target.play().catch(() => {});
+                        const video = e.target as HTMLVideoElement;
+                        video.play().catch(() => {});
                       }}
                     >
                       <source src="/videos/video2.mp4" type="video/mp4" />
@@ -1003,7 +1005,8 @@ export default function Home() {
                       playsInline
                       controls={isMobile}
                       onClick={(e) => {
-                        e.target.play().catch(() => {});
+                        const video = e.target as HTMLVideoElement;
+                        video.play().catch(() => {});
                       }}
                     >
                       <source src="/videos/video3.mp4" type="video/mp4" />
@@ -1043,7 +1046,8 @@ export default function Home() {
                       playsInline
                       controls={isMobile}
                       onClick={(e) => {
-                        e.target.play().catch(() => {});
+                        const video = e.target as HTMLVideoElement;
+                        video.play().catch(() => {});
                       }}
                     >
                       <source src="/videos/video4.mp4" type="video/mp4" />
@@ -1083,7 +1087,8 @@ export default function Home() {
                       playsInline
                       controls={isMobile}
                       onClick={(e) => {
-                        e.target.play().catch(() => {});
+                        const video = e.target as HTMLVideoElement;
+                        video.play().catch(() => {});
                       }}
                     >
                       <source src="/videos/video5.mp4" type="video/mp4" />
