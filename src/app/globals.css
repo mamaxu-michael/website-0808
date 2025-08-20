@@ -46,3 +46,14 @@ body {
     stroke-dashoffset: 0;
   }
 }
+
+/* Solution Bar Responsive Positioning */
+.solution-bar-position {
+  top: -0.5cm; /* Mobile default */
+}
+
+@media (min-width: 1024px) {
+  .solution-bar-position {
+    top: -3.5cm; /* Desktop */
+  }
+}

@@ -59,16 +59,25 @@ export default function Home() {
       }, 150); // 150ms后认为滚动停止
       setScrollTimeout(newTimeout);
       
-      // 精确的位置触发 - 基于Pain Section标题位置
+      // 精确的位置触发 - 基于Pain Section标题位置和滚动方向，移动端和桌面端不同触发时机
       const painSectionTitle = document.querySelector('[data-section-id="pain-section-title"]');
       if (painSectionTitle) {
         const rect = painSectionTitle.getBoundingClientRect();
-        // 当标题接触页面顶端时显示横幅
-        if (rect.top <= 100 && rect.bottom > 0) {
+        const isMobile = window.innerWidth < 1024;
+        
+        // 不同设备的触发阈值
+        const triggerThreshold = isMobile ? 50 : 200; // 移动端50px，桌面端200px
+        
+        // 触发显示：当标题距离顶端达到阈值时显示横幅
+        if (rect.top <= triggerThreshold && rect.bottom > 0) {
           setSolutionBarVisible(true);
-        } else {
+        } 
+        // 只有在向下滑动且标题已经远离时才隐藏
+        else if (direction === 'down' && rect.top > triggerThreshold) {
           setSolutionBarVisible(false);
         }
+        // 向上滑动时，无论位置如何都保持当前状态（不改变）
+        
       } else {
         // 如果找不到标题元素，使用临时的始终显示
         setSolutionBarVisible(true);
@@ -743,44 +752,44 @@ export default function Home() {
           </div>
 
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8 lg:gap-16 relative" data-card-id="pain-cards">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-8 lg:gap-16 relative" data-card-id="pain-cards">
             {/* Top Row */}
             {/* 成本高 - Purple */}
-            <div className="bg-[#a8b3ff] rounded-xl md:rounded-2xl p-3 md:p-6 lg:p-8 shadow-xl min-h-[80px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
+            <div className="bg-[#a8b3ff] rounded-lg md:rounded-2xl p-2 md:p-6 lg:p-8 shadow-xl min-h-[60px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
               <div className="text-center">
-                <h3 className="text-lg md:text-2xl lg:text-3xl font-bold text-[rgb(0,52,50)] mb-2 md:mb-3 lg:mb-4">{t.sections.scenarios.painSection.cards.costHigh.title}</h3>
-                <div className="w-8 md:w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-2 md:mb-4 lg:mb-6"></div>
-                <p className="text-xs md:text-sm lg:text-base text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.costHigh.description}}>
+                <h3 className="text-sm md:text-2xl lg:text-3xl font-bold text-[rgb(0,52,50)] mb-1 md:mb-3 lg:mb-4">{t.sections.scenarios.painSection.cards.costHigh.title}</h3>
+                <div className="w-6 md:w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-1 md:mb-4 lg:mb-6"></div>
+                <p className="text-xs md:text-sm lg:text-base text-[rgb(0,52,50)] leading-tight" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.costHigh.description}}>
                 </p>
               </div>
             </div>
 
             {/* 周期长 - Green */}
-            <div className="bg-[#9ef894] rounded-xl md:rounded-2xl p-3 md:p-6 lg:p-8 shadow-xl min-h-[80px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
+            <div className="bg-[#9ef894] rounded-lg md:rounded-2xl p-2 md:p-6 lg:p-8 shadow-xl min-h-[60px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
               <div className="text-center">
-                <h3 className="text-lg md:text-2xl lg:text-3xl font-bold text-[rgb(0,52,50)] mb-2 md:mb-3 lg:mb-4">{t.sections.scenarios.painSection.cards.cycleLong.title}</h3>
-                <div className="w-8 md:w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-2 md:mb-4 lg:mb-6"></div>
-                <p className="text-xs md:text-sm lg:text-base text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.cycleLong.description}}>
+                <h3 className="text-sm md:text-2xl lg:text-3xl font-bold text-[rgb(0,52,50)] mb-1 md:mb-3 lg:mb-4">{t.sections.scenarios.painSection.cards.cycleLong.title}</h3>
+                <div className="w-6 md:w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-1 md:mb-4 lg:mb-6"></div>
+                <p className="text-xs md:text-sm lg:text-base text-[rgb(0,52,50)] leading-tight" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.cycleLong.description}}>
                 </p>
               </div>
             </div>
 
             {/* 门槛高 - Blue */}
-            <div className="bg-[#6195fe] rounded-xl md:rounded-2xl p-3 md:p-6 lg:p-8 shadow-xl min-h-[80px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
+            <div className="bg-[#6195fe] rounded-lg md:rounded-2xl p-2 md:p-6 lg:p-8 shadow-xl min-h-[60px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
               <div className="text-center">
-                <h3 className="text-lg md:text-2xl lg:text-3xl font-bold text-[rgb(0,52,50)] mb-2 md:mb-3 lg:mb-4">{t.sections.scenarios.painSection.cards.barrierHigh.title}</h3>
-                <div className="w-8 md:w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-2 md:mb-4 lg:mb-6"></div>
-                <p className="text-xs md:text-sm lg:text-base text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.barrierHigh.description}}>
+                <h3 className="text-sm md:text-2xl lg:text-3xl font-bold text-[rgb(0,52,50)] mb-1 md:mb-3 lg:mb-4">{t.sections.scenarios.painSection.cards.barrierHigh.title}</h3>
+                <div className="w-6 md:w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-1 md:mb-4 lg:mb-6"></div>
+                <p className="text-xs md:text-sm lg:text-base text-[rgb(0,52,50)] leading-tight" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.barrierHigh.description}}>
                 </p>
               </div>
             </div>
 
             {/* Solution Bar - Animated Overlay */}
-            <div className={`absolute inset-0 flex items-center justify-center z-20 transition-all duration-800 ease-out pointer-events-none ${
+            <div className={`solution-bar-position absolute inset-0 flex items-center justify-center z-20 transition-all duration-800 ease-out pointer-events-none ${
               solutionBarVisible 
                 ? 'opacity-100 translate-y-0 scale-100' 
                 : 'opacity-0 translate-y-20 scale-90'
-            }`} style={{left: '-5%', right: '-5%', top: '-3.5cm'}}>
+            }`} style={{left: '-5%', right: '-5%'}}>
               <div className="bg-white bg-opacity-30 backdrop-blur-xl rounded-xl md:rounded-2xl p-3 md:p-4 lg:p-6 shadow-2xl w-full mx-2 md:mx-4 border border-white border-opacity-40 pointer-events-auto" style={{minHeight: '160px'}}>
                 <div className="text-center mb-2 md:mb-3">
                   <h3 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-[rgb(0,52,50)] mb-2 md:mb-3 drop-shadow-lg">
@@ -828,31 +837,31 @@ export default function Home() {
 
             {/* Bottom Row */}
             {/* 供应链压力大 - Light Green */}
-            <div className="bg-[#c2f0c2] rounded-xl md:rounded-2xl p-3 md:p-6 lg:p-8 shadow-xl min-h-[80px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
+            <div className="bg-[#c2f0c2] rounded-lg md:rounded-2xl p-2 md:p-6 lg:p-8 shadow-xl min-h-[60px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
               <div className="text-center">
-                <h3 className="text-lg md:text-2xl lg:text-3xl font-bold text-[rgb(0,52,50)] mb-2 md:mb-3 lg:mb-4">{t.sections.scenarios.painSection.cards.supplyChainPressure.title}</h3>
-                <div className="w-8 md:w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-2 md:mb-4 lg:mb-6"></div>
-                <p className="text-xs md:text-sm lg:text-base text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.supplyChainPressure.description}}>
+                <h3 className="text-sm md:text-2xl lg:text-3xl font-bold text-[rgb(0,52,50)] mb-1 md:mb-3 lg:mb-4">{t.sections.scenarios.painSection.cards.supplyChainPressure.title}</h3>
+                <div className="w-6 md:w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-1 md:mb-4 lg:mb-6"></div>
+                <p className="text-xs md:text-sm lg:text-base text-[rgb(0,52,50)] leading-tight" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.supplyChainPressure.description}}>
                 </p>
               </div>
             </div>
 
             {/* 隐形成本 - Light Blue */}
-            <div className="bg-[#c2f5f7] rounded-xl md:rounded-2xl p-3 md:p-6 lg:p-8 shadow-xl min-h-[80px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
+            <div className="bg-[#c2f5f7] rounded-lg md:rounded-2xl p-2 md:p-6 lg:p-8 shadow-xl min-h-[60px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
               <div className="text-center">
-                <h3 className="text-lg md:text-2xl lg:text-3xl font-bold text-[rgb(0,52,50)] mb-2 md:mb-3 lg:mb-4">{t.sections.scenarios.painSection.cards.hiddenCost.title}</h3>
-                <div className="w-8 md:w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-2 md:mb-4 lg:mb-6"></div>
-                <p className="text-xs md:text-sm lg:text-base text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.hiddenCost.description}}>
+                <h3 className="text-sm md:text-2xl lg:text-3xl font-bold text-[rgb(0,52,50)] mb-1 md:mb-3 lg:mb-4">{t.sections.scenarios.painSection.cards.hiddenCost.title}</h3>
+                <div className="w-6 md:w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-1 md:mb-4 lg:mb-6"></div>
+                <p className="text-xs md:text-sm lg:text-base text-[rgb(0,52,50)] leading-tight" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.hiddenCost.description}}>
                 </p>
               </div>
             </div>
 
             {/* 反复返工 - Light Pink */}
-            <div className="bg-[#ffe0d0] rounded-xl md:rounded-2xl p-3 md:p-6 lg:p-8 shadow-xl min-h-[80px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
+            <div className="bg-[#ffe0d0] rounded-lg md:rounded-2xl p-2 md:p-6 lg:p-8 shadow-xl min-h-[60px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
               <div className="text-center">
-                <h3 className="text-lg md:text-2xl lg:text-3xl font-bold text-[rgb(0,52,50)] mb-2 md:mb-3 lg:mb-4">{t.sections.scenarios.painSection.cards.rework.title}</h3>
-                <div className="w-8 md:w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-2 md:mb-4 lg:mb-6"></div>
-                <p className="text-xs md:text-sm lg:text-base text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.rework.description}}>
+                <h3 className="text-sm md:text-2xl lg:text-3xl font-bold text-[rgb(0,52,50)] mb-1 md:mb-3 lg:mb-4">{t.sections.scenarios.painSection.cards.rework.title}</h3>
+                <div className="w-6 md:w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-1 md:mb-4 lg:mb-6"></div>
+                <p className="text-xs md:text-sm lg:text-base text-[rgb(0,52,50)] leading-tight" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.rework.description}}>
                 </p>
               </div>
             </div>
@@ -1495,7 +1504,7 @@ export default function Home() {
 
       {/* Pricing Section */}
       <section id="pricing" className="min-h-screen py-12 sm:py-20 bg-[rgb(0,52,50)] -mt-px">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{transform: 'translateY(5cm)'}}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{transform: 'translateY(-1cm)'}}>
           <div className="text-center mb-6 sm:mb-16">
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-2 sm:mb-6">{t.sections.pricing.title}</h2>
             <p className="text-base sm:text-xl text-white opacity-90 max-w-3xl mx-auto">
