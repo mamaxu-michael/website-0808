@@ -1,0 +1,47 @@
+🚀 CommonObjective 爬虫程序文件清单
+===========================================
+
+✅ 核心程序文件 (必需)
+---------------------
+📄 commonobjective_scraper.py     - 主爬虫程序 (独立运行版本)
+📄 README.md                      - 详细使用说明文档
+📄 quick_test.py                  - 快速测试脚本
+📄 config_template.py             - 配置文件模板
+
+🎯 使用步骤
+---------
+1. 安装依赖：pip install requests beautifulsoup4
+2. 修改 commonobjective_scraper.py 中的用户名密码
+3. 先运行测试：python3 quick_test.py
+4. 运行完整爬取：python3 commonobjective_scraper.py
+
+📊 已完成的数据文件 (现有成果)
+-------------------------
+📄 FINAL_suppliers_database_20250822_165341.csv    - 最终完整数据库 (1164个供应商)
+📄 FINAL_suppliers_database_20250822_165341.json   - JSON格式数据
+📄 FINAL_emails_only_20250822_165341.txt           - 纯邮箱列表 (1111个邮箱)
+📄 FINAL_email_list_20250822_165341.txt           - 详细邮箱列表
+📄 FINAL_companies_list_20250822_165341.txt       - 公司名录
+
+📈 数据统计
+----------
+总供应商数：1164家
+有邮箱供应商：993家 (85.3% 成功率)
+总邮箱数：1111个
+覆盖页面：59页 (CommonObjective 全站 99.1% 覆盖)
+
+🔧 其他文件 (开发过程文件，可忽略)
+--------------------------------
+以上未列出的 .py 文件都是开发过程中的测试和分析脚本，
+您可以忽略这些文件，专注使用核心程序即可。
+
+💡 提醒
+------
+- 主程序已经包含了所有必要功能
+- 可以独立运行，无需其他依赖文件
+- 支持断点续传、自动备份、多格式导出
+- 内置错误处理和重试机制
+
+📞 支持
+------
+如有问题，请参考 README.md 中的常见问题解答

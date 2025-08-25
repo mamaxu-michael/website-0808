@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Script Debug Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .test-box {
+            background: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .debug-info {
+            background: #e8f5e8;
+            padding: 15px;
+            border-left: 4px solid #4caf50;
+            margin: 20px 0;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-box">
+        <h1>🧪 Climate Analytics Debug Test</h1>
+        <p>测试页面用于调试分析脚本</p>
+    </div>
+
+    <!-- 模拟主页区域 -->
+    <div id="home" class="test-box" data-theme="home" data-section="home-hero" data-category="landing">
+        <h2>🏠 首页测试区域</h2>
+        <p>这个区域模拟首页，应该被识别为 theme=home, section=home-hero</p>
+        <a href="#contact" class="btn" data-cta="hero-get-started" data-section="home-hero">了解更多 (CTA测试)</a>
+    </div>
+
+    <!-- 模拟联系区域 -->
+    <div id="contact" class="test-box" data-theme="contact" data-section="contact-form" data-category="conversion">
+        <h2>📞 联系我们测试区域</h2>
+        <p>这个区域模拟联系页面，应该被识别为 theme=contact, section=contact-form</p>
+        
+        <form data-form="contact-form" onsubmit="handleTestSubmit(event)">
+            <div style="margin: 10px 0;">
+                <label>姓名: <input type="text" name="name" placeholder="测试姓名" required></label>
+            </div>
+            <div style="margin: 10px 0;">
+                <label>邮箱: <input type="email" name="email" placeholder="test@example.com" required></label>
+            </div>
+            <div style="margin: 10px 0;">
+                <label>电话: <input type="tel" name="phone" placeholder="13800138000"></label>
+            </div>
+            <div style="margin: 10px 0;">
+                <label>留言: <textarea name="message" placeholder="这是一个测试留言"></textarea></label>
+            </div>
+            <button type="submit">📝 提交测试表单</button>
+        </form>
+    </div>
+
+    <div class="test-box">
+        <h2>🔧 调试工具</h2>
+        <button onclick="checkAnalytics()">检查Analytics对象</button>
+        <button onclick="getCurrentTheme()">获取当前主题</button>
+        <button onclick="sendTestHeartbeat()">发送测试心跳</button>
+        <button onclick="checkEventQueue()">检查事件队列</button>
+        <button onclick="forceSendEvents()">强制发送事件</button>
+        <button onclick="clearStorage()">清除存储数据</button>
+        
+        <div id="debug-output" class="debug-info">
+调试信息将显示在这里...
+        </div>
+    </div>
+
+    <!-- 配置和脚本 -->
+    <script>
+        // 配置 Climate Analytics
+        window.CLIMATE_ANALYTICS_CONFIG = {
+            apiEndpoint: 'http://localhost:3001/track',
+            batchSize: 5,
+            heartbeatInterval: 10000, // 10秒用于测试
+            debug: true
+        };
+    </script>
+    
+    <!-- 加载分析脚本 -->
+    <script src="/climate-analytics.js"></script>
+    
+    <script>
+        function log(message) {
+            const output = document.getElementById('debug-output');
+            const timestamp = new Date().toLocaleTimeString();
+            output.textContent += `[${timestamp}] ${message}\n`;
+            console.log(`🧪 Debug: ${message}`);
+        }
+
+        function checkAnalytics() {
+            if (window.ClimateAnalytics) {
+                log(`✅ ClimateAnalytics 已加载`);
+                log(`Session ID: ${window.ClimateAnalytics.sessionId}`);
+                log(`User ID: ${window.ClimateAnalytics.userId}`);
+                log(`Page Views: ${window.ClimateAnalytics.metrics.pageViews}`);
+                log(`Total Clicks: ${window.ClimateAnalytics.metrics.totalClicks}`);
+                log(`Form Submissions: ${window.ClimateAnalytics.metrics.formSubmissions}`);
+                log(`Max Scroll Depth: ${window.ClimateAnalytics.metrics.maxScrollDepth}%`);
+            } else {
+                log(`❌ ClimateAnalytics 未加载`);
+            }
+        }
+
+        function getCurrentTheme() {
+            // 手动调用主题识别（需要暴露函数）
+            const themeElement = document.querySelector('[data-theme]');
+            if (themeElement) {
+                const theme = themeElement.getAttribute('data-theme');
+                const section = themeElement.getAttribute('data-section');
+                const category = themeElement.getAttribute('data-category');
+                log(`当前主题: theme=${theme}, section=${section}, category=${category}`);
+            } else {
+                log(`❌ 未找到主题元素`);
+            }
+        }
+
+        function sendTestHeartbeat() {
+            if (window.ClimateAnalytics) {
+                // 手动触发心跳
+                log(`发送测试心跳...`);
+                // 直接调用track函数
+                window.ClimateAnalytics.track('test_heartbeat', {
+                    message: 'Manual test heartbeat',
+                    theme: 'home',
+                    section: 'test-area',
+                    timestamp: Date.now()
+                });
+                
+                // 手动调用发送函数
+                if (typeof window.ClimateAnalytics.sendNow === 'function') {
+                    window.ClimateAnalytics.sendNow();
+                    log(`✅ 手动触发发送事件`);
+                } else {
+                    log(`❌ sendNow 函数不存在`);
+                }
+            } else {
+                log(`❌ ClimateAnalytics 未加载，无法发送心跳`);
+            }
+        }
+
+        function clearStorage() {
+            localStorage.removeItem('cs_user_id');
+            localStorage.removeItem('cs_visited');
+            localStorage.removeItem('cs_visit_count');
+            log(`✅ 已清除本地存储数据`);
+        }
+
+        function checkEventQueue() {
+            if (window.ClimateAnalytics && window.ClimateAnalytics.getData) {
+                const data = window.ClimateAnalytics.getData();
+                log(`📋 事件队列状态:`);
+                log(`  - 队列中事件数量: ${data.events.length}`);
+                log(`  - Session ID: ${data.sessionId}`);
+                log(`  - User ID: ${data.userId}`);
+                
+                if (data.events.length > 0) {
+                    log(`  - 最新事件: ${data.events[data.events.length - 1].eventType}`);
+                    log(`  - 事件详情: ${JSON.stringify(data.events[data.events.length - 1], null, 2)}`);
+                }
+            } else {
+                log(`❌ 无法获取事件队列数据`);
+            }
+        }
+
+        function forceSendEvents() {
+            if (window.ClimateAnalytics && window.ClimateAnalytics.sendNow) {
+                log(`🚀 强制发送所有待发送事件...`);
+                window.ClimateAnalytics.sendNow()
+                    .then(() => {
+                        log(`✅ 事件发送成功`);
+                        setTimeout(checkEventQueue, 500); // 延迟检查队列状态
+                    })
+                    .catch((error) => {
+                        log(`❌ 事件发送失败: ${error.message}`);
+                    });
+            } else {
+                log(`❌ sendNow 函数不存在`);
+            }
+        }
+
+        function handleTestSubmit(event) {
+            event.preventDefault();
+            log(`📝 测试表单提交事件触发`);
+            
+            const formData = new FormData(event.target);
+            const data = {};
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            log(`表单数据: ${JSON.stringify(data)}`);
+            
+            // 让默认的表单追踪处理
+            return false;
+        }
+
+        // 页面加载完成后执行检查
+        document.addEventListener('DOMContentLoaded', function() {
+            log(`🚀 Debug页面已加载`);
+            setTimeout(checkAnalytics, 1000);
+        });
+
+        // 监听所有点击事件
+        document.addEventListener('click', function(e) {
+            log(`🖱️ 点击事件: ${e.target.tagName} - "${e.target.textContent.trim().substring(0, 30)}"`);
+        });
+
+        // 监听hash变化
+        window.addEventListener('hashchange', function() {
+            log(`🔗 Hash变化: ${window.location.hash}`);
+        });
+    </script>
+</body>
+</html>

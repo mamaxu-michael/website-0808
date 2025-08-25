@@ -232,7 +232,7 @@ export default function Home() {
       `}</style>
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section id="home" className="min-h-screen bg-[rgb(0,52,50)] relative overflow-hidden">
+      <section id="home" className="min-h-screen bg-[rgb(0,52,50)] relative overflow-hidden" data-theme="home" data-section="home-hero" data-category="landing">
         {/* Background overlay - removed for unified color */}
         
         <div className="relative z-10 min-h-screen grid grid-cols-1 lg:grid-cols-2 items-center">
@@ -249,6 +249,8 @@ export default function Home() {
             <a 
               href="#contact"
               className="bg-yellow-400 hover:bg-yellow-500 text-[rgb(0,52,50)] px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold text-base sm:text-lg transition duration-300 inline-flex items-center gap-2"
+              data-cta="hero-get-started"
+              data-section="home-hero"
             >
               {t.hero.getStarted}
               <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -286,7 +288,7 @@ export default function Home() {
       </section>
 
       {/* Scenarios & Value Section */}
-      <section id="scenarios-value" className="relative bg-[rgb(0,52,50)] py-12 sm:py-20 -mt-px">
+      <section id="scenarios-value" className="relative bg-[rgb(0,52,50)] py-12 sm:py-20 -mt-px" data-theme="scenarios-value" data-section="scenarios-overview" data-category="product">
         <div className="relative w-full mx-auto px-4">
           {/* Sticky Title and First Card Container */}
           <div className="sticky top-32 sm:top-40 lg:top-48 z-10 bg-[rgb(0,52,50)]">
@@ -870,7 +872,7 @@ export default function Home() {
       </section>
 
       {/* Products Section - Stacked Cards */}
-      <section id="products" className="relative bg-[rgb(0,52,50)] -mt-px">
+      <section id="products" className="relative bg-[rgb(0,52,50)] -mt-px" data-theme="products" data-section="what-we-do" data-category="product">
         {/* Scrolling Text Section */}
         <div className="relative overflow-hidden py-16 bg-[rgb(0,52,50)] -mt-px">
           <div className="whitespace-nowrap">
@@ -1144,7 +1146,7 @@ export default function Home() {
       </div>
 
       {/* Comparison Section */}
-      <section className="py-4 sm:py-8 lg:py-20 bg-[rgb(0,52,50)]">
+      <section id="comparison" className="py-4 sm:py-8 lg:py-20 bg-[rgb(0,52,50)]" data-theme="comparison" data-section="comparison-overview" data-category="product">
         <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
           <div className="text-center mb-3 sm:mb-6 lg:mb-16">
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-1 sm:mb-4 lg:mb-6">{t.sections.comparison.title}</h2>
@@ -1377,7 +1379,7 @@ export default function Home() {
       </div>
 
       {/* Value Section */}
-      <section className="py-20 bg-[rgb(0,52,50)]">
+      <section id="value-for-user" className="py-20 bg-[rgb(0,52,50)]" data-theme="value-for-user" data-section="value-overview" data-category="value">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">{t.sections.valueForUser.title}</h2>
@@ -1503,7 +1505,7 @@ export default function Home() {
       </div>
 
       {/* Pricing Section */}
-      <section id="pricing" className="min-h-screen py-12 sm:py-20 bg-[rgb(0,52,50)] -mt-px">
+      <section id="pricing" className="min-h-screen py-12 sm:py-20 bg-[rgb(0,52,50)] -mt-px" data-theme="pricing" data-section="pricing-overview" data-category="conversion">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{transform: 'translateY(-1cm)'}}>
           <div className="text-center mb-6 sm:mb-16">
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-2 sm:mb-6">{t.sections.pricing.title}</h2>
@@ -1513,6 +1515,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+            {/* Free Plan Card */}
             <div className="bg-[#6195fe] backdrop-blur-sm p-3 sm:p-8 rounded-2xl shadow-lg border border-blue-300 flex flex-col justify-between min-h-[170px] sm:min-h-[400px]">
               <div>
                 <div className="h-2 sm:h-8 mb-1 sm:mb-4"></div>
@@ -1537,6 +1540,7 @@ export default function Home() {
               </a>
             </div>
 
+            {/* Standard Plan Card */}
             <div className="bg-[#9ef894] backdrop-blur-sm p-3 sm:p-8 rounded-2xl shadow-xl transform lg:scale-105 border border-[#8ee884] flex flex-col justify-between min-h-[170px] sm:min-h-[400px]">
               <div>
                 <div className="h-3 sm:h-8 mb-1 sm:mb-4 flex justify-center items-start">
@@ -1563,6 +1567,7 @@ export default function Home() {
               </a>
             </div>
 
+            {/* Enterprise Plan Card */}
             <div className="bg-[#98a2f8] backdrop-blur-sm p-3 sm:p-8 rounded-2xl shadow-lg border border-purple-300 flex flex-col justify-between min-h-[170px] sm:min-h-[400px] md:col-span-2 lg:col-span-1">
               <div>
                 <div className="h-2 sm:h-8 mb-1 sm:mb-4"></div>
@@ -1613,7 +1618,7 @@ export default function Home() {
       </div>
 
       {/* About Section */}
-      <section id="about" className="py-6 sm:py-10 bg-[rgb(0,52,50)]">
+      <section id="about" className="py-6 sm:py-10 bg-[rgb(0,52,50)]" data-theme="about" data-section="about-main" data-category="info">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center min-h-[280px] sm:min-h-[350px] md:min-h-[420px]">
             {/* Left side - Polar Bear Image */}
@@ -1708,7 +1713,7 @@ export default function Home() {
       </div>
 
       {/* Contact Section */}
-      <section id="contact" className="py-8 sm:py-10 bg-[rgb(0,52,50)] text-white">
+      <section id="contact" className="py-8 sm:py-10 bg-[rgb(0,52,50)] text-white" data-theme="contact" data-section="contact-form" data-category="conversion">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">{t.contact.title}</h2>
@@ -1764,7 +1769,7 @@ export default function Home() {
 
             <div className="bg-[#98a2f8] bg-opacity-90 p-4 sm:p-6 rounded-2xl backdrop-blur-sm self-start order-1 lg:order-2">
               <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-black">{t.contact.form.submit}</h3>
-              <form onSubmit={handleSubmit} className="space-y-1.5 sm:space-y-2">
+              <form onSubmit={handleSubmit} className="space-y-1.5 sm:space-y-2" data-form="contact-form" data-section="contact-form">
                 <div>
                   <label className="block text-xs sm:text-sm font-medium mb-1 text-black">{t.contact.form.name}*</label>
                   <input 
