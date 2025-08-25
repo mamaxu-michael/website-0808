@@ -29,39 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Climate Seal Analytics - 主题页面分析 */}
-        <Script id="climate-analytics-config" strategy="beforeInteractive">
-          {`
-            window.CLIMATE_ANALYTICS_CONFIG = {
-              apiEndpoint: process.env.NODE_ENV === 'production' 
-                ? 'https://your-analytics-server.com/track'  // 生产环境API端点
-                : 'http://localhost:3001/track',            // 开发环境API端点
-              batchSize: 5,
-              heartbeatInterval: 15000,
-              debug: process.env.NODE_ENV !== 'production',
-              themeMapping: {
-                'home': '首页',
-                'scenarios-value': '应用场景', 
-                'products': '产品服务',
-                'comparison': '对比分析',
-                'value-for-user': '用户价值',
-                'pricing': '定价方案',
-                'about': '关于我们',
-                'contact': '联系我们'
-              }
-            };
-          `}
-        </Script>
-        
-        {/* Climate Analytics 客户端脚本 */}
-        <Script 
-          src="/climate-analytics.js" 
-          strategy="afterInteractive"
-        />
-
-        {/* Google Analytics 4 - 完整网站追踪 */}
+        {/* Google Analytics 4 */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
+          src="https://www.googletagmanager.com/gtag/js?id=G-BM7079RZZH"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -69,7 +39,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'GA_MEASUREMENT_ID', {
+            gtag('config', 'G-BM7079RZZH', {
               page_title: document.title,
               page_location: window.location.href,
             });
@@ -103,12 +73,6 @@ export default function RootLayout({
             });
           `}
         </Script>
-        
-        {/* 简化访客统计 */}
-        <Script
-          src="/simple-analytics.js"
-          strategy="afterInteractive"
-        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
