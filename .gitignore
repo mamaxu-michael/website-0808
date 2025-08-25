@@ -107,11 +107,5 @@ logs
 # Local development
 .env*.local
 
-# Python files (scraping tools, not part of website)
-*.py
-requirements.txt
-*.csv
-*.json
-*.txt
-backup_*.txt
-*.log
+# Scripts directory (Python scrapers, data files, analytics tools)
+scripts/
