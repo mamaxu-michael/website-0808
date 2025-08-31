@@ -47,37 +47,41 @@ export default function Home() {
         {
           title: assistants.complianceTracker.title,
           summary: assistants.complianceTracker.description,
-          details: ["CSRD/CBAM/CDP mapping", "Gap analysis dashboard", "Policy alerts"],
           gradient: "from-emerald-500/25 to-green-600/25",
-          background: "bg-gradient-to-b from-green-600/70 to-green-800/70"
+          background: "bg-gradient-to-b from-green-600/70 to-green-800/70",
+          staticMediaSrc: "/data-intake-steward.png",
+          dynamicMediaSrc: "/videos/video2-card.mp4"
         },
         {
           title: assistants.climateSeal.title,
           summary: assistants.climateSeal.description,
-          details: ["Chat workflows", "Auto data validation", "One-click export"],
           gradient: "from-sky-500/25 to-blue-600/25",
-          background: "bg-gradient-to-b from-blue-600/70 to-blue-800/70"
+          background: "bg-gradient-to-b from-blue-600/70 to-blue-800/70",
+          staticMediaSrc: "/pcf-modeler.png",
+          dynamicMediaSrc: "/videos/video3-card.mp4"
         },
         {
           title: assistants.supplyChainAnalyzer.title,
           summary: assistants.supplyChainAnalyzer.description,
-          details: ["Supplier scoring", "Hotspot analysis", "What-if scenarios"],
           gradient: "from-orange-500/25 to-amber-600/25",
-          background: "bg-gradient-to-b from-orange-600/70 to-orange-800/70"
+          background: "bg-gradient-to-b from-orange-600/70 to-orange-800/70",
+          staticMediaSrc: "/qa-anomaly-detector.png",
+          dynamicMediaSrc: "/videos/video4-card.mp4"
         },
         {
           title: assistants.reportGenerator.title,
           summary: assistants.reportGenerator.description,
-          details: ["CDP/CSRD/Customer templates", "Auto cross-check", "PDF/Excel export"],
           gradient: "from-amber-500/25 to-red-500/25",
-          background: "bg-gradient-to-b from-amber-600/70 to-amber-800/70"
+          background: "bg-gradient-to-b from-amber-600/70 to-amber-800/70",
+          staticMediaSrc: "/external-verifier.png",
+          dynamicMediaSrc: "/videos/video5-card.mp4"
         },
         {
           title: assistants.dataValidator.title,
           summary: assistants.dataValidator.description,
-          details: ["Schema rules", "Outlier detection", "Line-level comments"],
           gradient: "from-cyan-500/25 to-teal-600/25",
-          background: "bg-gradient-to-b from-cyan-600/70 to-cyan-800/70"
+          background: "bg-gradient-to-b from-cyan-600/70 to-cyan-800/70",
+          staticMediaSrc: "/risk-screener.png"
         }
       ];
     } else if (role === 'brandOwner') {
