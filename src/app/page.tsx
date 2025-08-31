@@ -25,6 +25,7 @@ export default function Home() {
   const [isScrolling, setIsScrolling] = useState(false);
   const [scrollTimeout, setScrollTimeout] = useState<NodeJS.Timeout | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [activePersona, setActivePersona] = useState<'carbonExpert' | 'brandOwner' | 'supplyChain'>('carbonExpert');
 
   useEffect(() => {
     // 检测是否为移动端
@@ -283,6 +284,148 @@ export default function Home() {
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
+          </div>
+        </div>
+      </section>
+
+      {/* Personas Section */}
+      <section className="relative bg-[rgb(0,52,50)] py-16 overflow-hidden">
+        <div className="relative w-full max-w-[1376px] h-auto mx-auto px-4">
+          {/* Title */}
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-[56px] font-normal text-white leading-[67.2px] tracking-[-1.12px] mb-4">
+              {t.sections.personas?.title || 'Solutions for every role.'}
+              <br />
+              Powered by one platform.
+            </h2>
+          </div>
+
+          {/* Tab Navigation */}
+          <div className="flex justify-center mb-16">
+            <div className="bg-white/5 rounded-[1600px] p-1 shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)]">
+              <div className="relative flex">
+                {(['carbonExpert', 'brandOwner', 'supplyChain'] as const).map((persona, index) => (
+                  <button
+                    key={persona}
+                    onClick={() => setActivePersona(persona)}
+                    className={`relative px-6 py-3 text-lg font-normal tracking-[-0.18px] leading-[23.4px] transition-all duration-300 ${
+                      activePersona === persona
+                        ? 'bg-[#6161ff] text-white rounded-[1600px]'
+                        : 'text-white/70 hover:text-white'
+                    }`}
+                  >
+                    {t.sections.personas[persona].title}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Cards Layout */}
+          <div className="relative w-full flex justify-center">
+            <div className="relative w-[1618px] transform translate-x-[-4cm]">
+              {/* Left Large Card */}
+              <div className={`w-full lg:w-[1114px] h-[580px] rounded-3xl relative mb-6 lg:mb-0 animate-fade-in ${
+                activePersona === 'carbonExpert' ? 'bg-[#6161ff]' :
+                activePersona === 'brandOwner' ? 'bg-[#8b5cf6]' :
+                'bg-[#3b82f6]'
+              }`}>
+              {/* Logo/Brand Area */}
+              <div className="absolute top-[108px] left-10 w-[309px] h-7">
+                <div className="text-white text-xl font-semibold">Climate Seal AI</div>
+              </div>
+
+              {/* Main Title */}
+              <div className="absolute top-[165px] left-10 w-[294px]">
+                <h3 className="text-white text-[40px] font-normal tracking-[-0.80px] leading-[52px]">
+                  {activePersona === 'carbonExpert' && 'Amplify expertise\nat scale'}
+                  {activePersona === 'brandOwner' && 'Drive supply chain\ntransparency'}
+                  {activePersona === 'supplyChain' && 'Achieve compliance\neffortlessly'}
+                </h3>
+              </div>
+
+              {/* Description */}
+              <div className="absolute top-[304px] left-10 w-[362px]">
+                <p className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">
+                  {t.sections.personas[activePersona].needs}
+                </p>
+              </div>
+
+              {/* CTA Button */}
+              <div className="absolute top-[422px] left-10">
+                <button className="bg-white rounded-[160px] border border-solid px-8 py-3 flex items-center gap-2 hover:bg-gray-50 transition-all">
+                  <span className="text-black text-base font-normal tracking-[-0.16px] leading-[20.8px]">
+                    Get Started
+                  </span>
+                  <svg className="w-3 h-2.5" viewBox="0 0 12 10" fill="none">
+                    <path d="M7 1L11 5L7 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M1 5H11" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+
+              {/* Product Interface Mock */}
+              <div className="absolute top-0 right-0 w-[588px] h-[580px] rounded-r-3xl overflow-hidden">
+                <div className="w-full h-full bg-gradient-to-br from-blue-400/20 to-purple-400/20 backdrop-blur-sm">
+                  <div className="p-8 h-full flex flex-col">
+                    <div className="flex items-center mb-6">
+                      <div className="w-3 h-3 bg-red-400 rounded-full mr-2"></div>
+                      <div className="w-3 h-3 bg-yellow-400 rounded-full mr-2"></div>
+                      <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                    </div>
+                    <div className="space-y-4 flex-1">
+                      <div className="h-8 bg-white/20 rounded w-3/4 animate-shimmer"></div>
+                      <div className="h-6 bg-white/15 rounded w-1/2"></div>
+                      <div className="h-12 bg-white/25 rounded w-full"></div>
+                      <div className="grid grid-cols-2 gap-4 mt-8">
+                        <div className="h-24 bg-white/10 rounded-lg"></div>
+                        <div className="h-24 bg-white/10 rounded-lg"></div>
+                      </div>
+                      <div className="h-32 bg-white/15 rounded-lg mt-4"></div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+
+              {/* Right Side Cards */}
+              <div className="lg:absolute lg:top-0 lg:left-[1138px] lg:w-[480px] flex flex-col gap-6">
+              {/* Stats Card */}
+              <div className="w-full h-[205px] bg-[#f0f3ff] rounded-3xl p-8 animate-fade-up" style={{"--animation-delay": "0.2s"}}>
+                <div className="mb-4">
+                  <div className="text-[#333333] text-[28px] font-semibold leading-[36.4px] tracking-[-0.12px]">
+                    {t.sections.personas[activePersona].stat}
+                  </div>
+                </div>
+                <p className="text-[#333333] text-[28px] font-normal leading-[36.4px] tracking-[-0.08px]">
+                  {t.sections.personas[activePersona].statDescription}
+                </p>
+              </div>
+
+              {/* Testimonial Card */}
+              <div className="w-full h-[352px] bg-[#f0f3ff] rounded-3xl p-8 animate-fade-up" style={{"--animation-delay": "0.4s"}}>
+                <p className="text-[#333333] text-xl font-normal tracking-[-0.20px] leading-[30px] mb-8">
+                  "{t.sections.personas[activePersona].testimonial}"
+                </p>
+                
+                <div className="border-t border-[#d0d4e4] pt-8">
+                  <div className="flex items-center">
+                    <div className="w-11 h-11 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-white font-semibold mr-4">
+                      {t.sections.personas[activePersona].author.charAt(0)}
+                    </div>
+                    <div>
+                      <div className="text-[#333333] text-sm font-normal tracking-[-0.14px] leading-[18.2px]">
+                        {t.sections.personas[activePersona].author}
+                      </div>
+                      <div className="text-[#333333] text-sm font-normal tracking-[-0.14px] leading-[18.2px] mt-1">
+                        {t.sections.personas[activePersona].position}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
           </div>
         </div>
       </section>

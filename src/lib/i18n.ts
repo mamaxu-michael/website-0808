@@ -30,6 +30,39 @@ export interface TranslationData {
       scrollingText1: string;
       scrollingText2: string;
     };
+    personas: {
+      title: string;
+      carbonExpert: {
+        title: string;
+        role: string;
+        needs: string;
+        stat: string;
+        statDescription: string;
+        testimonial: string;
+        author: string;
+        position: string;
+      };
+      brandOwner: {
+        title: string;
+        role: string;
+        needs: string;
+        stat: string;
+        statDescription: string;
+        testimonial: string;
+        author: string;
+        position: string;
+      };
+      supplyChain: {
+        title: string;
+        role: string;
+        needs: string;
+        stat: string;
+        statDescription: string;
+        testimonial: string;
+        author: string;
+        position: string;
+      };
+    };
     scenarios: {
       title: string;
       whyNeed: {
@@ -424,6 +457,39 @@ export const translations: Record<Language, TranslationData> = {
         scrollingText1: 'Gain Credibility At Low Cost',
         scrollingText2: 'Use Credit At Low Cost'
       },
+      personas: {
+        title: 'Who We Serve',
+        carbonExpert: {
+          title: 'Carbon Professional',
+          role: 'ESG/Sustainability/Carbon/Consulting Expert',
+          needs: 'I need automated, intelligent tools to improve work efficiency and report accuracy',
+          stat: '90%',
+          statDescription: 'reduction in report preparation time',
+          testimonial: 'Climate Seal isn\'t just another calculation tool, but an intelligent operating system that supports our need for precision and efficiency at scale.',
+          author: 'Dr. Sarah Chen',
+          position: 'Senior ESG Consultant, EcoStrategy'
+        },
+        brandOwner: {
+          title: 'Brand Owner',
+          role: 'Sustainability Leader',
+          needs: 'I need to achieve brand and supply chain carbon reduction goals, reduce supply chain carbon management costs and pressure, enabling painless high-quality carbon emission data from supply chain',
+          stat: '67%',
+          statDescription: 'Scope 3 coverage achieved',
+          testimonial: 'Climate Seal transformed our supply chain carbon management from a compliance burden into a competitive advantage.',
+          author: 'Michael Rodriguez',
+          position: 'Chief Sustainability Officer, GreenTech Corp'
+        },
+        supplyChain: {
+          title: 'Supply Chain Leader',
+          role: 'Export Enterprise Compliance Manager',
+          needs: 'I need low-cost, high-efficiency solutions to provide credible carbon footprint reports to importers and downstream customers, ensuring sales are not affected',
+          stat: '1%',
+          statDescription: 'of traditional cost for PCF compliance',
+          testimonial: 'With Climate Seal, we can now provide world-class carbon footprint reports at a fraction of the cost and time.',
+          author: 'Li Wei',
+          position: 'Compliance Director, Global Manufacturing Ltd'
+        }
+      },
       scenarios: {
         title: 'Scenarios you need carbon footprint',
         whyNeed: {
@@ -806,6 +872,39 @@ export const translations: Record<Language, TranslationData> = {
         subtitle: '以1%的成本和时间获得可信的碳足迹',
         scrollingText1: 'Gain Credibility At Low Cost',
         scrollingText2: 'Use Credit At Low Cost'
+      },
+      personas: {
+        title: '我们服务的客户',
+        carbonExpert: {
+          title: '碳专业人士',
+          role: 'ESG/可持续/碳/咨询专家',
+          needs: '我需要自动化、智能化工具，提高工作效率和报告精准度',
+          stat: '90%',
+          statDescription: '报告准备时间减少',
+          testimonial: 'Climate Seal不仅仅是另一个计算工具，而是一个支持我们大规模精确高效需求的智能操作系统。',
+          author: '陈博士',
+          position: 'EcoStrategy高级ESG顾问'
+        },
+        brandOwner: {
+          title: '品牌商',
+          role: '可持续负责人',
+          needs: '我需要完成品牌和供应链降碳目标，降低供应链碳管理成本和压力，让供应链无痛提供高质量碳排放数据',
+          stat: '67%',
+          statDescription: 'Scope 3覆盖率达成',
+          testimonial: 'Climate Seal将我们的供应链碳管理从合规负担转变为竞争优势。',
+          author: '王明',
+          position: 'GreenTech Corp首席可持续官'
+        },
+        supplyChain: {
+          title: '供应链企业',
+          role: '出口企业合规负责人',
+          needs: '我需要低成本、高效率的向进口方和下游客户提供可信碳足迹报告，确保销售不受影响',
+          stat: '1%',
+          statDescription: '传统PCF合规成本',
+          testimonial: '通过Climate Seal，我们现在能够以传统成本和时间的一小部分提供世界级的碳足迹报告。',
+          author: '李伟',
+          position: '全球制造有限公司合规总监'
+        }
       },
       scenarios: {
         title: '场景与价值',
