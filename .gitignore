@@ -14,6 +14,9 @@ node_modules/
 .env.test.local
 .env.production.local
 
+# API Keys and Configuration
+config/api-keys.js
+
 # Next.js
 /.next/
 /out/
