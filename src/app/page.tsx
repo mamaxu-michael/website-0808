@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
+import ExpandableCards from '@/components/ExpandableCards';
 
 export default function Home() {
   const { t, language } = useLanguage();
@@ -27,6 +28,106 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const [activePersona, setActivePersona] = useState<'carbonExpert' | 'brandOwner' | 'supplyChain'>('carbonExpert');
   const [activeAIRole, setActiveAIRole] = useState<'carbonExpert' | 'brandOwner' | 'supplyChain'>('carbonExpert');
+
+  // Generate cards data for current role
+  const getCardsForRole = (role: 'carbonExpert' | 'brandOwner' | 'supplyChain') => {
+    const assistants = t.sections.aiAssistants.assistants[role];
+    
+    if (role === 'carbonExpert') {
+      return [
+        {
+          title: assistants.carbonCalculator.title,
+          summary: assistants.carbonCalculator.description,
+          details: ["Bulk import BOM/PCF templates", "Multi-method support (GHG/PAS/ISO)", "Audit-ready evidence pack"],
+          gradient: "from-purple-500/25 to-violet-500/25"
+        },
+        {
+          title: assistants.complianceTracker.title,
+          summary: assistants.complianceTracker.description,
+          details: ["CSRD/CBAM/CDP mapping", "Gap analysis dashboard", "Policy alerts"],
+          gradient: "from-emerald-500/25 to-green-600/25"
+        },
+        {
+          title: assistants.climateSeal.title,
+          summary: assistants.climateSeal.description,
+          details: ["Chat workflows", "Auto data validation", "One-click export"],
+          gradient: "from-sky-500/25 to-blue-600/25"
+        },
+        {
+          title: assistants.supplyChainAnalyzer.title,
+          summary: assistants.supplyChainAnalyzer.description,
+          details: ["Supplier scoring", "Hotspot analysis", "What-if scenarios"],
+          gradient: "from-orange-500/25 to-amber-600/25"
+        },
+        {
+          title: assistants.reportGenerator.title,
+          summary: assistants.reportGenerator.description,
+          details: ["CDP/CSRD/Customer templates", "Auto cross-check", "PDF/Excel export"],
+          gradient: "from-amber-500/25 to-red-500/25"
+        },
+        {
+          title: assistants.dataValidator.title,
+          summary: assistants.dataValidator.description,
+          details: ["Schema rules", "Outlier detection", "Line-level comments"],
+          gradient: "from-cyan-500/25 to-teal-600/25"
+        }
+      ];
+    } else if (role === 'brandOwner') {
+      return [
+        {
+          title: assistants.brandAnalyzer.title,
+          summary: assistants.brandAnalyzer.description,
+          details: ["Brand risk assessment", "Market positioning analysis", "Consumer sentiment tracking"],
+          gradient: "from-pink-500/25 to-rose-500/25"
+        },
+        {
+          title: assistants.scopeTracker.title,
+          summary: assistants.scopeTracker.description,
+          details: ["Scope 3 emissions tracking", "Supply chain partner monitoring", "Automated data collection"],
+          gradient: "from-indigo-500/25 to-purple-500/25"
+        },
+        {
+          title: assistants.sustainabilityReporter.title,
+          summary: assistants.sustainabilityReporter.description,
+          details: ["ESG reporting", "Stakeholder communication", "Compliance documentation"],
+          gradient: "from-emerald-500/25 to-teal-500/25"
+        },
+        {
+          title: assistants.goalManager.title,
+          summary: assistants.goalManager.description,
+          details: ["Carbon reduction goals", "Progress tracking", "Performance metrics"],
+          gradient: "from-violet-500/25 to-purple-500/25"
+        }
+      ];
+    } else {
+      return [
+        {
+          title: assistants.supplierAssessment.title,
+          summary: assistants.supplierAssessment.description,
+          details: ["Supplier carbon footprint evaluation", "Risk assessment", "Performance scoring"],
+          gradient: "from-rose-500/25 to-pink-500/25"
+        },
+        {
+          title: assistants.exportCompliance.title,
+          summary: assistants.exportCompliance.description,
+          details: ["Global carbon regulations", "Export documentation", "Compliance validation"],
+          gradient: "from-slate-500/25 to-gray-500/25"
+        },
+        {
+          title: assistants.costOptimizer.title,
+          summary: assistants.costOptimizer.description,
+          details: ["Cost-benefit analysis", "Resource optimization", "Budget planning"],
+          gradient: "from-lime-500/25 to-green-500/25"
+        },
+        {
+          title: assistants.marketAnalyzer.title,
+          summary: assistants.marketAnalyzer.description,
+          details: ["Market trend analysis", "Carbon requirements tracking", "Competitive intelligence"],
+          gradient: "from-sky-500/25 to-blue-500/25"
+        }
+      ];
+    }
+  };
 
   useEffect(() => {
     // 检测是否为移动端
@@ -473,204 +574,11 @@ export default function Home() {
             </div>
           </div>
 
-          {/* AI Assistant Cards - Horizontal Row */}
-          <div className="relative w-full">
-            <div className="flex gap-6 justify-center overflow-x-auto">
-              {activeAIRole === 'carbonExpert' && (
-                <>
-                  {/* Carbon Calculator */}
-                  <div className="relative w-[307px] h-[429px] bg-gradient-to-b from-purple-600 to-purple-800 rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
-                    <div className="absolute w-60 h-[39px] top-[34px] left-[34px]">
-                      <h3 className="font-semibold text-white text-[28px] text-center tracking-[-0.28px] leading-[36.4px]">
-                        {t.sections.aiAssistants.assistants.carbonExpert.carbonCalculator.title}
-                      </h3>
-                    </div>
-                    <p className="absolute w-[250px] h-[52px] top-[110px] left-[29px] font-normal text-white text-lg text-center tracking-[-0.18px] leading-[27px]">
-                      {t.sections.aiAssistants.assistants.carbonExpert.carbonCalculator.description}
-                    </p>
-                    <div className="absolute w-[306px] h-[282px] top-[183px] left-0 bg-gradient-to-b from-transparent to-purple-900" />
-                  </div>
-
-                  {/* Compliance Tracker */}
-                  <div className="relative w-[307px] h-[429px] bg-gradient-to-b from-green-600 to-green-800 rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
-                    <div className="absolute w-60 h-[39px] top-[34px] left-[34px]">
-                      <h3 className="font-semibold text-white text-[28px] text-center tracking-[-0.28px] leading-[36.4px]">
-                        {t.sections.aiAssistants.assistants.carbonExpert.complianceTracker.title}
-                      </h3>
-                    </div>
-                    <p className="absolute w-[250px] h-[52px] top-[110px] left-[29px] font-normal text-white text-lg text-center tracking-[-0.18px] leading-[27px]">
-                      {t.sections.aiAssistants.assistants.carbonExpert.complianceTracker.description}
-                    </p>
-                    <div className="absolute w-[306px] h-[282px] top-[183px] left-0 bg-gradient-to-b from-transparent to-green-900" />
-                  </div>
-
-                  {/* Climate Seal AI - Central Highlighted */}
-                  <div className="relative w-[307px] h-[429px] bg-[#0073ea] rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
-                    <div className="absolute w-60 h-[39px] top-[34px] left-[34px]">
-                      <h3 className="font-semibold text-white text-[28px] text-center tracking-[-0.28px] leading-[36.4px]">
-                        {t.sections.aiAssistants.assistants.carbonExpert.climateSeal.title}
-                      </h3>
-                    </div>
-                    <p className="absolute w-[250px] h-[52px] top-[110px] left-[29px] font-normal text-white text-lg text-center tracking-[-0.18px] leading-[27px]">
-                      {t.sections.aiAssistants.assistants.carbonExpert.climateSeal.description}
-                    </p>
-                    <div className="absolute w-[306px] h-[282px] top-[183px] left-0 bg-gradient-to-b from-transparent to-blue-900" />
-                  </div>
-
-                  {/* Supply Chain Analyzer */}
-                  <div className="relative w-[307px] h-[429px] bg-gradient-to-b from-orange-600 to-orange-800 rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
-                    <div className="absolute w-60 h-[39px] top-[34px] left-[34px]">
-                      <h3 className="font-semibold text-white text-[28px] text-center tracking-[-0.28px] leading-[36.4px]">
-                        {t.sections.aiAssistants.assistants.carbonExpert.supplyChainAnalyzer.title}
-                      </h3>
-                    </div>
-                    <p className="absolute w-[250px] h-[52px] top-[110px] left-[29px] font-normal text-white text-lg text-center tracking-[-0.18px] leading-[27px]">
-                      {t.sections.aiAssistants.assistants.carbonExpert.supplyChainAnalyzer.description}
-                    </p>
-                    <div className="absolute w-[306px] h-[282px] top-[183px] left-0 bg-gradient-to-b from-transparent to-orange-900" />
-                  </div>
-
-                  {/* Report Generator */}
-                  <div className="relative w-[307px] h-[429px] bg-gradient-to-b from-amber-600 to-amber-800 rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
-                    <div className="absolute w-60 h-[39px] top-[34px] left-[34px]">
-                      <h3 className="font-semibold text-white text-[28px] text-center tracking-[-0.28px] leading-[36.4px]">
-                        {t.sections.aiAssistants.assistants.carbonExpert.reportGenerator.title}
-                      </h3>
-                    </div>
-                    <p className="absolute w-[250px] h-[52px] top-[110px] left-[29px] font-normal text-white text-lg text-center tracking-[-0.18px] leading-[27px]">
-                      {t.sections.aiAssistants.assistants.carbonExpert.reportGenerator.description}
-                    </p>
-                    <div className="absolute w-[306px] h-[282px] top-[183px] left-0 bg-gradient-to-b from-transparent to-amber-900" />
-                  </div>
-
-                  {/* Data Validator */}
-                  <div className="relative w-[307px] h-[429px] bg-gradient-to-b from-cyan-600 to-cyan-800 rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
-                    <div className="absolute w-60 h-[39px] top-[34px] left-[34px]">
-                      <h3 className="font-semibold text-white text-[28px] text-center tracking-[-0.28px] leading-[36.4px]">
-                        {t.sections.aiAssistants.assistants.carbonExpert.dataValidator.title}
-                      </h3>
-                    </div>
-                    <p className="absolute w-[250px] h-[52px] top-[110px] left-[29px] font-normal text-white text-lg text-center tracking-[-0.18px] leading-[27px]">
-                      {t.sections.aiAssistants.assistants.carbonExpert.dataValidator.description}
-                    </p>
-                    <div className="absolute w-[306px] h-[282px] top-[183px] left-0 bg-gradient-to-b from-transparent to-cyan-900" />
-                  </div>
-                </>
-              )}
-
-              {activeAIRole === 'brandOwner' && (
-                <>
-                  {/* Brand Analyzer */}
-                  <div className="relative w-[307px] h-[429px] bg-gradient-to-b from-pink-600 to-pink-800 rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
-                    <div className="absolute w-60 h-[39px] top-[34px] left-[34px]">
-                      <h3 className="font-semibold text-white text-[28px] text-center tracking-[-0.28px] leading-[36.4px]">
-                        {t.sections.aiAssistants.assistants.brandOwner.brandAnalyzer.title}
-                      </h3>
-                    </div>
-                    <p className="absolute w-[250px] h-[52px] top-[110px] left-[29px] font-normal text-white text-lg text-center tracking-[-0.18px] leading-[27px]">
-                      {t.sections.aiAssistants.assistants.brandOwner.brandAnalyzer.description}
-                    </p>
-                    <div className="absolute w-[306px] h-[282px] top-[183px] left-0 bg-gradient-to-b from-transparent to-pink-900" />
-                  </div>
-
-                  {/* Scope 3 Tracker */}
-                  <div className="relative w-[307px] h-[429px] bg-gradient-to-b from-indigo-600 to-indigo-800 rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
-                    <div className="absolute w-60 h-[39px] top-[34px] left-[34px]">
-                      <h3 className="font-semibold text-white text-[28px] text-center tracking-[-0.28px] leading-[36.4px]">
-                        {t.sections.aiAssistants.assistants.brandOwner.scopeTracker.title}
-                      </h3>
-                    </div>
-                    <p className="absolute w-[250px] h-[52px] top-[110px] left-[29px] font-normal text-white text-lg text-center tracking-[-0.18px] leading-[27px]">
-                      {t.sections.aiAssistants.assistants.brandOwner.scopeTracker.description}
-                    </p>
-                    <div className="absolute w-[306px] h-[282px] top-[183px] left-0 bg-gradient-to-b from-transparent to-indigo-900" />
-                  </div>
-
-                  {/* Sustainability Reporter */}
-                  <div className="relative w-[307px] h-[429px] bg-gradient-to-b from-emerald-600 to-emerald-800 rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
-                    <div className="absolute w-60 h-[39px] top-[34px] left-[34px]">
-                      <h3 className="font-semibold text-white text-[28px] text-center tracking-[-0.28px] leading-[36.4px]">
-                        {t.sections.aiAssistants.assistants.brandOwner.sustainabilityReporter.title}
-                      </h3>
-                    </div>
-                    <p className="absolute w-[250px] h-[52px] top-[110px] left-[29px] font-normal text-white text-lg text-center tracking-[-0.18px] leading-[27px]">
-                      {t.sections.aiAssistants.assistants.brandOwner.sustainabilityReporter.description}
-                    </p>
-                    <div className="absolute w-[306px] h-[282px] top-[183px] left-0 bg-gradient-to-b from-transparent to-emerald-900" />
-                  </div>
-
-                  {/* Goal Manager */}
-                  <div className="relative w-[307px] h-[429px] bg-gradient-to-b from-violet-600 to-violet-800 rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
-                    <div className="absolute w-60 h-[39px] top-[34px] left-[34px]">
-                      <h3 className="font-semibold text-white text-[28px] text-center tracking-[-0.28px] leading-[36.4px]">
-                        {t.sections.aiAssistants.assistants.brandOwner.goalManager.title}
-                      </h3>
-                    </div>
-                    <p className="absolute w-[250px] h-[52px] top-[110px] left-[29px] font-normal text-white text-lg text-center tracking-[-0.18px] leading-[27px]">
-                      {t.sections.aiAssistants.assistants.brandOwner.goalManager.description}
-                    </p>
-                    <div className="absolute w-[306px] h-[282px] top-[183px] left-0 bg-gradient-to-b from-transparent to-violet-900" />
-                  </div>
-                </>
-              )}
-
-              {activeAIRole === 'supplyChain' && (
-                <>
-                  {/* Supplier Assessment */}
-                  <div className="relative w-[307px] h-[429px] bg-gradient-to-b from-rose-600 to-rose-800 rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
-                    <div className="absolute w-60 h-[39px] top-[34px] left-[34px]">
-                      <h3 className="font-semibold text-white text-[28px] text-center tracking-[-0.28px] leading-[36.4px]">
-                        {t.sections.aiAssistants.assistants.supplyChain.supplierAssessment.title}
-                      </h3>
-                    </div>
-                    <p className="absolute w-[250px] h-[52px] top-[110px] left-[29px] font-normal text-white text-lg text-center tracking-[-0.18px] leading-[27px]">
-                      {t.sections.aiAssistants.assistants.supplyChain.supplierAssessment.description}
-                    </p>
-                    <div className="absolute w-[306px] h-[282px] top-[183px] left-0 bg-gradient-to-b from-transparent to-rose-900" />
-                  </div>
-
-                  {/* Export Compliance */}
-                  <div className="relative w-[307px] h-[429px] bg-gradient-to-b from-slate-600 to-slate-800 rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
-                    <div className="absolute w-60 h-[39px] top-[34px] left-[34px]">
-                      <h3 className="font-semibold text-white text-[28px] text-center tracking-[-0.28px] leading-[36.4px]">
-                        {t.sections.aiAssistants.assistants.supplyChain.exportCompliance.title}
-                      </h3>
-                    </div>
-                    <p className="absolute w-[250px] h-[52px] top-[110px] left-[29px] font-normal text-white text-lg text-center tracking-[-0.18px] leading-[27px]">
-                      {t.sections.aiAssistants.assistants.supplyChain.exportCompliance.description}
-                    </p>
-                    <div className="absolute w-[306px] h-[282px] top-[183px] left-0 bg-gradient-to-b from-transparent to-slate-900" />
-                  </div>
-
-                  {/* Cost Optimizer */}
-                  <div className="relative w-[307px] h-[429px] bg-gradient-to-b from-lime-600 to-lime-800 rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
-                    <div className="absolute w-60 h-[39px] top-[34px] left-[34px]">
-                      <h3 className="font-semibold text-white text-[28px] text-center tracking-[-0.28px] leading-[36.4px]">
-                        {t.sections.aiAssistants.assistants.supplyChain.costOptimizer.title}
-                      </h3>
-                    </div>
-                    <p className="absolute w-[250px] h-[52px] top-[110px] left-[29px] font-normal text-white text-lg text-center tracking-[-0.18px] leading-[27px]">
-                      {t.sections.aiAssistants.assistants.supplyChain.costOptimizer.description}
-                    </p>
-                    <div className="absolute w-[306px] h-[282px] top-[183px] left-0 bg-gradient-to-b from-transparent to-lime-900" />
-                  </div>
-
-                  {/* Market Analyzer */}
-                  <div className="relative w-[307px] h-[429px] bg-gradient-to-b from-sky-600 to-sky-800 rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
-                    <div className="absolute w-60 h-[39px] top-[34px] left-[34px]">
-                      <h3 className="font-semibold text-white text-[28px] text-center tracking-[-0.28px] leading-[36.4px]">
-                        {t.sections.aiAssistants.assistants.supplyChain.marketAnalyzer.title}
-                      </h3>
-                    </div>
-                    <p className="absolute w-[250px] h-[52px] top-[110px] left-[29px] font-normal text-white text-lg text-center tracking-[-0.18px] leading-[27px]">
-                      {t.sections.aiAssistants.assistants.supplyChain.marketAnalyzer.description}
-                    </p>
-                    <div className="absolute w-[306px] h-[282px] top-[183px] left-0 bg-gradient-to-b from-transparent to-sky-900" />
-                  </div>
-                </>
-              )}
-            </div>
-          </div>
+          {/* AI Assistant Cards - ExpandableCards */}
+          <ExpandableCards 
+            items={getCardsForRole(activeAIRole)} 
+            className="mt-8"
+          />
 
           {/* Bottom Action Buttons */}
           <div className="flex justify-center gap-6 mt-16">
