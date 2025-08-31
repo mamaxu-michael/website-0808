@@ -39,10 +39,10 @@ export default function Home() {
         {
           title: assistants.carbonCalculator.title,
           summary: assistants.carbonCalculator.description,
-          details: ["Bulk import BOM/PCF templates", "Multi-method support (GHG/PAS/ISO)", "Audit-ready evidence pack"],
           gradient: "from-purple-500/25 to-violet-500/25",
           background: "bg-gradient-to-b from-purple-600/70 to-purple-800/70",
-          mediaSrc: "/reg-advisor.png"
+          staticMediaSrc: "/reg-advisor.png",
+          dynamicMediaSrc: "/videos/video1-card.mp4"
         },
         {
           title: assistants.complianceTracker.title,

@@ -9,6 +9,8 @@ type Item = {
   gradient?: string;     // Tailwind 渐变，如 "from-fuchsia-500 to-violet-500"
   background?: string;   // 卡片背景色渐变
   mediaSrc?: string;     // 可选：/public 下图片或 mp4
+  staticMediaSrc?: string;  // 静态状态显示的媒体
+  dynamicMediaSrc?: string; // 激活状态显示的媒体
 };
 
 function usePrefersReducedMotion() {
@@ -44,6 +46,10 @@ function AutoVideo({ src, className }: { src: string; className?: string }) {
       muted
       loop
       playsInline
+      style={{
+        objectFit: 'cover',
+        objectPosition: 'center'
+      }}
     />
   );
 }
@@ -124,20 +130,39 @@ export default function ExpandableCards({
               />
 
               {/* 媒体位：图片或视频 - 占据顶部大部分空间 */}
-              <div className="absolute inset-0 overflow-hidden">
-                {it.mediaSrc?.endsWith(".mp4") ? (
-                  <AutoVideo src={it.mediaSrc} className="h-full w-full object-cover" />
-                ) : it.mediaSrc ? (
-                  <img src={it.mediaSrc} alt="" className="h-full w-full object-cover" />
-                ) : (
-                  <div className={`h-full w-full ${it.background ?? 'bg-gradient-to-br from-neutral-900 to-neutral-800'}`} />
-                )}
+              <div className="absolute inset-0">
+                {(() => {
+                  // 优先使用静态/动态媒体，其次使用通用媒体
+                  const currentMediaSrc = isActive 
+                    ? (it.dynamicMediaSrc || it.mediaSrc)
+                    : (it.staticMediaSrc || it.mediaSrc);
+                  
+                  if (currentMediaSrc?.endsWith(".mp4")) {
+                    return (
+                      <div className="flex items-center justify-center h-full w-full">
+                        <AutoVideo 
+                          src={currentMediaSrc} 
+                          className="h-[60%] w-[95%] object-contain rounded-lg -translate-y-[30px]" 
+                        />
+                      </div>
+                    );
+                  } else if (currentMediaSrc) {
+                    return <img src={currentMediaSrc} alt="" className="h-full w-full object-cover" />;
+                  } else {
+                    return <div className={`h-full w-full ${it.background ?? 'bg-gradient-to-br from-neutral-900 to-neutral-800'}`} />;
+                  }
+                })()}
               </div>
 
               {/* 文案区 - 定位到底部 */}
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-black/60 backdrop-blur-sm">
                 <div className="text-lg md:text-xl font-semibold">{it.title}</div>
-                <p className="mt-2 text-sm text-white/80">{it.summary}</p>
+                <p className="mt-2 text-sm text-white/80">
+                  {isActive ? 
+                    (it.summary.length > 80 ? it.summary.substring(0, 80) + "..." : it.summary) 
+                    : it.summary
+                  }
+                </p>
 
                 {/* 展开后的更多内容 */}
                 <AnimatePresence initial={false}>

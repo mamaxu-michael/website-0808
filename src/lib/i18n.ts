@@ -503,24 +503,24 @@ export const translations: Record<Language, TranslationData> = {
               description: 'Provides carbon-emissions legal support in minutes and matches your case to the relevant regulations and clauses.'
             },
             complianceTracker: {
-              title: 'Compliance Tracker', 
-              description: 'Monitors regulatory changes\nand compliance requirements, daily.'
+              title: 'Data Intake Steward', 
+              description: 'Dispatches structured data requests across teams and multi-tier suppliers, auto-scores quality (0–100), consolidates evidence, and reduces manual chasing by up to 60% while raising on-time submissions.'
             },
             climateSeal: {
-              title: 'Climate Seal AI',
-              description: 'Just ask. The assistant handles\nyour carbon footprint for you.'
+              title: 'PCF Modeler & Calculator',
+              description: 'Turns BOM/energy/logistics into audit-ready PCF/OCF models, batch-calculates hundreds of SKUs in minutes, and surfaces hotspots with unit-level tCO₂e and uncertainty bands.'
             },
             supplyChainAnalyzer: {
-              title: 'Supply Chain Analyzer',
-              description: 'Flags carbon risks and automates\nsupply chain processes, in real time.'
+              title: 'QA & Anomaly Detector',
+              description: 'Runs completeness/consistency checks and statistical outlier detection, assigns a 0–100 quality score, and returns field-level fixes—cutting rework by 30–50%.'
             },
             reportGenerator: {
-              title: 'Report Generator',
-              description: 'Automatically generates and\nvalidates carbon reports.'
+              title: 'External Cross-Check Verifier',
+              description: 'Cross-verifies reported values against third-party reports and public datasets, returns confidence-rated matches with evidence links in minutes, and flags conflicts for rapid resolution.'
             },
             dataValidator: {
-              title: 'Data Validator',
-              description: 'Validates carbon data accuracy\nand flags inconsistencies.'
+              title: 'Risk Screener',
+              description: 'Scores regulatory/disclosure/supply-chain/reputation risk, ranks the top 10 exposures, and produces a 90-day remediation plan with marginal abatement costs (USD/tCO₂e) and ROI.'
             }
           },
           brandOwner: {
@@ -1007,24 +1007,24 @@ export const translations: Record<Language, TranslationData> = {
               description: '几分钟内提供碳排放法律支持，将您的案例匹配到相关法规和条款。'
             },
             complianceTracker: {
-              title: '合规跟踪器',
-              description: '每日监控法规变化\n和合规要求。'
+              title: '数据接取管理员',
+              description: '在团队和多层级供应商中分发结构化数据请求，自动评分质量（0-100），整合证据，减少手动追踪60%，提高按时提交率。'
             },
             climateSeal: {
-              title: 'Climate Seal AI',
-              description: '只需询问，AI助手\n为您处理碳足迹工作。'
+              title: 'PCF建模器和计算器',
+              description: '将BOM/能源/物流转化为审计就绪的PCF/OCF模型，批量计算数百个SKU，并在几分钟内显示热点和单位级tCO₂e不确定性区间。'
             },
             supplyChainAnalyzer: {
-              title: '供应链分析器',
-              description: '实时标记碳风险\n自动化供应链流程。'
+              title: '质量保证和异常检测器',
+              description: '运行完整性/一致性检查和统计异常值检测，分配0-100质量评分，返回字段级修复建议——减少返工30-50%。'
             },
             reportGenerator: {
-              title: '报告生成器',
-              description: '自动生成和验证\n碳足迹报告。'
+              title: '外部交叉验证器',
+              description: '对照第三方报告和公开数据集交叉验证报告值，几分钟内返回带证据链接的置信度匹配结果，标记冲突以快速解决。'
             },
             dataValidator: {
-              title: '数据验证器',
-              description: '验证碳数据准确性\n标记数据不一致。'
+              title: '风险筛查器',
+              description: '评分法规/披露/供应链/声誉风险，排名前10个暴露风险，并生成带有边际减排成本（USD/tCO₂e）和ROI的90天修复计划。'
             }
           },
           brandOwner: {
