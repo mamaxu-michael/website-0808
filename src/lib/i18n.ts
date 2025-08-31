@@ -497,29 +497,67 @@ export const translations: Record<Language, TranslationData> = {
         getStarted: 'Get Started',
         trustCenter: 'Visit our AI Trust Center',
         assistants: {
-          carbonCalculator: {
-            title: 'Carbon Calculator',
-            description: 'Automatically calculates product\ncarbon footprints, 24/7.'
+          carbonExpert: {
+            carbonCalculator: {
+              title: 'Carbon Calculator',
+              description: 'Automatically calculates product\ncarbon footprints, 24/7.'
+            },
+            complianceTracker: {
+              title: 'Compliance Tracker', 
+              description: 'Monitors regulatory changes\nand compliance requirements, daily.'
+            },
+            climateSeal: {
+              title: 'Climate Seal AI',
+              description: 'Just ask. The assistant handles\nyour carbon footprint for you.'
+            },
+            supplyChainAnalyzer: {
+              title: 'Supply Chain Analyzer',
+              description: 'Flags carbon risks and automates\nsupply chain processes, in real time.'
+            },
+            reportGenerator: {
+              title: 'Report Generator',
+              description: 'Automatically generates and\nvalidates carbon reports.'
+            },
+            dataValidator: {
+              title: 'Data Validator',
+              description: 'Validates carbon data accuracy\nand flags inconsistencies.'
+            }
           },
-          complianceTracker: {
-            title: 'Compliance Tracker', 
-            description: 'Monitors regulatory changes\nand compliance requirements, daily.'
+          brandOwner: {
+            brandAnalyzer: {
+              title: 'Brand Analyzer',
+              description: 'Analyzes brand carbon performance\nand sustainability metrics, continuously.'
+            },
+            scopeTracker: {
+              title: 'Scope 3 Tracker',
+              description: 'Tracks Scope 3 emissions across\nsupply chain partners, automatically.'
+            },
+            sustainabilityReporter: {
+              title: 'Sustainability Reporter',
+              description: 'Generates comprehensive sustainability\nreports for stakeholders, instantly.'
+            },
+            goalManager: {
+              title: 'Goal Manager',
+              description: 'Manages carbon reduction goals\nand tracks progress, real-time.'
+            }
           },
-          climateSeal: {
-            title: 'Climate Seal AI',
-            description: 'Just ask. The assistant handles\nyour carbon footprint for you.'
-          },
-          supplyChainAnalyzer: {
-            title: 'Supply Chain Analyzer',
-            description: 'Flags carbon risks and automates\nsupply chain processes, in real time.'
-          },
-          reportGenerator: {
-            title: 'Report Generator',
-            description: 'Automatically generates and\nvalidates carbon reports.'
-          },
-          dataValidator: {
-            title: 'Data Validator',
-            description: 'Validates carbon data accuracy\nand flags inconsistencies.'
+          supplyChain: {
+            supplierAssessment: {
+              title: 'Supplier Assessment',
+              description: 'Evaluates supplier carbon performance\nand compliance status, efficiently.'
+            },
+            exportCompliance: {
+              title: 'Export Compliance',
+              description: 'Ensures export compliance with\nglobal carbon regulations, seamlessly.'
+            },
+            costOptimizer: {
+              title: 'Cost Optimizer',
+              description: 'Optimizes carbon reporting costs\nand resource allocation, intelligently.'
+            },
+            marketAnalyzer: {
+              title: 'Market Analyzer',
+              description: 'Analyzes market trends and\ncarbon requirements, proactively.'
+            }
           }
         }
       },
@@ -946,29 +984,67 @@ export const translations: Record<Language, TranslationData> = {
         getStarted: '开始使用',
         trustCenter: '访问我们的AI信任中心',
         assistants: {
-          carbonCalculator: {
-            title: '碳足迹计算器',
-            description: '24/7自动计算产品\n碳足迹数据。'
+          carbonExpert: {
+            carbonCalculator: {
+              title: '碳足迹计算器',
+              description: '24/7自动计算产品\n碳足迹数据。'
+            },
+            complianceTracker: {
+              title: '合规跟踪器',
+              description: '每日监控法规变化\n和合规要求。'
+            },
+            climateSeal: {
+              title: 'Climate Seal AI',
+              description: '只需询问，AI助手\n为您处理碳足迹工作。'
+            },
+            supplyChainAnalyzer: {
+              title: '供应链分析器',
+              description: '实时标记碳风险\n自动化供应链流程。'
+            },
+            reportGenerator: {
+              title: '报告生成器',
+              description: '自动生成和验证\n碳足迹报告。'
+            },
+            dataValidator: {
+              title: '数据验证器',
+              description: '验证碳数据准确性\n标记数据不一致。'
+            }
           },
-          complianceTracker: {
-            title: '合规跟踪器',
-            description: '每日监控法规变化\n和合规要求。'
+          brandOwner: {
+            brandAnalyzer: {
+              title: '品牌分析器',
+              description: '持续分析品牌碳表现\n和可持续性指标。'
+            },
+            scopeTracker: {
+              title: 'Scope 3追踪器',
+              description: '自动追踪供应链合作伙伴\n的Scope 3排放。'
+            },
+            sustainabilityReporter: {
+              title: '可持续性报告器',
+              description: '即时生成面向利益相关者\n的综合可持续性报告。'
+            },
+            goalManager: {
+              title: '目标管理器',
+              description: '实时管理碳减排目标\n并跟踪进度。'
+            }
           },
-          climateSeal: {
-            title: 'Climate Seal AI',
-            description: '只需询问，AI助手\n为您处理碳足迹工作。'
-          },
-          supplyChainAnalyzer: {
-            title: '供应链分析器',
-            description: '实时标记碳风险\n自动化供应链流程。'
-          },
-          reportGenerator: {
-            title: '报告生成器',
-            description: '自动生成和验证\n碳足迹报告。'
-          },
-          dataValidator: {
-            title: '数据验证器',
-            description: '验证碳数据准确性\n标记数据不一致。'
+          supplyChain: {
+            supplierAssessment: {
+              title: '供应商评估',
+              description: '高效评估供应商碳表现\n和合规状态。'
+            },
+            exportCompliance: {
+              title: '出口合规',
+              description: '无缝确保出口符合\n全球碳法规要求。'
+            },
+            costOptimizer: {
+              title: '成本优化器',
+              description: '智能优化碳报告成本\n和资源配置。'
+            },
+            marketAnalyzer: {
+              title: '市场分析器',
+              description: '主动分析市场趋势\n和碳要求。'
+            }
           }
         }
       },
