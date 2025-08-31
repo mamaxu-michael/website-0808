@@ -458,7 +458,7 @@ export const translations: Record<Language, TranslationData> = {
         scrollingText2: 'Use Credit At Low Cost'
       },
       personas: {
-        title: 'Who We Serve',
+        title: 'Designed for Every Team',
         carbonExpert: {
           title: 'Carbon Professional',
           role: 'ESG/Sustainability/Carbon/Consulting Expert',
@@ -499,8 +499,8 @@ export const translations: Record<Language, TranslationData> = {
         assistants: {
           carbonExpert: {
             carbonCalculator: {
-              title: 'Carbon Calculator',
-              description: 'Automatically calculates product\ncarbon footprints, 24/7.'
+              title: 'Reg Advisor',
+              description: 'Provides carbon-emissions legal support in minutes and matches your case to the relevant regulations and clauses.'
             },
             complianceTracker: {
               title: 'Compliance Tracker', 
@@ -962,7 +962,7 @@ export const translations: Record<Language, TranslationData> = {
         scrollingText2: 'Use Credit At Low Cost'
       },
       personas: {
-        title: '我们服务的客户',
+        title: '为每个团队设计',
         carbonExpert: {
           title: '碳专业人士',
           role: 'ESG/可持续/碳/咨询专家',
@@ -1003,8 +1003,8 @@ export const translations: Record<Language, TranslationData> = {
         assistants: {
           carbonExpert: {
             carbonCalculator: {
-              title: '碳足迹计算器',
-              description: '24/7自动计算产品\n碳足迹数据。'
+              title: '法规顾问',
+              description: '几分钟内提供碳排放法律支持，将您的案例匹配到相关法规和条款。'
             },
             complianceTracker: {
               title: '合规跟踪器',

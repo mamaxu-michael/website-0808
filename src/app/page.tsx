@@ -41,7 +41,8 @@ export default function Home() {
           summary: assistants.carbonCalculator.description,
           details: ["Bulk import BOM/PCF templates", "Multi-method support (GHG/PAS/ISO)", "Audit-ready evidence pack"],
           gradient: "from-purple-500/25 to-violet-500/25",
-          background: "bg-gradient-to-b from-purple-600/70 to-purple-800/70"
+          background: "bg-gradient-to-b from-purple-600/70 to-purple-800/70",
+          mediaSrc: "/reg-advisor.png"
         },
         {
           title: assistants.complianceTracker.title,
@@ -404,8 +405,6 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-[56px] font-normal text-white leading-[67.2px] tracking-[-1.12px] mb-4">
               {t.sections.personas?.title || 'Solutions for every role.'}
-              <br />
-              Powered by one platform.
             </h2>
           </div>
 
@@ -441,13 +440,12 @@ export default function Home() {
               }`}>
               {/* Logo/Brand Area */}
               <div className="absolute top-[108px] left-10 w-[309px] h-7">
-                <div className="text-white text-xl font-semibold">Climate Seal AI</div>
               </div>
 
               {/* Main Title */}
-              <div className="absolute top-[165px] left-10 w-[294px]">
+              <div className="absolute top-[130px] left-10 w-[294px]">
                 <h3 className="text-white text-[40px] font-normal tracking-[-0.80px] leading-[52px]">
-                  {activePersona === 'carbonExpert' && 'Amplify expertise\nat scale'}
+                  {activePersona === 'carbonExpert' && 'Carbon Professionals'}
                   {activePersona === 'brandOwner' && 'Drive supply chain\ntransparency'}
                   {activePersona === 'supplyChain' && 'Achieve compliance\neffortlessly'}
                 </h3>
