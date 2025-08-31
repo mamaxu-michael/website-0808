@@ -561,6 +561,23 @@ export const translations: Record<Language, TranslationData> = {
           }
         }
       },
+      difference: {
+        title: 'The monday.com difference',
+        cards: {
+          flexible: {
+            title: 'Flexible yet standardized',
+            description: 'Build custom workflows with a no-code interface, while defining admin controls to maintain cross-org consistency.'
+          },
+          products: {
+            title: 'Products teams love to use', 
+            description: 'Onboard your entire organization with intuitive products they\'ll love to use.'
+          },
+          fastValue: {
+            title: 'Fast time to value',
+            description: 'See value fast with products that are quick to implement and even easier to learn.'
+          }
+        }
+      },
       scenarios: {
         title: 'Scenarios you need carbon footprint',
         whyNeed: {
@@ -1045,6 +1062,23 @@ export const translations: Record<Language, TranslationData> = {
               title: '市场分析器',
               description: '主动分析市场趋势\n和碳要求。'
             }
+          }
+        }
+      },
+      difference: {
+        title: 'Climate Seal的差异化优势',
+        cards: {
+          flexible: {
+            title: '灵活且标准化',
+            description: '通过无代码界面构建自定义工作流程，同时定义管理控制以维护跨组织的一致性。'
+          },
+          products: {
+            title: '团队喜爱使用的产品', 
+            description: '通过直观的产品让整个组织都能轻松上手并爱上使用。'
+          },
+          fastValue: {
+            title: '快速实现价值',
+            description: '通过快速实施且易于学习的产品，快速看到价值。'
           }
         }
       },

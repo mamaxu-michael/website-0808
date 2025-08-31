@@ -601,6 +601,88 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Monday.com Difference Section */}
+      <section className="relative bg-[rgb(0,52,50)] py-16 overflow-hidden">
+        <div className="relative w-full max-w-[1376px] mx-auto px-4">
+          {/* Title */}
+          <div className="text-center mb-16">
+            <h2 className="text-[56px] font-normal text-white leading-[67.2px] tracking-[-1.12px]">
+              {t.sections.difference.title}
+            </h2>
+          </div>
+
+          {/* Cards Layout */}
+          <div className="relative w-full h-[1023px]">
+            {/* Flexible yet standardized - Green Card (Top Left) */}
+            {/* 灰色背景块 */}
+            <div className="absolute w-[400px] h-[272px] top-[127px] left-[-108px] bg-gray-200/30 rounded-[32px]"></div>
+            {/* 绿色卡片 */}
+            <div className="absolute w-[1080px] h-[272px] top-[127px] left-[372px] rounded-[32px]">
+              <div className="w-[1080px] bg-[#f0f3ff] overflow-hidden absolute h-[272px] top-0 left-0 rounded-[32px]">
+                <div className="relative w-[1088px] h-[266px] top-[3px] -left-1 bg-gradient-to-br from-green-400 to-green-600" />
+              </div>
+              <div className="absolute inset-0 p-8 flex items-center">
+                <div className="w-1/2">
+                  <h3 className="text-3xl font-bold text-black mb-4">{t.sections.difference.cards.flexible.title}</h3>
+                </div>
+                <div className="w-1/2 pl-4">
+                  <p className="text-black text-sm leading-relaxed">{t.sections.difference.cards.flexible.description}</p>
+                </div>
+              </div>
+              {/* Green Icon */}
+              <div className="absolute top-6 left-6 w-20 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                <div className="w-8 h-8 bg-white rounded-full"></div>
+              </div>
+            </div>
+
+            {/* Products teams love to use - Blue Card (Center Right) */}
+            {/* 灰色背景块 */}
+            <div className="absolute w-[400px] h-[272px] top-[439px] left-[1052px] bg-gray-200/30 rounded-[32px]"></div>
+            {/* 蓝色卡片 */}
+            <div className="absolute w-[1080px] h-[272px] top-[439px] left-[-108px] rounded-[32px]">
+              <div className="w-[1080px] bg-[#f0f3ff] overflow-hidden absolute h-[272px] top-0 left-0 rounded-[32px]">
+                <div className="relative w-[1088px] h-[266px] top-[3px] -left-1 bg-gradient-to-br from-blue-500 to-blue-700" />
+              </div>
+              <div className="absolute inset-0 p-8 flex items-center">
+                <div className="w-1/2">
+                  <h3 className="text-3xl font-bold text-white mb-4">{t.sections.difference.cards.products.title}</h3>
+                </div>
+                <div className="w-1/2 pl-4">
+                  <p className="text-white/90 text-sm leading-relaxed">{t.sections.difference.cards.products.description}</p>
+                </div>
+              </div>
+              {/* Heart Icon */}
+              <div className="absolute top-6 right-6 w-20 h-16 flex items-center justify-center">
+                <div className="w-12 h-10 bg-white rounded-t-full transform rotate-45" style={{borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%'}}></div>
+              </div>
+            </div>
+
+            {/* Fast time to value - Pink Card (Bottom Left) */}
+            {/* 灰色背景块 */}
+            <div className="absolute w-[400px] h-[272px] top-[751px] left-[-108px] bg-gray-200/30 rounded-[32px]"></div>
+            {/* 粉色卡片 */}
+            <div className="absolute w-[1080px] h-[272px] top-[751px] left-[372px] rounded-[32px]">
+              <div className="w-[1080px] bg-[#f0f3ff] overflow-hidden absolute h-[272px] top-0 left-0 rounded-[32px]">
+                <div className="relative w-[1088px] h-[266px] top-[3px] -left-1 bg-gradient-to-br from-pink-400 to-pink-600" />
+              </div>
+              <div className="absolute inset-0 p-8 flex items-center">
+                <div className="w-1/2">
+                  <h3 className="text-3xl font-bold text-black mb-4">{t.sections.difference.cards.fastValue.title}</h3>
+                </div>
+                <div className="w-1/2 pl-4">
+                  <p className="text-black text-sm leading-relaxed">{t.sections.difference.cards.fastValue.description}</p>
+                </div>
+              </div>
+              {/* Pink Icon */}
+              <div className="absolute top-6 left-6 w-20 h-12">
+                <div className="w-16 h-8 bg-pink-300 rounded-full"></div>
+                <div className="w-12 h-8 bg-pink-400 rounded-full mt-1 ml-2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Scenarios & Value Section */}
       <section id="scenarios-value" className="relative bg-[rgb(0,52,50)] py-12 sm:py-20 -mt-px" data-theme="scenarios-value" data-section="scenarios-overview" data-category="product">
         <div className="relative w-full mx-auto px-4">
@@ -1977,7 +2059,7 @@ export default function Home() {
                     </h3>
                     {/* Hand-drawn style underline */}
                     <div className="absolute -bottom-2 sm:-bottom-3 md:-bottom-4 left-0 right-0 flex justify-center">
-                      <svg width="150" height="8" viewBox="0 0 200 12" className="text-[#9ef894] sm:w-[180px] sm:h-[10px] md:w-[200px] md:h-[12px]">
+                      <svg width="150" height="8" viewBox="0 0 200 12" className="text-[#9ef894] sm:w-[180px] sm:h-[10px] md:w-[400px] md:h-[12px]">
                         <path 
                           d="M2 8 Q50 2 100 6 Q150 10 198 4" 
                           stroke="currentColor" 
