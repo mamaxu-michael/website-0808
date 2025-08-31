@@ -7,6 +7,7 @@ type Item = {
   summary: string;
   details?: string[];
   gradient?: string;     // Tailwind 渐变，如 "from-fuchsia-500 to-violet-500"
+  background?: string;   // 卡片背景色渐变
   mediaSrc?: string;     // 可选：/public 下图片或 mp4
 };
 
@@ -104,7 +105,7 @@ export default function ExpandableCards({
               className={[
                 "group relative overflow-hidden rounded-2xl border border-white/10",
                 "bg-white/[0.04] text-white shadow-[0_10px_30px_rgba(0,0,0,.25)]",
-                "h-[465px]", // 固定高度，再增加5% (443px * 1.05 = 465px)
+                "h-[512px]", // 固定高度，增加10% (465px * 1.1 = 512px)
                 isActive ? grow : base,
                 "w-full md:w-auto flex-shrink-0", // 确保一字排开不换行
                 "cursor-pointer select-none",
@@ -129,7 +130,7 @@ export default function ExpandableCards({
                 ) : it.mediaSrc ? (
                   <img src={it.mediaSrc} alt="" className="h-full w-full object-cover" />
                 ) : (
-                  <div className="h-full w-full bg-gradient-to-br from-neutral-900 to-neutral-800" />
+                  <div className={`h-full w-full ${it.background ?? 'bg-gradient-to-br from-neutral-900 to-neutral-800'}`} />
                 )}
               </div>
 

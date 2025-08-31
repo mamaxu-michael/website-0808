@@ -39,37 +39,43 @@ export default function Home() {
           title: assistants.carbonCalculator.title,
           summary: assistants.carbonCalculator.description,
           details: ["Bulk import BOM/PCF templates", "Multi-method support (GHG/PAS/ISO)", "Audit-ready evidence pack"],
-          gradient: "from-purple-500/25 to-violet-500/25"
+          gradient: "from-purple-500/25 to-violet-500/25",
+          background: "bg-gradient-to-b from-purple-600/70 to-purple-800/70"
         },
         {
           title: assistants.complianceTracker.title,
           summary: assistants.complianceTracker.description,
           details: ["CSRD/CBAM/CDP mapping", "Gap analysis dashboard", "Policy alerts"],
-          gradient: "from-emerald-500/25 to-green-600/25"
+          gradient: "from-emerald-500/25 to-green-600/25",
+          background: "bg-gradient-to-b from-green-600/70 to-green-800/70"
         },
         {
           title: assistants.climateSeal.title,
           summary: assistants.climateSeal.description,
           details: ["Chat workflows", "Auto data validation", "One-click export"],
-          gradient: "from-sky-500/25 to-blue-600/25"
+          gradient: "from-sky-500/25 to-blue-600/25",
+          background: "bg-gradient-to-b from-blue-600/70 to-blue-800/70"
         },
         {
           title: assistants.supplyChainAnalyzer.title,
           summary: assistants.supplyChainAnalyzer.description,
           details: ["Supplier scoring", "Hotspot analysis", "What-if scenarios"],
-          gradient: "from-orange-500/25 to-amber-600/25"
+          gradient: "from-orange-500/25 to-amber-600/25",
+          background: "bg-gradient-to-b from-orange-600/70 to-orange-800/70"
         },
         {
           title: assistants.reportGenerator.title,
           summary: assistants.reportGenerator.description,
           details: ["CDP/CSRD/Customer templates", "Auto cross-check", "PDF/Excel export"],
-          gradient: "from-amber-500/25 to-red-500/25"
+          gradient: "from-amber-500/25 to-red-500/25",
+          background: "bg-gradient-to-b from-amber-600/70 to-amber-800/70"
         },
         {
           title: assistants.dataValidator.title,
           summary: assistants.dataValidator.description,
           details: ["Schema rules", "Outlier detection", "Line-level comments"],
-          gradient: "from-cyan-500/25 to-teal-600/25"
+          gradient: "from-cyan-500/25 to-teal-600/25",
+          background: "bg-gradient-to-b from-cyan-600/70 to-cyan-800/70"
         }
       ];
     } else if (role === 'brandOwner') {
