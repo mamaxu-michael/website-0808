@@ -72,10 +72,10 @@ export default function ExpandableCards({
   return (
     <motion.div
       layout
-      className={`mx-auto max-w-6xl px-6 ${className}`}
+      className={`mx-auto max-w-[2548px] px-6 ${className}`}
     >
       <div
-        className="flex flex-wrap justify-center gap-6"
+        className="flex justify-center gap-6 overflow-x-auto"
         // 为了更平滑的布局变化，外层也可换成 motion.div layout
       >
         {items.map((it, i) => {
@@ -104,8 +104,9 @@ export default function ExpandableCards({
               className={[
                 "group relative overflow-hidden rounded-2xl border border-white/10",
                 "bg-white/[0.04] text-white shadow-[0_10px_30px_rgba(0,0,0,.25)]",
+                "h-[558px]", // 固定高度，增加30% (429px * 1.3 = 558px)
                 isActive ? grow : base,
-                "w-full md:w-auto", // 允许在 flex-wrap 中按 basis 排列
+                "w-full md:w-auto flex-shrink-0", // 确保一字排开不换行
                 "cursor-pointer select-none",
                 isActive ? "ring-1 ring-white/30" : "ring-1 ring-white/10",
                 isActive ? "shadow-[0_16px_40px_rgba(0,0,0,.35)]" : "",
