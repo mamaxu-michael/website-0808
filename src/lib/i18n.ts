@@ -443,9 +443,9 @@ export const translations: Record<Language, TranslationData> = {
     },
     hero: {
       title: 'Climate Seal',
-      subtitle: 'Product Carbon Footprint\nAI Agent',
-      description: 'Get a credible carbon footprint at 1% of the cost and time',
-      getStarted: 'Try Now (2 Free Reports)',
+      subtitle: 'AI product carbon footprint\nAccounting & Assurance',
+      description: 'Generate audit-ready product carbon footprints ($CO₂$) in days, not months. Cut costs and complexity with Climate Seal\'s AI agent.',
+      getStarted: 'Get 2 free reports today',
       learnMore: 'Learn More',
       trustedBy: 'Trusted by'
     },
@@ -492,7 +492,7 @@ export const translations: Record<Language, TranslationData> = {
       },
       aiAssistants: {
         title: 'Meet your AI carbon expert and assistants',
-        subtitle: 'Describe the job. Your custom AI assistant is created, ready to work 24/7.',
+        subtitle: 'Choose your role. Your AI carbon experts and assistants are ready to support you 24/7.',
         comingSoon: 'Coming soon',
         getStarted: 'Get Started',
         trustCenter: 'Visit our AI Trust Center',
@@ -562,7 +562,7 @@ export const translations: Record<Language, TranslationData> = {
         }
       },
       difference: {
-        title: 'The monday.com difference',
+        title: 'The climate seal difference',
         cards: {
           flexible: {
             title: 'Flexible yet standardized',
@@ -947,9 +947,9 @@ export const translations: Record<Language, TranslationData> = {
     },
     hero: {
       title: 'Climate Seal',
-      subtitle: 'Product Carbon Footprint\nAI Agent',
-      description: '以1%的成本和时间获得可信的碳足迹',
-      getStarted: '试用（2个免费报告）',
+      subtitle: 'AI产品碳足迹\n会计与保证',
+      description: '几天内生成审计就绪的产品碳足迹（$CO₂$）报告，而非数月。通过Climate Seal的AI代理降低成本和复杂性。',
+      getStarted: '立即获得2份免费报告',
       learnMore: '了解更多',
       trustedBy: '信赖我们的客户'
     },
@@ -996,7 +996,7 @@ export const translations: Record<Language, TranslationData> = {
       },
       aiAssistants: {
         title: '遇见您的AI碳足迹专家和助手',
-        subtitle: '描述工作内容，您的专属AI助手即刻创建，24/7待命工作。',
+        subtitle: '选择你的角色，你的AI碳专家和助手已经准备好支持你24/7。',
         comingSoon: '即将推出',
         getStarted: '开始使用',
         trustCenter: '访问我们的AI信任中心',
