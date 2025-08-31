@@ -81,8 +81,8 @@ export default function ExpandableCards({
         {items.map((it, i) => {
           const isActive = active === i;
           // 激活时放大 flex-basis；否则为常规宽度
-          const base = "basis-[320px] md:basis-[360px]";
-          const grow = "md:basis-[560px]"; // 激活后的目标宽度
+          const base = "basis-[295px] md:basis-[331px]";
+          const grow = "md:basis-[515px]"; // 激活后的目标宽度
 
           return (
             <motion.div
@@ -104,7 +104,7 @@ export default function ExpandableCards({
               className={[
                 "group relative overflow-hidden rounded-2xl border border-white/10",
                 "bg-white/[0.04] text-white shadow-[0_10px_30px_rgba(0,0,0,.25)]",
-                "h-[558px]", // 固定高度，增加30% (429px * 1.3 = 558px)
+                "h-[465px]", // 固定高度，再增加5% (443px * 1.05 = 465px)
                 isActive ? grow : base,
                 "w-full md:w-auto flex-shrink-0", // 确保一字排开不换行
                 "cursor-pointer select-none",
@@ -122,8 +122,8 @@ export default function ExpandableCards({
                 className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${it.gradient ?? "from-violet-500/20 to-cyan-500/20"} opacity-0 blur-2xl transition duration-500 group-hover:opacity-100`}
               />
 
-              {/* 媒体位：图片或视频 */}
-              <div className="aspect-[16/10] w-full overflow-hidden">
+              {/* 媒体位：图片或视频 - 占据顶部大部分空间 */}
+              <div className="absolute inset-0 overflow-hidden">
                 {it.mediaSrc?.endsWith(".mp4") ? (
                   <AutoVideo src={it.mediaSrc} className="h-full w-full object-cover" />
                 ) : it.mediaSrc ? (
@@ -133,8 +133,8 @@ export default function ExpandableCards({
                 )}
               </div>
 
-              {/* 文案区 */}
-              <div className="p-6">
+              {/* 文案区 - 定位到底部 */}
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-black/60 backdrop-blur-sm">
                 <div className="text-lg md:text-xl font-semibold">{it.title}</div>
                 <p className="mt-2 text-sm text-white/80">{it.summary}</p>
 
