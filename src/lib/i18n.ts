@@ -490,6 +490,39 @@ export const translations: Record<Language, TranslationData> = {
           position: 'Compliance Director, Global Manufacturing Ltd'
         }
       },
+      aiAssistants: {
+        title: 'Meet your AI carbon expert and assistants',
+        subtitle: 'Describe the job. Your custom AI assistant is created, ready to work 24/7.',
+        comingSoon: 'Coming soon',
+        getStarted: 'Get Started',
+        trustCenter: 'Visit our AI Trust Center',
+        assistants: {
+          carbonCalculator: {
+            title: 'Carbon Calculator',
+            description: 'Automatically calculates product\ncarbon footprints, 24/7.'
+          },
+          complianceTracker: {
+            title: 'Compliance Tracker', 
+            description: 'Monitors regulatory changes\nand compliance requirements, daily.'
+          },
+          climateSeal: {
+            title: 'Climate Seal AI',
+            description: 'Just ask. The assistant handles\nyour carbon footprint for you.'
+          },
+          supplyChainAnalyzer: {
+            title: 'Supply Chain Analyzer',
+            description: 'Flags carbon risks and automates\nsupply chain processes, in real time.'
+          },
+          reportGenerator: {
+            title: 'Report Generator',
+            description: 'Automatically generates and\nvalidates carbon reports.'
+          },
+          dataValidator: {
+            title: 'Data Validator',
+            description: 'Validates carbon data accuracy\nand flags inconsistencies.'
+          }
+        }
+      },
       scenarios: {
         title: 'Scenarios you need carbon footprint',
         whyNeed: {
@@ -904,6 +937,39 @@ export const translations: Record<Language, TranslationData> = {
           testimonial: '通过Climate Seal，我们现在能够以传统成本和时间的一小部分提供世界级的碳足迹报告。',
           author: '李伟',
           position: '全球制造有限公司合规总监'
+        }
+      },
+      aiAssistants: {
+        title: '遇见您的AI碳足迹专家和助手',
+        subtitle: '描述工作内容，您的专属AI助手即刻创建，24/7待命工作。',
+        comingSoon: '即将推出',
+        getStarted: '开始使用',
+        trustCenter: '访问我们的AI信任中心',
+        assistants: {
+          carbonCalculator: {
+            title: '碳足迹计算器',
+            description: '24/7自动计算产品\n碳足迹数据。'
+          },
+          complianceTracker: {
+            title: '合规跟踪器',
+            description: '每日监控法规变化\n和合规要求。'
+          },
+          climateSeal: {
+            title: 'Climate Seal AI',
+            description: '只需询问，AI助手\n为您处理碳足迹工作。'
+          },
+          supplyChainAnalyzer: {
+            title: '供应链分析器',
+            description: '实时标记碳风险\n自动化供应链流程。'
+          },
+          reportGenerator: {
+            title: '报告生成器',
+            description: '自动生成和验证\n碳足迹报告。'
+          },
+          dataValidator: {
+            title: '数据验证器',
+            description: '验证碳数据准确性\n标记数据不一致。'
+          }
         }
       },
       scenarios: {

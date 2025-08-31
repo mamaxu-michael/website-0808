@@ -430,6 +430,124 @@ export default function Home() {
         </div>
       </section>
 
+      {/* AI Assistants Section */}
+      <section className="relative bg-[rgb(0,52,50)] py-16 overflow-hidden">
+        <div className="relative w-full max-w-[1400px] mx-auto px-4">
+          {/* Coming Soon Badge */}
+          <div className="flex justify-center mb-8">
+            <div className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-2 rounded-full text-sm font-medium">
+              {t.sections.aiAssistants.comingSoon}
+            </div>
+          </div>
+
+          {/* Title */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-[56px] font-normal text-white leading-[67.2px] tracking-[-1.12px] mb-4">
+              {t.sections.aiAssistants.title}
+            </h2>
+            <p className="text-xl text-white/80 max-w-3xl mx-auto">
+              {t.sections.aiAssistants.subtitle}
+            </p>
+          </div>
+
+          {/* AI Assistant Cards Grid */}
+          <div className="relative flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1200px]">
+              {/* Carbon Calculator - Blue */}
+              <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl p-8 h-[300px] flex flex-col justify-between text-white shadow-2xl transform hover:scale-105 transition-transform">
+                <div>
+                  <h3 className="text-2xl font-bold mb-4">{t.sections.aiAssistants.assistants.carbonCalculator.title}</h3>
+                  <p className="text-blue-100 leading-relaxed">{t.sections.aiAssistants.assistants.carbonCalculator.description}</p>
+                </div>
+                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                  </svg>
+                </div>
+              </div>
+
+              {/* Compliance Tracker - Green */}
+              <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-3xl p-8 h-[300px] flex flex-col justify-between text-white shadow-2xl transform hover:scale-105 transition-transform">
+                <div>
+                  <h3 className="text-2xl font-bold mb-4">{t.sections.aiAssistants.assistants.complianceTracker.title}</h3>
+                  <p className="text-green-100 leading-relaxed">{t.sections.aiAssistants.assistants.complianceTracker.description}</p>
+                </div>
+                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                </div>
+              </div>
+
+              {/* Climate Seal AI - Purple (Central Highlighted) */}
+              <div className="bg-gradient-to-br from-purple-500 via-purple-600 to-indigo-600 rounded-3xl p-8 h-[300px] flex flex-col justify-between text-white shadow-2xl transform scale-105 ring-4 ring-purple-400/30">
+                <div>
+                  <h3 className="text-2xl font-bold mb-4">{t.sections.aiAssistants.assistants.climateSeal.title}</h3>
+                  <p className="text-purple-100 leading-relaxed">{t.sections.aiAssistants.assistants.climateSeal.description}</p>
+                </div>
+                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+              </div>
+
+              {/* Supply Chain Analyzer - Orange */}
+              <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-3xl p-8 h-[300px] flex flex-col justify-between text-white shadow-2xl transform hover:scale-105 transition-transform">
+                <div>
+                  <h3 className="text-2xl font-bold mb-4">{t.sections.aiAssistants.assistants.supplyChainAnalyzer.title}</h3>
+                  <p className="text-orange-100 leading-relaxed">{t.sections.aiAssistants.assistants.supplyChainAnalyzer.description}</p>
+                </div>
+                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M13 3l3.293 3.293-6.364 6.364-3.536-3.536z M19.071 4.929l-1.414 1.414L20.485 9.17"/>
+                  </svg>
+                </div>
+              </div>
+
+              {/* Report Generator - Amber */}
+              <div className="bg-gradient-to-br from-amber-500 to-amber-600 rounded-3xl p-8 h-[300px] flex flex-col justify-between text-white shadow-2xl transform hover:scale-105 transition-transform">
+                <div>
+                  <h3 className="text-2xl font-bold mb-4">{t.sections.aiAssistants.assistants.reportGenerator.title}</h3>
+                  <p className="text-amber-100 leading-relaxed">{t.sections.aiAssistants.assistants.reportGenerator.description}</p>
+                </div>
+                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                  </svg>
+                </div>
+              </div>
+
+              {/* Data Validator - Cyan */}
+              <div className="bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-3xl p-8 h-[300px] flex flex-col justify-between text-white shadow-2xl transform hover:scale-105 transition-transform">
+                <div>
+                  <h3 className="text-2xl font-bold mb-4">{t.sections.aiAssistants.assistants.dataValidator.title}</h3>
+                  <p className="text-cyan-100 leading-relaxed">{t.sections.aiAssistants.assistants.dataValidator.description}</p>
+                </div>
+                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Action Buttons */}
+          <div className="flex justify-center gap-6 mt-16">
+            <button className="bg-white rounded-[160px] px-8 py-4 flex items-center gap-2 hover:bg-gray-50 transition-all shadow-lg">
+              <span className="text-black text-lg font-medium">{t.sections.aiAssistants.getStarted}</span>
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+              </svg>
+            </button>
+            <button className="border-2 border-white text-white rounded-[160px] px-8 py-4 hover:bg-white hover:text-[rgb(0,52,50)] transition-all">
+              <span className="text-lg font-medium">{t.sections.aiAssistants.trustCenter}</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* Scenarios & Value Section */}
       <section id="scenarios-value" className="relative bg-[rgb(0,52,50)] py-12 sm:py-20 -mt-px" data-theme="scenarios-value" data-section="scenarios-overview" data-category="product">
         <div className="relative w-full mx-auto px-4">
