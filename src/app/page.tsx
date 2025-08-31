@@ -432,7 +432,7 @@ export default function Home() {
 
       {/* AI Assistants Section */}
       <section className="relative bg-[rgb(0,52,50)] py-16 overflow-hidden">
-        <div className="relative w-full max-w-[1960px] mx-auto px-4">
+        <div className="relative w-full max-w-[2548px] mx-auto px-4">
           {/* Coming Soon Badge */}
           <div className="flex justify-center mb-8">
             <div className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-2 rounded-full text-sm font-medium">
@@ -454,7 +454,7 @@ export default function Home() {
           <div className="relative w-full">
             <div className="flex gap-6 justify-center overflow-x-auto">
               {/* Carbon Calculator */}
-              <div className="relative w-[307px] h-[536px] bg-gradient-to-b from-purple-600 to-purple-800 rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
+              <div className="relative w-[307px] h-[429px] bg-gradient-to-b from-purple-600 to-purple-800 rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
                 <div className="absolute w-60 h-[39px] top-[34px] left-[34px]">
                   <h3 className="font-semibold text-white text-[28px] text-center tracking-[-0.28px] leading-[36.4px]">
                     {t.sections.aiAssistants.assistants.carbonCalculator.title}
@@ -463,11 +463,11 @@ export default function Home() {
                 <p className="absolute w-[250px] h-[52px] top-[89px] left-[29px] font-normal text-white text-lg text-center tracking-[-0.18px] leading-[27px]">
                   {t.sections.aiAssistants.assistants.carbonCalculator.description}
                 </p>
-                <div className="absolute w-[306px] h-[352px] top-[183px] left-0 bg-gradient-to-b from-transparent to-purple-900" />
+                <div className="absolute w-[306px] h-[282px] top-[183px] left-0 bg-gradient-to-b from-transparent to-purple-900" />
               </div>
 
               {/* Compliance Tracker */}
-              <div className="relative w-[307px] h-[536px] bg-gradient-to-b from-green-600 to-green-800 rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
+              <div className="relative w-[307px] h-[429px] bg-gradient-to-b from-green-600 to-green-800 rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
                 <div className="absolute w-60 h-[39px] top-[34px] left-[34px]">
                   <h3 className="font-semibold text-white text-[28px] text-center tracking-[-0.28px] leading-[36.4px]">
                     {t.sections.aiAssistants.assistants.complianceTracker.title}
@@ -476,11 +476,11 @@ export default function Home() {
                 <p className="absolute w-[250px] h-[52px] top-[89px] left-[29px] font-normal text-white text-lg text-center tracking-[-0.18px] leading-[27px]">
                   {t.sections.aiAssistants.assistants.complianceTracker.description}
                 </p>
-                <div className="absolute w-[306px] h-[352px] top-[183px] left-0 bg-gradient-to-b from-transparent to-green-900" />
+                <div className="absolute w-[306px] h-[282px] top-[183px] left-0 bg-gradient-to-b from-transparent to-green-900" />
               </div>
 
               {/* Climate Seal AI - Central Highlighted */}
-              <div className="relative w-[307px] h-[536px] bg-[#0073ea] rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
+              <div className="relative w-[307px] h-[429px] bg-[#0073ea] rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
                 <div className="absolute w-60 h-[39px] top-[34px] left-[34px]">
                   <h3 className="font-semibold text-white text-[28px] text-center tracking-[-0.28px] leading-[36.4px]">
                     {t.sections.aiAssistants.assistants.climateSeal.title}
@@ -489,11 +489,11 @@ export default function Home() {
                 <p className="absolute w-[250px] h-[52px] top-[89px] left-[29px] font-normal text-white text-lg text-center tracking-[-0.18px] leading-[27px]">
                   {t.sections.aiAssistants.assistants.climateSeal.description}
                 </p>
-                <div className="absolute w-[306px] h-[352px] top-[183px] left-0 bg-gradient-to-b from-transparent to-blue-900" />
+                <div className="absolute w-[306px] h-[282px] top-[183px] left-0 bg-gradient-to-b from-transparent to-blue-900" />
               </div>
 
               {/* Supply Chain Analyzer */}
-              <div className="relative w-[307px] h-[536px] bg-gradient-to-b from-orange-600 to-orange-800 rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
+              <div className="relative w-[307px] h-[429px] bg-gradient-to-b from-orange-600 to-orange-800 rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
                 <div className="absolute w-60 h-[39px] top-[34px] left-[34px]">
                   <h3 className="font-semibold text-white text-[28px] text-center tracking-[-0.28px] leading-[36.4px]">
                     {t.sections.aiAssistants.assistants.supplyChainAnalyzer.title}
@@ -502,11 +502,11 @@ export default function Home() {
                 <p className="absolute w-[250px] h-[52px] top-[89px] left-[29px] font-normal text-white text-lg text-center tracking-[-0.18px] leading-[27px]">
                   {t.sections.aiAssistants.assistants.supplyChainAnalyzer.description}
                 </p>
-                <div className="absolute w-[306px] h-[352px] top-[183px] left-0 bg-gradient-to-b from-transparent to-orange-900" />
+                <div className="absolute w-[306px] h-[282px] top-[183px] left-0 bg-gradient-to-b from-transparent to-orange-900" />
               </div>
 
               {/* Report Generator */}
-              <div className="relative w-[307px] h-[536px] bg-gradient-to-b from-amber-600 to-amber-800 rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
+              <div className="relative w-[307px] h-[429px] bg-gradient-to-b from-amber-600 to-amber-800 rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
                 <div className="absolute w-60 h-[39px] top-[34px] left-[34px]">
                   <h3 className="font-semibold text-white text-[28px] text-center tracking-[-0.28px] leading-[36.4px]">
                     {t.sections.aiAssistants.assistants.reportGenerator.title}
@@ -515,11 +515,11 @@ export default function Home() {
                 <p className="absolute w-[250px] h-[52px] top-[89px] left-[29px] font-normal text-white text-lg text-center tracking-[-0.18px] leading-[27px]">
                   {t.sections.aiAssistants.assistants.reportGenerator.description}
                 </p>
-                <div className="absolute w-[306px] h-[352px] top-[183px] left-0 bg-gradient-to-b from-transparent to-amber-900" />
+                <div className="absolute w-[306px] h-[282px] top-[183px] left-0 bg-gradient-to-b from-transparent to-amber-900" />
               </div>
 
               {/* Data Validator */}
-              <div className="relative w-[307px] h-[536px] bg-gradient-to-b from-cyan-600 to-cyan-800 rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
+              <div className="relative w-[307px] h-[429px] bg-gradient-to-b from-cyan-600 to-cyan-800 rounded-2xl overflow-hidden border border-solid border-[#333333] flex-shrink-0">
                 <div className="absolute w-60 h-[39px] top-[34px] left-[34px]">
                   <h3 className="font-semibold text-white text-[28px] text-center tracking-[-0.28px] leading-[36.4px]">
                     {t.sections.aiAssistants.assistants.dataValidator.title}
@@ -528,7 +528,7 @@ export default function Home() {
                 <p className="absolute w-[250px] h-[52px] top-[89px] left-[29px] font-normal text-white text-lg text-center tracking-[-0.18px] leading-[27px]">
                   {t.sections.aiAssistants.assistants.dataValidator.description}
                 </p>
-                <div className="absolute w-[306px] h-[352px] top-[183px] left-0 bg-gradient-to-b from-transparent to-cyan-900" />
+                <div className="absolute w-[306px] h-[282px] top-[183px] left-0 bg-gradient-to-b from-transparent to-cyan-900" />
               </div>
             </div>
           </div>
