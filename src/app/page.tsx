@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 import ExpandableCards from '@/components/ExpandableCards';
+import { motion } from 'framer-motion';
 
 export default function Home() {
   const { t, language } = useLanguage();
@@ -606,18 +607,54 @@ export default function Home() {
         <div className="relative w-full max-w-[1376px] mx-auto px-4">
           {/* Title */}
           <div className="text-center mb-16">
-            <h2 className="text-[56px] font-normal text-white leading-[67.2px] tracking-[-1.12px]">
+            <motion.h2 
+              className="text-[56px] font-normal text-white leading-[67.2px] tracking-[-1.12px]"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.6 }}
+              transition={{ duration: 0.5, ease: [0.2, 0.8, 0.2, 1] }}
+            >
               {t.sections.difference.title}
-            </h2>
+            </motion.h2>
           </div>
 
           {/* Cards Layout */}
           <div className="relative w-full h-[1023px]">
             {/* Flexible yet standardized - Green Card (Top Left) */}
             {/* 灰色背景块 */}
-            <div className="absolute w-[400px] h-[272px] top-[127px] left-[-108px] bg-gray-200/30 rounded-[32px]"></div>
+            <motion.div 
+              className="absolute w-[400px] h-[272px] top-[127px] left-[-104px] bg-gray-200/30 rounded-[32px] group cursor-pointer"
+              initial={{ opacity: 0, y: 24, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.15, ease: [0.2, 0.8, 0.2, 1] }}
+              whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+              style={{ 
+                boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+                filter: "drop-shadow(0 16px 40px rgba(0,0,0,0.1))"
+              }}
+            >
+              {/* 光带效果 */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 overflow-hidden rounded-[32px]">
+                <div 
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-600 ease-out"
+                  style={{ transform: "skewX(-45deg)", width: "200%" }}
+                />
+              </div>
+            </motion.div>
             {/* 绿色卡片 */}
-            <div className="absolute w-[1080px] h-[272px] top-[127px] left-[372px] rounded-[32px]">
+            <motion.div 
+              className="absolute w-[1080px] h-[272px] top-[127px] left-[376px] rounded-[32px] group cursor-pointer"
+              initial={{ opacity: 0, y: 24, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.24, ease: [0.2, 0.8, 0.2, 1] }}
+              whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+              style={{ 
+                boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+                filter: "drop-shadow(0 16px 40px rgba(0,0,0,0.2))"
+              }}
+            >
               <div className="w-[1080px] bg-[#f0f3ff] overflow-hidden absolute h-[272px] top-0 left-0 rounded-[32px]">
                 <div className="relative w-[1088px] h-[266px] top-[3px] -left-1 bg-gradient-to-br from-green-400 to-green-600" />
               </div>
@@ -631,15 +668,52 @@ export default function Home() {
               </div>
               {/* Green Icon */}
               <div className="absolute top-6 left-6 w-20 h-12 bg-green-500 rounded-full flex items-center justify-center">
-                <div className="w-8 h-8 bg-white rounded-full"></div>
+                <div className="w-8 h-8 bg-white rounded-full transform transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-2"></div>
               </div>
-            </div>
+              {/* 光带效果 */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 overflow-hidden rounded-[32px]">
+                <div 
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/35 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-600 ease-out"
+                  style={{ transform: "skewX(-45deg)", width: "200%" }}
+                />
+              </div>
+            </motion.div>
 
             {/* Products teams love to use - Blue Card (Center Right) */}
             {/* 灰色背景块 */}
-            <div className="absolute w-[400px] h-[272px] top-[439px] left-[1052px] bg-gray-200/30 rounded-[32px]"></div>
+            <motion.div 
+              className="absolute w-[400px] h-[272px] top-[439px] left-[1056px] bg-gray-200/30 rounded-[32px] group cursor-pointer"
+              initial={{ opacity: 0, y: 24, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.33, ease: [0.2, 0.8, 0.2, 1] }}
+              whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+              style={{ 
+                boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+                filter: "drop-shadow(0 16px 40px rgba(0,0,0,0.1))"
+              }}
+            >
+              {/* 光带效果 */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 overflow-hidden rounded-[32px]">
+                <div 
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-600 ease-out"
+                  style={{ transform: "skewX(-45deg)", width: "200%" }}
+                />
+              </div>
+            </motion.div>
             {/* 蓝色卡片 */}
-            <div className="absolute w-[1080px] h-[272px] top-[439px] left-[-108px] rounded-[32px]">
+            <motion.div 
+              className="absolute w-[1080px] h-[272px] top-[439px] left-[-104px] rounded-[32px] group cursor-pointer"
+              initial={{ opacity: 0, y: 24, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.42, ease: [0.2, 0.8, 0.2, 1] }}
+              whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+              style={{ 
+                boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+                filter: "drop-shadow(0 16px 40px rgba(0,0,0,0.2))"
+              }}
+            >
               <div className="w-[1080px] bg-[#f0f3ff] overflow-hidden absolute h-[272px] top-0 left-0 rounded-[32px]">
                 <div className="relative w-[1088px] h-[266px] top-[3px] -left-1 bg-gradient-to-br from-blue-500 to-blue-700" />
               </div>
@@ -653,15 +727,52 @@ export default function Home() {
               </div>
               {/* Heart Icon */}
               <div className="absolute top-6 right-6 w-20 h-16 flex items-center justify-center">
-                <div className="w-12 h-10 bg-white rounded-t-full transform rotate-45" style={{borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%'}}></div>
+                <div className="w-12 h-10 bg-white rounded-t-full transform rotate-45 transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-2" style={{borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%'}}></div>
               </div>
-            </div>
+              {/* 光带效果 */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 overflow-hidden rounded-[32px]">
+                <div 
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/35 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-600 ease-out"
+                  style={{ transform: "skewX(-45deg)", width: "200%" }}
+                />
+              </div>
+            </motion.div>
 
             {/* Fast time to value - Pink Card (Bottom Left) */}
             {/* 灰色背景块 */}
-            <div className="absolute w-[400px] h-[272px] top-[751px] left-[-108px] bg-gray-200/30 rounded-[32px]"></div>
+            <motion.div 
+              className="absolute w-[400px] h-[272px] top-[751px] left-[-104px] bg-gray-200/30 rounded-[32px] group cursor-pointer"
+              initial={{ opacity: 0, y: 24, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.51, ease: [0.2, 0.8, 0.2, 1] }}
+              whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+              style={{ 
+                boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+                filter: "drop-shadow(0 16px 40px rgba(0,0,0,0.1))"
+              }}
+            >
+              {/* 光带效果 */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 overflow-hidden rounded-[32px]">
+                <div 
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-600 ease-out"
+                  style={{ transform: "skewX(-45deg)", width: "200%" }}
+                />
+              </div>
+            </motion.div>
             {/* 粉色卡片 */}
-            <div className="absolute w-[1080px] h-[272px] top-[751px] left-[372px] rounded-[32px]">
+            <motion.div 
+              className="absolute w-[1080px] h-[272px] top-[751px] left-[376px] rounded-[32px] group cursor-pointer"
+              initial={{ opacity: 0, y: 24, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.60, ease: [0.2, 0.8, 0.2, 1] }}
+              whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+              style={{ 
+                boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+                filter: "drop-shadow(0 16px 40px rgba(0,0,0,0.2))"
+              }}
+            >
               <div className="w-[1080px] bg-[#f0f3ff] overflow-hidden absolute h-[272px] top-0 left-0 rounded-[32px]">
                 <div className="relative w-[1088px] h-[266px] top-[3px] -left-1 bg-gradient-to-br from-pink-400 to-pink-600" />
               </div>
@@ -675,10 +786,17 @@ export default function Home() {
               </div>
               {/* Pink Icon */}
               <div className="absolute top-6 left-6 w-20 h-12">
-                <div className="w-16 h-8 bg-pink-300 rounded-full"></div>
-                <div className="w-12 h-8 bg-pink-400 rounded-full mt-1 ml-2"></div>
+                <div className="w-16 h-8 bg-pink-300 rounded-full transform transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-2"></div>
+                <div className="w-12 h-8 bg-pink-400 rounded-full mt-1 ml-2 transform transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-2"></div>
               </div>
-            </div>
+              {/* 光带效果 */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 overflow-hidden rounded-[32px]">
+                <div 
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/35 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-600 ease-out"
+                  style={{ transform: "skewX(-45deg)", width: "200%" }}
+                />
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
