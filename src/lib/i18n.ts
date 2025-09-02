@@ -565,16 +565,16 @@ export const translations: Record<Language, TranslationData> = {
         title: 'The climate seal difference',
         cards: {
           flexible: {
-            title: 'Flexible yet standardized',
-            description: 'Build custom workflows with a no-code interface, while defining admin controls to maintain cross-org consistency.'
+            title: 'Faster',
+            description: 'Auto-map rules & factors → batch PCF modeling from BOM/energy/logistics → one-click buyer/customs reports.'
           },
           products: {
-            title: 'Products teams love to use', 
-            description: 'Onboard your entire organization with intuitive products they\'ll love to use.'
+            title: 'Credible', 
+            description: 'Field-level 0-100 quality score, auto-fix hints, uncertainty bands; external cross-checks & evidence packs with minute-level confidence.'
           },
           fastValue: {
-            title: 'Fast time to value',
-            description: 'See value fast with products that are quick to implement and even easier to learn.'
+            title: 'Frictionless',
+            description: 'A low-friction, low-cost pipeline for verification-grade supplier data—plug-and-play for SBTi and abatement planning.'
           }
         }
       },

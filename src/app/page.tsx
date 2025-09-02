@@ -625,16 +625,19 @@ export default function Home() {
             {/* Flexible yet standardized - Green Card (Top Left) */}
             {/* 灰色背景块 */}
             <motion.div 
-              className="absolute w-[400px] h-[272px] top-[127px] left-[-104px] bg-gray-200/30 rounded-[32px] group cursor-pointer"
+              className="absolute w-[400px] h-[272px] top-[127px] left-[-104px] rounded-[32px] group cursor-pointer overflow-hidden border-2 border-white/20 ring-1 ring-white/20"
+              style={{
+                backgroundImage: 'url(/faster-beaver.png)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center 40%',
+                boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+                filter: "drop-shadow(0 16px 40px rgba(0,0,0,0.1))"
+              }}
               initial={{ opacity: 0, y: 24, scale: 0.98 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.6, delay: 0.15, ease: [0.2, 0.8, 0.2, 1] }}
               whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
-              style={{ 
-                boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
-                filter: "drop-shadow(0 16px 40px rgba(0,0,0,0.1))"
-              }}
             >
               {/* 光带效果 */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 overflow-hidden rounded-[32px]">
@@ -662,10 +665,10 @@ export default function Home() {
               </div>
               <div className="absolute inset-0 p-8 flex items-center">
                 <div className="w-1/2">
-                  <h3 className="text-3xl font-bold text-black mb-4">{t.sections.difference.cards.flexible.title}</h3>
+                  <h3 className="text-4xl font-normal text-white mb-4">{t.sections.difference.cards.flexible.title}</h3>
                 </div>
                 <div className="w-1/2 pl-4">
-                  <p className="text-black text-sm leading-relaxed">{t.sections.difference.cards.flexible.description}</p>
+                  <p className="text-white text-xl leading-relaxed">{t.sections.difference.cards.flexible.description}</p>
                 </div>
               </div>
               {/* Green Icon */}
@@ -684,16 +687,19 @@ export default function Home() {
             {/* Products teams love to use - Blue Card (Center Right) */}
             {/* 灰色背景块 */}
             <motion.div 
-              className="absolute w-[400px] h-[272px] top-[439px] left-[1056px] bg-gray-200/30 rounded-[32px] group cursor-pointer"
+              className="absolute w-[400px] h-[272px] top-[439px] left-[1056px] rounded-[32px] group cursor-pointer overflow-hidden border-2 border-white/20 ring-1 ring-white/20"
+              style={{
+                backgroundImage: 'url(/credible-meerkat.png)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+                filter: "drop-shadow(0 16px 40px rgba(0,0,0,0.1))"
+              }}
               initial={{ opacity: 0, y: 24, scale: 0.98 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.6, delay: 0.33, ease: [0.2, 0.8, 0.2, 1] }}
               whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
-              style={{ 
-                boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
-                filter: "drop-shadow(0 16px 40px rgba(0,0,0,0.1))"
-              }}
             >
               {/* 光带效果 */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 overflow-hidden rounded-[32px]">
@@ -721,10 +727,10 @@ export default function Home() {
               </div>
               <div className="absolute inset-0 p-8 flex items-center">
                 <div className="w-1/2">
-                  <h3 className="text-3xl font-bold text-white mb-4">{t.sections.difference.cards.products.title}</h3>
+                  <p className="text-white text-xl leading-relaxed">{t.sections.difference.cards.products.description}</p>
                 </div>
-                <div className="w-1/2 pl-4">
-                  <p className="text-white/90 text-sm leading-relaxed">{t.sections.difference.cards.products.description}</p>
+                <div className="w-1/2 pl-4 flex justify-end">
+                  <h3 className="text-4xl font-normal text-white mb-4">{t.sections.difference.cards.products.title}</h3>
                 </div>
               </div>
               {/* Heart Icon */}
@@ -743,16 +749,19 @@ export default function Home() {
             {/* Fast time to value - Pink Card (Bottom Left) */}
             {/* 灰色背景块 */}
             <motion.div 
-              className="absolute w-[400px] h-[272px] top-[751px] left-[-104px] bg-gray-200/30 rounded-[32px] group cursor-pointer"
+              className="absolute w-[400px] h-[272px] top-[751px] left-[-104px] rounded-[32px] group cursor-pointer overflow-hidden border-2 border-white/20 ring-1 ring-white/20"
+              style={{
+                backgroundImage: 'url(/frictionless-dog.png)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center 20%',
+                boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+                filter: "drop-shadow(0 16px 40px rgba(0,0,0,0.1))"
+              }}
               initial={{ opacity: 0, y: 24, scale: 0.98 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.6, delay: 0.51, ease: [0.2, 0.8, 0.2, 1] }}
               whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
-              style={{ 
-                boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
-                filter: "drop-shadow(0 16px 40px rgba(0,0,0,0.1))"
-              }}
             >
               {/* 光带效果 */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 overflow-hidden rounded-[32px]">
@@ -780,10 +789,10 @@ export default function Home() {
               </div>
               <div className="absolute inset-0 p-8 flex items-center">
                 <div className="w-1/2">
-                  <h3 className="text-3xl font-bold text-black mb-4">{t.sections.difference.cards.fastValue.title}</h3>
+                  <h3 className="text-4xl font-normal text-white mb-4">{t.sections.difference.cards.fastValue.title}</h3>
                 </div>
                 <div className="w-1/2 pl-4">
-                  <p className="text-black text-sm leading-relaxed">{t.sections.difference.cards.fastValue.description}</p>
+                  <p className="text-white text-xl leading-relaxed">{t.sections.difference.cards.fastValue.description}</p>
                 </div>
               </div>
               {/* Pink Icon */}
