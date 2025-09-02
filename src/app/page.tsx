@@ -362,8 +362,8 @@ export default function Home() {
               {t.hero.description}
             </p>
             <a 
-              href="#contact"
-              className="bg-yellow-400 hover:bg-yellow-500 text-[rgb(0,52,50)] px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold text-base sm:text-lg transition duration-300 inline-flex items-center gap-2"
+              href="#ai-assistants"
+              className="bg-yellow-400 hover:bg-yellow-500 text-[rgb(0,52,50)] px-6 sm:px-8 py-1.5 sm:py-2.5 rounded-full font-semibold text-base sm:text-lg transition duration-300 inline-flex items-center gap-2 mt-2"
               data-cta="hero-get-started"
               data-section="home-hero"
             >
@@ -447,7 +447,7 @@ export default function Home() {
               </div>
 
               {/* Main Title */}
-              <div className="absolute top-[130px] left-10 w-[294px]">
+              <div className="absolute top-[130px] left-10 w-[400px]">
                 <h3 className="text-white text-[40px] font-normal tracking-[-0.80px] leading-[52px]">
                   {activePersona === 'carbonExpert' && 'Carbon Professionals'}
                   {activePersona === 'brandOwner' && 'Drive supply chain\ntransparency'}
@@ -463,10 +463,13 @@ export default function Home() {
               </div>
 
               {/* CTA Button */}
-              <div className="absolute top-[422px] left-10">
-                <button className="bg-white rounded-[160px] border border-solid px-8 py-3 flex items-center gap-2 hover:bg-gray-50 transition-all">
+              <div className="absolute top-[442px] left-10">
+                <button 
+                  onClick={() => document.getElementById('ai-assistants')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="bg-white rounded-[160px] border border-solid px-8 py-2 flex items-center gap-2 hover:bg-gray-50 transition-all"
+                >
                   <span className="text-black text-base font-normal tracking-[-0.16px] leading-[20.8px]">
-                    Get Started
+                    Get More Detail
                   </span>
                   <svg className="w-3 h-2.5" viewBox="0 0 12 10" fill="none">
                     <path d="M7 1L11 5L7 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -484,15 +487,53 @@ export default function Home() {
                       <div className="w-3 h-3 bg-yellow-400 rounded-full mr-2"></div>
                       <div className="w-3 h-3 bg-green-400 rounded-full"></div>
                     </div>
-                    <div className="space-y-4 flex-1">
-                      <div className="h-8 bg-white/20 rounded w-3/4 animate-shimmer"></div>
-                      <div className="h-6 bg-white/15 rounded w-1/2"></div>
-                      <div className="h-12 bg-white/25 rounded w-full"></div>
-                      <div className="grid grid-cols-2 gap-4 mt-8">
-                        <div className="h-24 bg-white/10 rounded-lg"></div>
-                        <div className="h-24 bg-white/10 rounded-lg"></div>
-                      </div>
-                      <div className="h-32 bg-white/15 rounded-lg mt-4"></div>
+                    <div className="space-y-5 flex-1 pt-16">
+                      {activePersona === 'carbonExpert' ? (
+                        <>
+                          <div className="h-12 bg-white/20 rounded w-3/4 animate-shimmer flex items-center px-4">
+                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">Rules and factors don't line up—results swing±10–20%</span>
+                          </div>
+                          <div className="h-16 bg-white/15 rounded w-full flex items-center px-4">
+                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">Most data comes back late or wrong—under 50 % on time and hours lost cleaning.</span>
+                          </div>
+                          <div className="h-14 bg-white/25 rounded w-5/6 flex items-center px-4">
+                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">Each SKU eats days; most time spend on factor matching</span>
+                          </div>
+                          <div className="h-12 bg-white/15 rounded w-4/5 flex items-center px-4">
+                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">No assessing the process or data—risks stay invisible.</span>
+                          </div>
+                          <div className="h-18 bg-white/20 rounded w-full flex items-center px-4">
+                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">Evidence is scattered; external checks are slow and costly, and rework keeps delaying delivery.</span>
+                          </div>
+                        </>
+                      ) : activePersona === 'brandOwner' ? (
+                        <div className="space-y-8 flex-1 pt-4">
+                          <div className="h-16 bg-white/20 rounded w-5/6 flex items-center px-4">
+                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">Supply-chain companies lack specialized expertise, making compliance costly and burdensome</span>
+                          </div>
+                          <div className="h-14 bg-white/15 rounded w-3/5 flex items-center px-4">
+                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">Endless chasing supply chain data; on-time deliveries only 40-70 %.</span>
+                          </div>
+                          <div className="h-12 bg-white/25 rounded w-4/5 flex items-center px-4">
+                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">Poor data quality skews decarbonisation priorities.</span>
+                          </div>
+                          <div className="h-18 bg-white/15 rounded w-2/3 flex items-center px-4">
+                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">No ROI or MACC, projects can't get green-lit and stalls SBTi / CSRD milestones.</span>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="space-y-8 flex-1 pt-12">
+                          <div className="h-14 bg-white/20 rounded w-4/5 animate-shimmer flex items-center px-4">
+                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">PCF reports take 4-8 weeks, missing RFQ / tender deadlines</span>
+                          </div>
+                          <div className="h-16 bg-white/15 rounded w-3/4 flex items-center px-4">
+                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">Rework cycles delay shipments and risk customs holds.</span>
+                          </div>
+                          <div className="h-20 bg-white/25 rounded w-full flex items-center px-4">
+                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">No in-house carbon expertise, third-party consulting is expensive, and mainstream carbon tools are pricey and hard to use.</span>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -502,22 +543,109 @@ export default function Home() {
               {/* Right Side Cards */}
               <div className="lg:absolute lg:top-0 lg:left-[1138px] lg:w-[480px] flex flex-col gap-6">
               {/* Stats Card */}
-              <div className="w-full h-[205px] bg-[#f0f3ff] rounded-3xl p-8 animate-fade-up" style={{"--animation-delay": "0.2s"}}>
-                <div className="mb-4">
-                  <div className="text-[#333333] text-[28px] font-semibold leading-[36.4px] tracking-[-0.12px]">
-                    {t.sections.personas[activePersona].stat}
+              <div className="w-full h-[205px] bg-[#f0f3ff] rounded-3xl p-6 animate-fade-up" style={{"--animation-delay": "0.2s"}}>
+                {activePersona === 'carbonExpert' ? (
+                  <div className="flex justify-between items-center h-full pt-8">
+                    <div className="text-center">
+                      <div className="text-[#333333] text-[28px] font-semibold leading-[36.4px] tracking-[-0.12px]">
+                        90%
+                      </div>
+                      <p className="text-[#333333] text-sm font-normal leading-tight mt-1">
+                        faster<br/>End-to-end<br/>reporting
+                      </p>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-[#333333] text-[28px] font-semibold leading-[36.4px] tracking-[-0.12px]">
+                        99%
+                      </div>
+                      <p className="text-[#333333] text-sm font-normal leading-tight mt-1">
+                        faster<br/>factor & rule<br/>matching
+                      </p>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-[#333333] text-[28px] font-semibold leading-[36.4px] tracking-[-0.12px]">
+                        95%
+                      </div>
+                      <p className="text-[#333333] text-sm font-normal leading-tight mt-1">
+                        first-pass<br/>Verification
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <p className="text-[#333333] text-[28px] font-normal leading-[36.4px] tracking-[-0.08px]">
-                  {t.sections.personas[activePersona].statDescription}
-                </p>
+                ) : activePersona === 'brandOwner' ? (
+                  <div className="flex justify-between items-center h-full pt-8">
+                    <div className="text-center">
+                      <div className="text-[#333333] text-[28px] font-semibold leading-[36.4px] tracking-[-0.12px]">
+                        90%
+                      </div>
+                      <p className="text-[#333333] text-sm font-normal leading-tight mt-1">
+                        On-time<br/>submissions
+                      </p>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-[#333333] text-[28px] font-semibold leading-[36.4px] tracking-[-0.12px]">
+                        60%
+                      </div>
+                      <p className="text-[#333333] text-sm font-normal leading-tight mt-1">
+                        less follow-up<br/>& cleaning work
+                      </p>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-[#333333] text-[28px] font-semibold leading-[36.4px] tracking-[-0.12px]">
+                        90%
+                      </div>
+                      <p className="text-[#333333] text-sm font-normal leading-tight mt-1">
+                        Data quality<br/>Improvement
+                      </p>
+                    </div>
+                  </div>
+                ) : activePersona === 'supplyChain' ? (
+                  <div className="flex justify-between items-center h-full pt-8">
+                    <div className="text-center">
+                      <div className="text-[#333333] text-[28px] font-semibold leading-[36.4px] tracking-[-0.12px]">
+                        90%
+                      </div>
+                      <p className="text-[#333333] text-sm font-normal leading-tight mt-1">
+                        Faster Report<br/>Turnaround
+                      </p>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-[#333333] text-[28px] font-semibold leading-[36.4px] tracking-[-0.12px]">
+                        95%
+                      </div>
+                      <p className="text-[#333333] text-sm font-normal leading-tight mt-1">
+                        first-pass<br/>approval
+                      </p>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-[#333333] text-[28px] font-semibold leading-[36.4px] tracking-[-0.12px]">
+                        90%
+                      </div>
+                      <p className="text-[#333333] text-sm font-normal leading-tight mt-1">
+                        lower<br/>compliance cost
+                      </p>
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <div className="mb-4">
+                      <div className="text-[#333333] text-[28px] font-semibold leading-[36.4px] tracking-[-0.12px]">
+                        {t.sections.personas[activePersona].stat}
+                      </div>
+                    </div>
+                    <p className="text-[#333333] text-[28px] font-normal leading-[36.4px] tracking-[-0.08px]">
+                      {t.sections.personas[activePersona].statDescription}
+                    </p>
+                  </>
+                )}
               </div>
 
               {/* Testimonial Card */}
               <div className="w-full h-[352px] bg-[#f0f3ff] rounded-3xl p-8 animate-fade-up" style={{"--animation-delay": "0.4s"}}>
-                <p className="text-[#333333] text-xl font-normal tracking-[-0.20px] leading-[30px] mb-8">
-                  "{t.sections.personas[activePersona].testimonial}"
-                </p>
+                <div className="pt-8">
+                  <p className="text-[#333333] text-xl font-normal tracking-[-0.20px] leading-[30px] mb-8">
+                    "{t.sections.personas[activePersona].testimonial}"
+                  </p>
+                </div>
                 
                 <div className="border-t border-[#d0d4e4] pt-8">
                   <div className="flex items-center">
@@ -542,7 +670,7 @@ export default function Home() {
       </section>
 
       {/* AI Assistants Section */}
-      <section className="relative bg-[rgb(0,52,50)] py-16 overflow-hidden">
+      <section id="ai-assistants" className="relative bg-[rgb(0,52,50)] py-16 overflow-hidden">
         <div className="relative w-full max-w-[2548px] mx-auto px-4">
           {/* Coming Soon Badge */}
           <div className="flex justify-center mb-8">
@@ -638,6 +766,14 @@ export default function Home() {
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.6, delay: 0.15, ease: [0.2, 0.8, 0.2, 1] }}
               whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+              animate={{
+                y: [0, -8, 0],
+                rotate: [0, 1, 0, -1, 0]
+              }}
+              transition={{
+                y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                rotate: { duration: 5, repeat: Infinity, ease: "easeInOut" }
+              }}
             >
               {/* 光带效果 */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 overflow-hidden rounded-[32px]">
@@ -655,6 +791,14 @@ export default function Home() {
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.6, delay: 0.24, ease: [0.2, 0.8, 0.2, 1] }}
               whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+              animate={{
+                y: [0, -6, 0],
+                rotate: [0, -0.5, 0, 0.8, 0]
+              }}
+              transition={{
+                y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 },
+                rotate: { duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.8 }
+              }}
               style={{ 
                 boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
                 filter: "drop-shadow(0 16px 40px rgba(0,0,0,0.2))"
@@ -700,6 +844,14 @@ export default function Home() {
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.6, delay: 0.33, ease: [0.2, 0.8, 0.2, 1] }}
               whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+              animate={{
+                y: [0, -10, 0],
+                rotate: [0, 1.2, 0, -0.8, 0]
+              }}
+              transition={{
+                y: { duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 },
+                rotate: { duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 1.2 }
+              }}
             >
               {/* 光带效果 */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 overflow-hidden rounded-[32px]">
@@ -717,6 +869,14 @@ export default function Home() {
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.6, delay: 0.42, ease: [0.2, 0.8, 0.2, 1] }}
               whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+              animate={{
+                y: [0, -7, 0],
+                rotate: [0, -1, 0, 1.2, 0]
+              }}
+              transition={{
+                y: { duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 1.5 },
+                rotate: { duration: 5.2, repeat: Infinity, ease: "easeInOut", delay: 1.8 }
+              }}
               style={{ 
                 boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
                 filter: "drop-shadow(0 16px 40px rgba(0,0,0,0.2))"
@@ -762,6 +922,14 @@ export default function Home() {
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.6, delay: 0.51, ease: [0.2, 0.8, 0.2, 1] }}
               whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+              animate={{
+                y: [0, -9, 0],
+                rotate: [0, 1.5, 0, -1.2, 0]
+              }}
+              transition={{
+                y: { duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 2 },
+                rotate: { duration: 4.6, repeat: Infinity, ease: "easeInOut", delay: 2.3 }
+              }}
             >
               {/* 光带效果 */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 overflow-hidden rounded-[32px]">
@@ -779,6 +947,14 @@ export default function Home() {
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.6, delay: 0.60, ease: [0.2, 0.8, 0.2, 1] }}
               whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+              animate={{
+                y: [0, -5, 0],
+                rotate: [0, -0.8, 0, 1, 0]
+              }}
+              transition={{
+                y: { duration: 5.2, repeat: Infinity, ease: "easeInOut", delay: 2.5 },
+                rotate: { duration: 4.9, repeat: Infinity, ease: "easeInOut", delay: 2.8 }
+              }}
               style={{ 
                 boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
                 filter: "drop-shadow(0 16px 40px rgba(0,0,0,0.2))"

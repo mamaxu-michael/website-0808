@@ -445,7 +445,7 @@ export const translations: Record<Language, TranslationData> = {
       title: 'Climate Seal',
       subtitle: 'AI product carbon footprint\nAccounting & Assurance',
       description: 'Generate audit-ready product carbon footprints ($CO₂$) in days, not months. Cut costs and complexity with Climate Seal\'s AI agent.',
-      getStarted: 'Get 2 free reports today',
+      getStarted: 'Get More Detail',
       learnMore: 'Learn More',
       trustedBy: 'Trusted by'
     },
@@ -464,7 +464,18 @@ export const translations: Record<Language, TranslationData> = {
           role: 'ESG/Sustainability/Carbon/Consulting Expert',
           needs: 'I need automated, intelligent tools to improve work efficiency and report accuracy',
           stat: '90%',
-          statDescription: 'reduction in report preparation time',
+          statDescription: 'faster\nEnd-to-end\nreporting',
+          secondStat: '99%',
+          secondStatDescription: 'faster\nfactor & rule\nmatching',
+          thirdStat: '95%',
+          thirdStatDescription: 'first-pass\nVerification',
+          painPoints: [
+            'Rules and factors don\'t line up—results swing±10–20%',
+            'Most data comes back late or wrong—under 50 % on time and hours lost cleaning.',
+            'Each SKU eats days; most time spend on factor matching',
+            'No assessing the process or data—risks stay invisible.',
+            'Evidence is scattered; external checks are slow and costly, and rework keeps delaying delivery.'
+          ],
           testimonial: 'Climate Seal isn\'t just another calculation tool, but an intelligent operating system that supports our need for precision and efficiency at scale.',
           author: 'Dr. Sarah Chen',
           position: 'Senior ESG Consultant, EcoStrategy'
@@ -473,8 +484,18 @@ export const translations: Record<Language, TranslationData> = {
           title: 'Brand Owner',
           role: 'Sustainability Leader',
           needs: 'I need to achieve brand and supply chain carbon reduction goals, reduce supply chain carbon management costs and pressure, enabling painless high-quality carbon emission data from supply chain',
-          stat: '67%',
-          statDescription: 'Scope 3 coverage achieved',
+          stat: '90%',
+          statDescription: 'On-time\nsubmissions',
+          secondStat: '60%',
+          secondStatDescription: 'less follow-up\n& cleaning work',
+          thirdStat: '90%',
+          thirdStatDescription: 'Data quality\nImprovement',
+          painPoints: [
+            'Supply-chain companies lack specialized expertise, making compliance costly and burdensome',
+            'Endless chasing supply chain data; on-time deliveries only 40-70 %.',
+            'Poor data quality skews decarbonisation priorities.',
+            'No ROI or MACC, projects can\'t get green-lit and stalls SBTi / CSRD milestones.'
+          ],
           testimonial: 'Climate Seal transformed our supply chain carbon management from a compliance burden into a competitive advantage.',
           author: 'Michael Rodriguez',
           position: 'Chief Sustainability Officer, GreenTech Corp'
@@ -483,8 +504,17 @@ export const translations: Record<Language, TranslationData> = {
           title: 'Supply Chain Leader',
           role: 'Export Enterprise Compliance Manager',
           needs: 'I need low-cost, high-efficiency solutions to provide credible carbon footprint reports to importers and downstream customers, ensuring sales are not affected',
-          stat: '1%',
-          statDescription: 'of traditional cost for PCF compliance',
+          stat: '90%',
+          statDescription: 'Faster Report\nTurnaround',
+          secondStat: '95%',
+          secondStatDescription: 'first-pass\napproval',
+          thirdStat: '90%',
+          thirdStatDescription: 'lower\ncompliance cost',
+          painPoints: [
+            'PCF reports take 4-8 weeks, missing RFQ / tender deadlines',
+            'Rework cycles delay shipments and risk customs holds.',
+            'No in-house carbon expertise, third-party consulting is expensive, and mainstream carbon tools are pricey and hard to use.'
+          ],
           testimonial: 'With Climate Seal, we can now provide world-class carbon footprint reports at a fraction of the cost and time.',
           author: 'Li Wei',
           position: 'Compliance Director, Global Manufacturing Ltd'
@@ -949,7 +979,7 @@ export const translations: Record<Language, TranslationData> = {
       title: 'Climate Seal',
       subtitle: 'AI产品碳足迹\n会计与保证',
       description: '几天内生成审计就绪的产品碳足迹（$CO₂$）报告，而非数月。通过Climate Seal的AI代理降低成本和复杂性。',
-      getStarted: '立即获得2份免费报告',
+      getStarted: '了解详情',
       learnMore: '了解更多',
       trustedBy: '信赖我们的客户'
     },
