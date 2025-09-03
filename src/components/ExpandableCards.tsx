@@ -155,9 +155,12 @@ export default function ExpandableCards({
                                             currentMediaSrc.includes('scope-tracker') ||
                                             currentMediaSrc.includes('sustainability-reporter') ||
                                             currentMediaSrc.includes('goal-manager');
+                    const isScopeTrackerImage = currentMediaSrc.includes('scope-tracker');
                     let objectPosition = 'center center';
                     if (isSupplyChainImage) {
                       objectPosition = 'center 30%';
+                    } else if (isScopeTrackerImage) {
+                      objectPosition = 'center 45%'; // 显示更多身体部分，减少头部比例
                     } else if (isBrandOwnerImage) {
                       objectPosition = 'center 35%';
                     }

@@ -67,21 +67,6 @@ export default function Home() {
           background: "bg-gradient-to-b from-orange-600/70 to-orange-800/70",
           staticMediaSrc: "/qa-anomaly-detector.png",
           dynamicMediaSrc: "/videos/video4-card.mp4"
-        },
-        {
-          title: assistants.reportGenerator.title,
-          summary: assistants.reportGenerator.description,
-          gradient: "from-amber-500/25 to-red-500/25",
-          background: "bg-gradient-to-b from-amber-600/70 to-amber-800/70",
-          staticMediaSrc: "/external-verifier.png",
-          dynamicMediaSrc: "/videos/video5-card.mp4"
-        },
-        {
-          title: assistants.dataValidator.title,
-          summary: assistants.dataValidator.description,
-          gradient: "from-cyan-500/25 to-teal-600/25",
-          background: "bg-gradient-to-b from-cyan-600/70 to-cyan-800/70",
-          staticMediaSrc: "/risk-screener.png"
         }
       ];
     } else if (role === 'brandOwner') {
