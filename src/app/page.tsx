@@ -89,26 +89,34 @@ export default function Home() {
         {
           title: assistants.brandAnalyzer.title,
           summary: assistants.brandAnalyzer.description,
-          details: ["Brand risk assessment", "Market positioning analysis", "Consumer sentiment tracking"],
-          gradient: "from-pink-500/25 to-rose-500/25"
+          gradient: "from-pink-500/25 to-rose-500/25",
+          background: "bg-gradient-to-b from-pink-600/70 to-pink-800/70",
+          staticMediaSrc: "/brand-analyzer.png",
+          dynamicMediaSrc: "/videos/video1-card.mp4"
         },
         {
           title: assistants.scopeTracker.title,
           summary: assistants.scopeTracker.description,
-          details: ["Scope 3 emissions tracking", "Supply chain partner monitoring", "Automated data collection"],
-          gradient: "from-indigo-500/25 to-purple-500/25"
+          gradient: "from-indigo-500/25 to-purple-500/25",
+          background: "bg-gradient-to-b from-indigo-600/70 to-indigo-800/70",
+          staticMediaSrc: "/scope-tracker.png",
+          dynamicMediaSrc: "/videos/video2-card.mp4"
         },
         {
           title: assistants.sustainabilityReporter.title,
           summary: assistants.sustainabilityReporter.description,
-          details: ["ESG reporting", "Stakeholder communication", "Compliance documentation"],
-          gradient: "from-emerald-500/25 to-teal-500/25"
+          gradient: "from-emerald-500/25 to-teal-500/25",
+          background: "bg-gradient-to-b from-emerald-600/70 to-emerald-800/70",
+          staticMediaSrc: "/sustainability-reporter.png",
+          dynamicMediaSrc: "/videos/video3-card.mp4"
         },
         {
           title: assistants.goalManager.title,
           summary: assistants.goalManager.description,
-          details: ["Carbon reduction goals", "Progress tracking", "Performance metrics"],
-          gradient: "from-violet-500/25 to-purple-500/25"
+          gradient: "from-violet-500/25 to-purple-500/25",
+          background: "bg-gradient-to-b from-violet-600/70 to-violet-800/70",
+          staticMediaSrc: "/goal-manager.png",
+          dynamicMediaSrc: "/videos/video4-card.mp4"
         }
       ];
     } else {
@@ -116,26 +124,26 @@ export default function Home() {
         {
           title: assistants.supplierAssessment.title,
           summary: assistants.supplierAssessment.description,
-          details: ["Supplier carbon footprint evaluation", "Risk assessment", "Performance scoring"],
-          gradient: "from-rose-500/25 to-pink-500/25"
+          gradient: "from-rose-500/25 to-pink-500/25",
+          background: "bg-gradient-to-b from-rose-600/70 to-rose-800/70",
+          staticMediaSrc: "/supply-chain-assessment.png",
+          dynamicMediaSrc: "/videos/video1-card.mp4"
         },
         {
           title: assistants.exportCompliance.title,
           summary: assistants.exportCompliance.description,
-          details: ["Global carbon regulations", "Export documentation", "Compliance validation"],
-          gradient: "from-slate-500/25 to-gray-500/25"
+          gradient: "from-slate-500/25 to-gray-500/25",
+          background: "bg-gradient-to-b from-slate-600/70 to-slate-800/70",
+          staticMediaSrc: "/export-compliance.png",
+          dynamicMediaSrc: "/videos/video2-card.mp4"
         },
         {
           title: assistants.costOptimizer.title,
           summary: assistants.costOptimizer.description,
-          details: ["Cost-benefit analysis", "Resource optimization", "Budget planning"],
-          gradient: "from-lime-500/25 to-green-500/25"
-        },
-        {
-          title: assistants.marketAnalyzer.title,
-          summary: assistants.marketAnalyzer.description,
-          details: ["Market trend analysis", "Carbon requirements tracking", "Competitive intelligence"],
-          gradient: "from-sky-500/25 to-blue-500/25"
+          gradient: "from-lime-500/25 to-green-500/25",
+          background: "bg-gradient-to-b from-lime-600/70 to-lime-800/70",
+          staticMediaSrc: "/cost-optimizer.png",
+          dynamicMediaSrc: "/videos/video3-card.mp4"
         }
       ];
     }

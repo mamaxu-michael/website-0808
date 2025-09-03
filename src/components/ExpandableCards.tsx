@@ -147,7 +147,28 @@ export default function ExpandableCards({
                       </div>
                     );
                   } else if (currentMediaSrc) {
-                    return <img src={currentMediaSrc} alt="" className="h-full w-full object-cover" />;
+                    // 为Supply Chain和Brand Owner图片优化显示位置
+                    const isSupplyChainImage = currentMediaSrc.includes('supply-chain') || 
+                                             currentMediaSrc.includes('export-compliance') || 
+                                             currentMediaSrc.includes('cost-optimizer');
+                    const isBrandOwnerImage = currentMediaSrc.includes('brand-analyzer') ||
+                                            currentMediaSrc.includes('scope-tracker') ||
+                                            currentMediaSrc.includes('sustainability-reporter') ||
+                                            currentMediaSrc.includes('goal-manager');
+                    let objectPosition = 'center center';
+                    if (isSupplyChainImage) {
+                      objectPosition = 'center 30%';
+                    } else if (isBrandOwnerImage) {
+                      objectPosition = 'center 35%';
+                    }
+                    return (
+                      <img 
+                        src={currentMediaSrc} 
+                        alt="" 
+                        className="h-full w-full object-cover" 
+                        style={{ objectPosition }} 
+                      />
+                    );
                   } else {
                     return <div className={`h-full w-full ${it.background ?? 'bg-gradient-to-br from-neutral-900 to-neutral-800'}`} />;
                   }
