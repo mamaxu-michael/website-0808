@@ -42,11 +42,11 @@ export async function POST(request: NextRequest) {
     );
 
     if (!hasEmailConfig) {
-      // 如果没有配置邮件服务，返回成功但提示用户直接联系
-      console.log('邮件服务未配置，建议用户直接发送邮件');
+      // 如果没有配置邮件服务，返回成功但不返回message，让前端处理
+      console.log('邮件服务未配置，建议用户直接联系');
       return NextResponse.json(
         { 
-          message: '我们已收到您的信息！由于邮件服务暂时不可用，请直接发送邮件至 xuguang.ma@climateseal.net 或致电 +86 15652618365，我们会尽快回复您。',
+          success: true,
           fallback: true,
           contactInfo: {
             email: 'xuguang.ma@climateseal.net',
@@ -143,8 +143,9 @@ export async function POST(request: NextRequest) {
           throw new Error('Failed to send with Resend');
         }
 
+        // 不返回message，让前端根据语言显示相应消息
         return NextResponse.json(
-          { message: '邮件发送成功！我们会尽快回复您。', data },
+          { success: true, data },
           { status: 200 }
         );
       } catch (resendError) {
@@ -157,7 +158,7 @@ export async function POST(request: NextRequest) {
       const nodemailer = await import('nodemailer');
       
       // 创建邮件传输器
-      const transporter = nodemailer.default.createTransport({
+      const transporter = nodemailer.default.createTransporter({
         host: process.env.EMAIL_HOST,
         port: parseInt(process.env.EMAIL_PORT || '587'),
         secure: false,
@@ -178,16 +179,17 @@ export async function POST(request: NextRequest) {
       // 发送邮件
       await transporter.sendMail(mailOptions);
 
+      // 不返回message，让前端根据语言显示相应消息
       return NextResponse.json(
-        { message: '邮件发送成功！我们会尽快回复您。' },
+        { success: true },
         { status: 200 }
       );
     } catch (nodemailerError) {
       console.error('Nodemailer also failed:', nodemailerError);
-      // 如果所有邮件发送方式都失败，返回友好的错误信息
+      // 如果所有邮件发送方式都失败，返回fallback但不返回message
       return NextResponse.json(
         { 
-          message: '我们已收到您的信息！由于邮件服务暂时不可用，请直接发送邮件至 xuguang.ma@climateseal.net 或致电 +86 15652618365，我们会尽快回复您。',
+          success: true,
           fallback: true,
           contactInfo: {
             email: 'xuguang.ma@climateseal.net',
@@ -202,7 +204,7 @@ export async function POST(request: NextRequest) {
     console.error('邮件发送失败:', error);
     return NextResponse.json(
       { 
-        message: '我们已收到您的信息！由于邮件服务暂时不可用，请直接发送邮件至 xuguang.ma@climateseal.net 或致电 +86 15652618365，我们会尽快回复您。',
+        success: true,
         fallback: true,
         contactInfo: {
           email: 'xuguang.ma@climateseal.net',

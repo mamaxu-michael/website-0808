@@ -1108,7 +1108,7 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="min-h-screen py-12 sm:py-20 bg-[rgb(0,52,50)] -mt-px" data-theme="pricing" data-section="pricing-overview" data-category="conversion">
+      <section id="pricing" className="min-h-screen py-4 sm:py-6 bg-[rgb(0,52,50)] -mt-px" data-theme="pricing" data-section="pricing-overview" data-category="conversion">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6 sm:mb-16">
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-2 sm:mb-6">{t.sections.pricing.title}</h2>
@@ -1198,12 +1198,12 @@ export default function Home() {
       </section>
 
       {/* White Separator Line */}
-      <div className="bg-[rgb(0,52,50)] py-6">
+      <div className="bg-[rgb(0,52,50)] py-1">
         <div className="mx-auto w-4/5 h-px bg-white opacity-30" style={{transform: 'translateY(-230px)'}}></div>
       </div>
 
       {/* About Section */}
-      <section id="about" className="bg-[rgb(0,52,50)] py-20" data-theme="about" data-section="about-main" data-category="info">
+      <section id="about" className="bg-[rgb(0,52,50)] -mt-96 py-4" data-theme="about" data-section="about-main" data-category="info">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center min-h-[280px] sm:min-h-[350px] md:min-h-[420px]">
             {/* Left side - Polar Bear Image */}
@@ -1494,6 +1494,23 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Privacy Policy Footer */}
+      <footer className="bg-[rgb(0,52,50)] py-8 border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8">
+            <p className="text-white/60 text-sm">
+              © 2024 Climate Seal. All rights reserved.
+            </p>
+            <a 
+              href="/privacy" 
+              className="text-white/60 hover:text-white text-sm transition-colors duration-300 underline hover:no-underline"
+            >
+              {t.footer?.privacyPolicy || 'Privacy Policy'}
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
     </>
   );

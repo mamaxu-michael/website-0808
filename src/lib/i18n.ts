@@ -411,6 +411,7 @@ export interface TranslationData {
     contact: string;
     followUs: string;
     copyright: string;
+    privacyPolicy: string;
   };
   
   // 其他页面
@@ -426,6 +427,62 @@ export interface TranslationData {
     pricing: {
       title: string;
       content: string;
+    };
+  };
+
+  // 隐私政策
+  privacy: {
+    title: string;
+    subtitle: string;
+    backToHome: string;
+    lastUpdated: string;
+    updateDate: string;
+    sections: {
+      introduction: {
+        title: string;
+        content: string;
+      };
+      dataCollection: {
+        title: string;
+        personalInfo: string;
+        items: {
+          name: string;
+          email: string;
+          company: string;
+          usage: string;
+        };
+      };
+      dataUsage: {
+        title: string;
+        items: {
+          service: string;
+          communication: string;
+          improvement: string;
+          legal: string;
+        };
+      };
+      dataSharing: {
+        title: string;
+        content: string;
+      };
+      security: {
+        title: string;
+        content: string;
+      };
+      rights: {
+        title: string;
+        intro: string;
+        items: {
+          access: string;
+          correct: string;
+          delete: string;
+          portability: string;
+        };
+      };
+      contact: {
+        title: string;
+        content: string;
+      };
     };
   };
 }
@@ -947,7 +1004,8 @@ export const translations: Record<Language, TranslationData> = {
       quickLinks: 'Quick Links',
       contact: 'Contact',
       followUs: 'Follow Us',
-      copyright: '© 2024 Climate Seal. All rights reserved.'
+      copyright: '© 2024 Climate Seal. All rights reserved.',
+      privacyPolicy: 'Privacy Policy'
     },
     pages: {
       about: {
@@ -961,6 +1019,60 @@ export const translations: Record<Language, TranslationData> = {
       pricing: {
         title: 'Pricing Plans',
         content: 'Pricing page content is under construction...'
+      }
+    },
+    privacy: {
+      title: 'Privacy Policy',
+      subtitle: 'Your privacy is important to us',
+      backToHome: 'Back to Home',
+      lastUpdated: 'Last Updated',
+      updateDate: 'December 2024',
+      sections: {
+        introduction: {
+          title: '1. Introduction',
+          content: 'Climate Seal ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our carbon footprint services.'
+        },
+        dataCollection: {
+          title: '2. Information We Collect',
+          personalInfo: 'Personal Information',
+          items: {
+            name: 'Name and contact information',
+            email: 'Email address',
+            company: 'Company information',
+            usage: 'Usage data and analytics'
+          }
+        },
+        dataUsage: {
+          title: '3. How We Use Your Information',
+          items: {
+            service: 'To provide and maintain our services',
+            communication: 'To communicate with you about our services',
+            improvement: 'To improve our website and services',
+            legal: 'To comply with legal obligations'
+          }
+        },
+        dataSharing: {
+          title: '4. Information Sharing',
+          content: 'We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described in this policy or as required by law.'
+        },
+        security: {
+          title: '5. Data Security',
+          content: 'We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.'
+        },
+        rights: {
+          title: '6. Your Rights',
+          intro: 'You have the right to:',
+          items: {
+            access: 'Access your personal information',
+            correct: 'Correct inaccurate information',
+            delete: 'Request deletion of your information',
+            portability: 'Data portability'
+          }
+        },
+        contact: {
+          title: '7. Contact Us',
+          content: 'If you have any questions about this Privacy Policy, please contact us at:'
+        }
       }
     }
   },
@@ -1451,7 +1563,8 @@ export const translations: Record<Language, TranslationData> = {
       quickLinks: '快速链接',
       contact: '联系方式',
       followUs: '关注我们',
-      copyright: '© 2024 Climate Seal. 保留所有权利。'
+      copyright: '© 2024 Climate Seal. 保留所有权利。',
+      privacyPolicy: '隐私政策'
     },
     pages: {
       about: {
@@ -1465,6 +1578,60 @@ export const translations: Record<Language, TranslationData> = {
       pricing: {
         title: '价格方案',
         content: '价格页面内容正在建设中...'
+      }
+    },
+    privacy: {
+      title: '隐私政策',
+      subtitle: '您的隐私对我们很重要',
+      backToHome: '返回首页',
+      lastUpdated: '最后更新',
+      updateDate: '2024年12月',
+      sections: {
+        introduction: {
+          title: '1. 简介',
+          content: 'Climate Seal（"我们"、"我们的"或"本公司"）致力于保护您的隐私。本隐私政策说明了当您访问我们的网站并使用我们的碳足迹服务时，我们如何收集、使用、披露和保护您的信息。'
+        },
+        dataCollection: {
+          title: '2. 我们收集的信息',
+          personalInfo: '个人信息',
+          items: {
+            name: '姓名和联系信息',
+            email: '电子邮件地址',
+            company: '公司信息',
+            usage: '使用数据和分析信息'
+          }
+        },
+        dataUsage: {
+          title: '3. 我们如何使用您的信息',
+          items: {
+            service: '提供和维护我们的服务',
+            communication: '就我们的服务与您沟通',
+            improvement: '改进我们的网站和服务',
+            legal: '遵守法律义务'
+          }
+        },
+        dataSharing: {
+          title: '4. 信息共享',
+          content: '未经您同意，我们不会向第三方出售、交易或以其他方式转让您的个人信息，除非本政策中所述或法律要求。'
+        },
+        security: {
+          title: '5. 数据安全',
+          content: '我们实施适当的安全措施来保护您的个人信息免受未经授权的访问、更改、披露或破坏。'
+        },
+        rights: {
+          title: '6. 您的权利',
+          intro: '您有权：',
+          items: {
+            access: '访问您的个人信息',
+            correct: '更正不准确的信息',
+            delete: '要求删除您的信息',
+            portability: '数据可携性'
+          }
+        },
+        contact: {
+          title: '7. 联系我们',
+          content: '如果您对本隐私政策有任何疑问，请通过以下方式联系我们：'
+        }
       }
     }
   }
