@@ -67,7 +67,7 @@ export default function ExpandableCards({
   // 触摸设备：改为点击展开
   const isTouch = useMemo(() => {
     if (typeof window === "undefined") return false;
-    return "ontouchstart" in window || (navigator as any).maxTouchPoints > 0;
+    return "ontouchstart" in window || (navigator as Navigator & { maxTouchPoints?: number }).maxTouchPoints > 0;
   }, []);
 
   // reveal 动效 token

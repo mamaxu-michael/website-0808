@@ -513,7 +513,7 @@ export default function Home() {
             {/* Testimonial Card - Compact */}
             <div className="bg-[#f0f3ff] rounded-2xl p-4">
               <p className="text-[#333] text-sm leading-relaxed mb-3">
-                "                &quot;{t.sections.personas[activePersona].testimonial}&quot;"
+                {t.sections.personas[activePersona].testimonial}
               </p>
               <div className="flex items-center">
                 <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-white font-semibold text-sm mr-3">
@@ -790,7 +790,7 @@ export default function Home() {
               <div className="w-full h-[352px] bg-[#f0f3ff] rounded-3xl p-8 animate-fade-up" style={{"--animation-delay": "0.4s"}}>
                 <div className="pt-8">
                   <p className="text-[#333333] text-xl font-normal tracking-[-0.20px] leading-[30px] mb-8">
-                    "                &quot;{t.sections.personas[activePersona].testimonial}&quot;"
+                    {t.sections.personas[activePersona].testimonial}
                   </p>
                 </div>
                 
