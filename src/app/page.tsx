@@ -964,7 +964,114 @@ export default function Home() {
 
       {/* Monday.com Difference Section */}
       <section className="relative bg-[rgb(0,52,50)] py-16 overflow-hidden">
-        <div className="relative w-full max-w-[1376px] mx-auto px-4">
+        
+        {/* Mobile Version - 2x2 Grid with Animal Cards */}
+        <div className="block md:hidden px-4">
+          {/* Mobile Title */}
+          <div className="text-center mb-6">
+            <h2 className="text-xl font-semibold text-white">
+              {t.sections.difference.title}
+            </h2>
+          </div>
+
+          {/* Mobile 2x2 Grid Cards with Animals */}
+          <div className="grid grid-cols-2 gap-3">
+            {/* Card 1 - Flexible (Faster Beaver) */}
+            <div 
+              className={`relative rounded-2xl overflow-hidden transition-all duration-500 cursor-pointer ${
+                activeMobileCard === 0 
+                  ? 'col-span-2 h-48' 
+                  : 'h-36'
+              }`}
+              onClick={() => setActiveMobileCard(activeMobileCard === 0 ? -1 : 0)}
+              style={{
+                backgroundImage: 'url(/faster-beaver.png)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center 40%'
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-2">
+                <h3 className={`text-white font-semibold leading-tight ${
+                  activeMobileCard === 0 ? 'text-sm mb-2' : 'text-xs mb-1'
+                }`}>
+                  {t.sections.difference.cards.flexible.title}
+                </h3>
+                {activeMobileCard === 0 && (
+                  <p className="text-white/90 text-xs leading-relaxed">
+                    {t.sections.difference.cards.flexible.description}
+                  </p>
+                )}
+              </div>
+            </div>
+
+            {/* Card 2 - Products (Credible Meerkat) */}
+            <div 
+              className={`relative rounded-2xl overflow-hidden transition-all duration-500 cursor-pointer ${
+                activeMobileCard === 1 
+                  ? 'col-span-2 h-48' 
+                  : 'h-36'
+              }`}
+              onClick={() => setActiveMobileCard(activeMobileCard === 1 ? -1 : 1)}
+              style={{
+                backgroundImage: 'url(/credible-meerkat.png)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-2">
+                <h3 className={`text-white font-semibold leading-tight ${
+                  activeMobileCard === 1 ? 'text-sm mb-2' : 'text-xs mb-1'
+                }`}>
+                  {t.sections.difference.cards.products.title}
+                </h3>
+                {activeMobileCard === 1 && (
+                  <p className="text-white/90 text-xs leading-relaxed">
+                    {t.sections.difference.cards.products.description}
+                  </p>
+                )}
+              </div>
+            </div>
+
+            {/* Card 3 - Fast Value (Frictionless Dog) */}
+            <div 
+              className={`relative rounded-2xl overflow-hidden transition-all duration-500 cursor-pointer ${
+                activeMobileCard === 2 
+                  ? 'col-span-2 h-48' 
+                  : 'h-36'
+              }`}
+              onClick={() => setActiveMobileCard(activeMobileCard === 2 ? -1 : 2)}
+              style={{
+                backgroundImage: 'url(/frictionless-dog.png)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-2">
+                <h3 className={`text-white font-semibold leading-tight ${
+                  activeMobileCard === 2 ? 'text-sm mb-2' : 'text-xs mb-1'
+                }`}>
+                  {t.sections.difference.cards.fastValue.title}
+                </h3>
+                {activeMobileCard === 2 && (
+                  <p className="text-white/90 text-xs leading-relaxed">
+                    {t.sections.difference.cards.fastValue.description}
+                  </p>
+                )}
+              </div>
+            </div>
+
+            {/* Card 4 - Placeholder for 2x2 grid */}
+            <div className="relative rounded-2xl overflow-hidden bg-white/5 border border-white/10 h-36 flex items-center justify-center">
+              <span className="text-white/40 text-xs">More features coming</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Version - Keep Original Unchanged */}
+        <div className="hidden md:block relative w-full max-w-[1376px] mx-auto px-4">
           {/* Title */}
           <div className="text-center mb-16">
             <motion.h2 
