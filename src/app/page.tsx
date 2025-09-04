@@ -457,45 +457,45 @@ export default function Home() {
                 <div className="grid grid-cols-3 gap-2 text-center">
                   <div>
                     <div className="text-[#333] text-lg font-bold">90%</div>
-                    <p className="text-[#333] text-xs">Faster Reports</p>
+                    <p className="text-[#333] text-xs">{t.sections.personas.carbonExpert.statDescription.split('\n')[0]}</p>
                   </div>
                   <div>
                     <div className="text-[#333] text-lg font-bold">95%</div>
-                    <p className="text-[#333] text-xs">First-pass</p>
+                    <p className="text-[#333] text-xs">{t.sections.personas.carbonExpert.thirdStatDescription.split('\n')[0]}</p>
                   </div>
                   <div>
                     <div className="text-[#333] text-lg font-bold">90%</div>
-                    <p className="text-[#333] text-xs">Lower Cost</p>
+                    <p className="text-[#333] text-xs">成本降低</p>
                   </div>
                 </div>
               ) : activePersona === 'brandOwner' ? (
                 <div className="grid grid-cols-3 gap-2 text-center">
                   <div>
                     <div className="text-[#333] text-lg font-bold">90%</div>
-                    <p className="text-[#333] text-xs">On-time submissions</p>
+                    <p className="text-[#333] text-xs">{t.sections.personas.brandOwner.statDescription}</p>
                   </div>
                   <div>
                     <div className="text-[#333] text-lg font-bold">60%</div>
-                    <p className="text-[#333] text-xs">less follow-up</p>
+                    <p className="text-[#333] text-xs">{t.sections.personas.brandOwner.secondStatDescription.split('\n')[0]}</p>
                   </div>
                   <div>
                     <div className="text-[#333] text-lg font-bold">90%</div>
-                    <p className="text-[#333] text-xs">Data quality</p>
+                    <p className="text-[#333] text-xs">{t.sections.personas.brandOwner.thirdStatDescription.split('\n')[0]}</p>
                   </div>
                 </div>
               ) : activePersona === 'supplyChain' ? (
                 <div className="grid grid-cols-3 gap-2 text-center">
                   <div>
                     <div className="text-[#333] text-lg font-bold">90%</div>
-                    <p className="text-[#333] text-xs">Faster Report</p>
+                    <p className="text-[#333] text-xs">{t.sections.personas.supplyChain.statDescription.split('\n')[0]}</p>
                   </div>
                   <div>
                     <div className="text-[#333] text-lg font-bold">95%</div>
-                    <p className="text-[#333] text-xs">first-pass approval</p>
+                    <p className="text-[#333] text-xs">{t.sections.personas.supplyChain.secondStatDescription.split('\n')[0]}</p>
                   </div>
                   <div>
                     <div className="text-[#333] text-lg font-bold">90%</div>
-                    <p className="text-[#333] text-xs">lower compliance cost</p>
+                    <p className="text-[#333] text-xs">{t.sections.personas.supplyChain.thirdStatDescription.split('\n')[0]}</p>
                   </div>
                 </div>
               ) : (
@@ -513,7 +513,7 @@ export default function Home() {
             {/* Testimonial Card - Compact */}
             <div className="bg-[#f0f3ff] rounded-2xl p-4">
               <p className="text-[#333] text-sm leading-relaxed mb-3">
-                "{t.sections.personas[activePersona].testimonial}"
+                "                &quot;{t.sections.personas[activePersona].testimonial}&quot;"
               </p>
               <div className="flex items-center">
                 <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-white font-semibold text-sm mr-3">
@@ -620,46 +620,46 @@ export default function Home() {
                       {activePersona === 'carbonExpert' ? (
                         <>
                           <div className="h-12 bg-white/20 rounded w-3/4 animate-shimmer flex items-center px-4">
-                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">Rules and factors don't line up—results swing±10–20%</span>
+                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">{t.sections.personas.carbonExpert.painPoints[0]}</span>
                           </div>
                           <div className="h-16 bg-white/15 rounded w-full flex items-center px-4">
-                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">Most data comes back late or wrong—under 50 % on time and hours lost cleaning.</span>
+                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">{t.sections.personas.carbonExpert.painPoints[1]}</span>
                           </div>
                           <div className="h-14 bg-white/25 rounded w-5/6 flex items-center px-4">
-                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">Each SKU eats days; most time spend on factor matching</span>
+                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">{t.sections.personas.carbonExpert.painPoints[2]}</span>
                           </div>
                           <div className="h-12 bg-white/15 rounded w-4/5 flex items-center px-4">
-                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">No assessing the process or data—risks stay invisible.</span>
+                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">{t.sections.personas.carbonExpert.painPoints[3]}</span>
                           </div>
                           <div className="h-18 bg-white/20 rounded w-full flex items-center px-4">
-                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">Evidence is scattered; external checks are slow and costly, and rework keeps delaying delivery.</span>
+                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">{t.sections.personas.carbonExpert.painPoints[4]}</span>
                           </div>
                         </>
                       ) : activePersona === 'brandOwner' ? (
                         <div className="space-y-8 flex-1 pt-4">
                           <div className="h-16 bg-white/20 rounded w-5/6 flex items-center px-4">
-                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">Supply-chain companies lack specialized expertise, making compliance costly and burdensome</span>
+                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">{t.sections.personas.brandOwner.painPoints[0]}</span>
                           </div>
                           <div className="h-14 bg-white/15 rounded w-3/5 flex items-center px-4">
-                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">Endless chasing supply chain data; on-time deliveries only 40-70 %.</span>
+                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">{t.sections.personas.brandOwner.painPoints[1]}</span>
                           </div>
                           <div className="h-12 bg-white/25 rounded w-4/5 flex items-center px-4">
-                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">Poor data quality skews decarbonisation priorities.</span>
+                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">{t.sections.personas.brandOwner.painPoints[2]}</span>
                           </div>
                           <div className="h-18 bg-white/15 rounded w-2/3 flex items-center px-4">
-                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">No ROI or MACC, projects can't get green-lit and stalls SBTi / CSRD milestones.</span>
+                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">{t.sections.personas.brandOwner.painPoints[3]}</span>
                           </div>
                         </div>
                       ) : (
                         <div className="space-y-8 flex-1 pt-12">
                           <div className="h-14 bg-white/20 rounded w-4/5 animate-shimmer flex items-center px-4">
-                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">PCF reports take 4-8 weeks, missing RFQ / tender deadlines</span>
+                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">{t.sections.personas.supplyChain.painPoints[0]}</span>
                           </div>
                           <div className="h-16 bg-white/15 rounded w-3/4 flex items-center px-4">
-                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">Rework cycles delay shipments and risk customs holds.</span>
+                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">{t.sections.personas.supplyChain.painPoints[1]}</span>
                           </div>
                           <div className="h-20 bg-white/25 rounded w-full flex items-center px-4">
-                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">No in-house carbon expertise, third-party consulting is expensive, and mainstream carbon tools are pricey and hard to use.</span>
+                            <span className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">{t.sections.personas.supplyChain.painPoints[2]}</span>
                           </div>
                         </div>
                       )}
@@ -680,7 +680,9 @@ export default function Home() {
                         90%
                       </div>
                       <p className="text-[#333333] text-sm font-normal leading-tight mt-1">
-                        faster<br/>End-to-end<br/>reporting
+                        {t.sections.personas.carbonExpert.statDescription.split('\n').map((line, index) => (
+                          <span key={index}>{line}{index < t.sections.personas.carbonExpert.statDescription.split('\n').length - 1 && <br/>}</span>
+                        ))}
                       </p>
                     </div>
                     <div className="text-center">
@@ -688,7 +690,9 @@ export default function Home() {
                         99%
                       </div>
                       <p className="text-[#333333] text-sm font-normal leading-tight mt-1">
-                        faster<br/>factor & rule<br/>matching
+                        {t.sections.personas.carbonExpert.secondStatDescription.split('\n').map((line, index) => (
+                          <span key={index}>{line}{index < t.sections.personas.carbonExpert.secondStatDescription.split('\n').length - 1 && <br/>}</span>
+                        ))}
                       </p>
                     </div>
                     <div className="text-center">
@@ -696,7 +700,9 @@ export default function Home() {
                         95%
                       </div>
                       <p className="text-[#333333] text-sm font-normal leading-tight mt-1">
-                        first-pass<br/>Verification
+                        {t.sections.personas.carbonExpert.thirdStatDescription.split('\n').map((line, index) => (
+                          <span key={index}>{line}{index < t.sections.personas.carbonExpert.thirdStatDescription.split('\n').length - 1 && <br/>}</span>
+                        ))}
                       </p>
                     </div>
                   </div>
@@ -707,7 +713,9 @@ export default function Home() {
                         90%
                       </div>
                       <p className="text-[#333333] text-sm font-normal leading-tight mt-1">
-                        On-time<br/>submissions
+                        {t.sections.personas.brandOwner.statDescription.split('\n').map((line, index) => (
+                          <span key={index}>{line}{index < t.sections.personas.brandOwner.statDescription.split('\n').length - 1 && <br/>}</span>
+                        ))}
                       </p>
                     </div>
                     <div className="text-center">
@@ -715,7 +723,9 @@ export default function Home() {
                         60%
                       </div>
                       <p className="text-[#333333] text-sm font-normal leading-tight mt-1">
-                        less follow-up<br/>& cleaning work
+                        {t.sections.personas.brandOwner.secondStatDescription.split('\n').map((line, index) => (
+                          <span key={index}>{line}{index < t.sections.personas.brandOwner.secondStatDescription.split('\n').length - 1 && <br/>}</span>
+                        ))}
                       </p>
                     </div>
                     <div className="text-center">
@@ -723,7 +733,9 @@ export default function Home() {
                         90%
                       </div>
                       <p className="text-[#333333] text-sm font-normal leading-tight mt-1">
-                        Data quality<br/>Improvement
+                        {t.sections.personas.brandOwner.thirdStatDescription.split('\n').map((line, index) => (
+                          <span key={index}>{line}{index < t.sections.personas.brandOwner.thirdStatDescription.split('\n').length - 1 && <br/>}</span>
+                        ))}
                       </p>
                     </div>
                   </div>
@@ -734,7 +746,9 @@ export default function Home() {
                         90%
                       </div>
                       <p className="text-[#333333] text-xs lg:text-sm font-normal leading-tight mt-1">
-                        Faster Report<br/>Turnaround
+                        {t.sections.personas.supplyChain.statDescription.split('\n').map((line, index) => (
+                          <span key={index}>{line}{index < t.sections.personas.supplyChain.statDescription.split('\n').length - 1 && <br/>}</span>
+                        ))}
                       </p>
                     </div>
                     <div className="text-center">
@@ -742,7 +756,9 @@ export default function Home() {
                         95%
                       </div>
                       <p className="text-[#333333] text-xs lg:text-sm font-normal leading-tight mt-1">
-                        first-pass<br/>approval
+                        {t.sections.personas.supplyChain.secondStatDescription.split('\n').map((line, index) => (
+                          <span key={index}>{line}{index < t.sections.personas.supplyChain.secondStatDescription.split('\n').length - 1 && <br/>}</span>
+                        ))}
                       </p>
                     </div>
                     <div className="text-center">
@@ -750,7 +766,9 @@ export default function Home() {
                         90%
                       </div>
                       <p className="text-[#333333] text-xs lg:text-sm font-normal leading-tight mt-1">
-                        lower<br/>compliance cost
+                        {t.sections.personas.supplyChain.thirdStatDescription.split('\n').map((line, index) => (
+                          <span key={index}>{line}{index < t.sections.personas.supplyChain.thirdStatDescription.split('\n').length - 1 && <br/>}</span>
+                        ))}
                       </p>
                     </div>
                   </div>
@@ -772,7 +790,7 @@ export default function Home() {
               <div className="w-full h-[352px] bg-[#f0f3ff] rounded-3xl p-8 animate-fade-up" style={{"--animation-delay": "0.4s"}}>
                 <div className="pt-8">
                   <p className="text-[#333333] text-xl font-normal tracking-[-0.20px] leading-[30px] mb-8">
-                    "{t.sections.personas[activePersona].testimonial}"
+                    "                &quot;{t.sections.personas[activePersona].testimonial}&quot;"
                   </p>
                 </div>
                 
@@ -1209,14 +1227,6 @@ export default function Home() {
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.6, delay: 0.15, ease: [0.2, 0.8, 0.2, 1] }}
               whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
-              animate={{
-                y: [0, -8, 0],
-                rotate: [0, 1, 0, -1, 0]
-              }}
-              transition={{
-                y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-                rotate: { duration: 5, repeat: Infinity, ease: "easeInOut" }
-              }}
             >
               {/* 光带效果 */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 overflow-hidden rounded-[32px]">
@@ -1234,14 +1244,6 @@ export default function Home() {
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.6, delay: 0.24, ease: [0.2, 0.8, 0.2, 1] }}
               whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
-              animate={{
-                y: [0, -6, 0],
-                rotate: [0, -0.5, 0, 0.8, 0]
-              }}
-              transition={{
-                y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 },
-                rotate: { duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.8 }
-              }}
               style={{ 
                 boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
                 filter: "drop-shadow(0 16px 40px rgba(0,0,0,0.2))"
@@ -1287,14 +1289,6 @@ export default function Home() {
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.6, delay: 0.33, ease: [0.2, 0.8, 0.2, 1] }}
               whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
-              animate={{
-                y: [0, -10, 0],
-                rotate: [0, 1.2, 0, -0.8, 0]
-              }}
-              transition={{
-                y: { duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 },
-                rotate: { duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 1.2 }
-              }}
             >
               {/* 光带效果 */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 overflow-hidden rounded-[32px]">
@@ -1312,14 +1306,6 @@ export default function Home() {
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.6, delay: 0.42, ease: [0.2, 0.8, 0.2, 1] }}
               whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
-              animate={{
-                y: [0, -7, 0],
-                rotate: [0, -1, 0, 1.2, 0]
-              }}
-              transition={{
-                y: { duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 1.5 },
-                rotate: { duration: 5.2, repeat: Infinity, ease: "easeInOut", delay: 1.8 }
-              }}
               style={{ 
                 boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
                 filter: "drop-shadow(0 16px 40px rgba(0,0,0,0.2))"
@@ -1365,14 +1351,6 @@ export default function Home() {
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.6, delay: 0.51, ease: [0.2, 0.8, 0.2, 1] }}
               whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
-              animate={{
-                y: [0, -9, 0],
-                rotate: [0, 1.5, 0, -1.2, 0]
-              }}
-              transition={{
-                y: { duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 2 },
-                rotate: { duration: 4.6, repeat: Infinity, ease: "easeInOut", delay: 2.3 }
-              }}
             >
               {/* 光带效果 */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 overflow-hidden rounded-[32px]">
@@ -1390,14 +1368,6 @@ export default function Home() {
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.6, delay: 0.60, ease: [0.2, 0.8, 0.2, 1] }}
               whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
-              animate={{
-                y: [0, -5, 0],
-                rotate: [0, -0.8, 0, 1, 0]
-              }}
-              transition={{
-                y: { duration: 5.2, repeat: Infinity, ease: "easeInOut", delay: 2.5 },
-                rotate: { duration: 4.9, repeat: Infinity, ease: "easeInOut", delay: 2.8 }
-              }}
               style={{ 
                 boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
                 filter: "drop-shadow(0 16px 40px rgba(0,0,0,0.2))"

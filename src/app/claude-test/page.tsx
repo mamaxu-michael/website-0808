@@ -129,7 +129,7 @@ export default function ClaudeTestPage() {
               <li>• 确保您已经在配置文件中设置了正确的Claude API密钥</li>
               <li>• 系统提示词用于设置AI助手的角色和行为</li>
               <li>• 在消息框中输入您想要询问的问题</li>
-              <li>• 点击"发送消息"按钮来测试API连接</li>
+              <li>• 点击&quot;发送消息&quot;按钮来测试API连接</li>
               <li>• 如果出现错误，请检查API密钥配置和网络连接</li>
             </ul>
           </div>

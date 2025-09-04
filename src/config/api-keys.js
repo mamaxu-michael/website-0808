@@ -6,7 +6,7 @@ export const API_KEYS = {
   ANTHROPIC_API_KEY: 'sk-ZmvMRoZwcfH75NH9H8yaXxA1kgde7thek5KgFpUsL38SMRPR',
   
   // Anthropic API基础URL
-  ANTHROPIC_BASE_URL: 'https://api.anthropic.com',
+  ANTHROPIC_BASE_URL: 'https://code.ppchat.vip',
   
   // 其他API密钥可以在这里添加
   // RESEND_API_KEY: process.env.RESEND_API_KEY,

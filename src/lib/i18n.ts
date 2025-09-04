@@ -38,6 +38,9 @@ export interface TranslationData {
         needs: string;
         stat: string;
         statDescription: string;
+        secondStatDescription: string;
+        thirdStatDescription: string;
+        painPoints: string[];
         testimonial: string;
         author: string;
         position: string;
@@ -48,6 +51,9 @@ export interface TranslationData {
         needs: string;
         stat: string;
         statDescription: string;
+        secondStatDescription: string;
+        thirdStatDescription: string;
+        painPoints: string[];
         testimonial: string;
         author: string;
         position: string;
@@ -58,9 +64,56 @@ export interface TranslationData {
         needs: string;
         stat: string;
         statDescription: string;
+        secondStatDescription: string;
+        thirdStatDescription: string;
+        painPoints: string[];
         testimonial: string;
         author: string;
         position: string;
+      };
+    };
+    aiAssistants: {
+      title: string;
+      subtitle: string;
+      comingSoon: string;
+      getStarted: string;
+      trustCenter: string;
+      assistants: {
+        carbonExpert: {
+          [key: string]: {
+            title: string;
+            description: string;
+          };
+        };
+        brandOwner: {
+          [key: string]: {
+            title: string;
+            description: string;
+          };
+        };
+        supplyChain: {
+          [key: string]: {
+            title: string;
+            description: string;
+          };
+        };
+      };
+    };
+    difference: {
+      title: string;
+      cards: {
+        flexible: {
+          title: string;
+          description: string;
+        };
+        products: {
+          title: string;
+          description: string;
+        };
+        fastValue: {
+          title: string;
+          description: string;
+        };
       };
     };
     scenarios: {
@@ -521,17 +574,15 @@ export const translations: Record<Language, TranslationData> = {
           role: 'ESG/Sustainability/Carbon/Consulting Expert',
           needs: 'I need automated, intelligent tools to improve work efficiency and report accuracy',
           stat: '90%',
-          statDescription: 'faster\nEnd-to-end\nreporting',
-          secondStat: '99%',
-          secondStatDescription: 'faster\nfactor & rule\nmatching',
-          thirdStat: '95%',
-          thirdStatDescription: 'first-pass\nVerification',
+          statDescription: 'Report preparation\ntime reduction\nend-to-end',
+          secondStatDescription: 'Factor matching\naccuracy and\nspeed improvement',
+          thirdStatDescription: 'First-time\nverification\npass rate',
           painPoints: [
-            'Rules and factors don\'t line up—results swing±10–20%',
-            'Most data comes back late or wrong—under 50 % on time and hours lost cleaning.',
-            'Each SKU eats days; most time spend on factor matching',
-            'No assessing the process or data—risks stay invisible.',
-            'Evidence is scattered; external checks are slow and costly, and rework keeps delaying delivery.'
+            'Rules and factors don\'t match — results fluctuate ±10-20%',
+            'Most data delayed or incorrect — on-time rate below 50%, cleanup work takes enormous time',
+            'Each SKU takes days; most time spent on factor matching',
+            'Lack of process or data assessment — risks hard to discover',
+            'Evidence scattered; external checks slow and expensive, rework constantly delays delivery'
           ],
           testimonial: 'Climate Seal isn\'t just another calculation tool, but an intelligent operating system that supports our need for precision and efficiency at scale.',
           author: 'Dr. Sarah Chen',
@@ -542,16 +593,14 @@ export const translations: Record<Language, TranslationData> = {
           role: 'Sustainability Leader',
           needs: 'I need to achieve brand and supply chain carbon reduction goals, reduce supply chain carbon management costs and pressure, enabling painless high-quality carbon emission data from supply chain',
           stat: '90%',
-          statDescription: 'On-time\nsubmissions',
-          secondStat: '60%',
-          secondStatDescription: 'less follow-up\n& cleaning work',
-          thirdStat: '90%',
-          thirdStatDescription: 'Data quality\nImprovement',
+          statDescription: 'On-time submission rate',
+          secondStatDescription: 'Reduced follow-up\nand cleanup work',
+          thirdStatDescription: 'Data quality\nimprovement',
           painPoints: [
             'Supply-chain companies lack specialized expertise, making compliance costly and burdensome',
-            'Endless chasing supply chain data; on-time deliveries only 40-70 %.',
-            'Poor data quality skews decarbonisation priorities.',
-            'No ROI or MACC, projects can\'t get green-lit and stalls SBTi / CSRD milestones.'
+            'Endless chasing supply chain data; on-time deliveries only 40-70%',
+            'Poor data quality skews decarbonisation priorities',
+            'No ROI or MACC, projects can\'t get green-lit and stalls SBTi / CSRD milestones'
           ],
           testimonial: 'Climate Seal transformed our supply chain carbon management from a compliance burden into a competitive advantage.',
           author: 'Michael Rodriguez',
@@ -562,15 +611,13 @@ export const translations: Record<Language, TranslationData> = {
           role: 'Export Enterprise Compliance Manager',
           needs: 'I need low-cost, high-efficiency solutions to provide credible carbon footprint reports to importers and downstream customers, ensuring sales are not affected',
           stat: '90%',
-          statDescription: 'Faster Report\nTurnaround',
-          secondStat: '95%',
-          secondStatDescription: 'first-pass\napproval',
-          thirdStat: '90%',
-          thirdStatDescription: 'lower\ncompliance cost',
+          statDescription: 'Report turnaround\nspeed improvement',
+          secondStatDescription: 'First-time\napproval rate',
+          thirdStatDescription: 'Compliance cost\nreduction',
           painPoints: [
             'PCF reports take 4-8 weeks, missing RFQ / tender deadlines',
-            'Rework cycles delay shipments and risk customs holds.',
-            'No in-house carbon expertise, third-party consulting is expensive, and mainstream carbon tools are pricey and hard to use.'
+            'Rework cycles delay shipments and risk customs holds',
+            'No in-house carbon expertise, third-party consulting is expensive, and mainstream carbon tools are pricey and hard to use'
           ],
           testimonial: 'With Climate Seal, we can now provide world-class carbon footprint reports at a fraction of the cost and time.',
           author: 'Li Wei',
@@ -1089,8 +1136,8 @@ export const translations: Record<Language, TranslationData> = {
     },
     hero: {
       title: 'Climate Seal',
-      subtitle: 'AI产品碳足迹\n会计与保证',
-      description: '几天内生成审计就绪的产品碳足迹报告，而非数月。通过Climate Seal的AI代理降低成本和复杂性。',
+      subtitle: 'AI产品碳足迹\n计算与预核验',
+      description: '几小时内生成核验就绪的产品碳足迹报告，而非数月。通过Climate Seal的AI agent降低成本和专业门槛。',
       getStarted: '了解详情',
       learnMore: '了解更多',
       trustedBy: '信赖我们的客户'
@@ -1111,6 +1158,15 @@ export const translations: Record<Language, TranslationData> = {
           needs: '我需要自动化、智能化工具，提高工作效率和报告精准度',
           stat: '90%',
           statDescription: '报告准备时间减少',
+          secondStatDescription: '因子匹配精度和速度提升',
+          thirdStatDescription: '首次通过核验率',
+          painPoints: [
+            '规则和因子不匹配——结果波动±10-20%',
+            '大部分数据延迟或错误——按时率低于50%',
+            '每个SKU需要数天时间；大部分时间花在因子匹配上',
+            '缺乏流程或数据评估——风险难以发现',
+            '证据分散；外部检查缓慢且成本高昂'
+          ],
           testimonial: 'Climate Seal不仅仅是另一个计算工具，而是一个支持我们大规模精确高效需求的智能操作系统。',
           author: '陈博士',
           position: 'EcoStrategy高级ESG顾问'
@@ -1121,6 +1177,14 @@ export const translations: Record<Language, TranslationData> = {
           needs: '我需要完成品牌和供应链降碳目标，降低供应链碳管理成本和压力，让供应链无痛提供高质量碳排放数据',
           stat: '67%',
           statDescription: 'Scope 3覆盖率达成',
+          secondStatDescription: '数据收集和处理效率提升',
+          thirdStatDescription: '供应链管理成本降低',
+          painPoints: [
+            '供应链企业缺乏专业知识，合规成本高且繁重',
+            '无尽止地追踪供应链数据；按时交付率仅为40-70%',
+            '数据质量差影响去碳化优先级排序',
+            '缺乏ROI或MACC，项目无法获得批准，阻碍SBTi/CSRD里程碑'
+          ],
           testimonial: 'Climate Seal将我们的供应链碳管理从合规负担转变为竞争优势。',
           author: '王明',
           position: 'GreenTech Corp首席可持续官'
@@ -1131,6 +1195,13 @@ export const translations: Record<Language, TranslationData> = {
           needs: '我需要低成本、高效率的向进口方和下游客户提供可信碳足迹报告，确保销售不受影响',
           stat: '1%',
           statDescription: '传统PCF合规成本',
+          secondStatDescription: '周转时间从周到小时',
+          thirdStatDescription: '首次通过率提升',
+          painPoints: [
+            'PCF报告需要4-8周，错过RFQ/招标截止日期',
+            '返工周期延迟出货，可能面临海关扣留风险',
+            '缺乏内部碳专业知识，第三方咨询费用高昂'
+          ],
           testimonial: '通过Climate Seal，我们现在能够以传统成本和时间的一小部分提供世界级的碳足迹报告。',
           author: '李伟',
           position: '全球制造有限公司合规总监'
