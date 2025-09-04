@@ -29,6 +29,7 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const [activePersona, setActivePersona] = useState<'carbonExpert' | 'brandOwner' | 'supplyChain'>('carbonExpert');
   const [activeAIRole, setActiveAIRole] = useState<'carbonExpert' | 'brandOwner' | 'supplyChain'>('carbonExpert');
+  const [activeMobileCard, setActiveMobileCard] = useState<number>(-1);
 
   // Generate cards data for current role
   const getCardsForRole = (role: 'carbonExpert' | 'brandOwner' | 'supplyChain') => {
@@ -397,7 +398,114 @@ export default function Home() {
 
       {/* Personas Section */}
       <section className="relative bg-[rgb(0,52,50)] py-16 overflow-hidden">
-        <div className="relative w-full max-w-[1376px] h-auto mx-auto px-4">
+        
+        {/* Mobile Version - Completely Redesigned */}
+        <div className="block md:hidden px-4">
+          {/* Mobile Title */}
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-semibold text-white mb-4">
+              {t.sections.personas?.title || 'Solutions for every role.'}
+            </h2>
+          </div>
+
+          {/* Mobile Tab Navigation - Compact */}
+          <div className="flex justify-center mb-8">
+            <div className="bg-white/5 rounded-full p-1">
+              <div className="flex">
+                {(['carbonExpert', 'brandOwner', 'supplyChain'] as const).map((persona) => (
+                  <button
+                    key={persona}
+                    onClick={() => setActivePersona(persona)}
+                    className={`px-3 py-2 text-xs font-medium transition-all duration-300 rounded-full ${
+                      activePersona === persona
+                        ? 'bg-[#6161ff] text-white'
+                        : 'text-white/70'
+                    }`}
+                  >
+                    {t.sections.personas[persona].title.split(' ')[0]}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile Cards - Vertical Stack */}
+          <div className="space-y-4">
+            {/* Main Card - Compact */}
+            <div className={`rounded-2xl p-4 ${
+              activePersona === 'carbonExpert' ? 'bg-[#6161ff]' :
+              activePersona === 'brandOwner' ? 'bg-[#8b5cf6]' :
+              'bg-[#3b82f6]'
+            }`}>
+              <h3 className="text-white text-lg font-semibold mb-2">
+                {activePersona === 'carbonExpert' && 'Carbon Professionals'}
+                {activePersona === 'brandOwner' && 'Supply Chain Transparency'}
+                {activePersona === 'supplyChain' && 'Compliance Made Easy'}
+              </h3>
+              <p className="text-white text-sm leading-relaxed mb-3">
+                {t.sections.personas[activePersona].needs}
+              </p>
+              <button 
+                onClick={() => document.getElementById('ai-assistants')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-white rounded-full px-4 py-1 text-black text-sm font-medium"
+              >
+                Learn More
+              </button>
+            </div>
+
+            {/* Stats Card - Compact */}
+            <div className="bg-[#f0f3ff] rounded-2xl p-4">
+              {activePersona === 'carbonExpert' ? (
+                <div className="grid grid-cols-3 gap-2 text-center">
+                  <div>
+                    <div className="text-[#333] text-lg font-bold">90%</div>
+                    <p className="text-[#333] text-xs">Faster Reports</p>
+                  </div>
+                  <div>
+                    <div className="text-[#333] text-lg font-bold">95%</div>
+                    <p className="text-[#333] text-xs">First-pass</p>
+                  </div>
+                  <div>
+                    <div className="text-[#333] text-lg font-bold">90%</div>
+                    <p className="text-[#333] text-xs">Lower Cost</p>
+                  </div>
+                </div>
+              ) : (
+                <div className="text-center">
+                  <div className="text-[#333] text-xl font-bold mb-1">
+                    {t.sections.personas[activePersona].stat}
+                  </div>
+                  <p className="text-[#333] text-sm">
+                    {t.sections.personas[activePersona].statDescription}
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Testimonial Card - Compact */}
+            <div className="bg-[#f0f3ff] rounded-2xl p-4">
+              <p className="text-[#333] text-sm leading-relaxed mb-3">
+                "{t.sections.personas[activePersona].testimonial}"
+              </p>
+              <div className="flex items-center">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-white font-semibold text-sm mr-3">
+                  {t.sections.personas[activePersona].author.charAt(0)}
+                </div>
+                <div>
+                  <div className="text-[#333] text-xs font-medium">
+                    {t.sections.personas[activePersona].author}
+                  </div>
+                  <div className="text-[#333] text-xs opacity-70">
+                    {t.sections.personas[activePersona].position}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Version - Keep Original Unchanged */}
+        <div className="hidden md:block relative w-full max-w-[1376px] h-auto mx-auto px-4">
           {/* Title */}
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-[56px] font-normal text-white leading-[67.2px] tracking-[-1.12px] mb-4">
@@ -594,26 +702,26 @@ export default function Home() {
                 ) : activePersona === 'supplyChain' ? (
                   <div className="flex justify-between items-center h-full pt-8">
                     <div className="text-center">
-                      <div className="text-[#333333] text-[28px] font-semibold leading-[36.4px] tracking-[-0.12px]">
+                      <div className="text-[#333333] text-xl lg:text-[28px] font-semibold leading-tight lg:leading-[36.4px] tracking-[-0.12px]">
                         90%
                       </div>
-                      <p className="text-[#333333] text-sm font-normal leading-tight mt-1">
+                      <p className="text-[#333333] text-xs lg:text-sm font-normal leading-tight mt-1">
                         Faster Report<br/>Turnaround
                       </p>
                     </div>
                     <div className="text-center">
-                      <div className="text-[#333333] text-[28px] font-semibold leading-[36.4px] tracking-[-0.12px]">
+                      <div className="text-[#333333] text-xl lg:text-[28px] font-semibold leading-tight lg:leading-[36.4px] tracking-[-0.12px]">
                         95%
                       </div>
-                      <p className="text-[#333333] text-sm font-normal leading-tight mt-1">
+                      <p className="text-[#333333] text-xs lg:text-sm font-normal leading-tight mt-1">
                         first-pass<br/>approval
                       </p>
                     </div>
                     <div className="text-center">
-                      <div className="text-[#333333] text-[28px] font-semibold leading-[36.4px] tracking-[-0.12px]">
+                      <div className="text-[#333333] text-xl lg:text-[28px] font-semibold leading-tight lg:leading-[36.4px] tracking-[-0.12px]">
                         90%
                       </div>
-                      <p className="text-[#333333] text-sm font-normal leading-tight mt-1">
+                      <p className="text-[#333333] text-xs lg:text-sm font-normal leading-tight mt-1">
                         lower<br/>compliance cost
                       </p>
                     </div>
@@ -664,7 +772,142 @@ export default function Home() {
 
       {/* AI Assistants Section */}
       <section id="ai-assistants" className="relative bg-[rgb(0,52,50)] py-16 overflow-hidden">
-        <div className="relative w-full max-w-[2548px] mx-auto px-4">
+        
+        {/* Mobile Version - Completely Redesigned */}
+        <div className="block md:hidden px-4">
+          {/* Mobile Title */}
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-semibold text-white mb-3">
+              {t.sections.aiAssistants.title}
+            </h2>
+            <p className="text-sm text-white/80 leading-relaxed">
+              {t.sections.aiAssistants.subtitle}
+            </p>
+          </div>
+
+          {/* Mobile AI Role Navigation - Compact */}
+          <div className="flex justify-center mb-6">
+            <div className="bg-white/5 rounded-full p-1">
+              <div className="flex">
+                {(['carbonExpert', 'brandOwner', 'supplyChain'] as const).map((role) => (
+                  <button
+                    key={role}
+                    onClick={() => {
+                      setActiveAIRole(role);
+                      setActiveMobileCard(-1); // Reset mobile card state when switching roles
+                    }}
+                    className={`px-3 py-2 text-xs font-medium transition-all duration-300 rounded-full ${
+                      activeAIRole === role
+                        ? 'bg-[#6161ff] text-white'
+                        : 'text-white/70'
+                    }`}
+                  >
+                    {t.sections.personas[role].title.split(' ')[0]}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile AI Assistant Cards - 2x2 Grid with Expand Effect */}
+          <div className="grid grid-cols-2 gap-3">
+            {getCardsForRole(activeAIRole).map((card, index) => (
+              <div 
+                key={index} 
+                className={`relative rounded-2xl overflow-hidden border border-white/10 transition-all duration-500 cursor-pointer ${
+                  activeMobileCard === index 
+                    ? 'col-span-2 h-64 z-10' 
+                    : 'h-48 hover:scale-105'
+                }`}
+                onClick={() => setActiveMobileCard(activeMobileCard === index ? -1 : index)}
+              >
+                {/* Background Gradient */}
+                <div className={`absolute inset-0 ${card.background || 'bg-gradient-to-b from-purple-600/70 to-purple-800/70'}`} />
+                
+                {/* Media Layer */}
+                <div className="absolute inset-0">
+                  {/* Static Animal Image - Always Visible */}
+                  {card.staticMediaSrc && (
+                    <img 
+                      src={card.staticMediaSrc} 
+                      alt={card.title}
+                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+                        activeMobileCard === index ? 'opacity-0' : 'opacity-100'
+                      }`}
+                      style={{ 
+                        objectPosition: card.staticMediaSrc.includes('scope-tracker') ? 'center 45%' :
+                                       card.staticMediaSrc.includes('supply-chain') || 
+                                       card.staticMediaSrc.includes('export-compliance') || 
+                                       card.staticMediaSrc.includes('cost-optimizer') ? 'center 30%' :
+                                       card.staticMediaSrc.includes('brand-analyzer') ||
+                                       card.staticMediaSrc.includes('sustainability-reporter') ||
+                                       card.staticMediaSrc.includes('goal-manager') ? 'center 35%' : 'center center'
+                      }}
+                    />
+                  )}
+                  
+                  {/* Dynamic Video - Shows when expanded */}
+                  {card.dynamicMediaSrc && activeMobileCard === index && (
+                    <video
+                      src={card.dynamicMediaSrc}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                    />
+                  )}
+                </div>
+                
+                {/* Content Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                
+                {/* Text Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-3">
+                  <h3 className={`text-white font-semibold leading-tight mb-2 transition-all duration-300 ${
+                    activeMobileCard === index ? 'text-base' : 'text-sm'
+                  }`}>
+                    {card.title}
+                  </h3>
+                  
+                  {/* Expanded Description - Only show when active */}
+                  {activeMobileCard === index && (
+                    <div className="animate-fade-in">
+                      <p className="text-white/90 text-sm leading-relaxed mb-3">
+                        {card.summary}
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <div className={`h-1 flex-1 rounded-full ${card.background || 'bg-gradient-to-r from-purple-500 to-blue-500'} opacity-80`} />
+                        <span className="text-white/60 text-xs ml-2">Tap to close</span>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Collapsed State Indicator */}
+                  {activeMobileCard !== index && (
+                    <div className="flex items-center justify-between">
+                      <div className={`h-1 w-12 rounded-full ${card.background || 'bg-gradient-to-r from-purple-500 to-blue-500'} opacity-60`} />
+                      <span className="text-white/40 text-xs">Tap to expand</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile Action Button */}
+          <div className="text-center mt-6">
+            <button 
+              onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-[#9ef894] text-black px-6 py-2 rounded-full text-sm font-medium hover:bg-[#8ee884] transition-colors"
+            >
+              Get Started
+            </button>
+          </div>
+        </div>
+
+        {/* Desktop Version - Keep Original Unchanged */}
+        <div className="hidden md:block relative w-full max-w-[2548px] mx-auto px-4">
 
           {/* Title */}
           <div className="text-center mb-16">
@@ -1108,7 +1351,7 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="min-h-screen py-4 sm:py-6 bg-[rgb(0,52,50)] -mt-px" data-theme="pricing" data-section="pricing-overview" data-category="conversion">
+      <section id="pricing" className="min-h-screen py-12 lg:py-4 sm:lg:py-6 bg-[rgb(0,52,50)] -mt-px" data-theme="pricing" data-section="pricing-overview" data-category="conversion">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6 sm:mb-16">
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-2 sm:mb-6">{t.sections.pricing.title}</h2>
@@ -1198,12 +1441,12 @@ export default function Home() {
       </section>
 
       {/* White Separator Line */}
-      <div className="bg-[rgb(0,52,50)] py-1">
-        <div className="mx-auto w-4/5 h-px bg-white opacity-30" style={{transform: 'translateY(-230px)'}}></div>
+      <div className="bg-[rgb(0,52,50)] py-6 lg:py-1">
+        <div className="mx-auto w-4/5 h-px bg-white opacity-30 transform translate-y-0 lg:-translate-y-[230px]"></div>
       </div>
 
       {/* About Section */}
-      <section id="about" className="bg-[rgb(0,52,50)] -mt-96 py-4" data-theme="about" data-section="about-main" data-category="info">
+      <section id="about" className="bg-[rgb(0,52,50)] mt-0 lg:-mt-96 py-8 lg:py-4" data-theme="about" data-section="about-main" data-category="info">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center min-h-[280px] sm:min-h-[350px] md:min-h-[420px]">
             {/* Left side - Polar Bear Image */}
