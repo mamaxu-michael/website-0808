@@ -438,9 +438,7 @@ export default function Home() {
               'bg-[#3b82f6]'
             }`}>
               <h3 className="text-white text-lg font-semibold mb-2">
-                {activePersona === 'carbonExpert' && 'Carbon Professionals'}
-                {activePersona === 'brandOwner' && 'Supply Chain Transparency'}
-                {activePersona === 'supplyChain' && 'Compliance Made Easy'}
+                {t.sections.personas[activePersona].title}
               </h3>
               <p className="text-white text-sm leading-relaxed mb-3">
                 {t.sections.personas[activePersona].needs}
@@ -580,9 +578,9 @@ export default function Home() {
               {/* Main Title */}
               <div className="absolute top-[130px] left-10 w-[400px]">
                 <h3 className="text-white text-[40px] font-normal tracking-[-0.80px] leading-[52px]">
-                  {activePersona === 'carbonExpert' && 'Carbon Professionals'}
-                  {activePersona === 'brandOwner' && 'Drive supply chain\ntransparency'}
-                  {activePersona === 'supplyChain' && 'Achieve compliance\neffortlessly'}
+                  {activePersona === 'carbonExpert' && t.sections.personas.carbonExpert.title}
+                  {activePersona === 'brandOwner' && t.sections.personas.brandOwner.title}
+                  {activePersona === 'supplyChain' && t.sections.personas.supplyChain.title}
                 </h3>
               </div>
 
@@ -1029,19 +1027,40 @@ export default function Home() {
                   : 'h-36'
               }`}
               onClick={() => setActiveMobileCard(activeMobileCard === 0 ? -1 : 0)}
-              style={{
-                backgroundImage: 'url(/faster-beaver.png)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center 40%'
-              }}
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+              {/* Collapsed State - Animal Photo */}
+              {activeMobileCard !== 0 && (
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    backgroundImage: 'url(/faster-beaver.png)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center 40%'
+                  }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                </div>
+              )}
+              
+              {/* Expanded State - Colored Background + Text */}
+              {activeMobileCard === 0 && (
+                <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-green-700" />
+              )}
+              
               <div className="absolute bottom-0 left-0 right-0 p-2">
-                <h3 className={`text-white font-semibold leading-tight ${
-                  activeMobileCard === 0 ? 'text-sm mb-2' : 'text-xs mb-1'
-                }`}>
-                  {t.sections.difference.cards.flexible.title}
-                </h3>
+                <div className="flex items-center justify-between mb-1">
+                  <h3 className={`text-white font-semibold leading-tight ${
+                    activeMobileCard === 0 ? 'text-sm' : 'text-xs'
+                  }`}>
+                    {t.sections.difference.cards.flexible.title}
+                  </h3>
+                  <span className="text-white/60 text-xs">
+                    {activeMobileCard === 0 
+                      ? (language === 'zh' ? '点击缩小' : 'Tap to close')
+                      : (language === 'zh' ? '点击放大' : 'Tap to expand')
+                    }
+                  </span>
+                </div>
                 {activeMobileCard === 0 && (
                   <p className="text-white/90 text-xs leading-relaxed">
                     {t.sections.difference.cards.flexible.description}
@@ -1058,19 +1077,40 @@ export default function Home() {
                   : 'h-36'
               }`}
               onClick={() => setActiveMobileCard(activeMobileCard === 1 ? -1 : 1)}
-              style={{
-                backgroundImage: 'url(/credible-meerkat.png)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-              }}
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+              {/* Collapsed State - Animal Photo */}
+              {activeMobileCard !== 1 && (
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    backgroundImage: 'url(/credible-meerkat.png)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                </div>
+              )}
+              
+              {/* Expanded State - Colored Background + Text */}
+              {activeMobileCard === 1 && (
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-blue-700" />
+              )}
+              
               <div className="absolute bottom-0 left-0 right-0 p-2">
-                <h3 className={`text-white font-semibold leading-tight ${
-                  activeMobileCard === 1 ? 'text-sm mb-2' : 'text-xs mb-1'
-                }`}>
-                  {t.sections.difference.cards.products.title}
-                </h3>
+                <div className="flex items-center justify-between mb-1">
+                  <h3 className={`text-white font-semibold leading-tight ${
+                    activeMobileCard === 1 ? 'text-sm' : 'text-xs'
+                  }`}>
+                    {t.sections.difference.cards.products.title}
+                  </h3>
+                  <span className="text-white/60 text-xs">
+                    {activeMobileCard === 1 
+                      ? (language === 'zh' ? '点击缩小' : 'Tap to close')
+                      : (language === 'zh' ? '点击放大' : 'Tap to expand')
+                    }
+                  </span>
+                </div>
                 {activeMobileCard === 1 && (
                   <p className="text-white/90 text-xs leading-relaxed">
                     {t.sections.difference.cards.products.description}
@@ -1087,19 +1127,40 @@ export default function Home() {
                   : 'h-36'
               }`}
               onClick={() => setActiveMobileCard(activeMobileCard === 2 ? -1 : 2)}
-              style={{
-                backgroundImage: 'url(/frictionless-dog.png)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-              }}
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+              {/* Collapsed State - Animal Photo */}
+              {activeMobileCard !== 2 && (
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    backgroundImage: 'url(/frictionless-dog.png)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                </div>
+              )}
+              
+              {/* Expanded State - Colored Background + Text */}
+              {activeMobileCard === 2 && (
+                <div className="absolute inset-0 bg-gradient-to-br from-pink-500 to-pink-700" />
+              )}
+              
               <div className="absolute bottom-0 left-0 right-0 p-2">
-                <h3 className={`text-white font-semibold leading-tight ${
-                  activeMobileCard === 2 ? 'text-sm mb-2' : 'text-xs mb-1'
-                }`}>
-                  {t.sections.difference.cards.fastValue.title}
-                </h3>
+                <div className="flex items-center justify-between mb-1">
+                  <h3 className={`text-white font-semibold leading-tight ${
+                    activeMobileCard === 2 ? 'text-sm' : 'text-xs'
+                  }`}>
+                    {t.sections.difference.cards.fastValue.title}
+                  </h3>
+                  <span className="text-white/60 text-xs">
+                    {activeMobileCard === 2 
+                      ? (language === 'zh' ? '点击缩小' : 'Tap to close')
+                      : (language === 'zh' ? '点击放大' : 'Tap to expand')
+                    }
+                  </span>
+                </div>
                 {activeMobileCard === 2 && (
                   <p className="text-white/90 text-xs leading-relaxed">
                     {t.sections.difference.cards.fastValue.description}
@@ -1514,7 +1575,7 @@ export default function Home() {
 
           <div className="flex flex-col lg:flex-row items-center justify-center max-w-6xl mx-auto gap-6 sm:gap-8">
             {/* Free Plan Card - Wider and Taller */}
-            <div className="bg-[#6195fe] backdrop-blur-sm p-3 sm:p-7 rounded-2xl shadow-lg border border-blue-300 flex flex-col justify-between min-h-[170px] sm:min-h-[380px] w-full lg:w-1/3 transform lg:scale-95">
+            <div className="bg-[#6195fe] backdrop-blur-sm p-3 sm:p-7 rounded-2xl shadow-lg border border-blue-300 flex flex-col justify-between min-h-[140px] sm:min-h-[380px] w-full lg:w-1/3 transform lg:scale-95">
               <div>
                 <div className="h-2 sm:h-8 mb-1 sm:mb-4"></div>
                 <h3 className="text-base sm:text-2xl font-semibold mb-1 sm:mb-4 text-gray-800 text-center">{t.sections.pricing.plans.free.title}</h3>
@@ -1539,7 +1600,7 @@ export default function Home() {
             </div>
 
             {/* Standard Plan Card - Narrower */}
-            <div className="bg-[#9ef894] backdrop-blur-sm p-4 sm:p-9 rounded-2xl shadow-xl transform lg:scale-105 border border-[#8ee884] flex flex-col justify-between min-h-[190px] sm:min-h-[430px] w-full lg:w-1/3">
+            <div className="bg-[#9ef894] backdrop-blur-sm p-4 sm:p-9 rounded-2xl shadow-xl transform lg:scale-105 border border-[#8ee884] flex flex-col justify-between min-h-[150px] sm:min-h-[430px] w-full lg:w-1/3">
               <div>
                 <div className="h-3 sm:h-8 mb-1 sm:mb-4 flex justify-center items-start">
                   <span className="bg-gray-800 text-white px-1.5 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold -mt-1">{t.sections.pricing.plans.standard.popular}</span>
@@ -1566,7 +1627,7 @@ export default function Home() {
             </div>
 
             {/* Enterprise Plan Card - Wider and Taller */}
-            <div className="bg-[#98a2f8] backdrop-blur-sm p-3 sm:p-7 rounded-2xl shadow-lg border border-purple-300 flex flex-col justify-between min-h-[170px] sm:min-h-[380px] w-full lg:w-1/3 transform lg:scale-95">
+            <div className="bg-[#98a2f8] backdrop-blur-sm p-3 sm:p-7 rounded-2xl shadow-lg border border-purple-300 flex flex-col justify-between min-h-[140px] sm:min-h-[380px] w-full lg:w-1/3 transform lg:scale-95">
               <div>
                 <div className="h-2 sm:h-8 mb-1 sm:mb-4"></div>
                 <h3 className="text-base sm:text-2xl font-semibold mb-1 sm:mb-4 text-gray-800 text-center">{t.sections.pricing.plans.enterprise.title}</h3>
@@ -1594,7 +1655,7 @@ export default function Home() {
 
       {/* White Separator Line */}
       <div className="bg-[rgb(0,52,50)] py-6 lg:py-1">
-        <div className="mx-auto w-4/5 h-px bg-white opacity-30 transform translate-y-0 lg:-translate-y-[230px]"></div>
+        <div className="mx-auto w-4/5 h-px bg-white opacity-30 transform translate-y-0 lg:-translate-y-[630px]"></div>
       </div>
 
       {/* About Section */}

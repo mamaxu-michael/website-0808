@@ -501,7 +501,7 @@ export const translations: Record<Language, TranslationData> = {
     hero: {
       title: 'Climate Seal',
       subtitle: 'AI product carbon footprint\nAccounting & Assurance',
-      description: 'Generate audit-ready product carbon footprints ($CO₂$) in days, not months. Cut costs and complexity with Climate Seal\'s AI agent.',
+      description: 'Generate audit-ready product carbon footprints in days, not months. Cut costs and complexity with Climate Seal\'s AI agent.',
       getStarted: 'Get More Detail',
       learnMore: 'Learn More',
       trustedBy: 'Trusted by'
@@ -1090,7 +1090,7 @@ export const translations: Record<Language, TranslationData> = {
     hero: {
       title: 'Climate Seal',
       subtitle: 'AI产品碳足迹\n会计与保证',
-      description: '几天内生成审计就绪的产品碳足迹（$CO₂$）报告，而非数月。通过Climate Seal的AI代理降低成本和复杂性。',
+      description: '几天内生成审计就绪的产品碳足迹报告，而非数月。通过Climate Seal的AI代理降低成本和复杂性。',
       getStarted: '了解详情',
       learnMore: '了解更多',
       trustedBy: '信赖我们的客户'
@@ -1137,28 +1137,28 @@ export const translations: Record<Language, TranslationData> = {
         }
       },
       aiAssistants: {
-        title: '遇见您的AI碳足迹专家和助手',
-        subtitle: '选择你的角色，你的AI碳专家和助手已经准备好支持你24/7。',
+        title: '遇见您的AI碳足迹专家团队',
+        subtitle: '选择您的角色，您的AI碳足迹专家和助手已准备好为您提供24/7全天候支持。',
         comingSoon: '即将推出',
         getStarted: '开始使用',
-        trustCenter: '访问我们的AI信任中心',
+        trustCenter: '访问AI信任中心',
         assistants: {
           carbonExpert: {
             carbonCalculator: {
-              title: '法规导航器',
-              description: '自动将您的业务匹配到正确的标准并锁定规则集，让您更快、更准确地通过合规检查。'
+              title: '合规导航助手',
+              description: '智能匹配您的业务到正确标准，自动锁定规则集，让合规检查更快更准确。'
             },
             complianceTracker: {
-              title: '数据接取协调器',
-              description: '自动标准化和解析BOM和其他复杂数据，让数据准时到达且可用——无需手动清理或交叉检查。'
+              title: '数据管理助手',
+              description: '自动整理和解析BOM等复杂数据，确保数据及时可用，无需人工清理和核对。'
             },
             climateSeal: {
-              title: 'PCF建模器和因子匹配器',
-              description: '批量匹配因子并从 BOM/能源/物流计算PCF——从逐行因子查找转向批量输出，释放您的专家时间。'
+              title: 'PCF建模专家',
+              description: '智能批量匹配排放因子，从BOM、能源、物流数据自动计算PCF，让您从繁琐的逐行查找中解脱出来。'
             },
             supplyChainAnalyzer: {
-              title: '风险和质量哨兵',
-              description: '字段级质量和风险检查、不确定性区间和修复提示——第一次就通过验证，减少返工，获得更可信的结论。'
+              title: '质量风险分析师',
+              description: '提供字段级质量评分和风险预警，给出修复建议，确保报告一次性通过验证。'
             },
             reportGenerator: {
               title: '外部交叉验证器',
@@ -1211,16 +1211,16 @@ export const translations: Record<Language, TranslationData> = {
         title: 'Climate Seal的差异化优势',
         cards: {
           flexible: {
-            title: '灵活且标准化',
-            description: '通过无代码界面构建自定义工作流程，同时定义管理控制以维护跨组织的一致性。'
+            title: '更快速',
+            description: '自动映射规则和因子 → 从BOM/能源/物流批量建模PCF → 一键生成采购方/海关报告。'
           },
           products: {
-            title: '团队喜爱使用的产品', 
-            description: '通过直观的产品让整个组织都能轻松上手并爱上使用。'
+            title: '更可信', 
+            description: '字段级0-100质量评分，自动修复提示，不确定性区间；外部交叉验证和证据包，分钟级置信度。'
           },
           fastValue: {
-            title: '快速实现价值',
-            description: '通过快速实施且易于学习的产品，快速看到价值。'
+            title: '无摩擦',
+            description: '低摩擦、低成本的验证级供应商数据管道——即插即用，支持SBTi和减排规划。'
           }
         }
       },
