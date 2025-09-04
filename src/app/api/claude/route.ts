@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
-import { getAnthropicApiKey, validateAnthropicApiKey, getAnthropicBaseURL } from '../../../../config/api-keys.js';
+import { getAnthropicApiKey, validateAnthropicApiKey, getAnthropicBaseURL } from '../../../config/api-keys';
 
 export async function POST(request: NextRequest) {
   try {
