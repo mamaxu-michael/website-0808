@@ -449,7 +449,7 @@ export default function Home() {
               </div>
 
               {/* Description */}
-              <div className="absolute top-[304px] left-10 w-[362px]">
+              <div className={`absolute left-10 w-[362px] ${activePersona === 'brandOwner' ? 'top-[284px]' : 'top-[304px]'}`}>
                 <p className="text-white text-lg font-normal tracking-[-0.18px] leading-[28.8px]">
                   {t.sections.personas[activePersona].needs}
                 </p>
@@ -665,19 +665,13 @@ export default function Home() {
       {/* AI Assistants Section */}
       <section id="ai-assistants" className="relative bg-[rgb(0,52,50)] py-16 overflow-hidden">
         <div className="relative w-full max-w-[2548px] mx-auto px-4">
-          {/* Coming Soon Badge */}
-          <div className="flex justify-center mb-8">
-            <div className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-2 rounded-full text-sm font-medium">
-              {t.sections.aiAssistants.comingSoon}
-            </div>
-          </div>
 
           {/* Title */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-[56px] font-normal text-white leading-[67.2px] tracking-[-1.12px] mb-4">
               {t.sections.aiAssistants.title}
             </h2>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto">
+            <p className="text-xl text-white/80 max-w-5xl mx-auto whitespace-nowrap">
               {t.sections.aiAssistants.subtitle}
             </p>
           </div>
@@ -981,589 +975,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Scenarios & Value Section */}
-      <section id="scenarios-value" className="relative bg-[rgb(0,52,50)] py-12 sm:py-20 -mt-px" data-theme="scenarios-value" data-section="scenarios-overview" data-category="product">
-        <div className="relative w-full mx-auto px-4">
-          {/* Sticky Title and First Card Container */}
-          <div className="sticky top-32 sm:top-40 lg:top-48 z-10 bg-[rgb(0,52,50)]">
-            {/* Section Title */}
-            <div className="text-center mb-8 sm:mb-12">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
-                {t.sections.scenarios?.title || 'Scenarios you need carbon footprint'}
-              </h2>
-            </div>
-            
-            {/* Card 1 - 市场准入与跨境合规 */}
-            <div className="w-full h-[400px] sm:h-[480px] lg:h-[560px] xl:h-[640px] rounded-3xl overflow-hidden shadow-2xl bg-[rgb(0,52,50)] transform transition-transform duration-700 lg:block hidden">
-              <div className="h-full flex justify-center gap-12 p-6">
-                {/* Left Square Card - 市场准入与跨境合规 */}
-                <div className="w-[400px] sm:w-[480px] lg:w-[560px] xl:w-[640px] bg-[#a8b3ff] rounded-2xl p-8 flex flex-col justify-between">
-                  <div style={{transform: 'translateY(1cm)'}}>
-                    <h3 className="text-4xl font-bold text-[rgb(0,52,50)] mb-8">{t.sections.scenarios.scenarioCards.marketAccess.title}</h3>
-                    <div className="space-y-0 text-[rgb(0,52,50)]">
-                      <p className="text-sm leading-relaxed">
-                        <span className="font-semibold">{language === 'en' ? 'Company Type:' : '企业类型：'}</span>{t.sections.scenarios.scenarioCards.marketAccess.companyType}
-                      </p>
-                      <p className="text-sm leading-relaxed">
-                        <span className="font-semibold">{language === 'en' ? 'Industries:' : '涉及行业：'}</span>{t.sections.scenarios.scenarioCards.marketAccess.industries}
-                      </p>
-                      <p className="text-sm leading-relaxed">
-                        <span className="font-semibold">{language === 'en' ? 'Core Description:' : '核心说明：'}</span>{t.sections.scenarios.scenarioCards.marketAccess.coreDescription}
-                      </p>
-                      <div className="mt-24 p-4 bg-white bg-opacity-10 rounded-lg" style={{transform: 'translateY(1cm)'}}>
-                        <p className="text-sm leading-relaxed text-[rgb(0,52,50)]">
-                          {t.sections.scenarios.scenarioCards.marketAccess.detailDescription}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="mt-auto pt-6">
-                    <button 
-                      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                      className="bg-[rgb(0,52,50)] text-white px-6 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-2"
-                    >
-                      Try Now (2 Free Reports)
-                      <div className="w-8 h-8 bg-[#a8b3ff] rounded-full flex items-center justify-center">
-                        <svg className="w-4 h-4 text-[rgb(0,52,50)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </div>
-                    </button>
-                  </div>
-                </div>
 
-                {/* Right Grid - Small Cards with Varying Heights */}
-                <div className="w-[500px] sm:w-[600px] lg:w-[700px] xl:w-[800px] grid grid-cols-2 gap-4">
-                  {/* CBAM - Short (Top Left) */}
-                  <div className="bg-[#a8b3ff] rounded-xl p-4 flex flex-col justify-center">
-                    <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">{t.sections.scenarios.scenarioCards.marketAccess.miniCards.cbam.title}</h4>
-                    <p className="text-sm text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.marketAccess.miniCards.cbam.description}}>
-                    </p>
-                  </div>
-
-                  {/* 电池相关 - Tall (Top Right) */}
-                  <div className="bg-[#a8b3ff] rounded-xl p-4 flex flex-col justify-center row-span-3">
-                    <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">{t.sections.scenarios.scenarioCards.marketAccess.miniCards.batteryRelated.title}</h4>
-                    <p className="text-sm text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.marketAccess.miniCards.batteryRelated.description}}>
-                    </p>
-                  </div>
-
-                  {/* ESPR/DPP - Tall (Bottom Left) */}
-                  <div className="bg-[#a8b3ff] rounded-xl p-4 flex flex-col justify-center row-span-3">
-                    <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">{t.sections.scenarios.scenarioCards.marketAccess.miniCards.esprDpp.title}</h4>
-                    <p className="text-sm text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.marketAccess.miniCards.esprDpp.description}}>
-                    </p>
-                  </div>
-
-                  {/* 被动核查 - Short (Bottom Right) */}
-                  <div className="bg-[#a8b3ff] rounded-xl p-4 flex flex-col justify-center">
-                    <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">{t.sections.scenarios.scenarioCards.marketAccess.miniCards.passiveVerification.title}</h4>
-                    <p className="text-sm text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.marketAccess.miniCards.passiveVerification.description}}>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Mobile Layout - Only visible on mobile/tablet */}
-            <div className="w-full space-y-3 sm:space-y-4 lg:hidden">
-              {/* Top Large Card - 市场准入与跨境合规 */}
-              <div className="w-full bg-[#a8b3ff] rounded-xl p-3 sm:p-4 shadow-xl h-[35vh] sm:h-[40vh] flex flex-col">
-                <div className="text-left flex-1">
-                  <h3 className="text-lg sm:text-xl font-bold text-[rgb(0,52,50)] mb-2 sm:mb-3">{t.sections.scenarios.scenarioCards.marketAccess.title}</h3>
-                  <div className="space-y-1 text-[rgb(0,52,50)] text-xs sm:text-sm">
-                    <div className="mt-2 p-2 sm:p-3 bg-white bg-opacity-10 rounded-md">
-                      <p className="text-xs sm:text-sm text-[rgb(0,52,50)] leading-tight text-left">
-                        {t.sections.scenarios.scenarioCards.marketAccess.detailDescription}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-2 sm:mt-3">
-                  <button 
-                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="bg-[rgb(0,52,50)] text-white px-3 py-1 rounded-full text-xs font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-1"
-                  >
-                    Try Now (2 Free Reports)
-                    <div className="w-4 h-4 bg-[#a8b3ff] rounded-full flex items-center justify-center">
-                      <svg className="w-2 h-2 text-[rgb(0,52,50)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </button>
-                </div>
-              </div>
-
-              {/* Bottom 2x2 Grid - Four Small Cards */}
-              <div className="flex flex-wrap justify-between gap-2">
-                {/* CBAM */}
-                <div className="bg-[#a8b3ff] rounded-lg p-2 sm:p-3 shadow-lg h-[15vh] sm:h-[17vh] flex flex-col justify-center" style={{width: '48.5%'}}>
-                  <h4 className="text-xs sm:text-sm font-bold text-[rgb(0,52,50)] mb-1">{t.sections.scenarios.scenarioCards.marketAccess.miniCards.cbam.title}</h4>
-                  <p className="text-[10px] sm:text-xs text-[rgb(0,52,50)] leading-tight line-clamp-3" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.marketAccess.miniCards.cbam.description}}>
-                  </p>
-                </div>
-
-                {/* 电池相关 */}
-                <div className="bg-[#a8b3ff] rounded-lg p-2 sm:p-3 shadow-lg h-[15vh] sm:h-[17vh] flex flex-col justify-center" style={{width: '48.5%'}}>
-                  <h4 className="text-xs sm:text-sm font-bold text-[rgb(0,52,50)] mb-1">{t.sections.scenarios.scenarioCards.marketAccess.miniCards.batteryRelated.title}</h4>
-                  <p className="text-[10px] sm:text-xs text-[rgb(0,52,50)] leading-tight line-clamp-3" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.marketAccess.miniCards.batteryRelated.description}}>
-                  </p>
-                </div>
-
-                {/* ESPR/DPP */}
-                <div className="bg-[#a8b3ff] rounded-lg p-2 sm:p-3 shadow-lg h-[15vh] sm:h-[17vh] flex flex-col justify-center" style={{width: '48.5%'}}>
-                  <h4 className="text-xs sm:text-sm font-bold text-[rgb(0,52,50)] mb-1">{t.sections.scenarios.scenarioCards.marketAccess.miniCards.esprDpp.title}</h4>
-                  <p className="text-[10px] sm:text-xs text-[rgb(0,52,50)] leading-tight line-clamp-3" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.marketAccess.miniCards.esprDpp.description}}>
-                  </p>
-                </div>
-
-                {/* 被动核查 */}
-                <div className="bg-[#a8b3ff] rounded-lg p-2 sm:p-3 shadow-lg h-[15vh] sm:h-[17vh] flex flex-col justify-center" style={{width: '48.5%'}}>
-                  <h4 className="text-xs sm:text-sm font-bold text-[rgb(0,52,50)] mb-1">{t.sections.scenarios.scenarioCards.marketAccess.miniCards.passiveVerification.title}</h4>
-                  <p className="text-[10px] sm:text-xs text-[rgb(0,52,50)] leading-tight line-clamp-3" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.marketAccess.miniCards.passiveVerification.description}}>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-
-          </div>
-
-          {/* Stacked Horizontal Bar Images - Sequential Reveal */}
-          <div className="relative w-full mx-auto">
-            {/* Spacer for scroll trigger */}
-            <div className="h-[60vh]"></div>
-
-            {/* Card 2 - 供应链与大品牌采购 */}
-            <div 
-              className={`sticky top-32 sm:top-40 lg:top-48 z-20 transform transition-all duration-800 ease-out ${
-                visibleCards.card2 ? 'translate-y-0 opacity-100' : 'translate-y-[60vh] opacity-0'
-              } bg-[rgb(0,52,50)]`}
-              data-card-id="card2"
-            >
-              {/* Section Title */}
-              <div className="text-center mb-8 sm:mb-12">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
-                  {t.sections.scenarios?.title || 'Scenarios you need carbon footprint'}
-                </h2>
-              </div>
-              <div className="bg-[rgb(0,52,50)] pb-4">
-                {/* Desktop Layout */}
-                <div className="lg:block hidden">
-
-                  <div className="w-full h-[400px] sm:h-[480px] lg:h-[560px] xl:h-[640px] rounded-3xl overflow-hidden shadow-2xl bg-[rgb(0,52,50)]">
-                    <div className="h-full flex justify-center gap-12 p-6">
-                      {/* Left Square Card - 供应链与大品牌采购 */}
-                      <div className="w-[400px] sm:w-[480px] lg:w-[560px] xl:w-[640px] bg-[#9ef894] rounded-2xl p-8 flex flex-col justify-between">
-                        <div style={{transform: 'translateY(1cm)'}}>
-                          <h3 className="text-4xl font-bold text-[rgb(0,52,50)] mb-8">{t.sections.scenarios.scenarioCards.supplyChain.title}</h3>
-                          <div className="space-y-0 text-[rgb(0,52,50)]">
-                            <p className="text-sm leading-relaxed">
-                              <span className="font-semibold">{language === 'en' ? 'Company Type:' : '企业类型：'}</span>{t.sections.scenarios.scenarioCards.supplyChain.companyType}
-                            </p>
-                            <p className="text-sm leading-relaxed">
-                              <span className="font-semibold">{language === 'en' ? 'Industries:' : '涉及行业：'}</span>{t.sections.scenarios.scenarioCards.supplyChain.industries}
-                            </p>
-                            <p className="text-sm leading-relaxed">
-                              <span className="font-semibold">{language === 'en' ? 'Core Concept:' : '核心概念：'}</span>{t.sections.scenarios.scenarioCards.supplyChain.coreConcept}
-                            </p>
-                            <div className="mt-24 p-4 bg-gray-800 bg-opacity-10 rounded-lg" style={{transform: 'translateY(1cm)'}}>
-                              <p className="text-sm leading-relaxed text-[rgb(0,52,50)]">
-                                {t.sections.scenarios.scenarioCards.supplyChain.detailDescription}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="mt-auto pt-6">
-                          <button 
-                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                            className="bg-[rgb(0,52,50)] text-white px-6 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-2"
-                          >
-                            Try Now (2 Free Reports)
-                            <div className="w-8 h-8 bg-[#9ef894] rounded-full flex items-center justify-center">
-                              <svg className="w-4 h-4 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                              </svg>
-                            </div>
-                          </button>
-                        </div>
-                      </div>
-
-                      {/* Right Grid - Small Cards with Varying Heights */}
-                      <div className="w-[500px] sm:w-[600px] lg:w-[700px] xl:w-[800px] grid grid-cols-2 gap-4">
-                        {/* SBTi - Tall (Top Left) */}
-                        <div className="bg-[#9ef894] rounded-xl p-4 flex flex-col justify-center">
-                          <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.sbti.title}</h4>
-                          <p className="text-sm text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.sbti.description}}>
-                          </p>
-                        </div>
-
-                        {/* 投标入口 - Short (Top Right) */}
-                        <div className="bg-[#9ef894] rounded-xl p-4 flex flex-col justify-center row-span-3">
-                          <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.biddingEntry.title}</h4>
-                          <p className="text-sm text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.biddingEntry.description}}>
-                          </p>
-                        </div>
-
-                        {/* 供应链碳表现 - Short (Bottom Left) */}
-                        <div className="bg-[#9ef894] rounded-xl p-4 flex flex-col justify-center row-span-3">
-                          <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.supplyChainPerformance.title}</h4>
-                          <p className="text-sm text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.supplyChainPerformance.description}}>
-                          </p>
-                        </div>
-
-                        {/* 数据交换标准 - Tall (Bottom Right) */}
-                        <div className="bg-[#9ef894] rounded-xl p-4 flex flex-col justify-center">
-                          <h4 className="text-4xl font-bold text-[rgb(0,52,50)] mb-3">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.dataExchangeStandards.title}</h4>
-                          <p className="text-sm text-[rgb(0,52,50)] leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.dataExchangeStandards.description}}>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Mobile Layout Card 2 - Only visible on mobile/tablet */}
-                <div className="w-full space-y-3 sm:space-y-4 lg:hidden px-4">
-                  {/* Top Large Card - 供应链与大品牌采购 */}
-                  <div className="w-full bg-[#9ef894] rounded-xl p-3 sm:p-4 shadow-xl h-[35vh] sm:h-[40vh] flex flex-col">
-                    <div className="text-left flex-1">
-                      <h3 className="text-lg sm:text-xl font-bold text-[rgb(0,52,50)] mb-2 sm:mb-3">{t.sections.scenarios.scenarioCards.supplyChain.title}</h3>
-                      <div className="space-y-1 text-[rgb(0,52,50)] text-xs sm:text-sm">
-                        <div className="mt-2 p-2 sm:p-3 bg-gray-800 bg-opacity-10 rounded-md">
-                          <p className="text-xs sm:text-sm text-[rgb(0,52,50)] leading-tight text-left">
-                            {t.sections.scenarios.scenarioCards.supplyChain.detailDescription}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="mt-2 sm:mt-3">
-                      <button 
-                        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                        className="bg-[rgb(0,52,50)] text-white px-3 py-1 rounded-full text-xs font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-1"
-                      >
-                        Try Now (2 Free Reports)
-                        <div className="w-4 h-4 bg-[#9ef894] rounded-full flex items-center justify-center">
-                          <svg className="w-2 h-2 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Bottom 2x2 Grid - Four Small Cards */}
-                  <div className="flex flex-wrap justify-between gap-2">
-                    {/* SBTi */}
-                    <div className="bg-[#9ef894] rounded-lg p-2 sm:p-3 shadow-lg h-[15vh] sm:h-[17vh] flex flex-col justify-center" style={{width: '48.5%'}}>
-                      <h4 className="text-xs sm:text-sm font-bold text-[rgb(0,52,50)] mb-1">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.sbti.title}</h4>
-                      <p className="text-[10px] sm:text-xs text-[rgb(0,52,50)] leading-tight line-clamp-3" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.sbti.description}}>
-                      </p>
-                    </div>
-
-                    {/* 投标入口 */}
-                    <div className="bg-[#9ef894] rounded-lg p-2 sm:p-3 shadow-lg h-[15vh] sm:h-[17vh] flex flex-col justify-center" style={{width: '48.5%'}}>
-                      <h4 className="text-xs sm:text-sm font-bold text-[rgb(0,52,50)] mb-1">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.biddingEntry.title}</h4>
-                      <p className="text-[10px] sm:text-xs text-[rgb(0,52,50)] leading-tight line-clamp-3" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.biddingEntry.description}}>
-                      </p>
-                    </div>
-
-                    {/* 供应链碳表现 */}
-                    <div className="bg-[#9ef894] rounded-lg p-2 sm:p-3 shadow-lg h-[15vh] sm:h-[17vh] flex flex-col justify-center" style={{width: '48.5%'}}>
-                      <h4 className="text-xs sm:text-sm font-bold text-[rgb(0,52,50)] mb-1">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.supplyChainPerformance.title}</h4>
-                      <p className="text-[10px] sm:text-xs text-[rgb(0,52,50)] leading-tight line-clamp-3" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.supplyChainPerformance.description}}>
-                      </p>
-                    </div>
-
-                    {/* 数据交换标准 */}
-                    <div className="bg-[#9ef894] rounded-lg p-2 sm:p-3 shadow-lg h-[15vh] sm:h-[17vh] flex flex-col justify-center" style={{width: '48.5%'}}>
-                      <h4 className="text-xs sm:text-sm font-bold text-[rgb(0,52,50)] mb-1">{t.sections.scenarios.scenarioCards.supplyChain.miniCards.dataExchangeStandards.title}</h4>
-                      <p className="text-[10px] sm:text-xs text-[rgb(0,52,50)] leading-tight line-clamp-3" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.supplyChain.miniCards.dataExchangeStandards.description}}>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Spacer between cards */}
-            <div className="h-[32vh] sm:h-[40vh] lg:h-[48vh]"></div>
-
-            {/* Card 3 - 政府采购与行业要求 */}
-            <div 
-              className={`sticky top-32 sm:top-40 lg:top-48 z-30 transform transition-all duration-800 ease-out delay-200 ${
-                visibleCards.card3 ? 'translate-y-0 opacity-100' : 'translate-y-[60vh] opacity-0'
-              } bg-[rgb(0,52,50)]`}
-              data-card-id="card3"
-            >
-              {/* Section Title */}
-              <div className="text-center mb-8 sm:mb-12">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
-                  {t.sections.scenarios?.title || 'Scenarios you need carbon footprint'}
-                </h2>
-              </div>
-              <div className="bg-[rgb(0,52,50)] pb-4">
-                {/* Desktop Layout */}
-                <div className="lg:block hidden">
-
-                  <div className="w-full h-[400px] sm:h-[480px] lg:h-[560px] xl:h-[640px] rounded-3xl overflow-hidden shadow-2xl bg-[rgb(0,52,50)]">
-                    <div className="h-full flex justify-center gap-12 p-6">
-                      {/* Left Square Card - 政府采购与行业要求 */}
-                      <div className="w-[400px] sm:w-[480px] lg:w-[560px] xl:w-[640px] bg-[#6195fe] rounded-2xl p-8 flex flex-col justify-between">
-                        <div style={{transform: 'translateY(1cm)'}}>
-                          <h3 className="text-4xl font-bold text-white mb-8">{t.sections.scenarios.scenarioCards.governmentProcurement.title}</h3>
-                          <div className="space-y-0 text-white">
-                            <p className="text-sm leading-relaxed">
-                              <span className="font-semibold">{language === 'en' ? 'Company Type:' : '企业类型：'}</span>{t.sections.scenarios.scenarioCards.governmentProcurement.companyType}
-                            </p>
-                            <p className="text-sm leading-relaxed">
-                              <span className="font-semibold">{language === 'en' ? 'Industries:' : '涉及行业：'}</span>{t.sections.scenarios.scenarioCards.governmentProcurement.industries}
-                            </p>
-                            <p className="text-sm leading-relaxed">
-                              <span className="font-semibold">{language === 'en' ? 'Core Description:' : '核心说明：'}</span>{t.sections.scenarios.scenarioCards.governmentProcurement.coreDescription}
-                            </p>
-                            <div className="mt-24 p-4 bg-white bg-opacity-10 rounded-lg" style={{transform: 'translateY(1cm)'}}>
-                              <p className="text-sm leading-relaxed">
-                                {t.sections.scenarios.scenarioCards.governmentProcurement.detailDescription}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="mt-auto pt-6">
-                          <button 
-                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                            className="bg-[rgb(0,52,50)] text-white px-6 py-3 rounded-full font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-2"
-                          >
-                            Try Now (2 Free Reports)
-                            <div className="w-8 h-8 bg-[#6195fe] rounded-full flex items-center justify-center">
-                              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                              </svg>
-                            </div>
-                          </button>
-                        </div>
-                      </div>
-
-                      {/* Right Grid - Small Cards with Varying Heights */}
-                      <div className="w-[500px] sm:w-[600px] lg:w-[700px] xl:w-[800px] grid grid-cols-2 gap-4">
-                        {/* 政府Buy Clean - Short (Top Left) */}
-                        <div className="bg-[#6195fe] rounded-xl p-4 flex flex-col justify-center">
-                          <h4 className="text-4xl font-bold text-white mb-3">{t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.governmentBuyClean.title}</h4>
-                          <p className="text-sm text-white leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.governmentBuyClean.description}}>
-                          </p>
-                        </div>
-
-                        {/* 绿色建筑 - Tall (Top Right) */}
-                        <div className="bg-[#6195fe] rounded-xl p-4 flex flex-col justify-center row-span-3" style={{height: 'calc(100% - 3cm)'}}>
-                          <h4 className="text-4xl font-bold text-white mb-3">{t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.greenBuilding.title}</h4>
-                          <p className="text-sm text-white leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.greenBuilding.description}}>
-                          </p>
-                        </div>
-
-                        {/* 行业要求 - Tall (Bottom Left) */}
-                        <div className="bg-[#6195fe] rounded-xl p-4 flex flex-col justify-center row-span-3">
-                          <h4 className="text-4xl font-bold text-white mb-3">{t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.industryRequirements.title}</h4>
-                          <p className="text-sm text-white leading-relaxed" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.industryRequirements.description}}>
-                          </p>
-                        </div>
-
-                        {/* 空白卡片 - Small-Medium (Bottom Right) */}
-                        <div className="bg-[#6195fe] rounded-xl p-4 flex flex-col justify-center" style={{gridRowEnd: 'span 1.6', height: 'calc(100% + 3cm)', marginTop: '-3cm'}}>
-                          
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Mobile Layout Card 3 - Only visible on mobile/tablet */}
-                <div className="w-full space-y-3 sm:space-y-4 lg:hidden px-4">
-                  {/* Top Large Card - 政府采购与行业要求 */}
-                  <div className="w-full bg-[#6195fe] rounded-xl p-3 sm:p-4 shadow-xl h-[35vh] sm:h-[40vh] flex flex-col">
-                    <div className="text-left flex-1">
-                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">{t.sections.scenarios.scenarioCards.governmentProcurement.title}</h3>
-                      <div className="space-y-1 text-white text-xs sm:text-sm">
-                        <div className="mt-2 p-2 sm:p-3 bg-white bg-opacity-10 rounded-md">
-                          <p className="text-xs sm:text-sm text-white leading-tight text-left">
-                            {t.sections.scenarios.scenarioCards.governmentProcurement.detailDescription}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="mt-2 sm:mt-3">
-                      <button 
-                        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                        className="bg-[rgb(0,52,50)] text-white px-3 py-1 rounded-full text-xs font-semibold hover:bg-opacity-80 transition-all duration-300 flex items-center gap-1"
-                      >
-                        Try Now (2 Free Reports)
-                        <div className="w-4 h-4 bg-[#6195fe] rounded-full flex items-center justify-center">
-                          <svg className="w-2 h-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Bottom 2x2 Grid - Three Small Cards (no empty card in mobile) */}
-                  <div className="flex flex-wrap justify-between gap-2">
-                    {/* 政府Buy Clean */}
-                    <div className="bg-[#6195fe] rounded-lg p-2 sm:p-3 shadow-lg h-[15vh] sm:h-[17vh] flex flex-col justify-center" style={{width: '48.5%'}}>
-                      <h4 className="text-xs sm:text-sm font-bold text-white mb-1">{t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.governmentBuyClean.title}</h4>
-                      <p className="text-[10px] sm:text-xs text-white leading-tight line-clamp-3" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.governmentBuyClean.description}}>
-                      </p>
-                    </div>
-
-                    {/* 绿色建筑 */}
-                    <div className="bg-[#6195fe] rounded-lg p-2 sm:p-3 shadow-lg h-[15vh] sm:h-[17vh] flex flex-col justify-center" style={{width: '48.5%'}}>
-                      <h4 className="text-xs sm:text-sm font-bold text-white mb-1">{t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.greenBuilding.title}</h4>
-                      <p className="text-[10px] sm:text-xs text-white leading-tight line-clamp-3" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.greenBuilding.description}}>
-                      </p>
-                    </div>
-
-                    {/* 行业要求 */}
-                    <div className="bg-[#6195fe] rounded-lg p-2 sm:p-3 shadow-lg h-[15vh] sm:h-[17vh] flex flex-col justify-center" style={{width: '48.5%'}}>
-                      <h4 className="text-xs sm:text-sm font-bold text-white mb-1">{t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.industryRequirements.title}</h4>
-                      <p className="text-[10px] sm:text-xs text-white leading-tight line-clamp-3" dangerouslySetInnerHTML={{__html: t.sections.scenarios.scenarioCards.governmentProcurement.miniCards.industryRequirements.description}}>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Final spacing - reduced to allow natural scroll to next section */}
-            <div className="h-[100vh]"></div>
-          </div>
-        </div>
-      </section>
-
-      {/* We Understand Your Pain Section */}
-      <section className="py-6 md:py-12 lg:py-20 bg-[rgb(0,52,50)] -mt-px">
-        <div className="relative container mx-auto px-4">
-          <div className="text-center mb-6 md:mb-12 lg:mb-20 xl:mb-24">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-2 md:mb-4 lg:mb-6" data-section-id="pain-section-title">
-              {t.sections.scenarios.painSection.title}
-            </h2>
-          </div>
-
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-8 lg:gap-16 relative" data-card-id="pain-cards">
-            {/* Top Row */}
-            {/* 成本高 - Purple */}
-            <div className="bg-[#a8b3ff] rounded-lg md:rounded-2xl p-2 md:p-6 lg:p-8 shadow-xl min-h-[60px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
-              <div className="text-center">
-                <h3 className="text-sm md:text-2xl lg:text-3xl font-bold text-[rgb(0,52,50)] mb-1 md:mb-3 lg:mb-4">{t.sections.scenarios.painSection.cards.costHigh.title}</h3>
-                <div className="w-6 md:w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-1 md:mb-4 lg:mb-6"></div>
-                <p className="text-xs md:text-sm lg:text-base text-[rgb(0,52,50)] leading-tight" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.costHigh.description}}>
-                </p>
-              </div>
-            </div>
-
-            {/* 周期长 - Green */}
-            <div className="bg-[#9ef894] rounded-lg md:rounded-2xl p-2 md:p-6 lg:p-8 shadow-xl min-h-[60px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
-              <div className="text-center">
-                <h3 className="text-sm md:text-2xl lg:text-3xl font-bold text-[rgb(0,52,50)] mb-1 md:mb-3 lg:mb-4">{t.sections.scenarios.painSection.cards.cycleLong.title}</h3>
-                <div className="w-6 md:w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-1 md:mb-4 lg:mb-6"></div>
-                <p className="text-xs md:text-sm lg:text-base text-[rgb(0,52,50)] leading-tight" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.cycleLong.description}}>
-                </p>
-              </div>
-            </div>
-
-            {/* 门槛高 - Blue */}
-            <div className="bg-[#6195fe] rounded-lg md:rounded-2xl p-2 md:p-6 lg:p-8 shadow-xl min-h-[60px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
-              <div className="text-center">
-                <h3 className="text-sm md:text-2xl lg:text-3xl font-bold text-[rgb(0,52,50)] mb-1 md:mb-3 lg:mb-4">{t.sections.scenarios.painSection.cards.barrierHigh.title}</h3>
-                <div className="w-6 md:w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-1 md:mb-4 lg:mb-6"></div>
-                <p className="text-xs md:text-sm lg:text-base text-[rgb(0,52,50)] leading-tight" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.barrierHigh.description}}>
-                </p>
-              </div>
-            </div>
-
-            {/* Solution Bar - Animated Overlay */}
-            <div className={`solution-bar-position absolute inset-0 flex items-center justify-center z-20 transition-all duration-800 ease-out pointer-events-none ${
-              solutionBarVisible 
-                ? 'opacity-100 translate-y-0 scale-100' 
-                : 'opacity-0 translate-y-20 scale-90'
-            }`} style={{left: '-5%', right: '-5%'}}>
-              <div className="bg-white bg-opacity-30 backdrop-blur-xl rounded-xl md:rounded-2xl p-3 md:p-4 lg:p-6 shadow-2xl w-full mx-2 md:mx-4 border border-white border-opacity-40 pointer-events-auto" style={{minHeight: '160px'}}>
-                <div className="text-center mb-2 md:mb-3">
-                  <h3 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-[rgb(0,52,50)] mb-2 md:mb-3 drop-shadow-lg">
-                    {t.sections.scenarios.painSection.solutionTitle}
-                  </h3>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3 lg:gap-4">
-                  {/* 下降99% 成本降低 */}
-                  <div className="text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-lg md:rounded-xl p-3 md:p-3 border border-white border-opacity-50 shadow-lg flex items-center justify-center" style={{minHeight: '70px'}}>
-                    <div className="flex items-center justify-center gap-2 md:gap-6">
-                      <div className="flex items-center">
-                        <h4 className="text-lg md:text-2xl lg:text-3xl xl:text-4xl font-bold text-[rgb(0,52,50)] drop-shadow-md">{t.sections.scenarios.painSection.solution.costReduction.title}</h4>
-                      </div>
-                      <div className="text-left">
-                        <div dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.solution.costReduction.description}} className="text-xs md:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* 0门槛 */}
-                  <div className="text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-lg md:rounded-xl p-3 md:p-3 border border-white border-opacity-50 shadow-lg flex items-center justify-center" style={{minHeight: '70px'}}>
-                    <div className="flex items-center justify-center gap-2 md:gap-6">
-                      <h4 className="text-lg md:text-2xl lg:text-3xl xl:text-4xl font-bold text-[rgb(0,52,50)] drop-shadow-md">{t.sections.scenarios.painSection.solution.zeroBarrier.title}</h4>
-                      <div className="text-left">
-                        <div dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.solution.zeroBarrier.description}} className="text-xs md:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* 预核验 */}
-                  <div className="text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-lg md:rounded-xl p-3 md:p-3 border border-white border-opacity-50 shadow-lg flex items-center justify-center" style={{minHeight: '70px'}}>
-                    <div className="flex items-center justify-center gap-2 md:gap-6">
-                      <h4 className="text-sm md:text-xl lg:text-2xl xl:text-3xl font-bold text-[rgb(0,52,50)] drop-shadow-md">{t.sections.scenarios.painSection.solution.preValidation.title}</h4>
-                      <div className="text-left">
-                        <div dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.solution.preValidation.description}} className="text-xs md:text-sm font-semibold text-[rgb(0,52,50)] drop-shadow-sm">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom Row */}
-            {/* 供应链压力大 - Light Green */}
-            <div className="bg-[#c2f0c2] rounded-lg md:rounded-2xl p-2 md:p-6 lg:p-8 shadow-xl min-h-[60px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
-              <div className="text-center">
-                <h3 className="text-sm md:text-2xl lg:text-3xl font-bold text-[rgb(0,52,50)] mb-1 md:mb-3 lg:mb-4">{t.sections.scenarios.painSection.cards.supplyChainPressure.title}</h3>
-                <div className="w-6 md:w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-1 md:mb-4 lg:mb-6"></div>
-                <p className="text-xs md:text-sm lg:text-base text-[rgb(0,52,50)] leading-tight" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.supplyChainPressure.description}}>
-                </p>
-              </div>
-            </div>
-
-            {/* 隐形成本 - Light Blue */}
-            <div className="bg-[#c2f5f7] rounded-lg md:rounded-2xl p-2 md:p-6 lg:p-8 shadow-xl min-h-[60px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
-              <div className="text-center">
-                <h3 className="text-sm md:text-2xl lg:text-3xl font-bold text-[rgb(0,52,50)] mb-1 md:mb-3 lg:mb-4">{t.sections.scenarios.painSection.cards.hiddenCost.title}</h3>
-                <div className="w-6 md:w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-1 md:mb-4 lg:mb-6"></div>
-                <p className="text-xs md:text-sm lg:text-base text-[rgb(0,52,50)] leading-tight" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.hiddenCost.description}}>
-                </p>
-              </div>
-            </div>
-
-            {/* 反复返工 - Light Pink */}
-            <div className="bg-[#ffe0d0] rounded-lg md:rounded-2xl p-2 md:p-6 lg:p-8 shadow-xl min-h-[60px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
-              <div className="text-center">
-                <h3 className="text-sm md:text-2xl lg:text-3xl font-bold text-[rgb(0,52,50)] mb-1 md:mb-3 lg:mb-4">{t.sections.scenarios.painSection.cards.rework.title}</h3>
-                <div className="w-6 md:w-12 h-0.5 bg-[rgb(0,52,50)] mx-auto mb-1 md:mb-4 lg:mb-6"></div>
-                <p className="text-xs md:text-sm lg:text-base text-[rgb(0,52,50)] leading-tight" dangerouslySetInnerHTML={{__html: t.sections.scenarios.painSection.cards.rework.description}}>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Products Section - Stacked Cards */}
       <section id="products" className="relative bg-[rgb(0,52,50)] -mt-px" data-theme="products" data-section="what-we-do" data-category="product">
@@ -1587,490 +999,10 @@ export default function Home() {
           {/* Separator Line */}
           <div className="mt-12 mx-auto w-4/5 h-px bg-white opacity-30"></div>
         </div>
-
-        {/* Fixed Header - What We Do */}
-        <div className="sticky top-2 z-50 px-4 sm:pl-8 md:pl-16 lg:pl-28 pb-1 sm:pb-2 lg:pb-4">
-          <div className="bg-[rgb(0,52,50)] bg-opacity-90 p-2 sm:p-4 lg:p-6 rounded-lg backdrop-blur-sm">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center mb-1 sm:mb-2 lg:mb-4">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1 sm:mb-0 sm:mr-6">{t.sections.whatWeDo.title}</h2>
-              <svg className="w-8 h-4 sm:w-10 h-5 md:w-12 h-6 text-yellow-400" viewBox="0 0 100 50" fill="currentColor">
-                <path d="M10,25 Q50,5 90,25" stroke="currentColor" strokeWidth="3" fill="none"/>
-                <path d="M80,20 L90,25 L80,30" fill="currentColor"/>
-              </svg>
-            </div>
-            <p className="text-xs sm:text-base lg:text-lg text-white opacity-90 max-w-lg">
-              {t.sections.whatWeDo.subtitle}
-            </p>
-          </div>
-        </div>
-
-        {/* Stacked Product Cards */}
-        <div className="relative container mx-auto px-4 -mt-4 sm:mt-0">
-          {/* Card 1 - Blue */}
-          <div className="sticky top-28 sm:top-55 z-10 mb-16">
-            <div className="bg-gradient-to-r from-[#6195fe] to-[#6195fe] rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-2xl min-h-[420px] lg:min-h-[490px]">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 items-center justify-items-center h-full">
-                <div className="order-2 lg:order-1 w-full">
-                  <div className="bg-gray-900 rounded-2xl p-2">
-                    <video 
-                      className="w-full bg-gray-800 rounded-xl object-cover h-[170px] sm:h-[220px] lg:h-[430px] cursor-pointer"
-                      style={{ aspectRatio: '16/9' }}
-                      autoPlay 
-                      loop 
-                      muted 
-                      playsInline
-                      controls={isMobile}
-                      onClick={(e) => {
-                        const video = e.target as HTMLVideoElement;
-                        video.play().catch(() => {});
-                      }}
-                    >
-                      <source src="/videos/video1.mp4" type="video/mp4" />
-                      <span className="text-white text-lg">视频加载中...</span>
-                    </video>
-                  </div>
-                </div>
-                <div className="order-1 lg:order-2 text-white text-center lg:text-left">
-                  <div className="flex items-center mb-2 sm:mb-3 lg:mb-6">
-                    <div className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white bg-opacity-30 rounded-full mr-3 sm:mr-4">
-                      <span className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800">01</span>
-                    </div>
-                    <h3 className="text-base sm:text-xl md:text-2xl lg:text-3xl font-bold">{t.features.card1.title}</h3>
-                  </div>
-                  <p className="text-sm sm:text-sm md:text-base lg:text-lg mb-2 sm:mb-3 lg:mb-4 opacity-95">
-                    {t.features.card1.description}
-                  </p>
-                  <p className="text-sm sm:text-sm md:text-base lg:text-lg opacity-90" dangerouslySetInnerHTML={{__html: t.features.card1.detail.replace(/\*\*(Value:)\*\*/g, '<span class="text-lg sm:text-lg md:text-xl lg:text-2xl font-bold" style="color: rgb(0, 52, 50);">$1</span>')}}>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 2 - Green */}
-          <div className="sticky top-28 sm:top-55 z-20 mb-16">
-            <div className="bg-gradient-to-r from-[#9ef894] to-[#9ef894] rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-2xl min-h-[420px] lg:min-h-[490px]">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 items-center justify-items-center h-full">
-                <div className="order-2 lg:order-1 w-full">
-                  <div className="bg-gray-900 rounded-2xl p-2">
-                    <video 
-                      className="w-full bg-gray-800 rounded-xl object-cover h-[170px] sm:h-[220px] lg:h-[430px] cursor-pointer"
-                      style={{ aspectRatio: '16/9' }}
-                      autoPlay 
-                      loop 
-                      muted 
-                      playsInline
-                      controls={isMobile}
-                      onClick={(e) => {
-                        const video = e.target as HTMLVideoElement;
-                        video.play().catch(() => {});
-                      }}
-                    >
-                      <source src="/videos/video2.mp4" type="video/mp4" />
-                      <span className="text-white text-lg">视频加载中...</span>
-                    </video>
-                  </div>
-                </div>
-                <div className="order-1 lg:order-2 text-black text-center lg:text-left">
-                  <div className="flex items-center mb-2 sm:mb-3 lg:mb-6">
-                    <div className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white bg-opacity-30 rounded-full mr-3 sm:mr-4">
-                      <span className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800">02</span>
-                    </div>
-                    <h3 className="text-base sm:text-xl md:text-2xl lg:text-3xl font-bold">{t.features.card2.title}</h3>
-                  </div>
-                  <p className="text-sm sm:text-sm md:text-base lg:text-lg mb-2 sm:mb-3 lg:mb-4 opacity-95">
-                    {t.features.card2.description}
-                  </p>
-                  <p className="text-sm sm:text-sm md:text-base lg:text-lg opacity-90" dangerouslySetInnerHTML={{__html: t.features.card2.detail.replace(/\*\*(Value:)\*\*/g, '<span class="text-lg sm:text-lg md:text-xl lg:text-2xl font-bold" style="color: rgb(0, 52, 50);">$1</span>')}}>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 3 - Purple/Lavender */}
-          <div className="sticky top-28 sm:top-55 z-30 mb-16">
-            <div className="bg-gradient-to-r from-[#98a2f8] to-[#98a2f8] rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-2xl min-h-[420px] lg:min-h-[490px]">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 items-center justify-items-center h-full">
-                <div className="order-2 lg:order-1 w-full">
-                  <div className="bg-gray-900 rounded-2xl p-2">
-                    <video 
-                      className="w-full bg-gray-800 rounded-xl object-cover h-[170px] sm:h-[220px] lg:h-[430px] cursor-pointer"
-                      style={{ aspectRatio: '16/9' }}
-                      autoPlay 
-                      loop 
-                      muted 
-                      playsInline
-                      controls={isMobile}
-                      onClick={(e) => {
-                        const video = e.target as HTMLVideoElement;
-                        video.play().catch(() => {});
-                      }}
-                    >
-                      <source src="/videos/video3.mp4" type="video/mp4" />
-                      <span className="text-white text-lg">视频加载中...</span>
-                    </video>
-                  </div>
-                </div>
-                <div className="order-1 lg:order-2 text-white text-center lg:text-left">
-                  <div className="flex items-center mb-2 sm:mb-3 lg:mb-6">
-                    <div className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white bg-opacity-30 rounded-full mr-3 sm:mr-4">
-                      <span className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800">03</span>
-                    </div>
-                    <h3 className="text-base sm:text-xl md:text-2xl lg:text-3xl font-bold">{t.features.card3.title}</h3>
-                  </div>
-                  <p className="text-sm sm:text-sm md:text-base lg:text-lg mb-2 sm:mb-3 lg:mb-4 opacity-95">
-                    {t.features.card3.description}
-                  </p>
-                  <p className="text-sm sm:text-sm md:text-base lg:text-lg opacity-90" dangerouslySetInnerHTML={{__html: t.features.card3.detail.replace(/\*\*(Value:)\*\*/g, '<span class="text-lg sm:text-lg md:text-xl lg:text-2xl font-bold" style="color: rgb(0, 52, 50);">$1</span>')}}>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 4 - Peach/Salmon */}
-          <div className="sticky top-28 sm:top-55 z-40 mb-16">
-            <div className="bg-gradient-to-r from-[#ffe0d0] to-[#ffe0d0] rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-2xl min-h-[420px] lg:min-h-[490px]">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 items-center justify-items-center h-full">
-                <div className="order-2 lg:order-1 w-full">
-                  <div className="bg-gray-900 rounded-2xl p-2">
-                    <video 
-                      className="w-full bg-gray-800 rounded-xl object-cover h-[170px] sm:h-[220px] lg:h-[430px] cursor-pointer"
-                      style={{ aspectRatio: '16/9' }}
-                      autoPlay 
-                      loop 
-                      muted 
-                      playsInline
-                      controls={isMobile}
-                      onClick={(e) => {
-                        const video = e.target as HTMLVideoElement;
-                        video.play().catch(() => {});
-                      }}
-                    >
-                      <source src="/videos/video4.mp4" type="video/mp4" />
-                      <span className="text-white text-lg">视频加载中...</span>
-                    </video>
-                  </div>
-                </div>
-                <div className="order-1 lg:order-2 text-gray-800 text-center lg:text-left">
-                  <div className="flex items-center mb-2 sm:mb-3 lg:mb-6">
-                    <div className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white bg-opacity-50 rounded-full mr-3 sm:mr-4">
-                      <span className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800">04</span>
-                    </div>
-                    <h3 className="text-base sm:text-xl md:text-2xl lg:text-3xl font-bold">{t.features.card4.title}</h3>
-                  </div>
-                  <p className="text-sm sm:text-sm md:text-base lg:text-lg mb-2 sm:mb-3 lg:mb-4 opacity-90">
-                    {t.features.card4.description}
-                  </p>
-                  <p className="text-sm sm:text-sm md:text-base lg:text-lg opacity-80" dangerouslySetInnerHTML={{__html: t.features.card4.detail.replace(/\*\*(Value:)\*\*/g, '<span class="text-lg sm:text-lg md:text-xl lg:text-2xl font-bold" style="color: rgb(0, 52, 50);">$1</span>')}}>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 5 - Light Teal/Cyan */}
-          <div className="sticky top-28 sm:top-55 z-50 mb-16">
-            <div className="bg-gradient-to-r from-[#c2f5f7] to-[#c2f5f7] rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-2xl min-h-[350px] sm:min-h-[400px] md:min-h-[450px] lg:min-h-[490px]">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 items-center justify-items-center h-full">
-                <div className="order-2 lg:order-1 w-full">
-                  <div className="bg-gray-900 rounded-2xl p-2">
-                    <video 
-                      className="w-full bg-gray-800 rounded-xl object-cover h-[170px] sm:h-[220px] lg:h-[430px] cursor-pointer"
-                      style={{ aspectRatio: '16/9' }}
-                      autoPlay 
-                      loop 
-                      muted 
-                      playsInline
-                      controls={isMobile}
-                      onClick={(e) => {
-                        const video = e.target as HTMLVideoElement;
-                        video.play().catch(() => {});
-                      }}
-                    >
-                      <source src="/videos/video5.mp4" type="video/mp4" />
-                      <span className="text-white text-lg">视频加载中...</span>
-                    </video>
-                  </div>
-                </div>
-                <div className="order-1 lg:order-2 text-gray-800 text-center lg:text-left">
-                  <div className="flex items-center mb-2 sm:mb-3 lg:mb-6">
-                    <div className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white bg-opacity-50 rounded-full mr-3 sm:mr-4">
-                      <span className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800">05</span>
-                    </div>
-                    <h3 className="text-base sm:text-xl md:text-2xl lg:text-3xl font-bold">{t.features.card5.title}</h3>
-                  </div>
-                  <p className="text-sm sm:text-sm md:text-base lg:text-lg mb-2 sm:mb-3 lg:mb-4 opacity-90">
-                    {t.features.card5.description}
-                  </p>
-                  <p className="text-sm sm:text-sm md:text-base lg:text-lg opacity-80" dangerouslySetInnerHTML={{__html: t.features.card5.detail.replace(/\*\*(Value:)\*\*/g, '<span class="text-lg sm:text-lg md:text-xl lg:text-2xl font-bold" style="color: rgb(0, 52, 50);">$1</span>')}}>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom spacing */}
-        <div className="h-20"></div>
       </section>
 
-      {/* Section Divider */}
-      <div className="bg-[rgb(0,52,50)] py-8 -my-px">
-        <div className="flex justify-center">
-          <svg width="300" height="12" viewBox="0 0 300 12" className="text-[#9ef894]">
-            <path 
-              d="M3 8 Q75 2 150 6 Q225 10 297 4" 
-              stroke="currentColor" 
-              strokeWidth="3" 
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path 
-              d="M8 10 Q82 4 157 8 Q232 12 292 6" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              fill="none"
-              strokeLinecap="round"
-              opacity="0.7"
-            />
-          </svg>
-        </div>
-      </div>
 
-      {/* Comparison Section */}
-      <section id="comparison" className="py-4 sm:py-8 lg:py-20 bg-[rgb(0,52,50)]" data-theme="comparison" data-section="comparison-overview" data-category="product">
-        <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
-          <div className="text-center mb-3 sm:mb-6 lg:mb-16">
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-1 sm:mb-4 lg:mb-6">{t.sections.comparison.title}</h2>
-          </div>
 
-          {/* Mobile Layout - Complete Steps Display */}
-          <div className="block sm:hidden space-y-2">
-            {/* Climate Seal AI - 4 Steps */}
-            <div className="bg-[#9ef894] rounded-xl p-3 shadow-xl">
-              <div className="flex flex-col space-y-2">
-                <div className="flex items-center space-x-3">
-                  <div className="flex flex-col items-center space-y-1 w-16">
-                    <div className="bg-white p-1.5 rounded-lg">
-                      <span className="text-sm font-bold text-[rgb(0,52,50)]">🤖</span>
-                    </div>
-                    <span className="text-xs font-bold text-[rgb(0,52,50)]">AI Agent</span>
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-base font-bold text-[rgb(0,52,50)]">{t.comparison.aiAgent.steps}</span>
-                  </div>
-                </div>
-                <div className="flex flex-wrap gap-0.5">
-                  {t.comparison.aiAgent.stepList.map((step, index) => (
-                    <div key={index} className="flex items-center">
-                      <div className="bg-white bg-opacity-80 px-1.5 py-0.5 rounded-full">
-                        <span className="text-xs font-semibold text-[rgb(0,52,50)]">{step}</span>
-                      </div>
-                      {index < 3 && <span className="text-[rgb(0,52,50)] mx-0.5 text-xs">→</span>}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Carbon Expert + Software - 11 Steps */}
-            <div className="bg-[#c2f5f7] rounded-xl p-2.5 shadow-xl">
-              <div className="flex flex-col space-y-1.5">
-                <div className="flex items-center space-x-3">
-                  <div className="flex flex-col items-center space-y-0.5 w-16">
-                    <div className="flex items-center space-x-0.5">
-                      <div className="bg-white p-1 rounded-lg">
-                        <span className="text-xs font-bold text-[rgb(0,52,50)]">👨‍💼</span>
-                      </div>
-                      <span className="text-xs text-[rgb(0,52,50)]">+</span>
-                      <div className="bg-white p-1 rounded-lg">
-                        <span className="text-xs font-bold text-[rgb(0,52,50)]">💻</span>
-                      </div>
-                    </div>
-                    <span className="text-xs font-bold text-[rgb(0,52,50)] text-center">Expert + Software</span>
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-sm font-bold text-[rgb(0,52,50)]">{t.comparison.consultant.steps}</span>
-                  </div>
-                </div>
-                <div className="flex flex-wrap gap-0.5">
-                  {t.comparison.consultant.stepList.map((step, index) => (
-                    <div key={index} className="flex items-center">
-                      <div className="bg-white bg-opacity-80 px-1 py-0.5 rounded-full">
-                        <span className="text-xs font-medium text-[rgb(0,52,50)]">{step}</span>
-                      </div>
-                      {index < 10 && <span className="text-[rgb(0,52,50)] mx-0.5 text-xs">→</span>}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Carbon Consultant - 12 Steps */}
-            <div className="bg-[#98a2f8] rounded-xl p-2.5 shadow-xl">
-              <div className="flex flex-col space-y-1.5">
-                <div className="flex items-center space-x-3">
-                  <div className="flex flex-col items-center space-y-0.5 w-16">
-                    <div className="bg-white p-1 rounded-lg">
-                      <span className="text-xs font-bold text-[rgb(0,52,50)]">👨‍💼</span>
-                    </div>
-                    <span className="text-xs font-bold text-[rgb(0,52,50)]">Expert</span>
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-sm font-bold text-[rgb(0,52,50)]">{t.comparison.traditional.steps}</span>
-                  </div>
-                </div>
-                <div className="flex flex-wrap gap-0.5">
-                  {t.comparison.traditional.stepList.map((step, index) => (
-                    <div key={index} className="flex items-center">
-                      <div className="bg-white bg-opacity-80 px-1 py-0.5 rounded-full">
-                        <span className="text-xs font-medium text-[rgb(0,52,50)]">{step}</span>
-                      </div>
-                      {index < 11 && <span className="text-[rgb(0,52,50)] mx-0.5 text-xs">→</span>}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Desktop Layout - Perfect Alignment */}
-          <div className="hidden sm:block space-y-3 sm:space-y-4 lg:space-y-8">
-            {/* Climate Seal AI - 4 Steps */}
-            <div className="bg-[#9ef894] rounded-2xl sm:rounded-3xl p-2 sm:p-4 lg:p-8 shadow-2xl min-h-[80px] sm:min-h-[120px] lg:min-h-[200px] flex items-center">
-              <div className="grid items-center w-full gap-2 sm:gap-4 lg:gap-6" style={{gridTemplateColumns: '280px 100px 1fr'}}>
-                <div className="flex flex-col items-center justify-center space-y-1 sm:space-y-2 lg:space-y-4 min-h-[60px] sm:min-h-[80px] lg:min-h-[120px] w-full">
-                  <div className="bg-white p-1 sm:p-2 lg:p-4 rounded-xl sm:rounded-2xl shadow-lg">
-                    <div className="text-sm sm:text-lg lg:text-2xl font-bold text-[rgb(0,52,50)]">🤖</div>
-                  </div>
-                  <h3 className="text-xs sm:text-sm lg:text-lg font-bold text-[rgb(0,52,50)] text-center leading-tight">{t.comparison.aiAgent.title}</h3>
-                </div>
-                <div className="flex flex-col items-center justify-center min-h-[60px] sm:min-h-[80px] lg:min-h-[120px] w-full">
-                  <p className="text-sm sm:text-xl lg:text-3xl font-bold text-[rgb(0,52,50)] text-center leading-tight whitespace-pre-line">{t.comparison.aiAgent.steps}</p>
-                </div>
-                <div className="flex flex-wrap items-center justify-start gap-1 lg:gap-2 min-h-[60px] sm:min-h-[80px] lg:min-h-[120px] w-full">
-                  <div className="flex flex-wrap items-center gap-1 lg:gap-2">
-                    <div className="bg-white bg-opacity-80 px-1 sm:px-2 lg:px-4 py-1 lg:py-2 rounded-full shadow-md animate-pulse">
-                      <span className="text-xs lg:text-sm font-semibold text-[rgb(0,52,50)]">{t.comparison.aiAgent.stepList[0]}</span>
-                    </div>
-                    <div className="w-2 h-2 sm:w-3 sm:h-3 lg:w-6 lg:h-6 bg-[rgb(0,52,50)] rounded-full flex items-center justify-center animate-bounce">
-                      <span className="text-white text-xs">→</span>
-                    </div>
-                    <div className="bg-white bg-opacity-80 px-1 sm:px-2 lg:px-4 py-1 lg:py-2 rounded-full shadow-md animate-pulse delay-300">
-                      <span className="text-xs lg:text-sm font-semibold text-[rgb(0,52,50)]">{t.comparison.aiAgent.stepList[1]}</span>
-                    </div>
-                    <div className="w-2 h-2 sm:w-3 sm:h-3 lg:w-6 lg:h-6 bg-[rgb(0,52,50)] rounded-full flex items-center justify-center animate-bounce delay-300">
-                      <span className="text-white text-xs">→</span>
-                    </div>
-                    <div className="bg-white bg-opacity-80 px-1 sm:px-2 lg:px-4 py-1 lg:py-2 rounded-full shadow-md animate-pulse delay-500">
-                      <span className="text-xs lg:text-sm font-semibold text-[rgb(0,52,50)]">{t.comparison.aiAgent.stepList[2]}</span>
-                    </div>
-                    <div className="w-2 h-2 sm:w-3 sm:h-3 lg:w-6 lg:h-6 bg-[rgb(0,52,50)] rounded-full flex items-center justify-center animate-bounce delay-500">
-                      <span className="text-white text-xs">→</span>
-                    </div>
-                    <div className="bg-white bg-opacity-80 px-1 sm:px-2 lg:px-4 py-1 lg:py-2 rounded-full shadow-md animate-pulse delay-700">
-                      <span className="text-xs lg:text-sm font-semibold text-[rgb(0,52,50)]">{t.comparison.aiAgent.stepList[3]}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Carbon Expert + Software - 11 Steps */}
-            <div className="bg-[#c2f5f7] rounded-2xl sm:rounded-3xl p-2 sm:p-4 lg:p-8 shadow-2xl min-h-[80px] sm:min-h-[120px] lg:min-h-[200px] flex items-center">
-              <div className="grid items-center w-full gap-2 sm:gap-4 lg:gap-6" style={{gridTemplateColumns: '280px 100px 1fr'}}>
-                <div className="flex flex-col items-center justify-center space-y-1 sm:space-y-2 lg:space-y-4 min-h-[60px] sm:min-h-[80px] lg:min-h-[120px] w-full">
-                  <div className="flex items-center space-x-1 sm:space-x-2">
-                    <div className="bg-white p-1 sm:p-2 lg:p-3 rounded-xl sm:rounded-2xl shadow-lg">
-                      <div className="text-sm sm:text-lg lg:text-xl font-bold text-[rgb(0,52,50)]">👨‍💼</div>
-                    </div>
-                    <div className="text-xs sm:text-sm lg:text-2xl font-bold text-[rgb(0,52,50)]">+</div>
-                    <div className="bg-white p-1 sm:p-2 lg:p-3 rounded-xl sm:rounded-2xl shadow-lg">
-                      <div className="text-sm sm:text-lg lg:text-xl font-bold text-[rgb(0,52,50)]">💻</div>
-                    </div>
-                  </div>
-                  <h3 className="text-xs sm:text-sm lg:text-base font-bold text-[rgb(0,52,50)] text-center leading-tight px-2">{t.comparison.consultant.title}</h3>
-                </div>
-                <div className="flex flex-col items-center justify-center min-h-[60px] sm:min-h-[80px] lg:min-h-[120px] w-full">
-                  <p className="text-sm sm:text-xl lg:text-3xl font-bold text-[rgb(0,52,50)] text-center leading-tight whitespace-pre-line">{t.comparison.consultant.steps}</p>
-                </div>
-                <div className="flex flex-wrap items-center justify-start gap-1 lg:gap-2 min-h-[60px] sm:min-h-[80px] lg:min-h-[120px] w-full">
-                  {t.comparison.consultant.stepList.map((step, index) => (
-                    <div key={index} className="flex items-center space-x-0.5 sm:space-x-1">
-                      <div className={`bg-white bg-opacity-80 px-1 sm:px-2 lg:px-3 py-0.5 sm:py-1 rounded-full shadow-md text-xs lg:text-xs font-semibold text-[rgb(0,52,50)] animate-pulse`} 
-                           style={{animationDelay: `${index * 200}ms`}}>
-                        {step}
-                      </div>
-                      {index < 10 && (
-                        <div className={`w-1 h-1 sm:w-2 sm:h-2 lg:w-4 lg:h-4 bg-[rgb(0,52,50)] rounded-full flex items-center justify-center animate-bounce`}
-                             style={{animationDelay: `${index * 200}ms`}}>
-                          <span className="text-white text-xs">→</span>
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Carbon Consultant - 12 Steps */}
-            <div className="bg-[#98a2f8] rounded-2xl sm:rounded-3xl p-2 sm:p-4 lg:p-8 shadow-2xl min-h-[80px] sm:min-h-[120px] lg:min-h-[200px] flex items-center">
-              <div className="grid items-center w-full gap-2 sm:gap-4 lg:gap-6" style={{gridTemplateColumns: '280px 100px 1fr'}}>
-                <div className="flex flex-col items-center justify-center space-y-1 sm:space-y-2 lg:space-y-4 min-h-[60px] sm:min-h-[80px] lg:min-h-[120px] w-full">
-                  <div className="bg-white p-1 sm:p-2 lg:p-4 rounded-xl sm:rounded-2xl shadow-lg">
-                    <div className="text-sm sm:text-lg lg:text-2xl font-bold text-[rgb(0,52,50)]">👨‍💼</div>
-                  </div>
-                  <h3 className="text-xs sm:text-sm lg:text-lg font-bold text-[rgb(0,52,50)] text-center leading-tight">{t.comparison.traditional.title}</h3>
-                </div>
-                <div className="flex flex-col items-center justify-center min-h-[60px] sm:min-h-[80px] lg:min-h-[120px] w-full">
-                  <p className="text-sm sm:text-xl lg:text-3xl font-bold text-[rgb(0,52,50)] text-center leading-tight whitespace-pre-line">{t.comparison.traditional.steps}</p>
-                </div>
-                <div className="flex flex-wrap items-center justify-start gap-1 lg:gap-2 min-h-[60px] sm:min-h-[80px] lg:min-h-[120px] w-full">
-                  {t.comparison.traditional.stepList.map((step, index) => (
-                    <div key={index} className="flex items-center space-x-0.5 sm:space-x-1">
-                      <div className={`bg-white bg-opacity-80 px-1 sm:px-2 lg:px-3 py-0.5 sm:py-1 rounded-full shadow-md text-xs lg:text-xs font-semibold text-[rgb(0,52,50)] animate-pulse`}
-                           style={{animationDelay: `${index * 150}ms`}}>
-                        {step}
-                      </div>
-                      {index < 11 && (
-                        <div className={`w-1 h-1 sm:w-2 sm:h-2 lg:w-4 lg:h-4 bg-[rgb(0,52,50)] rounded-full flex items-center justify-center animate-bounce`}
-                             style={{animationDelay: `${index * 150}ms`}}>
-                          <span className="text-white text-xs">→</span>
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section Divider */}
-      <div className="bg-[rgb(0,52,50)] py-8 -my-px">
-        <div className="flex justify-center">
-          <svg width="300" height="12" viewBox="0 0 300 12" className="text-[#9ef894]">
-            <path 
-              d="M3 8 Q75 2 150 6 Q225 10 297 4" 
-              stroke="currentColor" 
-              strokeWidth="3" 
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path 
-              d="M8 10 Q82 4 157 8 Q232 12 292 6" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              fill="none"
-              strokeLinecap="round"
-              opacity="0.7"
-            />
-          </svg>
-        </div>
-      </div>
 
       {/* Value Section */}
       <section id="value-for-user" className="py-20 bg-[rgb(0,52,50)]" data-theme="value-for-user" data-section="value-overview" data-category="value">
@@ -2175,32 +1107,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section Divider */}
-      <div className="bg-[rgb(0,52,50)] py-8 -my-px">
-        <div className="flex justify-center">
-          <svg width="300" height="12" viewBox="0 0 300 12" className="text-[#9ef894]">
-            <path 
-              d="M3 8 Q75 2 150 6 Q225 10 297 4" 
-              stroke="currentColor" 
-              strokeWidth="3" 
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path 
-              d="M8 10 Q82 4 157 8 Q232 12 292 6" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              fill="none"
-              strokeLinecap="round"
-              opacity="0.7"
-            />
-          </svg>
-        </div>
-      </div>
-
       {/* Pricing Section */}
       <section id="pricing" className="min-h-screen py-12 sm:py-20 bg-[rgb(0,52,50)] -mt-px" data-theme="pricing" data-section="pricing-overview" data-category="conversion">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{transform: 'translateY(-1cm)'}}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6 sm:mb-16">
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-2 sm:mb-6">{t.sections.pricing.title}</h2>
             <p className="text-base sm:text-xl text-white opacity-90 max-w-3xl mx-auto">
@@ -2208,9 +1117,9 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
-            {/* Free Plan Card */}
-            <div className="bg-[#6195fe] backdrop-blur-sm p-3 sm:p-8 rounded-2xl shadow-lg border border-blue-300 flex flex-col justify-between min-h-[170px] sm:min-h-[400px]">
+          <div className="flex flex-col lg:flex-row items-center justify-center max-w-6xl mx-auto gap-6 sm:gap-8">
+            {/* Free Plan Card - Wider and Taller */}
+            <div className="bg-[#6195fe] backdrop-blur-sm p-3 sm:p-7 rounded-2xl shadow-lg border border-blue-300 flex flex-col justify-between min-h-[170px] sm:min-h-[380px] w-full lg:w-1/3 transform lg:scale-95">
               <div>
                 <div className="h-2 sm:h-8 mb-1 sm:mb-4"></div>
                 <h3 className="text-base sm:text-2xl font-semibold mb-1 sm:mb-4 text-gray-800 text-center">{t.sections.pricing.plans.free.title}</h3>
@@ -2234,8 +1143,8 @@ export default function Home() {
               </a>
             </div>
 
-            {/* Standard Plan Card */}
-            <div className="bg-[#9ef894] backdrop-blur-sm p-3 sm:p-8 rounded-2xl shadow-xl transform lg:scale-105 border border-[#8ee884] flex flex-col justify-between min-h-[170px] sm:min-h-[400px]">
+            {/* Standard Plan Card - Narrower */}
+            <div className="bg-[#9ef894] backdrop-blur-sm p-4 sm:p-9 rounded-2xl shadow-xl transform lg:scale-105 border border-[#8ee884] flex flex-col justify-between min-h-[190px] sm:min-h-[430px] w-full lg:w-1/3">
               <div>
                 <div className="h-3 sm:h-8 mb-1 sm:mb-4 flex justify-center items-start">
                   <span className="bg-gray-800 text-white px-1.5 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold -mt-1">{t.sections.pricing.plans.standard.popular}</span>
@@ -2261,8 +1170,8 @@ export default function Home() {
               </a>
             </div>
 
-            {/* Enterprise Plan Card */}
-            <div className="bg-[#98a2f8] backdrop-blur-sm p-3 sm:p-8 rounded-2xl shadow-lg border border-purple-300 flex flex-col justify-between min-h-[170px] sm:min-h-[400px] md:col-span-2 lg:col-span-1">
+            {/* Enterprise Plan Card - Wider and Taller */}
+            <div className="bg-[#98a2f8] backdrop-blur-sm p-3 sm:p-7 rounded-2xl shadow-lg border border-purple-300 flex flex-col justify-between min-h-[170px] sm:min-h-[380px] w-full lg:w-1/3 transform lg:scale-95">
               <div>
                 <div className="h-2 sm:h-8 mb-1 sm:mb-4"></div>
                 <h3 className="text-base sm:text-2xl font-semibold mb-1 sm:mb-4 text-gray-800 text-center">{t.sections.pricing.plans.enterprise.title}</h3>
@@ -2288,31 +1197,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section Divider */}
-      <div className="bg-[rgb(0,52,50)] py-8 -my-px">
-        <div className="flex justify-center">
-          <svg width="300" height="12" viewBox="0 0 300 12" className="text-[#9ef894]">
-            <path 
-              d="M3 8 Q75 2 150 6 Q225 10 297 4" 
-              stroke="currentColor" 
-              strokeWidth="3" 
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path 
-              d="M8 10 Q82 4 157 8 Q232 12 292 6" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              fill="none"
-              strokeLinecap="round"
-              opacity="0.7"
-            />
-          </svg>
-        </div>
+      {/* White Separator Line */}
+      <div className="bg-[rgb(0,52,50)] py-6">
+        <div className="mx-auto w-4/5 h-px bg-white opacity-30" style={{transform: 'translateY(-230px)'}}></div>
       </div>
 
       {/* About Section */}
-      <section id="about" className="py-6 sm:py-10 bg-[rgb(0,52,50)]" data-theme="about" data-section="about-main" data-category="info">
+      <section id="about" className="bg-[rgb(0,52,50)] py-20" data-theme="about" data-section="about-main" data-category="info">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center min-h-[280px] sm:min-h-[350px] md:min-h-[420px]">
             {/* Left side - Polar Bear Image */}
@@ -2344,6 +1235,27 @@ export default function Home() {
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight">
                     {t.sections.aboutUs.subtitle2}
                   </h3>
+                </div>
+                
+                {/* White Divider Line */}
+                <div className="flex justify-center py-4">
+                  <svg width="300" height="12" viewBox="0 0 300 12" className="text-white">
+                    <path 
+                      d="M3 8 Q75 2 150 6 Q225 10 297 4" 
+                      stroke="currentColor" 
+                      strokeWidth="3" 
+                      fill="none"
+                      strokeLinecap="round"
+                    />
+                    <path 
+                      d="M8 10 Q82 4 157 8 Q232 12 292 6" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      fill="none"
+                      strokeLinecap="round"
+                      opacity="0.7"
+                    />
+                  </svg>
                 </div>
                 
                 {/* Second section - centered with green highlight */}
@@ -2384,7 +1296,7 @@ export default function Home() {
       </section>
 
       {/* Section Divider */}
-      <div className="bg-[rgb(0,52,50)] py-2 -my-px">
+      <div className="bg-[rgb(0,52,50)] py-1">
         <div className="flex justify-center">
           <svg width="300" height="12" viewBox="0 0 300 12" className="text-[#9ef894]">
             <path 
