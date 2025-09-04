@@ -77,7 +77,7 @@ export default function Home() {
           gradient: "from-pink-500/25 to-rose-500/25",
           background: "bg-gradient-to-b from-pink-600/70 to-pink-800/70",
           staticMediaSrc: "/brand-analyzer.png",
-          dynamicMediaSrc: "/videos/video1-card.mp4"
+          dynamicMediaSrc: "/videos/brand-video1.mp4"
         },
         {
           title: assistants.scopeTracker.title,
@@ -85,7 +85,7 @@ export default function Home() {
           gradient: "from-indigo-500/25 to-purple-500/25",
           background: "bg-gradient-to-b from-indigo-600/70 to-indigo-800/70",
           staticMediaSrc: "/scope-tracker.png",
-          dynamicMediaSrc: "/videos/video2-card.mp4"
+          dynamicMediaSrc: "/videos/brand-video2.mp4"
         },
         {
           title: assistants.sustainabilityReporter.title,
@@ -93,7 +93,7 @@ export default function Home() {
           gradient: "from-emerald-500/25 to-teal-500/25",
           background: "bg-gradient-to-b from-emerald-600/70 to-emerald-800/70",
           staticMediaSrc: "/sustainability-reporter.png",
-          dynamicMediaSrc: "/videos/video3-card.mp4"
+          dynamicMediaSrc: "/videos/brand-video3.mp4"
         },
         {
           title: assistants.goalManager.title,
@@ -101,7 +101,7 @@ export default function Home() {
           gradient: "from-violet-500/25 to-purple-500/25",
           background: "bg-gradient-to-b from-violet-600/70 to-violet-800/70",
           staticMediaSrc: "/goal-manager.png",
-          dynamicMediaSrc: "/videos/video4-card.mp4"
+          dynamicMediaSrc: "/videos/brand-video4.mp4"
         }
       ];
     } else {
@@ -112,7 +112,7 @@ export default function Home() {
           gradient: "from-rose-500/25 to-pink-500/25",
           background: "bg-gradient-to-b from-rose-600/70 to-rose-800/70",
           staticMediaSrc: "/supply-chain-assessment.png",
-          dynamicMediaSrc: "/videos/video1-card.mp4"
+          dynamicMediaSrc: "/videos/supplier-video1.mp4"
         },
         {
           title: assistants.exportCompliance.title,
@@ -120,7 +120,7 @@ export default function Home() {
           gradient: "from-slate-500/25 to-gray-500/25",
           background: "bg-gradient-to-b from-slate-600/70 to-slate-800/70",
           staticMediaSrc: "/export-compliance.png",
-          dynamicMediaSrc: "/videos/video2-card.mp4"
+          dynamicMediaSrc: "/videos/supplier-video2.mp4"
         },
         {
           title: assistants.costOptimizer.title,
@@ -128,7 +128,7 @@ export default function Home() {
           gradient: "from-lime-500/25 to-green-500/25",
           background: "bg-gradient-to-b from-lime-600/70 to-lime-800/70",
           staticMediaSrc: "/cost-optimizer.png",
-          dynamicMediaSrc: "/videos/video3-card.mp4"
+          dynamicMediaSrc: "/videos/supplier-video3.mp4"
         }
       ];
     }

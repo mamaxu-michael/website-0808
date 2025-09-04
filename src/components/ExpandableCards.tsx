@@ -142,7 +142,7 @@ export default function ExpandableCards({
                       <div className="flex items-center justify-center h-full w-full">
                         <AutoVideo 
                           src={currentMediaSrc} 
-                          className="h-[60%] w-[95%] object-contain rounded-lg -translate-y-[30px]" 
+                          className="h-[70%] w-[98%] object-contain rounded-lg -translate-y-[60px]" 
                         />
                       </div>
                     );
@@ -179,7 +179,7 @@ export default function ExpandableCards({
               </div>
 
               {/* 文案区 - 定位到底部 */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-black/60 backdrop-blur-sm">
+              <div className="absolute bottom-0 left-0 right-0 h-32 p-4 bg-black/60 backdrop-blur-sm flex flex-col justify-end">
                 <div className="text-lg md:text-xl font-semibold">{it.title}</div>
                 <p className="mt-2 text-sm text-white/80">
                   {isActive ? 

@@ -460,7 +460,7 @@ export const translations: Record<Language, TranslationData> = {
       personas: {
         title: 'Designed for Every Team',
         carbonExpert: {
-          title: 'Carbon Professional',
+          title: 'Carbon/ESG Professionals',
           role: 'ESG/Sustainability/Carbon/Consulting Expert',
           needs: 'I need automated, intelligent tools to improve work efficiency and report accuracy',
           stat: '90%',
@@ -481,7 +481,7 @@ export const translations: Record<Language, TranslationData> = {
           position: 'Senior ESG Consultant, EcoStrategy'
         },
         brandOwner: {
-          title: 'Brand Owner',
+          title: 'Brands & Procurement Leaders',
           role: 'Sustainability Leader',
           needs: 'I need to achieve brand and supply chain carbon reduction goals, reduce supply chain carbon management costs and pressure, enabling painless high-quality carbon emission data from supply chain',
           stat: '90%',
@@ -501,7 +501,7 @@ export const translations: Record<Language, TranslationData> = {
           position: 'Chief Sustainability Officer, GreenTech Corp'
         },
         supplyChain: {
-          title: 'Supply Chain Leader',
+          title: 'Suppliers & Exporters',
           role: 'Export Enterprise Compliance Manager',
           needs: 'I need low-cost, high-efficiency solutions to provide credible carbon footprint reports to importers and downstream customers, ensuring sales are not affected',
           stat: '90%',
@@ -529,20 +529,20 @@ export const translations: Record<Language, TranslationData> = {
         assistants: {
           carbonExpert: {
             carbonCalculator: {
-              title: 'Reg Advisor',
-              description: 'Provides carbon-emissions legal support in minutes and matches your case to the relevant regulations and clauses.'
+              title: 'Regulations Navigator',
+              description: 'Auto-map your business to the right standards and lock the rule set so you clear compliance faster and accurately.'
             },
             complianceTracker: {
-              title: 'Data Intake Steward', 
-              description: 'Dispatches structured data requests across teams and multi-tier suppliers, auto-scores quality (0–100), consolidates evidence, and reduces manual chasing by up to 60% while raising on-time submissions.'
+              title: 'Data Intake Orchestrator', 
+              description: 'Auto-standardize and parse BOM and other complex data, so data arrives on time and usable—no manual cleaning or cross-checking.'
             },
             climateSeal: {
-              title: 'PCF Modeler & Calculator',
-              description: 'Turns BOM/energy/logistics into audit-ready PCF/OCF models, batch-calculates hundreds of SKUs in minutes, and surfaces hotspots with unit-level tCO₂e and uncertainty bands.'
+              title: 'PCF Modeler & Factor Matcher',
+              description: 'Batch-match factors and compute PCF from BOM/energy/logistics—shift from line-by-line factor hunting to bulk output, freeing your expert time.'
             },
             supplyChainAnalyzer: {
-              title: 'QA & Anomaly Detector',
-              description: 'Runs completeness/consistency checks and statistical outlier detection, assigns a 0–100 quality score, and returns field-level fixes—cutting rework by 30–50%.'
+              title: 'Risk & Quality Sentinel',
+              description: 'Field-level quality and risk checks, uncertainty bands, and fix hints—pass verification first time with fewer reworks and more credible conclusions.'
             },
             reportGenerator: {
               title: 'External Cross-Check Verifier',
@@ -555,34 +555,34 @@ export const translations: Record<Language, TranslationData> = {
           },
           brandOwner: {
             brandAnalyzer: {
-              title: 'Brand Analyzer',
-              description: 'Analyzes brand carbon performance\nand sustainability metrics, continuously.'
+              title: 'Supplier Intake & Dispatch',
+              description: 'Push tasks and AI tools across your entire supply chain—suppliers run zero-friction AI calculations at no additional cost, reducing supplier burden.'
             },
             scopeTracker: {
-              title: 'Scope 3 Tracker',
-              description: 'Tracks Scope 3 emissions across\nsupply chain partners, automatically.'
+              title: 'Supplier Risk & Scoring',
+              description: 'Score both the calculation process and the results, flag risks, and see at a glance whether supplier-submitted emissions meet your quality standards.'
             },
             sustainabilityReporter: {
-              title: 'Sustainability Reporter',
-              description: 'Generates comprehensive sustainability\nreports for stakeholders, instantly.'
+              title: 'Milestone Tracker',
+              description: 'Auto-chase data collection against plan to secure accurate, on-time data, so decarbonization and compliance timelines stay on track.'
             },
             goalManager: {
-              title: 'Goal Manager',
-              description: 'Manages carbon reduction goals\nand tracks progress, real-time.'
+              title: 'Abatement & SBTi Planner',
+              description: 'Turn supplier data into rigorous abatement/SBTi plans—ROI-backed and clearly prioritized—so approvals move faster.'
             }
           },
           supplyChain: {
             supplierAssessment: {
-              title: 'Supplier Assessment',
-              description: 'Evaluates supplier carbon performance\nand compliance status, efficiently.'
+              title: 'PCF Builder',
+              description: 'Drop your BOM, product specs, and utility data to generate a credible PCF, so you don’t miss RFQ/tender or export deadlines.'
             },
             exportCompliance: {
-              title: 'Export Compliance',
-              description: 'Ensures export compliance with\nglobal carbon regulations, seamlessly.'
+              title: 'Quality & Risk Reviewer',
+              description: 'Rigorous emissions calculation with process quality scoring and verification-risk assessment, reducing rejections and holds for steadier shipments.'
             },
             costOptimizer: {
-              title: 'Cost Optimizer',
-              description: 'Optimizes carbon reporting costs\nand resource allocation, intelligently.'
+              title: 'Evidence Pack & Submission',
+              description: 'Auto-pack data and evidence into buyer/assurance formats—one-click submission, fewer errors, saving time and translation cost.'
             },
             marketAnalyzer: {
               title: 'Market Analyzer',
@@ -994,7 +994,7 @@ export const translations: Record<Language, TranslationData> = {
       personas: {
         title: '为每个团队设计',
         carbonExpert: {
-          title: '碳专业人士',
+          title: '碳/ESG专业人士',
           role: 'ESG/可持续/碳/咨询专家',
           needs: '我需要自动化、智能化工具，提高工作效率和报告精准度',
           stat: '90%',
@@ -1004,7 +1004,7 @@ export const translations: Record<Language, TranslationData> = {
           position: 'EcoStrategy高级ESG顾问'
         },
         brandOwner: {
-          title: '品牌商',
+          title: '品牌方和采购负责人',
           role: '可持续负责人',
           needs: '我需要完成品牌和供应链降碳目标，降低供应链碳管理成本和压力，让供应链无痛提供高质量碳排放数据',
           stat: '67%',
@@ -1014,7 +1014,7 @@ export const translations: Record<Language, TranslationData> = {
           position: 'GreenTech Corp首席可持续官'
         },
         supplyChain: {
-          title: '供应链企业',
+          title: '供应商和出口商',
           role: '出口企业合规负责人',
           needs: '我需要低成本、高效率的向进口方和下游客户提供可信碳足迹报告，确保销售不受影响',
           stat: '1%',
@@ -1033,20 +1033,20 @@ export const translations: Record<Language, TranslationData> = {
         assistants: {
           carbonExpert: {
             carbonCalculator: {
-              title: '法规顾问',
-              description: '几分钟内提供碳排放法律支持，将您的案例匹配到相关法规和条款。'
+              title: '法规导航器',
+              description: '自动将您的业务匹配到正确的标准并锁定规则集，让您更快、更准确地通过合规检查。'
             },
             complianceTracker: {
-              title: '数据接取管理员',
-              description: '在团队和多层级供应商中分发结构化数据请求，自动评分质量（0-100），整合证据，减少手动追踪60%，提高按时提交率。'
+              title: '数据接取协调器',
+              description: '自动标准化和解析BOM和其他复杂数据，让数据准时到达且可用——无需手动清理或交叉检查。'
             },
             climateSeal: {
-              title: 'PCF建模器和计算器',
-              description: '将BOM/能源/物流转化为审计就绪的PCF/OCF模型，批量计算数百个SKU，并在几分钟内显示热点和单位级tCO₂e不确定性区间。'
+              title: 'PCF建模器和因子匹配器',
+              description: '批量匹配因子并从 BOM/能源/物流计算PCF——从逐行因子查找转向批量输出，释放您的专家时间。'
             },
             supplyChainAnalyzer: {
-              title: '质量保证和异常检测器',
-              description: '运行完整性/一致性检查和统计异常值检测，分配0-100质量评分，返回字段级修复建议——减少返工30-50%。'
+              title: '风险和质量哨兵',
+              description: '字段级质量和风险检查、不确定性区间和修复提示——第一次就通过验证，减少返工，获得更可信的结论。'
             },
             reportGenerator: {
               title: '外部交叉验证器',
@@ -1059,34 +1059,34 @@ export const translations: Record<Language, TranslationData> = {
           },
           brandOwner: {
             brandAnalyzer: {
-              title: '品牌分析器',
-              description: '持续分析品牌碳表现\n和可持续性指标。'
+              title: '供应商接取和调度',
+              description: '在您的整个供应链中推送任务和AI工具——供应商零摩擦运行AI计算，无额外成本，减少供应商负担。'
             },
             scopeTracker: {
-              title: 'Scope 3追踪器',
-              description: '自动追踪供应链合作伙伴\n的Scope 3排放。'
+              title: '供应商风险和评分',
+              description: '对计算过程和结果进行评分，标记风险，一目了然地看到供应商提交的排放是否符合您的质量标准。'
             },
             sustainabilityReporter: {
-              title: '可持续性报告器',
-              description: '即时生成面向利益相关者\n的综合可持续性报告。'
+              title: '里程碑追踪器',
+              description: '自动追踪数据收集进度，确保准确、按时的数据，使去碳和合规时间表保持正轨。'
             },
             goalManager: {
-              title: '目标管理器',
-              description: '实时管理碳减排目标\n并跟踪进度。'
+              title: '减排和SBTi规划器',
+              description: '将供应商数据转化为严格的减排/SBTi计划——基于ROI并清晰优先排序——使审批更快通过。'
             }
           },
           supplyChain: {
             supplierAssessment: {
-              title: '供应商评估',
-              description: '高效评估供应商碳表现\n和合规状态。'
+              title: 'PCF构建器',
+              description: '上传您的BOM、产品规格和公用事业数据，生成可信的PCF，让您不错过RFQ/招标或出口截止日期。'
             },
             exportCompliance: {
-              title: '出口合规',
-              description: '无缝确保出口符合\n全球碳法规要求。'
+              title: '质量和风险审查员',
+              description: '严格的排放计算，包含过程质量评分和验证风险评估，减少拒绝和持留，让货物运输更稳定。'
             },
             costOptimizer: {
-              title: '成本优化器',
-              description: '智能优化碳报告成本\n和资源配置。'
+              title: '证据包装和提交',
+              description: '自动将数据和证据打包成采购方/保证格式——一键提交，减少错误，节省时间和翻译成本。'
             },
             marketAnalyzer: {
               title: '市场分析器',
