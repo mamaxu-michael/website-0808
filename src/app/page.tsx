@@ -78,7 +78,7 @@ export default function Home() {
           gradient: "from-pink-500/25 to-rose-500/25",
           background: "bg-gradient-to-b from-pink-600/70 to-pink-800/70",
           staticMediaSrc: "/brand-analyzer.png",
-          dynamicMediaSrc: "/videos/brand-video1.mp4"
+          dynamicMediaSrc: "/videos/video1-card.mp4"
         },
         {
           title: assistants.scopeTracker.title,
@@ -86,7 +86,7 @@ export default function Home() {
           gradient: "from-indigo-500/25 to-purple-500/25",
           background: "bg-gradient-to-b from-indigo-600/70 to-indigo-800/70",
           staticMediaSrc: "/scope-tracker.png",
-          dynamicMediaSrc: "/videos/brand-video2.mp4"
+          dynamicMediaSrc: "/videos/video2-card.mp4"
         },
         {
           title: assistants.sustainabilityReporter.title,
@@ -94,7 +94,7 @@ export default function Home() {
           gradient: "from-emerald-500/25 to-teal-500/25",
           background: "bg-gradient-to-b from-emerald-600/70 to-emerald-800/70",
           staticMediaSrc: "/sustainability-reporter.png",
-          dynamicMediaSrc: "/videos/brand-video3.mp4"
+          dynamicMediaSrc: "/videos/video3-card.mp4"
         },
         {
           title: assistants.goalManager.title,
@@ -102,7 +102,7 @@ export default function Home() {
           gradient: "from-violet-500/25 to-purple-500/25",
           background: "bg-gradient-to-b from-violet-600/70 to-violet-800/70",
           staticMediaSrc: "/goal-manager.png",
-          dynamicMediaSrc: "/videos/brand-video4.mp4"
+          dynamicMediaSrc: "/videos/video4-card.mp4"
         }
       ];
     } else {
@@ -113,7 +113,7 @@ export default function Home() {
           gradient: "from-rose-500/25 to-pink-500/25",
           background: "bg-gradient-to-b from-rose-600/70 to-rose-800/70",
           staticMediaSrc: "/supply-chain-assessment.png",
-          dynamicMediaSrc: "/videos/supplier-video1.mp4"
+          dynamicMediaSrc: "/videos/video1-card.mp4"
         },
         {
           title: assistants.exportCompliance.title,
@@ -121,7 +121,7 @@ export default function Home() {
           gradient: "from-slate-500/25 to-gray-500/25",
           background: "bg-gradient-to-b from-slate-600/70 to-slate-800/70",
           staticMediaSrc: "/export-compliance.png",
-          dynamicMediaSrc: "/videos/supplier-video2.mp4"
+          dynamicMediaSrc: "/videos/video2-card.mp4"
         },
         {
           title: assistants.costOptimizer.title,
@@ -129,7 +129,7 @@ export default function Home() {
           gradient: "from-lime-500/25 to-green-500/25",
           background: "bg-gradient-to-b from-lime-600/70 to-lime-800/70",
           staticMediaSrc: "/cost-optimizer.png",
-          dynamicMediaSrc: "/videos/supplier-video3.mp4"
+          dynamicMediaSrc: "/videos/video3-card.mp4"
         }
       ];
     }
@@ -468,6 +468,36 @@ export default function Home() {
                   <div>
                     <div className="text-[#333] text-lg font-bold">90%</div>
                     <p className="text-[#333] text-xs">Lower Cost</p>
+                  </div>
+                </div>
+              ) : activePersona === 'brandOwner' ? (
+                <div className="grid grid-cols-3 gap-2 text-center">
+                  <div>
+                    <div className="text-[#333] text-lg font-bold">90%</div>
+                    <p className="text-[#333] text-xs">On-time submissions</p>
+                  </div>
+                  <div>
+                    <div className="text-[#333] text-lg font-bold">60%</div>
+                    <p className="text-[#333] text-xs">less follow-up</p>
+                  </div>
+                  <div>
+                    <div className="text-[#333] text-lg font-bold">90%</div>
+                    <p className="text-[#333] text-xs">Data quality</p>
+                  </div>
+                </div>
+              ) : activePersona === 'supplyChain' ? (
+                <div className="grid grid-cols-3 gap-2 text-center">
+                  <div>
+                    <div className="text-[#333] text-lg font-bold">90%</div>
+                    <p className="text-[#333] text-xs">Faster Report</p>
+                  </div>
+                  <div>
+                    <div className="text-[#333] text-lg font-bold">95%</div>
+                    <p className="text-[#333] text-xs">first-pass approval</p>
+                  </div>
+                  <div>
+                    <div className="text-[#333] text-lg font-bold">90%</div>
+                    <p className="text-[#333] text-xs">lower compliance cost</p>
                   </div>
                 </div>
               ) : (
@@ -809,7 +839,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Mobile AI Assistant Cards - 2x2 Grid with Expand Effect */}
+          {/* Mobile AI Assistant Cards - 2x2 Grid with Video Playback */}
           <div className="grid grid-cols-2 gap-3">
             {getCardsForRole(activeAIRole).map((card, index) => (
               <div 
@@ -821,19 +851,19 @@ export default function Home() {
                 }`}
                 onClick={() => setActiveMobileCard(activeMobileCard === index ? -1 : index)}
               >
-                {/* Background Gradient */}
-                <div className={`absolute inset-0 ${card.background || 'bg-gradient-to-b from-purple-600/70 to-purple-800/70'}`} />
+                {/* Background Gradient - Only show when no video is playing */}
+                {!(card.dynamicMediaSrc && activeMobileCard === index) && (
+                  <div className={`absolute inset-0 ${card.background || 'bg-gradient-to-b from-purple-600/70 to-purple-800/70'}`} />
+                )}
                 
                 {/* Media Layer */}
                 <div className="absolute inset-0">
-                  {/* Static Animal Image - Always Visible */}
-                  {card.staticMediaSrc && (
+                  {/* Static Animal Image - Shows when not expanded */}
+                  {card.staticMediaSrc && activeMobileCard !== index && (
                     <img 
                       src={card.staticMediaSrc} 
                       alt={card.title}
-                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-                        activeMobileCard === index ? 'opacity-0' : 'opacity-100'
-                      }`}
+                      className="absolute inset-0 w-full h-full object-cover"
                       style={{ 
                         objectPosition: card.staticMediaSrc.includes('scope-tracker') ? 'center 45%' :
                                        card.staticMediaSrc.includes('supply-chain') || 
@@ -846,48 +876,64 @@ export default function Home() {
                     />
                   )}
                   
-                  {/* Dynamic Video - Shows when expanded */}
+                  {/* Dynamic Video - Shows immediately when expanded */}
                   {card.dynamicMediaSrc && activeMobileCard === index && (
                     <video
+                      key={`video-${index}-${activeMobileCard}`}
                       src={card.dynamicMediaSrc}
-                      className="absolute inset-0 w-full h-full object-cover"
+                      className="absolute inset-0 w-full h-full object-cover opacity-100"
                       autoPlay
                       muted
                       loop
                       playsInline
+                      controls={false}
+                      preload="auto"
+                      onLoadedMetadata={(e) => {
+                        try { 
+                          e.currentTarget.currentTime = 0;
+                          e.currentTarget.play(); 
+                        } catch (_) {}
+                      }}
+                      onCanPlay={(e) => {
+                        try { 
+                          e.currentTarget.play(); 
+                        } catch (_) {}
+                      }}
                     />
                   )}
                 </div>
                 
-                {/* Content Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                {/* Content Overlay - Only at bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
                 
-                {/* Text Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <h3 className={`text-white font-semibold leading-tight mb-2 transition-all duration-300 ${
-                    activeMobileCard === index ? 'text-base' : 'text-sm'
-                  }`}>
-                    {card.title}
-                  </h3>
-                  
-                  {/* Expanded Description - Only show when active */}
-                  {activeMobileCard === index && (
-                    <div className="animate-fade-in">
-                      <p className="text-white/90 text-sm leading-relaxed mb-3">
+                {/* Text Content - Compact at bottom */}
+                <div className="absolute bottom-0 left-0 right-0">
+                  {/* Expanded State - Video playing */}
+                  {activeMobileCard === index ? (
+                    <div className="p-3 bg-black/60 backdrop-blur-sm">
+                      <div className="flex items-center justify-between mb-1">
+                        <h3 className="text-white text-sm font-semibold leading-tight">
+                          {card.title}
+                        </h3>
+                        <span className="text-white/60 text-xs">
+                          {language === 'zh' ? '点击缩小' : 'Tap to close'}
+                        </span>
+                      </div>
+                      <p className="text-white/90 text-xs leading-tight">
                         {card.summary}
                       </p>
-                      <div className="flex items-center justify-between">
-                        <div className={`h-1 flex-1 rounded-full ${card.background || 'bg-gradient-to-r from-purple-500 to-blue-500'} opacity-80`} />
-                        <span className="text-white/60 text-xs ml-2">Tap to close</span>
-                      </div>
                     </div>
-                  )}
-                  
-                  {/* Collapsed State Indicator */}
-                  {activeMobileCard !== index && (
-                    <div className="flex items-center justify-between">
-                      <div className={`h-1 w-12 rounded-full ${card.background || 'bg-gradient-to-r from-purple-500 to-blue-500'} opacity-60`} />
-                      <span className="text-white/40 text-xs">Tap to expand</span>
+                  ) : (
+                    /* Collapsed State - Image showing */
+                    <div className="p-2">
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-white text-xs font-semibold leading-tight">
+                          {card.title}
+                        </h3>
+                        <span className="text-white/60 text-xs">
+                          {language === 'zh' ? '点击放大' : 'Tap to expand'}
+                        </span>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -918,7 +964,6 @@ export default function Home() {
               {t.sections.aiAssistants.subtitle}
             </p>
           </div>
-
 
           {/* AI Role Navigation */}
           <div className="flex justify-center mb-16">
