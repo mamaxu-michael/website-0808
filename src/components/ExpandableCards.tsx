@@ -79,7 +79,7 @@ export default function ExpandableCards({
   return (
     <motion.div
       layout
-      className={`mx-auto max-w-[2548px] px-6 ${className}`}
+      className={`mx-auto max-w-[1450px] px-6 ${className}`}
     >
       <div
         className="flex justify-center gap-6 overflow-x-auto"
@@ -88,8 +88,8 @@ export default function ExpandableCards({
         {items.map((it, i) => {
           const isActive = active === i;
           // 激活时放大 flex-basis；否则为常规宽度
-          const base = "basis-[295px] md:basis-[331px]";
-          const grow = "md:basis-[515px]"; // 激活后的目标宽度
+          const base = "basis-[295px] md:basis-[265px]";
+          const grow = "md:basis-[410px]"; // 激活后的目标宽度（20%压缩）
 
           return (
             <motion.div
@@ -142,7 +142,7 @@ export default function ExpandableCards({
                       <div className="flex items-center justify-center h-full w-full">
                         <AutoVideo 
                           src={currentMediaSrc} 
-                          className="h-[70%] w-[98%] object-contain rounded-lg -translate-y-[60px]" 
+                          className="h-[60%] w-[98%] object-contain rounded-lg -translate-y-[40px]" 
                         />
                       </div>
                     );
@@ -179,9 +179,9 @@ export default function ExpandableCards({
               </div>
 
               {/* 文案区 - 定位到底部 */}
-              <div className="absolute bottom-0 left-0 right-0 h-32 p-4 bg-black/60 backdrop-blur-sm flex flex-col justify-end">
-                <div className="text-lg md:text-xl font-semibold">{it.title}</div>
-                <p className="mt-2 text-sm text-white/80">
+              <div className="absolute bottom-0 left-0 right-0 h-28 p-3 bg-black/60 backdrop-blur-sm flex flex-col justify-end">
+                <div className="text-base md:text-lg font-semibold">{it.title}</div>
+                <p className="mt-1 text-xs text-white/80">
                   {isActive ? 
                     (it.summary.length > 80 ? it.summary.substring(0, 80) + "..." : it.summary) 
                     : it.summary
@@ -196,7 +196,7 @@ export default function ExpandableCards({
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0, transition: { duration: 0.3 } }}
                       exit={{ opacity: 0, y: 8, transition: { duration: 0.2 } }}
-                      className="mt-4 space-y-2 text-sm text-white/80"
+                      className="mt-3 space-y-1 text-xs text-white/80"
                     >
                       {it.details!.map((d, idx) => (
                         <div key={idx} className="flex items-start gap-2">
@@ -204,7 +204,7 @@ export default function ExpandableCards({
                           <span>{d}</span>
                         </div>
                       ))}
-                      <button className="mt-4 inline-flex items-center gap-2 rounded-xl bg-white px-3 py-2 text-neutral-900 text-sm font-medium hover:scale-[1.02] transition">
+                      <button className="mt-2 inline-flex items-center gap-2 rounded-xl bg-white px-3 py-1.5 text-neutral-900 text-xs font-medium hover:scale-[1.02] transition">
                         Get started <span aria-hidden>→</span>
                       </button>
                     </motion.div>

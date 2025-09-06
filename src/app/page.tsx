@@ -949,7 +949,7 @@ export default function Home() {
         </div>
 
         {/* Desktop Version - Keep Original Unchanged */}
-        <div className="hidden md:block relative w-full max-w-[2548px] mx-auto px-4">
+        <div className="hidden md:block relative w-full max-w-[1450px] mx-auto px-4">
 
           {/* Title */}
           <div className="text-center mb-8">
