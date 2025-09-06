@@ -952,7 +952,7 @@ export default function Home() {
         <div className="hidden md:block relative w-full max-w-[2548px] mx-auto px-4">
 
           {/* Title */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <h2 className="text-4xl md:text-[56px] font-normal text-white leading-[67.2px] tracking-[-1.12px] mb-4">
               {t.sections.aiAssistants.title}
             </h2>
@@ -962,7 +962,7 @@ export default function Home() {
           </div>
 
           {/* AI Role Navigation */}
-          <div className="flex justify-center mb-16">
+          <div className="flex justify-center mb-8">
             <div className="bg-white/5 rounded-[1600px] p-1 shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)]">
               <div className="relative flex">
                 {(['carbonExpert', 'brandOwner', 'supplyChain'] as const).map((role, index) => (
@@ -989,7 +989,7 @@ export default function Home() {
           />
 
           {/* Bottom Action Buttons */}
-          <div className="flex justify-center gap-6 mt-16">
+          <div className="flex justify-center gap-6 mt-8">
             <button className="bg-white rounded-[160px] px-8 py-4 flex items-center gap-2 hover:bg-gray-50 transition-all shadow-lg">
               <span className="text-black text-lg font-medium">{t.sections.aiAssistants.getStarted}</span>
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">

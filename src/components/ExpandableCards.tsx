@@ -111,7 +111,7 @@ export default function ExpandableCards({
               className={[
                 "group relative overflow-hidden rounded-2xl border border-white/10",
                 "bg-white/[0.04] text-white shadow-[0_10px_30px_rgba(0,0,0,.25)]",
-                "h-[512px]", // 固定高度，增加10% (465px * 1.1 = 512px)
+                "h-[410px]", // 压缩高度 (512px * 0.8 = 410px)
                 isActive ? grow : base,
                 "w-full md:w-auto flex-shrink-0", // 确保一字排开不换行
                 "cursor-pointer select-none",
