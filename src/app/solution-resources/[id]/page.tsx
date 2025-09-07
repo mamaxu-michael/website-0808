@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
+import Script from 'next/script';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import articlesData from '@/data/articles.json';
@@ -75,6 +76,18 @@ export default function ArticleDetail() {
 
   return (
     <div className="min-h-screen bg-[rgb(0,52,50)]">
+      {/* JSON-LD: Breadcrumb（仅元信息，不渲染 UI）*/}
+      <Script id="jsonld-breadcrumb-article" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: language === 'zh' ? '首页' : 'Home', item: `${process.env.NEXT_PUBLIC_APP_URL || 'https://climate-seal.com'}/` },
+            { "@type": "ListItem", position: 2, name: language === 'zh' ? '解决方案资源中心' : 'Solution Resources', item: `${process.env.NEXT_PUBLIC_APP_URL || 'https://climate-seal.com'}/solution-resources` },
+            { "@type": "ListItem", position: 3, name: getArticleTitle(article), item: `${process.env.NEXT_PUBLIC_APP_URL || 'https://climate-seal.com'}/solution-resources/${article.id}` }
+          ]
+        })}
+      </Script>
       {/* Article Header */}
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">

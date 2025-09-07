@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import Script from 'next/script';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -64,6 +65,30 @@ export default function SolutionResources() {
 
   return (
     <div className="min-h-screen bg-[rgb(0,52,50)]">
+      {/* JSON-LD: Breadcrumb + FAQ（仅元信息，不渲染 UI）*/}
+      <Script id="jsonld-breadcrumb-sr" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: language === 'zh' ? '首页' : 'Home', item: `${process.env.NEXT_PUBLIC_APP_URL || 'https://climate-seal.com'}/` },
+            { "@type": "ListItem", position: 2, name: language === 'zh' ? '解决方案资源中心' : 'Solution Resources', item: `${process.env.NEXT_PUBLIC_APP_URL || 'https://climate-seal.com'}/solution-resources` }
+          ]
+        })}
+      </Script>
+      <Script id="jsonld-faq-sr" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: language === 'zh' ? '如何添加新的文章？' : 'How to add a new article?',
+              acceptedAnswer: { "@type": "Answer", text: language === 'zh' ? '编辑 /src/data/articles.json 并上传封面图到 /public/images/articles/。' : 'Edit /src/data/articles.json and upload cover image to /public/images/articles/.' }
+            }
+          ]
+        })}
+      </Script>
       {/* Header */}
       <section className="pt-32 pb-16 px-4">
         <div className="max-w-7xl mx-auto text-center">

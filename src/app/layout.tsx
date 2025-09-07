@@ -85,6 +85,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Preconnect/DNS-Prefetch for critical third-party origins */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+
+        {/* Preload hero assets if needed (keep minimal to avoid over-preload) */}
+        <link rel="preload" as="image" href="/logo.jpg" />
         {/* Organization JSON-LD（仅注入元信息，不影响视觉） */}
         <Script id="org-jsonld" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify({
