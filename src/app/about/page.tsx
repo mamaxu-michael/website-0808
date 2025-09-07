@@ -1,4 +1,5 @@
 import React from 'react';
+import Script from 'next/script';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -21,6 +22,17 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* JSON-LD: Breadcrumb（仅元信息，不渲染 UI） */}
+      <Script id="jsonld-breadcrumb-about" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: '首页', item: `${process.env.NEXT_PUBLIC_APP_URL || 'https://climate-seal.com'}/` },
+            { "@type": "ListItem", position: 2, name: '关于我们', item: `${process.env.NEXT_PUBLIC_APP_URL || 'https://climate-seal.com'}/about` }
+          ]
+        })}
+      </Script>
       <div className="container mx-auto px-4 py-16">
         <h1 className="text-4xl font-bold text-center mb-8 text-gray-900">
           关于我们

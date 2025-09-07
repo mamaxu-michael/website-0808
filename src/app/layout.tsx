@@ -91,6 +91,8 @@ export default function RootLayout({
 
         {/* Preload hero assets if needed (keep minimal to avoid over-preload) */}
         <link rel="preload" as="image" href="/logo.jpg" />
+        {/* RSS link for content discovery */}
+        <link rel="alternate" type="application/rss+xml" title="Climate Seal RSS" href="/rss.xml" />
         {/* Organization JSON-LD（仅注入元信息，不影响视觉） */}
         <Script id="org-jsonld" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify({

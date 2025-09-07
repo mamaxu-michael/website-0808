@@ -41,6 +41,17 @@ export default function Contact() {
           ]
         })}
       </Script>
+      {/* JSON-LD: Breadcrumb（仅元信息，不渲染 UI） */}
+      <Script id="jsonld-breadcrumb-contact" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: '首页', item: `${process.env.NEXT_PUBLIC_APP_URL || 'https://climate-seal.com'}/` },
+            { "@type": "ListItem", position: 2, name: '联系我们', item: `${process.env.NEXT_PUBLIC_APP_URL || 'https://climate-seal.com'}/contact` }
+          ]
+        })}
+      </Script>
       <div className="container mx-auto px-4 py-16">
         <h1 className="text-4xl font-bold text-center mb-8 text-gray-900">
           联系我们

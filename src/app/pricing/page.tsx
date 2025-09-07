@@ -22,6 +22,17 @@ export const metadata: Metadata = {
 export default function Pricing() {
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* JSON-LD: Breadcrumb（仅元信息，不渲染 UI） */}
+      <Script id="jsonld-breadcrumb-pricing" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: '首页', item: `${process.env.NEXT_PUBLIC_APP_URL || 'https://climate-seal.com'}/` },
+            { "@type": "ListItem", position: 2, name: '价格方案', item: `${process.env.NEXT_PUBLIC_APP_URL || 'https://climate-seal.com'}/pricing` }
+          ]
+        })}
+      </Script>
       {/* JSON-LD: FAQ（仅元信息，不渲染 UI） */}
       <Script id="jsonld-faq-pricing" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify({
