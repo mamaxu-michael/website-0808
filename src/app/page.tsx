@@ -1803,17 +1803,17 @@ export default function Home() {
       {/* Contact Section */}
       <section id="contact" className="py-8 sm:py-10 bg-[rgb(0,52,50)] text-white" data-theme="contact" data-section="contact-form" data-category="conversion">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">{t.contact.title}</h2>
+          <div className="text-center mb-12 sm:mb-10">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-4">{t.contact.title}</h2>
             <p className="text-lg sm:text-xl opacity-90 max-w-3xl mx-auto">
               {t.contact.subtitle}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-8 md:gap-10 max-w-6xl mx-auto">
             <div className="flex flex-col justify-center order-2 lg:order-1">
-              <h3 className="text-xl sm:text-2xl font-semibold mb-6 sm:mb-8">{t.sections.moreInfo}</h3>
-              <div className="space-y-4 sm:space-y-6">
+              <h3 className="text-xl sm:text-2xl font-semibold mb-6 sm:mb-4">{t.sections.moreInfo}</h3>
+              <div className="space-y-4 sm:space-y-3">
                 <div className="flex items-center">
                   <span className="text-xl sm:text-2xl mr-3 sm:mr-4">📧</span>
                   <div>
@@ -1837,14 +1837,14 @@ export default function Home() {
                 </div>
                 
                 {/* New Contact Logo */}
-<div className="mt-6 sm:mt-8 pt-4 sm:pt-6">
+<div className="mt-6 sm:mt-4 pt-4 sm:pt-3">
   <div className="flex justify-start">
     <Image
       src="/new-contact-logo.png"
       alt="Climate Seal Contact Logo"
       width={280}
       height={84}
-      className="object-contain w-full max-w-[210px] sm:max-w-[280px] md:max-w-[350px] lg:max-w-[420px]"
+      className="object-contain w-full max-w-[210px] sm:max-w-[280px] md:max-w-[320px] lg:max-w-[360px]"
       unoptimized={true}
       style={{
         clipPath: 'inset(0 0.5% 2% 0)'
@@ -1857,54 +1857,60 @@ export default function Home() {
 
             <div className="bg-[#98a2f8] bg-opacity-90 p-4 sm:p-6 rounded-2xl backdrop-blur-sm self-start order-1 lg:order-2">
               <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-black">{t.contact.form.submit}</h3>
-              <form onSubmit={handleSubmit} className="space-y-1.5 sm:space-y-2" data-form="contact-form" data-section="contact-form">
-                <div>
-                  <label className="block text-xs sm:text-sm font-medium mb-1 text-black">{t.contact.form.name}*</label>
-                  <input 
-                    type="text" 
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    className="w-full p-1.5 sm:p-2 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm"
-                    placeholder={t.contact.form.placeholder.name}
-                    required
-                  />
+              <form onSubmit={handleSubmit} className="space-y-1.5 sm:space-y-1.5" data-form="contact-form" data-section="contact-form">
+                {/* 姓名和邮箱 - 两栏布局 */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <div>
+                    <label className="block text-xs sm:text-sm font-medium mb-1 text-black">{t.contact.form.name}*</label>
+                    <input 
+                      type="text" 
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className="w-full p-1.5 sm:p-2 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm"
+                      placeholder={t.contact.form.placeholder.name}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs sm:text-sm font-medium mb-1 text-black">{t.contact.form.email}*</label>
+                    <input 
+                      type="email" 
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="w-full p-1.5 sm:p-2 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm"
+                      placeholder={t.contact.form.placeholder.email}
+                      required
+                    />
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-xs sm:text-sm font-medium mb-1 text-black">{t.contact.form.email}*</label>
-                  <input 
-                    type="email" 
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="w-full p-1.5 sm:p-2 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm"
-                    placeholder={t.contact.form.placeholder.email}
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs sm:text-sm font-medium mb-1 text-black">{t.contact.form.phone}*</label>
-                  <input 
-                    type="tel" 
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className="w-full p-1.5 sm:p-2 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm"
-                    placeholder={t.contact.form.placeholder.phone}
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs sm:text-sm font-medium mb-1 text-black">{t.contact.form.company}*</label>
-                  <input 
-                    type="text" 
-                    name="company"
-                    value={formData.company}
-                    onChange={handleInputChange}
-                    className="w-full p-1.5 sm:p-2 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm"
-                    placeholder={t.contact.form.placeholder.company}
-                    required
-                  />
+                {/* 电话和公司 - 两栏布局 */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <div>
+                    <label className="block text-xs sm:text-sm font-medium mb-1 text-black">{t.contact.form.phone}*</label>
+                    <input 
+                      type="tel" 
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className="w-full p-1.5 sm:p-2 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm"
+                      placeholder={t.contact.form.placeholder.phone}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs sm:text-sm font-medium mb-1 text-black">{t.contact.form.company}*</label>
+                    <input 
+                      type="text" 
+                      name="company"
+                      value={formData.company}
+                      onChange={handleInputChange}
+                      className="w-full p-1.5 sm:p-2 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm"
+                      placeholder={t.contact.form.placeholder.company}
+                      required
+                    />
+                  </div>
                 </div>
                 <div>
                   <label className="block text-xs sm:text-sm font-medium mb-1 text-black">{t.contact.form.industry || '行业'}*</label>
@@ -1912,7 +1918,7 @@ export default function Home() {
                     name="industry"
                     value={formData.industry}
                     onChange={handleInputChange}
-                    className="w-full p-1.5 sm:p-2 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm"
+                    className="w-full p-1.5 sm:p-2 rounded-lg bg-white bg-opacity-90 border border-white border-opacity-50 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm max-h-32 overflow-y-auto"
                     required
                   >
                     <option value="">{t.contact.form.placeholder?.industry || '请选择您的行业'}</option>
@@ -1940,7 +1946,7 @@ export default function Home() {
                 <div>
                   <label className="block text-xs sm:text-sm font-medium mb-1 text-black">{t.contact.form.message}*</label>
                   <textarea 
-                    rows={2}
+                    rows={1}
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
