@@ -1,12 +1,21 @@
 import { NextResponse } from 'next/server';
 import articlesData from '@/data/articles.json';
 
+interface ArticleItem {
+  id: string;
+  title?: string;
+  titleZh?: string;
+  excerpt?: string;
+  excerptZh?: string;
+  publishDate: string;
+}
+
 export const dynamic = 'force-static';
 
 export async function GET() {
   const base = process.env.NEXT_PUBLIC_APP_URL || 'https://climate-seal.com';
-  const items = (articlesData as any).articles || [];
-  const feedItems = items.map((a: any) => `
+  const items: ArticleItem[] = (articlesData as { articles: ArticleItem[] }).articles || [];
+  const feedItems = items.map((a: ArticleItem) => `
     <item>
       <title><![CDATA[${a.titleZh || a.title}]]></title>
       <link>${base}/solution-resources/${a.id}</link>

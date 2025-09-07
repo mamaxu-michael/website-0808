@@ -167,6 +167,7 @@ export default function LCAModelV1EnhancedFinal() {
         setCoverageValue(0);
       }, 4000);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase]);
 
   return (

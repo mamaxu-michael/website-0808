@@ -1,6 +1,11 @@
 import type { MetadataRoute } from 'next';
 import articlesData from '@/data/articles.json';
 
+interface ArticleItem {
+  id: string;
+  publishDate: string;
+}
+
 /**
  * 生成 sitemap.xml（仅影响SEO抓取，不影响视觉）
  */
@@ -22,8 +27,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: path === '/' ? 1 : 0.7,
   }));
 
-  const articles: any[] = (articlesData as any).articles || [];
-  const articleEntries = articles.map((a) => ({
+  const articles: ArticleItem[] = (articlesData as { articles: ArticleItem[] }).articles || [];
+  const articleEntries = articles.map((a: ArticleItem) => ({
     url: `${base}/solution-resources/${a.id}`,
     lastModified: new Date(a.publishDate).toISOString(),
     changeFrequency: 'monthly',

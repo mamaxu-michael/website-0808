@@ -1,13 +1,22 @@
 import type { Metadata } from 'next';
 import articlesData from '@/data/articles.json';
 
+interface ArticleItem {
+  id: string;
+  title?: string;
+  titleZh?: string;
+  excerpt?: string;
+  excerptZh?: string;
+  coverImage?: string;
+}
+
 type Props = {
   children: React.ReactNode;
   params: { id: string };
 };
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const article = (articlesData as any).articles.find((a: any) => a.id === params.id);
+  const article = (articlesData as { articles: ArticleItem[] }).articles.find((a) => a.id === params.id);
   const title = article ? (article.titleZh || article.title) : '文章详情';
   const description = article ? (article.excerptZh || article.excerpt) : '文章内容与行业洞察';
   const cover = article?.coverImage || '/logo.jpg';
