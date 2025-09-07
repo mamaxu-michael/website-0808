@@ -1,0 +1,68 @@
+{
+  "articles": [
+    {
+      "id": "sample-article-1",
+      "title": "Getting Started with Carbon Footprint Calculation",
+      "titleZh": "碳足迹计算入门指南",
+      "coverImage": "/images/articles/sample-cover-1.jpg",
+      "excerpt": "Learn the fundamentals of product carbon footprint calculation and how Climate Seal can streamline your process.",
+      "excerptZh": "了解产品碳足迹计算的基础知识，以及Climate Seal如何简化您的流程。",
+      "content": "This is a sample article content. Market team can replace this with actual content.",
+      "contentZh": "这是示例文章内容。市场团队可以将其替换为实际内容。",
+      "publishDate": "2024-12-20",
+      "category": "getting-started",
+      "categoryZh": "入门指南",
+      "featured": true
+    },
+    {
+      "id": "sample-article-2", 
+      "title": "AI-Powered Carbon Compliance: The Future is Here",
+      "titleZh": "AI驱动的碳合规：未来已来",
+      "coverImage": "/images/articles/sample-cover-2.jpg",
+      "excerpt": "Discover how artificial intelligence is revolutionizing carbon compliance and making it accessible to businesses of all sizes.",
+      "excerptZh": "探索人工智能如何革命性地改变碳合规，使各种规模的企业都能轻松应对。",
+      "content": "This is another sample article content for AI-powered solutions.",
+      "contentZh": "这是另一个关于AI驱动解决方案的示例文章内容。",
+      "publishDate": "2024-12-18",
+      "category": "technology",
+      "categoryZh": "技术",
+      "featured": false
+    },
+    {
+      "id": "sample-article-3",
+      "title": "Supply Chain Carbon Management Best Practices", 
+      "titleZh": "供应链碳管理最佳实践",
+      "coverImage": "/images/articles/sample-cover-3.jpg",
+      "excerpt": "Best practices for managing carbon emissions across your supply chain with real-world case studies.",
+      "excerptZh": "通过真实案例研究，了解管理供应链碳排放的最佳实践。",
+      "content": "This is a sample article about supply chain management.",
+      "contentZh": "这是一篇关于供应链管理的示例文章。",
+      "publishDate": "2024-12-15",
+      "category": "supply-chain",
+      "categoryZh": "供应链",
+      "featured": false
+    }
+  ],
+  "categories": [
+    {
+      "id": "getting-started",
+      "name": "Getting Started",
+      "nameZh": "入门指南"
+    },
+    {
+      "id": "technology", 
+      "name": "Technology",
+      "nameZh": "技术"
+    },
+    {
+      "id": "supply-chain",
+      "name": "Supply Chain", 
+      "nameZh": "供应链"
+    },
+    {
+      "id": "compliance",
+      "name": "Compliance",
+      "nameZh": "合规"
+    }
+  ]
+}

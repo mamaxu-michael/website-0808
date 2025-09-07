@@ -420,6 +420,7 @@ export interface TranslationData {
       message: string;
       submit: string;
       submitting: string;
+      privacyDisclaimer: string;
       placeholder: {
         name: string;
         email: string;
@@ -625,11 +626,11 @@ export const translations: Record<Language, TranslationData> = {
         }
       },
       aiAssistants: {
-        title: 'Meet your AI carbon expert and assistants',
+        title: 'Meet Your AI Carbon Expert And Assistants',
         subtitle: 'Choose your role. Your AI carbon experts and assistants are ready to support you 24/7.',
         comingSoon: 'Coming soon',
-        getStarted: 'Get Started',
-        trustCenter: 'Visit our AI Trust Center',
+        getStarted: 'Get a demo & 2 free reports trail',
+        trustCenter: 'Visit our resource session',
         assistants: {
           carbonExpert: {
             carbonCalculator: {
@@ -696,7 +697,7 @@ export const translations: Record<Language, TranslationData> = {
         }
       },
       difference: {
-        title: 'The climate seal difference',
+        title: 'The Climate Seal Difference',
         cards: {
           flexible: {
             title: 'Faster',
@@ -890,7 +891,7 @@ export const translations: Record<Language, TranslationData> = {
         subtitle: 'Why Choose Climate Seal AI?'
       },
       valueForUser: {
-        title: 'Value For User And Enterprise',
+        title: 'Value for Teams and the Business',
         subtitle: 'Choose the right plan to start your carbon footprint journey'
       },
       aboutUs: {
@@ -1010,6 +1011,7 @@ export const translations: Record<Language, TranslationData> = {
         message: 'Message',
         submit: 'Send Message',
         submitting: 'Sending...',
+        privacyDisclaimer: '*I disclose my information to Climate Seal. I have read and agree to Climate Seal\'s Privacy Policy',
         placeholder: {
           name: 'Please enter your name',
           email: 'Please enter your email',
@@ -1167,7 +1169,7 @@ export const translations: Record<Language, TranslationData> = {
             '缺乏流程或数据评估——风险难以发现',
             '证据分散；外部检查缓慢且成本高昂'
           ],
-          testimonial: 'Climate Seal不仅仅是另一个计算工具，而是一个支持我们大规模精确高效需求的智能操作系统。',
+          testimonial: '"Climate Seal不仅仅是另一个计算工具，而是一个支持我们大规模精确高效需求的智能操作系统。"',
           author: '陈博士',
           position: 'EcoStrategy高级ESG顾问'
         },
@@ -1185,7 +1187,7 @@ export const translations: Record<Language, TranslationData> = {
             '数据质量差影响去碳化优先级排序',
             '缺乏ROI或MACC，项目无法获得批准，阻碍SBTi/CSRD里程碑'
           ],
-          testimonial: 'Climate Seal将我们的供应链碳管理从合规负担转变为竞争优势。',
+          testimonial: '"Climate Seal将我们的供应链碳管理从合规负担转变为竞争优势。"',
           author: '王明',
           position: 'GreenTech Corp首席可持续官'
         },
@@ -1202,7 +1204,7 @@ export const translations: Record<Language, TranslationData> = {
             '返工周期延迟出货，可能面临海关扣留风险',
             '缺乏内部碳专业知识，第三方咨询费用高昂'
           ],
-          testimonial: '通过Climate Seal，我们现在能够以传统成本和时间的一小部分提供世界级的碳足迹报告。',
+          testimonial: '"通过Climate Seal，我们现在能够以传统成本和时间的一小部分提供世界级的碳足迹报告。"',
           author: '李伟',
           position: '全球制造有限公司合规总监'
         }
@@ -1211,8 +1213,8 @@ export const translations: Record<Language, TranslationData> = {
         title: '遇见您的AI碳足迹专家团队',
         subtitle: '选择您的角色，您的AI碳足迹专家和助手已准备好为您提供24/7全天候支持。',
         comingSoon: '即将推出',
-        getStarted: '开始使用',
-        trustCenter: '访问AI信任中心',
+        getStarted: '获取演示和2份免费报告',
+        trustCenter: '访问资源中心',
         assistants: {
           carbonExpert: {
             carbonCalculator: {
@@ -1593,6 +1595,7 @@ export const translations: Record<Language, TranslationData> = {
         message: '留言',
         submit: '发送消息',
         submitting: '发送中...',
+        privacyDisclaimer: '*我向 Climate Seal 披露我的信息。我已阅读并同意 Climate Seal 的隐私政策',
         placeholder: {
           name: '请输入您的姓名',
           email: '请输入您的邮箱',

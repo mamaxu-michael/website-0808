@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import ExpandableCards from '@/components/ExpandableCards';
 import { motion } from 'framer-motion';
@@ -479,7 +480,7 @@ export default function Home() {
         <div className="block md:hidden px-4">
           {/* Mobile Title */}
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-semibold text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
               {t.sections.personas?.title || 'Solutions for every role.'}
             </h2>
           </div>
@@ -603,7 +604,7 @@ export default function Home() {
         <div className="hidden md:block relative w-full max-w-[1200px] h-auto mx-auto px-4">
           {/* Title */}
           <div className="text-center mb-6">
-            <h2 className="text-4xl md:text-[56px] font-normal text-white leading-[67.2px] tracking-[-1.12px] mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
               {t.sections.personas?.title || 'Solutions for every role.'}
             </h2>
           </div>
@@ -721,7 +722,7 @@ export default function Home() {
                         </div>
                       ) : (
                         <div className="space-y-4 flex-1 pt-2">
-                          <h4 className="text-white text-sm font-semibold mb-2 opacity-90">You're Probably Facing:</h4>
+                          <h4 className="text-white text-sm font-semibold mb-2 opacity-90">You&rsquo;re Probably Facing:</h4>
                           <div className="h-11 bg-white/20 rounded w-4/5 animate-shimmer flex items-center px-4">
                             <span className="text-white text-sm font-normal tracking-[-0.18px] leading-tight">{t.sections.personas.supplyChain.painPoints[0]}</span>
                           </div>
@@ -882,7 +883,7 @@ export default function Home() {
         <div className="block md:hidden px-4">
           {/* Mobile Title */}
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-semibold text-white mb-3">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3">
               {t.sections.aiAssistants.title}
             </h2>
             <p className="text-sm text-white/80 leading-relaxed">
@@ -1032,7 +1033,7 @@ export default function Home() {
 
           {/* Title */}
           <div className="text-center mb-8">
-            <h2 className="text-4xl md:text-[56px] font-normal text-white leading-[67.2px] tracking-[-1.12px] mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
               {t.sections.aiAssistants.title}
             </h2>
             <p className="text-xl text-white/80 max-w-5xl mx-auto whitespace-nowrap">
@@ -1069,15 +1070,15 @@ export default function Home() {
 
           {/* Bottom Action Buttons */}
           <div className="flex justify-center gap-6 mt-8">
-            <button className="bg-white rounded-[160px] px-8 py-4 flex items-center gap-2 hover:bg-gray-50 transition-all shadow-lg">
+            <a href="#contact" className="bg-white rounded-[160px] px-8 py-4 flex items-center gap-2 hover:bg-gray-50 transition-all shadow-lg">
               <span className="text-black text-lg font-medium">{t.sections.aiAssistants.getStarted}</span>
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
               </svg>
-            </button>
-            <button className="border-2 border-white text-white rounded-[160px] px-8 py-4 hover:bg-white hover:text-[rgb(0,52,50)] transition-all">
+            </a>
+            <Link href="/solution-resources" className="border-2 border-white text-white rounded-[160px] px-8 py-4 hover:bg-white hover:text-[rgb(0,52,50)] transition-all">
               <span className="text-lg font-medium">{t.sections.aiAssistants.trustCenter}</span>
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -1089,7 +1090,7 @@ export default function Home() {
         <div className="block md:hidden px-4">
           {/* Mobile Title */}
           <div className="text-center mb-6">
-            <h2 className="text-xl font-semibold text-white">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
               {t.sections.difference.title}
             </h2>
           </div>
@@ -1258,7 +1259,7 @@ export default function Home() {
           {/* Title */}
           <div className="text-center mb-2">
             <motion.h2 
-              className="text-[56px] font-normal text-white leading-[67.2px] tracking-[-1.12px]"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold text-white"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.6 }}
@@ -1980,6 +1981,19 @@ export default function Home() {
                 >
                   {isSubmitting ? t.contact.form.submitting : t.contact.form.submit}
                 </button>
+                
+                {/* Privacy Disclaimer */}
+                <div className="mt-4 text-center">
+                  <p className="text-xs text-gray-600 leading-relaxed">
+                    {t.contact.form.privacyDisclaimer}{' '}
+                    <Link 
+                      href="/privacy" 
+                      className="text-[rgb(0,52,50)] underline hover:text-[rgb(0,42,40)] transition-colors"
+                    >
+                      {language === 'zh' ? '隐私政策' : 'Privacy Policy'}
+                    </Link>
+                  </p>
+                </div>
               </form>
             </div>
           </div>
