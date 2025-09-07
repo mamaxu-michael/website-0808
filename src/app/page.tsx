@@ -555,7 +555,7 @@ export default function Home() {
 
           {/* Cards Layout */}
           <div className="relative w-full flex justify-center">
-            <div className="relative w-[1400px] transform translate-x-[-2cm]">
+            <div className="relative w-[1400px] transform translate-x-[-96px]">
               {/* Left Large Card */}
               <div className={`w-full lg:w-[950px] h-[420px] rounded-3xl relative mb-6 lg:mb-0 animate-fade-in ${
                 activePersona === 'carbonExpert' ? 'bg-[#6161ff]' :
@@ -1194,7 +1194,7 @@ export default function Home() {
             {/* Flexible yet standardized - Green Card (Top Left) */}
             {/* 灰色背景块 */}
             <motion.div 
-              className="absolute w-[280px] h-[165px] top-[40px] left-[-25px] rounded-[20px] group cursor-pointer overflow-hidden border-2 border-white/20 ring-1 ring-white/20"
+              className="absolute w-[280px] h-[165px] top-[40px] left-[35px] rounded-[20px] group cursor-pointer overflow-hidden border-2 border-white/20 ring-1 ring-white/20"
               style={{
                 backgroundImage: 'url(/faster-beaver.png)',
                 backgroundSize: 'cover',
@@ -1218,7 +1218,7 @@ export default function Home() {
             </motion.div>
             {/* 绿色卡片 */}
             <motion.div 
-              className="absolute w-[756px] h-[165px] top-[40px] left-[315px] rounded-[20px] group cursor-pointer"
+              className="absolute w-[756px] h-[165px] top-[40px] left-[375px] rounded-[20px] group cursor-pointer"
               initial={{ opacity: 0, y: 24, scale: 0.98 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.5 }}
@@ -1256,7 +1256,7 @@ export default function Home() {
             {/* Products teams love to use - Blue Card (Center Right) */}
             {/* 灰色背景块 */}
             <motion.div 
-              className="absolute w-[280px] h-[165px] top-[230px] left-[791px] rounded-[20px] group cursor-pointer overflow-hidden border-2 border-white/20 ring-1 ring-white/20"
+              className="absolute w-[280px] h-[165px] top-[230px] left-[851px] rounded-[20px] group cursor-pointer overflow-hidden border-2 border-white/20 ring-1 ring-white/20"
               style={{
                 backgroundImage: 'url(/credible-meerkat.png)',
                 backgroundSize: 'cover',
@@ -1280,7 +1280,7 @@ export default function Home() {
             </motion.div>
             {/* 蓝色卡片 */}
             <motion.div 
-              className="absolute w-[756px] h-[165px] top-[230px] left-[-25px] rounded-[20px] group cursor-pointer"
+              className="absolute w-[756px] h-[165px] top-[230px] left-[35px] rounded-[20px] group cursor-pointer"
               initial={{ opacity: 0, y: 24, scale: 0.98 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.5 }}
@@ -1318,7 +1318,7 @@ export default function Home() {
             {/* Fast time to value - Pink Card (Bottom Left) */}
             {/* 灰色背景块 */}
             <motion.div 
-              className="absolute w-[280px] h-[165px] top-[420px] left-[-25px] rounded-[20px] group cursor-pointer overflow-hidden border-2 border-white/20 ring-1 ring-white/20"
+              className="absolute w-[280px] h-[165px] top-[420px] left-[35px] rounded-[20px] group cursor-pointer overflow-hidden border-2 border-white/20 ring-1 ring-white/20"
               style={{
                 backgroundImage: 'url(/frictionless-dog.png)',
                 backgroundSize: 'cover',
@@ -1342,7 +1342,7 @@ export default function Home() {
             </motion.div>
             {/* 粉色卡片 */}
             <motion.div 
-              className="absolute w-[756px] h-[165px] top-[420px] left-[315px] rounded-[20px] group cursor-pointer"
+              className="absolute w-[756px] h-[165px] top-[420px] left-[375px] rounded-[20px] group cursor-pointer"
               initial={{ opacity: 0, y: 24, scale: 0.98 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.5 }}
@@ -1353,24 +1353,24 @@ export default function Home() {
                 filter: "drop-shadow(0 16px 40px rgba(0,0,0,0.2))"
               }}
             >
-              <div className="w-[756px] bg-[#f0f3ff] overflow-hidden absolute h-[190px] top-0 left-0 rounded-[23px]">
-                <div className="relative w-[762px] h-[186px] top-[2px] -left-1 bg-gradient-to-br from-pink-400 to-pink-600" />
+              <div className="w-[756px] bg-[#f0f3ff] overflow-hidden absolute h-[165px] top-0 left-0 rounded-[20px]">
+                <div className="relative w-[762px] h-[161px] top-[2px] -left-1 bg-gradient-to-br from-pink-400 to-pink-600" />
               </div>
-              <div className="absolute inset-0 p-5 flex items-center">
+              <div className="absolute inset-0 p-4 flex items-center">
                 <div className="w-1/2">
-                  <h3 className="text-3xl font-normal text-white mb-3">{t.sections.difference.cards.fastValue.title}</h3>
+                  <h3 className="text-2xl font-normal text-white mb-2">{t.sections.difference.cards.fastValue.title}</h3>
                 </div>
                 <div className="w-1/2 pl-3">
-                  <p className="text-white text-base leading-relaxed">{t.sections.difference.cards.fastValue.description}</p>
+                  <p className="text-white text-sm leading-relaxed">{t.sections.difference.cards.fastValue.description}</p>
                 </div>
               </div>
               {/* Pink Icon */}
-              <div className="absolute top-4 left-4 w-14 h-9">
-                <div className="w-11 h-5 bg-pink-300 rounded-full transform transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-2"></div>
-                <div className="w-9 h-5 bg-pink-400 rounded-full mt-1 ml-2 transform transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-2"></div>
+              <div className="absolute top-3 left-3 w-12 h-8">
+                <div className="w-9 h-4 bg-pink-300 rounded-full transform transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-2"></div>
+                <div className="w-7 h-4 bg-pink-400 rounded-full mt-1 ml-2 transform transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-2"></div>
               </div>
               {/* 光带效果 */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 overflow-hidden rounded-[23px]">
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 overflow-hidden rounded-[20px]">
                 <div 
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-white/35 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-600 ease-out"
                   style={{ transform: "skewX(-45deg)", width: "200%" }}
