@@ -23,19 +23,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries = urls.map((path) => ({
     url: `${base}${path}`,
     lastModified: now,
-    changeFrequency: 'weekly',
+    changeFrequency: 'weekly' as const,
     priority: path === '/' ? 1 : 0.7,
-  }));
+  })) as MetadataRoute.Sitemap;
 
   const articles: ArticleItem[] = (articlesData as { articles: ArticleItem[] }).articles || [];
   const articleEntries = articles.map((a: ArticleItem) => ({
     url: `${base}/solution-resources/${a.id}`,
     lastModified: new Date(a.publishDate).toISOString(),
-    changeFrequency: 'monthly',
+    changeFrequency: 'monthly' as const,
     priority: 0.6,
-  }));
+  })) as MetadataRoute.Sitemap;
 
-  return [...staticEntries, ...articleEntries];
+  return [...staticEntries, ...articleEntries] as MetadataRoute.Sitemap;
 }
 
 
