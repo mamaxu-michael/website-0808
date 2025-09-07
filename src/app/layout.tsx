@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const googleVerification = process.env.NEXT_PUBLIC_GSC_VERIFICATION as string | undefined;
+const bingVerification = process.env.NEXT_PUBLIC_BING_VERIFICATION as string | undefined;
+
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "https://climate-seal.com"),
   title: {
@@ -68,10 +71,8 @@ export const metadata: Metadata = {
     creator: "@ClimateSeal"
   },
   verification: {
-    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || undefined,
-    other: {
-      'bing': process.env.NEXT_PUBLIC_BING_VERIFICATION || undefined,
-    }
+    ...(googleVerification ? { google: googleVerification } : {}),
+    ...(bingVerification ? { other: { bing: bingVerification } } : {}),
   },
   icons: {
     icon: "/favicon.ico",
