@@ -10,20 +10,16 @@ interface ArticleItem {
   coverImage?: string;
 }
 
-type Props = {
-  children: React.ReactNode;
-  params: { id: string };
-};
-
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const article = (articlesData as { articles: ArticleItem[] }).articles.find((a) => a.id === params.id);
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const article = (articlesData as { articles: ArticleItem[] }).articles.find((a) => a.id === id);
   const title = article ? (article.titleZh || article.title) : '文章详情';
   const description = article ? (article.excerptZh || article.excerpt) : '文章内容与行业洞察';
   const cover = article?.coverImage || '/logo.jpg';
   return {
     title,
     description,
-    alternates: { canonical: `/solution-resources/${params.id}` },
+    alternates: { canonical: `/solution-resources/${id}` },
     openGraph: {
       title,
       description,
