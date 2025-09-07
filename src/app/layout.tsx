@@ -67,6 +67,9 @@ export const metadata: Metadata = {
     site: "@ClimateSeal",
     creator: "@ClimateSeal"
   },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || undefined,
+  },
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",

@@ -4,7 +4,18 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: '产品与解决方案',
   description: '产品碳足迹、供应链碳管理、气候合规与报告工具。',
-  alternates: { canonical: '/products' }
+  alternates: { canonical: '/products' },
+  openGraph: {
+    title: '产品与解决方案 | Climate Seal',
+    description: '产品碳足迹、供应链碳管理、气候合规与报告工具。',
+    images: [{ url: '/pcf-modeler.png', width: 1200, height: 630 }]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '产品与解决方案 | Climate Seal',
+    description: '产品碳足迹、供应链碳管理、气候合规与报告工具。',
+    images: ['/pcf-modeler.png']
+  }
 };
 
 export default function Products() {

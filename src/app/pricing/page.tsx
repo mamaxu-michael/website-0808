@@ -4,7 +4,18 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: '价格方案',
   description: '灵活透明的订阅与企业方案，满足不同阶段的碳管理需求。',
-  alternates: { canonical: '/pricing' }
+  alternates: { canonical: '/pricing' },
+  openGraph: {
+    title: '价格方案 | Climate Seal',
+    description: '灵活透明的订阅与企业方案，满足不同阶段的碳管理需求。',
+    images: [{ url: '/goal-manager.png', width: 1200, height: 630 }]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '价格方案 | Climate Seal',
+    description: '灵活透明的订阅与企业方案，满足不同阶段的碳管理需求。',
+    images: ['/goal-manager.png']
+  }
 };
 
 export default function Pricing() {

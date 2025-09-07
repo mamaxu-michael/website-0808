@@ -4,7 +4,18 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: '联系我们',
   description: '获取产品演示与咨询，了解如何快速启动碳足迹与合规管理。',
-  alternates: { canonical: '/contact' }
+  alternates: { canonical: '/contact' },
+  openGraph: {
+    title: '联系我们 | Climate Seal',
+    description: '获取产品演示与咨询，了解如何快速启动碳足迹与合规管理。',
+    images: [{ url: '/new-contact-logo.png', width: 1200, height: 630 }]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '联系我们 | Climate Seal',
+    description: '获取产品演示与咨询，了解如何快速启动碳足迹与合规管理。',
+    images: ['/new-contact-logo.png']
+  }
 };
 
 export default function Contact() {
