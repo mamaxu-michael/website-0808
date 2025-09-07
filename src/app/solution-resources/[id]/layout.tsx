@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   };
 }
 
-export default function ArticleLayout({ children }: Props) {
+export default function ArticleLayout({ children }: { children: React.ReactNode }) {
   return children;
 }
 
