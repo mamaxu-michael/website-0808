@@ -17,8 +17,47 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Climate Seal",
-  description: "专注于环保技术和气候解决方案，为地球的可持续发展贡献力量",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "https://climate-seal.com"),
+  title: {
+    default: "Climate Seal",
+    template: "%s | Climate Seal"
+  },
+  description: "专注于环保与气候合规的数字化解决方案与产品碳足迹工具",
+  robots: {
+    index: process.env.NODE_ENV === 'production',
+    follow: process.env.NODE_ENV === 'production'
+  },
+  alternates: {
+    canonical: "/"
+  },
+  openGraph: {
+    type: "website",
+    siteName: "Climate Seal",
+    title: "Climate Seal",
+    description: "专注于环保与气候合规的数字化解决方案与产品碳足迹工具",
+    url: "/",
+    images: [
+      {
+        url: "/logo.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Climate Seal"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Climate Seal",
+    description: "专注于环保与气候合规的数字化解决方案与产品碳足迹工具",
+    images: ["/logo.jpg"],
+    site: "@ClimateSeal",
+    creator: "@ClimateSeal"
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico"
+  }
 };
 
 export default function RootLayout({
@@ -29,6 +68,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Organization JSON-LD（仅注入元信息，不影响视觉） */}
+        <Script id="org-jsonld" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Climate Seal",
+            url: (process.env.NEXT_PUBLIC_APP_URL || "https://climate-seal.com"),
+            logo: new URL("/logo.jpg", process.env.NEXT_PUBLIC_APP_URL || "https://climate-seal.com").toString(),
+            sameAs: []
+          })}
+        </Script>
         {/* Google Analytics 4 */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-BM7079RZZH"
