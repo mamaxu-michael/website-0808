@@ -1,4 +1,11 @@
 import React from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '关于我们',
+  description: 'Climate Seal 团队与愿景：专注环保技术与气候合规的数字化解决方案。',
+  alternates: { canonical: '/about' }
+};
 
 export default function About() {
   return (

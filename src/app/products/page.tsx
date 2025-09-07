@@ -1,4 +1,11 @@
 import React from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '产品与解决方案',
+  description: '产品碳足迹、供应链碳管理、气候合规与报告工具。',
+  alternates: { canonical: '/products' }
+};
 
 export default function Products() {
   return (

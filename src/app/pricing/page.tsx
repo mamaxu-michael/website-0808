@@ -1,4 +1,11 @@
 import React from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '价格方案',
+  description: '灵活透明的订阅与企业方案，满足不同阶段的碳管理需求。',
+  alternates: { canonical: '/pricing' }
+};
 
 export default function Pricing() {
   return (
