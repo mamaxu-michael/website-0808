@@ -331,6 +331,82 @@ export default function Home() {
           animation: scroll-left 30s linear infinite;
         }
         
+        @keyframes float-gentle {
+          0%, 100% {
+            transform: translateY(0px) translateX(0px) scale(1) rotate(0deg);
+          }
+          25% {
+            transform: translateY(-4px) translateX(1px) scale(1.008) rotate(0.3deg);
+          }
+          50% {
+            transform: translateY(-6px) translateX(0px) scale(1.012) rotate(0deg);
+          }
+          75% {
+            transform: translateY(-4px) translateX(-1px) scale(1.008) rotate(-0.3deg);
+          }
+        }
+        
+        @keyframes float-gentle-delayed {
+          0%, 100% {
+            transform: translateY(0px) translateX(0px) scale(1) rotate(0deg);
+          }
+          25% {
+            transform: translateY(-3px) translateX(-1px) scale(1.006) rotate(-0.2deg);
+          }
+          50% {
+            transform: translateY(-5px) translateX(0px) scale(1.010) rotate(0deg);
+          }
+          75% {
+            transform: translateY(-3px) translateX(1px) scale(1.006) rotate(0.2deg);
+          }
+        }
+        
+        @keyframes float-gentle-slow {
+          0%, 100% {
+            transform: translateY(0px) translateX(0px) scale(1) rotate(0deg);
+          }
+          20% {
+            transform: translateY(-2px) translateX(1px) scale(1.004) rotate(0.4deg);
+          }
+          40% {
+            transform: translateY(-7px) translateX(0px) scale(1.014) rotate(0deg);
+          }
+          60% {
+            transform: translateY(-5px) translateX(-1px) scale(1.010) rotate(-0.2deg);
+          }
+          80% {
+            transform: translateY(-2px) translateX(0px) scale(1.006) rotate(0.1deg);
+          }
+        }
+        
+        @keyframes float-gentle-smooth {
+          0%, 100% {
+            transform: translateY(0px) translateX(0px) scale(1) rotate(0deg);
+          }
+          30% {
+            transform: translateY(-3px) translateX(0.5px) scale(1.005) rotate(0.15deg);
+          }
+          70% {
+            transform: translateY(-5px) translateX(-0.5px) scale(1.009) rotate(-0.15deg);
+          }
+        }
+        
+        .animate-float-gentle {
+          animation: float-gentle 4s ease-in-out infinite;
+        }
+        
+        .animate-float-gentle-delayed {
+          animation: float-gentle-delayed 5s ease-in-out infinite 1s;
+        }
+        
+        .animate-float-gentle-slow {
+          animation: float-gentle-slow 6s ease-in-out infinite 2s;
+        }
+        
+        .animate-float-gentle-smooth {
+          animation: float-gentle-smooth 4.5s ease-in-out infinite 0.5s;
+        }
+        
         .top-55 {
           top: 13.75rem; /* 55 * 0.25rem = 13.75rem = 220px */
         }
@@ -1194,7 +1270,7 @@ export default function Home() {
             {/* Flexible yet standardized - Green Card (Top Left) */}
             {/* 灰色背景块 */}
             <motion.div 
-              className="absolute w-[280px] h-[165px] top-[40px] left-[35px] rounded-[20px] group cursor-pointer overflow-hidden border-2 border-white/20 ring-1 ring-white/20"
+              className="absolute w-[280px] h-[165px] top-[40px] left-[35px] rounded-[20px] group cursor-pointer overflow-hidden border-2 border-white/20 ring-1 ring-white/20 animate-float-gentle"
               style={{
                 backgroundImage: 'url(/faster-beaver.png)',
                 backgroundSize: 'cover',
@@ -1218,7 +1294,7 @@ export default function Home() {
             </motion.div>
             {/* 绿色卡片 */}
             <motion.div 
-              className="absolute w-[756px] h-[165px] top-[40px] left-[375px] rounded-[20px] group cursor-pointer"
+              className="absolute w-[756px] h-[165px] top-[40px] left-[375px] rounded-[20px] group cursor-pointer animate-float-gentle-delayed"
               initial={{ opacity: 0, y: 24, scale: 0.98 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.5 }}
@@ -1256,7 +1332,7 @@ export default function Home() {
             {/* Products teams love to use - Blue Card (Center Right) */}
             {/* 灰色背景块 */}
             <motion.div 
-              className="absolute w-[280px] h-[165px] top-[230px] left-[851px] rounded-[20px] group cursor-pointer overflow-hidden border-2 border-white/20 ring-1 ring-white/20"
+              className="absolute w-[280px] h-[165px] top-[230px] left-[851px] rounded-[20px] group cursor-pointer overflow-hidden border-2 border-white/20 ring-1 ring-white/20 animate-float-gentle-slow"
               style={{
                 backgroundImage: 'url(/credible-meerkat.png)',
                 backgroundSize: 'cover',
@@ -1280,7 +1356,7 @@ export default function Home() {
             </motion.div>
             {/* 蓝色卡片 */}
             <motion.div 
-              className="absolute w-[756px] h-[165px] top-[230px] left-[35px] rounded-[20px] group cursor-pointer"
+              className="absolute w-[756px] h-[165px] top-[230px] left-[35px] rounded-[20px] group cursor-pointer animate-float-gentle"
               initial={{ opacity: 0, y: 24, scale: 0.98 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.5 }}
@@ -1318,7 +1394,7 @@ export default function Home() {
             {/* Fast time to value - Pink Card (Bottom Left) */}
             {/* 灰色背景块 */}
             <motion.div 
-              className="absolute w-[280px] h-[165px] top-[420px] left-[35px] rounded-[20px] group cursor-pointer overflow-hidden border-2 border-white/20 ring-1 ring-white/20"
+              className="absolute w-[280px] h-[165px] top-[420px] left-[35px] rounded-[20px] group cursor-pointer overflow-hidden border-2 border-white/20 ring-1 ring-white/20 animate-float-gentle-delayed"
               style={{
                 backgroundImage: 'url(/frictionless-dog.png)',
                 backgroundSize: 'cover',
@@ -1342,7 +1418,7 @@ export default function Home() {
             </motion.div>
             {/* 粉色卡片 */}
             <motion.div 
-              className="absolute w-[756px] h-[165px] top-[420px] left-[375px] rounded-[20px] group cursor-pointer"
+              className="absolute w-[756px] h-[165px] top-[420px] left-[375px] rounded-[20px] group cursor-pointer animate-float-gentle-slow"
               initial={{ opacity: 0, y: 24, scale: 0.98 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.5 }}
@@ -1467,7 +1543,7 @@ export default function Home() {
           {/* Desktop Layout - Original 1x4 Grid */}
           <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto items-end">
             {/* 1% Cost - Card #1 - 15% Increased */}
-            <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-3xl p-6 sm:p-8 shadow-xl min-h-[216px] sm:min-h-[259px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
+            <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-3xl p-6 sm:p-8 shadow-xl min-h-[216px] sm:min-h-[259px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer animate-float-gentle">
               <div className="flex-1 flex flex-col justify-between">
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white group-hover:text-yellow-400 transition-colors duration-300">{t.sections.value.cards.cost.title}</h3>
                 <div className="mt-auto">
@@ -1478,7 +1554,7 @@ export default function Home() {
             </div>
 
             {/* Hours - Card #2 - 15% Increased */}
-            <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-3xl p-6 sm:p-8 shadow-xl min-h-[216px] sm:min-h-[259px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
+            <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-3xl p-6 sm:p-8 shadow-xl min-h-[216px] sm:min-h-[259px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer animate-float-gentle-delayed">
               <div className="flex-1 flex flex-col justify-between">
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white group-hover:text-yellow-400 transition-colors duration-300">{t.sections.value.cards.time.title}</h3>
                 <div className="mt-auto">
@@ -1489,7 +1565,7 @@ export default function Home() {
             </div>
 
             {/* Zero Barrier - Card #3 - 20% Increased from 25% reduced base */}
-            <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-3xl p-6 sm:p-8 shadow-xl min-h-[252px] sm:min-h-[288px] lg:min-h-[350px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
+            <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-3xl p-6 sm:p-8 shadow-xl min-h-[252px] sm:min-h-[288px] lg:min-h-[350px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer animate-float-gentle-slow">
               <div className="flex-1 flex flex-col justify-between">
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white group-hover:text-yellow-400 transition-colors duration-300">{t.sections.value.cards.barrier.title}</h3>
                 <div className="mt-auto">
@@ -1500,7 +1576,7 @@ export default function Home() {
             </div>
 
             {/* Trusted - Card #4 - 15% Increased */}
-            <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-3xl p-6 sm:p-8 shadow-xl min-h-[216px] sm:min-h-[259px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer">
+            <div className="group bg-[#6366f1] hover:bg-[#5b57f7] rounded-3xl p-6 sm:p-8 shadow-xl min-h-[216px] sm:min-h-[259px] flex flex-col justify-between transition-all duration-300 hover:scale-105 cursor-pointer animate-float-gentle-smooth">
               <div className="flex-1 flex flex-col justify-between">
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white group-hover:text-yellow-400 transition-colors duration-300">{t.sections.value.cards.trusted.title}</h3>
                 <div className="mt-auto">
@@ -1514,7 +1590,7 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="min-h-screen py-12 lg:py-4 sm:lg:py-6 bg-[rgb(0,52,50)] -mt-px" data-theme="pricing" data-section="pricing-overview" data-category="conversion">
+      <section id="pricing" className="min-h-screen py-12 lg:py-16 bg-[rgb(0,52,50)] -mt-px" data-theme="pricing" data-section="pricing-overview" data-category="conversion">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6 sm:mb-16">
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-2 sm:mb-6">{t.sections.pricing.title}</h2>
@@ -1604,12 +1680,12 @@ export default function Home() {
       </section>
 
       {/* White Separator Line */}
-      <div className="bg-[rgb(0,52,50)] py-6 lg:py-1">
-        <div className="mx-auto w-4/5 h-px bg-white opacity-30 transform translate-y-0 lg:-translate-y-[630px]"></div>
+      <div className="bg-[rgb(0,52,50)] py-6 lg:py-8">
+        <div className="mx-auto w-4/5 h-px bg-white opacity-30"></div>
       </div>
 
       {/* About Section */}
-      <section id="about" className="bg-[rgb(0,52,50)] mt-0 lg:-mt-96 py-8 lg:py-4" data-theme="about" data-section="about-main" data-category="info">
+      <section id="about" className="bg-[rgb(0,52,50)] py-8 lg:py-16" data-theme="about" data-section="about-main" data-category="info">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center min-h-[280px] sm:min-h-[350px] md:min-h-[420px]">
             {/* Left side - Polar Bear Image */}
