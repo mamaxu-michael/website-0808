@@ -1,4 +1,5 @@
 import React from 'react';
+import Script from 'next/script';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -21,6 +22,25 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* JSON-LD: FAQ（仅元信息，不渲染 UI） */}
+      <Script id="jsonld-faq-contact" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: '如何获取产品演示？',
+              acceptedAnswer: { "@type": "Answer", text: '填写联系信息后，我们会在1个工作日内与您沟通安排演示。' }
+            },
+            {
+              "@type": "Question",
+              name: '支持哪些集成能力？',
+              acceptedAnswer: { "@type": "Answer", text: '支持主流数据源与导入方式，具体请在沟通中说明需求。' }
+            }
+          ]
+        })}
+      </Script>
       <div className="container mx-auto px-4 py-16">
         <h1 className="text-4xl font-bold text-center mb-8 text-gray-900">
           联系我们

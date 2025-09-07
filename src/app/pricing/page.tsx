@@ -1,4 +1,5 @@
 import React from 'react';
+import Script from 'next/script';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -21,6 +22,25 @@ export const metadata: Metadata = {
 export default function Pricing() {
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* JSON-LD: FAQ（仅元信息，不渲染 UI） */}
+      <Script id="jsonld-faq-pricing" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: '是否提供企业版方案？',
+              acceptedAnswer: { "@type": "Answer", text: '支持，企业可按需定制，详情见联系我们。' }
+            },
+            {
+              "@type": "Question",
+              name: '是否支持试用？',
+              acceptedAnswer: { "@type": "Answer", text: '支持，具体试用权益与时长以当前活动为准。' }
+            }
+          ]
+        })}
+      </Script>
       <div className="container mx-auto px-4 py-16">
         <h1 className="text-4xl font-bold text-center mb-8 text-gray-900">
           价格方案
