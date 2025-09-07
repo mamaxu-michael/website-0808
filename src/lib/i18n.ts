@@ -553,9 +553,9 @@ export const translations: Record<Language, TranslationData> = {
     },
     hero: {
       title: 'Climate Seal',
-      subtitle: 'AI product carbon footprint\nAccounting & Assurance',
+      subtitle: 'AI Agent of product carbon footprint\nAccounting & Assurance',
       description: 'Generate audit-ready product carbon footprints in days, not months. Cut costs and complexity with Climate Seal\'s AI agent.',
-      getStarted: 'Get More Detail',
+      getStarted: 'Try 2 Reports Free\nBook a Demo',
       learnMore: 'Learn More',
       trustedBy: 'Trusted by'
     },
@@ -584,7 +584,7 @@ export const translations: Record<Language, TranslationData> = {
             'Lack of process or data assessment — risks hard to discover',
             'Evidence scattered; external checks slow and expensive, rework constantly delays delivery'
           ],
-          testimonial: 'Climate Seal isn\'t just another calculation tool, but an intelligent operating system that supports our need for precision and efficiency at scale.',
+          testimonial: '"Climate Seal isn\'t just another calculation tool, but an intelligent operating system that supports our need for precision and efficiency at scale."',
           author: 'Dr. Sarah Chen',
           position: 'Senior ESG Consultant, EcoStrategy'
         },
@@ -602,7 +602,7 @@ export const translations: Record<Language, TranslationData> = {
             'Poor data quality skews decarbonisation priorities',
             'No ROI or MACC, projects can\'t get green-lit and stalls SBTi / CSRD milestones'
           ],
-          testimonial: 'Climate Seal transformed our supply chain carbon management from a compliance burden into a competitive advantage.',
+          testimonial: '"Climate Seal transformed our supply chain carbon management from a compliance burden into a competitive advantage."',
           author: 'Michael Rodriguez',
           position: 'Chief Sustainability Officer, GreenTech Corp'
         },
@@ -619,7 +619,7 @@ export const translations: Record<Language, TranslationData> = {
             'Rework cycles delay shipments and risk customs holds',
             'No in-house carbon expertise, third-party consulting is expensive, and mainstream carbon tools are pricey and hard to use'
           ],
-          testimonial: 'With Climate Seal, we can now provide world-class carbon footprint reports at a fraction of the cost and time.',
+          testimonial: '"With Climate Seal, we can now provide world-class carbon footprint reports at a fraction of the cost and time."',
           author: 'Li Wei',
           position: 'Compliance Director, Global Manufacturing Ltd'
         }
@@ -1136,9 +1136,9 @@ export const translations: Record<Language, TranslationData> = {
     },
     hero: {
       title: 'Climate Seal',
-      subtitle: 'AI产品碳足迹\n计算与预核验',
+      subtitle: 'AI智能体产品碳足迹\n计算与预核验',
       description: '几小时内生成核验就绪的产品碳足迹报告，而非数月。通过Climate Seal的AI agent降低成本和专业门槛。',
-      getStarted: '了解详情',
+      getStarted: '免费试用2份报告\n预约演示',
       learnMore: '了解更多',
       trustedBy: '信赖我们的客户'
     },

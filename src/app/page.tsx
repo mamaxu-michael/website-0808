@@ -422,18 +422,18 @@ export default function Home() {
         
         <div className="relative z-10 min-h-screen grid grid-cols-1 lg:grid-cols-2 items-center">
           <div className="text-center lg:text-left text-white px-4 lg:px-16 order-2 lg:order-1 mt-6 lg:mt-0 lg:translate-x-8 lg:translate-y-4">
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
               {t.hero.title}
             </h1>
-            <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-light mb-6 whitespace-pre-line">
+            <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-4xl font-light mb-6 whitespace-pre-line">
               {t.hero.subtitle}
             </h2>
-            <p className="text-base sm:text-lg md:text-2xl mb-8 font-light opacity-90">
+            <p className="text-base sm:text-lg md:text-xl lg:text-xl mb-8 font-light opacity-90">
               {t.hero.description}
             </p>
             <a 
-              href="#ai-assistants"
-              className="bg-yellow-400 hover:bg-yellow-500 text-[rgb(0,52,50)] px-6 sm:px-8 py-1.5 sm:py-2.5 rounded-full font-semibold text-base sm:text-lg transition duration-300 inline-flex items-center gap-2 mt-2"
+              href="#contact"
+              className="bg-yellow-400 hover:bg-yellow-500 text-[rgb(0,52,50)] px-6 sm:px-8 py-1.5 sm:py-2.5 rounded-full font-semibold text-sm sm:text-base transition duration-300 inline-flex items-center gap-2 mt-2 whitespace-pre-line text-center leading-none"
               data-cta="hero-get-started"
               data-section="home-hero"
             >
@@ -683,50 +683,53 @@ export default function Home() {
                       <div className="w-3 h-3 bg-yellow-400 rounded-full mr-2"></div>
                       <div className="w-3 h-3 bg-green-400 rounded-full"></div>
                     </div>
-                    <div className="space-y-5 flex-1 pt-4">
+                    <div className="space-y-4 flex-1 pt-2">
                       {activePersona === 'carbonExpert' ? (
                         <>
+                          <h4 className="text-white text-sm font-semibold mb-2 opacity-90">You Might Be Struggling With:</h4>
                           <div className="h-10 bg-white/20 rounded w-3/4 animate-shimmer flex items-center px-4">
-                            <span className="text-white text-sm font-normal tracking-[-0.18px] leading-[22px]">{t.sections.personas.carbonExpert.painPoints[0]}</span>
+                            <span className="text-white text-sm font-normal tracking-[-0.18px] leading-tight">{t.sections.personas.carbonExpert.painPoints[0]}</span>
                           </div>
                           <div className="h-12 bg-white/15 rounded w-full flex items-center px-4">
-                            <span className="text-white text-sm font-normal tracking-[-0.18px] leading-[22px]">{t.sections.personas.carbonExpert.painPoints[1]}</span>
+                            <span className="text-white text-sm font-normal tracking-[-0.18px] leading-tight">{t.sections.personas.carbonExpert.painPoints[1]}</span>
                           </div>
                           <div className="h-11 bg-white/25 rounded w-5/6 flex items-center px-4">
-                            <span className="text-white text-sm font-normal tracking-[-0.18px] leading-[22px]">{t.sections.personas.carbonExpert.painPoints[2]}</span>
+                            <span className="text-white text-sm font-normal tracking-[-0.18px] leading-tight">{t.sections.personas.carbonExpert.painPoints[2]}</span>
                           </div>
                           <div className="h-10 bg-white/15 rounded w-4/5 flex items-center px-4">
-                            <span className="text-white text-sm font-normal tracking-[-0.18px] leading-[22px]">{t.sections.personas.carbonExpert.painPoints[3]}</span>
+                            <span className="text-white text-sm font-normal tracking-[-0.18px] leading-tight">{t.sections.personas.carbonExpert.painPoints[3]}</span>
                           </div>
                           <div className="h-14 bg-white/20 rounded w-full flex items-center px-4">
-                            <span className="text-white text-sm font-normal tracking-[-0.18px] leading-[22px]">{t.sections.personas.carbonExpert.painPoints[4]}</span>
+                            <span className="text-white text-sm font-normal tracking-[-0.18px] leading-tight">{t.sections.personas.carbonExpert.painPoints[4]}</span>
                           </div>
                         </>
                       ) : activePersona === 'brandOwner' ? (
-                        <div className="space-y-6 flex-1 pt-2">
+                        <div className="space-y-4 flex-1 pt-2">
+                          <h4 className="text-white text-sm font-semibold mb-2 opacity-90">Common Challenges Include:</h4>
                           <div className="h-12 bg-white/20 rounded w-5/6 flex items-center px-4">
-                            <span className="text-white text-sm font-normal tracking-[-0.18px] leading-[22px]">{t.sections.personas.brandOwner.painPoints[0]}</span>
+                            <span className="text-white text-sm font-normal tracking-[-0.18px] leading-tight">{t.sections.personas.brandOwner.painPoints[0]}</span>
                           </div>
                           <div className="h-10 bg-white/15 rounded w-3/5 flex items-center px-4">
-                            <span className="text-white text-sm font-normal tracking-[-0.18px] leading-[22px]">{t.sections.personas.brandOwner.painPoints[1]}</span>
+                            <span className="text-white text-sm font-normal tracking-[-0.18px] leading-tight">{t.sections.personas.brandOwner.painPoints[1]}</span>
                           </div>
                           <div className="h-10 bg-white/25 rounded w-4/5 flex items-center px-4">
-                            <span className="text-white text-sm font-normal tracking-[-0.18px] leading-[22px]">{t.sections.personas.brandOwner.painPoints[2]}</span>
+                            <span className="text-white text-sm font-normal tracking-[-0.18px] leading-tight">{t.sections.personas.brandOwner.painPoints[2]}</span>
                           </div>
                           <div className="h-14 bg-white/15 rounded w-2/3 flex items-center px-4">
-                            <span className="text-white text-sm font-normal tracking-[-0.18px] leading-[22px]">{t.sections.personas.brandOwner.painPoints[3]}</span>
+                            <span className="text-white text-sm font-normal tracking-[-0.18px] leading-tight">{t.sections.personas.brandOwner.painPoints[3]}</span>
                           </div>
                         </div>
                       ) : (
-                        <div className="space-y-6 flex-1 pt-4">
+                        <div className="space-y-4 flex-1 pt-2">
+                          <h4 className="text-white text-sm font-semibold mb-2 opacity-90">You're Probably Facing:</h4>
                           <div className="h-11 bg-white/20 rounded w-4/5 animate-shimmer flex items-center px-4">
-                            <span className="text-white text-sm font-normal tracking-[-0.18px] leading-[22px]">{t.sections.personas.supplyChain.painPoints[0]}</span>
+                            <span className="text-white text-sm font-normal tracking-[-0.18px] leading-tight">{t.sections.personas.supplyChain.painPoints[0]}</span>
                           </div>
                           <div className="h-12 bg-white/15 rounded w-3/4 flex items-center px-4">
-                            <span className="text-white text-sm font-normal tracking-[-0.18px] leading-[22px]">{t.sections.personas.supplyChain.painPoints[1]}</span>
+                            <span className="text-white text-sm font-normal tracking-[-0.18px] leading-tight">{t.sections.personas.supplyChain.painPoints[1]}</span>
                           </div>
                           <div className="h-16 bg-white/25 rounded w-full flex items-center px-4">
-                            <span className="text-white text-sm font-normal tracking-[-0.18px] leading-[22px]">{t.sections.personas.supplyChain.painPoints[2]}</span>
+                            <span className="text-white text-sm font-normal tracking-[-0.18px] leading-tight">{t.sections.personas.supplyChain.painPoints[2]}</span>
                           </div>
                         </div>
                       )}
