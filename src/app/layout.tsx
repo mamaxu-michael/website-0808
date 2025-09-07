@@ -28,8 +28,22 @@ export const metadata: Metadata = {
     follow: process.env.NODE_ENV === 'production'
   },
   alternates: {
-    canonical: "/"
+    canonical: "/",
+    languages: {
+      en: "/",
+      zh: "/"
+    }
   },
+  keywords: [
+    "carbon footprint",
+    "产品碳足迹",
+    "供应链碳管理",
+    "气候合规",
+    "ESG",
+    "LCA",
+    "SBTi",
+    "GHG Protocol"
+  ],
   openGraph: {
     type: "website",
     siteName: "Climate Seal",
