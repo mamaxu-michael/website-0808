@@ -1076,7 +1076,7 @@ export default function Home() {
                 <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
               </svg>
             </a>
-            <Link href="/solution-resources" className="border-2 border-white text-white rounded-[160px] px-8 py-4 hover:bg-white hover:text-[rgb(0,52,50)] transition-all">
+            <Link href="/resources" className="border-2 border-white text-white rounded-[160px] px-8 py-4 hover:bg-white hover:text-[rgb(0,52,50)] transition-all">
               <span className="text-lg font-medium">{t.sections.aiAssistants.trustCenter}</span>
             </Link>
           </div>

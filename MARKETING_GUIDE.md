@@ -9,7 +9,7 @@ src/
 ├── data/
 │   └── articles.json          # 文章数据配置文件
 ├── app/
-│   └── solution-resources/
+│   └── resources/
 │       ├── page.tsx          # 资源中心主页
 │       └── [id]/
 │           └── page.tsx      # 文章详情页

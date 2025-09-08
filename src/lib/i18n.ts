@@ -6,6 +6,7 @@ export interface TranslationData {
   nav: {
     home: string;
     products: string;
+    resources: string;
     about: string;
     contact: string;
     pricing: string;
@@ -547,6 +548,7 @@ export const translations: Record<Language, TranslationData> = {
     nav: {
       home: 'Home',
       products: 'Products',
+      resources: 'Resources',
       about: 'About',
       contact: 'Contact',
       pricing: 'Pricing',
@@ -1131,6 +1133,7 @@ export const translations: Record<Language, TranslationData> = {
     nav: {
       home: '首页',
       products: '产品',
+      resources: '资源中心',
       about: '关于我们',
       contact: '联系我们',
       pricing: '价格',

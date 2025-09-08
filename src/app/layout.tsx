@@ -22,10 +22,10 @@ const bingVerification = process.env.NEXT_PUBLIC_BING_VERIFICATION as string | u
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "https://climate-seal.com"),
   title: {
-    default: "Climate Seal",
+    default: "Climate Seal - 企业碳排放管理平台 | AI碳盘查与供应链碳足迹核算系统",
     template: "%s | Climate Seal"
   },
-  description: "专注于环保与气候合规的数字化解决方案与产品碳足迹工具",
+  description: "领先的企业碳排放管理平台，提供AI驱动的碳盘查工具、供应链碳足迹核算和Scope 3排放计算。支持CBAM报告、GHG Protocol标准，助力制造业和物流业实现碳中和目标。",
   robots: {
     index: process.env.NODE_ENV === 'production',
     follow: process.env.NODE_ENV === 'production'
@@ -38,6 +38,22 @@ export const metadata: Metadata = {
     }
   },
   keywords: [
+    // 最高优先级关键词（商业价值9-10分）
+    "碳排放管理平台",
+    "企业碳盘查工具", 
+    "供应链碳足迹核算",
+    "Scope 3 排放核算",
+    "CBAM 报告",
+    
+    // 行业特定关键词（商业价值8分）
+    "制造业碳足迹计算",
+    "物流业碳排放管理",
+    
+    // AI和技术关键词
+    "AI碳管理",
+    "GHG Protocol碳盘查",
+    
+    // 原有关键词保持
     "carbon footprint",
     "产品碳足迹",
     "供应链碳管理",
@@ -45,7 +61,14 @@ export const metadata: Metadata = {
     "ESG",
     "LCA",
     "SBTi",
-    "GHG Protocol"
+    "GHG Protocol",
+    
+    // 英文关键词扩展
+    "carbon accounting software",
+    "enterprise carbon management",
+    "supply chain carbon footprint",
+    "scope 3 emissions calculation",
+    "AI carbon management platform"
   ],
   openGraph: {
     type: "website",

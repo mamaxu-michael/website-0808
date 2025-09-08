@@ -18,8 +18,8 @@ export async function GET() {
   const feedItems = items.map((a: ArticleItem) => `
     <item>
       <title><![CDATA[${a.titleZh || a.title}]]></title>
-      <link>${base}/solution-resources/${a.id}</link>
-      <guid>${base}/solution-resources/${a.id}</guid>
+      <link>${base}/resources/${a.id}</link>
+      <guid>${base}/resources/${a.id}</guid>
       <pubDate>${new Date(a.publishDate).toUTCString()}</pubDate>
       <description><![CDATA[${a.excerptZh || a.excerpt}]]></description>
     </item>

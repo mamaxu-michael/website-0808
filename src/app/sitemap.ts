@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/products',
     '/pricing',
     '/contact',
-    '/solution-resources',
+    '/resources',
   ];
   const staticEntries = urls.map((path) => ({
     url: `${base}${path}`,
@@ -29,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const articles: ArticleItem[] = (articlesData as { articles: ArticleItem[] }).articles || [];
   const articleEntries = articles.map((a: ArticleItem) => ({
-    url: `${base}/solution-resources/${a.id}`,
+    url: `${base}/resources/${a.id}`,
     lastModified: new Date(a.publishDate).toISOString(),
     changeFrequency: 'monthly' as const,
     priority: 0.6,
