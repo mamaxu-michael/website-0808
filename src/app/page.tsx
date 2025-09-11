@@ -136,27 +136,27 @@ export default function Home() {
     }
   };
 
-  useEffect(() => {
-    // 检测是否为移动端
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => {
-      window.removeEventListener('resize', checkMobile);
-    };
-  }, []);
+  // useEffect(() => {
+  //   // 检测是否为移动端
+  //   const checkMobile = () => {
+  //     setIsMobile(window.innerWidth <= 768);
+  //   };
+  //   
+  //   checkMobile();
+  //   window.addEventListener('resize', checkMobile);
+  //   
+  //   return () => {
+  //     window.removeEventListener('resize', checkMobile);
+  //   };
+  // }, []);
 
   useEffect(() => {
     // 滚动控制和横幅显示逻辑
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const direction = currentScrollY > lastScrollY ? 'down' : 'up';
-      setScrollDirection(direction);
-      setIsScrolling(true);
+      // setScrollDirection(direction);
+      // setIsScrolling(true);
       
       // 清除之前的滚动停止计时器
       if (scrollTimeout) {
@@ -165,7 +165,7 @@ export default function Home() {
       
       // 设置新的滚动停止计时器
       const newTimeout = setTimeout(() => {
-        setIsScrolling(false);
+        // setIsScrolling(false);
       }, 150); // 150ms后认为滚动停止
       setScrollTimeout(newTimeout);
       
@@ -180,17 +180,17 @@ export default function Home() {
         
         // 触发显示：当标题距离顶端达到阈值时显示横幅
         if (rect.top <= triggerThreshold && rect.bottom > 0) {
-          setSolutionBarVisible(true);
+          // setSolutionBarVisible(true);
         } 
         // 只有在向下滑动且标题已经远离时才隐藏
         else if (direction === 'down' && rect.top > triggerThreshold) {
-          setSolutionBarVisible(false);
+          // setSolutionBarVisible(false);
         }
         // 向上滑动时，无论位置如何都保持当前状态（不改变）
-        
+
       } else {
         // 如果找不到标题元素，使用临时的始终显示
-        setSolutionBarVisible(true);
+        // setSolutionBarVisible(true);
       }
       
       setLastScrollY(currentScrollY);
@@ -208,9 +208,9 @@ export default function Home() {
           const cardId = entry.target.getAttribute('data-card-id');
           
           if (cardId === 'card2' && entry.isIntersecting) {
-            setVisibleCards(prev => ({ ...prev, card2: true }));
+            // setVisibleCards(prev => ({ ...prev, card2: true }));
           } else if (cardId === 'card3' && entry.isIntersecting) {
-            setVisibleCards(prev => ({ ...prev, card3: true }));
+            // setVisibleCards(prev => ({ ...prev, card3: true }));
           } else if (cardId === 'pain-cards') {
             // 记录痛点区域的位置
             const rect = entry.target.getBoundingClientRect();
