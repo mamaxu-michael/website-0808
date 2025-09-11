@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 
 type Item = {
   title: string;
@@ -165,10 +166,11 @@ export default function ExpandableCards({
                       objectPosition = 'center 35%';
                     }
                     return (
-                      <img 
+                      <Image 
                         src={currentMediaSrc} 
                         alt="" 
-                        className="h-full w-full object-cover" 
+                        fill
+                        className="object-cover" 
                         style={{ objectPosition }} 
                       />
                     );

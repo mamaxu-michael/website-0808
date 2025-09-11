@@ -9,7 +9,7 @@ import { useLanguage, LanguageSwitcher } from '@/contexts/LanguageContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const router = useRouter();
   const pathname = usePathname();
 

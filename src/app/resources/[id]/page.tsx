@@ -29,7 +29,7 @@ export default function ArticleDetail() {
   const [article, setArticle] = useState<Article | null>(null);
   const [relatedArticles, setRelatedArticles] = useState<Article[]>([]);
 
-  const articles: Article[] = articlesData.articles;
+  const articles: Article[] = (articlesData as { articles: Article[] }).articles;
 
   useEffect(() => {
     const foundArticle = articles.find(a => a.id === params.id);

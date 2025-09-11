@@ -19,15 +19,15 @@ export default function Home() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
-  const [visibleCards, setVisibleCards] = useState({ card2: false, card3: false });
-  const [solutionBarVisible, setSolutionBarVisible] = useState(false);
-  const [scrollDirection, setScrollDirection] = useState('down');
+  // const [visibleCards, setVisibleCards] = useState({ card2: false, card3: false });
+  // const [solutionBarVisible, setSolutionBarVisible] = useState(false);
+  // const [scrollDirection, setScrollDirection] = useState('down');
   const [lastScrollY, setLastScrollY] = useState(0);
   const [painSectionTop, setPainSectionTop] = useState(0);
   const [painSectionBottom, setPainSectionBottom] = useState(0);
-  const [isScrolling, setIsScrolling] = useState(false);
+  // const [isScrolling, setIsScrolling] = useState(false);
   const [scrollTimeout, setScrollTimeout] = useState<NodeJS.Timeout | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
+  // const [isMobile, setIsMobile] = useState(false);
   const [activePersona, setActivePersona] = useState<'carbonExpert' | 'brandOwner' | 'supplyChain'>('carbonExpert');
   const [activeAIRole, setActiveAIRole] = useState<'carbonExpert' | 'brandOwner' | 'supplyChain'>('carbonExpert');
   const [activeMobileCard, setActiveMobileCard] = useState<number>(-1);
@@ -613,7 +613,7 @@ export default function Home() {
           <div className="flex justify-center mb-8">
             <div className="bg-white/5 rounded-[1600px] p-1 shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)]">
               <div className="relative flex">
-                {(['carbonExpert', 'brandOwner', 'supplyChain'] as const).map((persona, index) => (
+                {(['carbonExpert', 'brandOwner', 'supplyChain'] as const).map((persona) => (
                   <button
                     key={persona}
                     onClick={() => setActivePersona(persona)}
@@ -936,10 +936,11 @@ export default function Home() {
                 <div className="absolute inset-0">
                   {/* Static Animal Image - Shows when not expanded */}
                   {card.staticMediaSrc && activeMobileCard !== index && (
-                    <img 
+                    <Image 
                       src={card.staticMediaSrc} 
                       alt={card.title}
-                      className="absolute inset-0 w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                       style={{ 
                         objectPosition: card.staticMediaSrc.includes('scope-tracker') ? 'center 45%' :
                                        card.staticMediaSrc.includes('supply-chain') || 
@@ -1045,7 +1046,7 @@ export default function Home() {
           <div className="flex justify-center mb-8">
             <div className="bg-white/5 rounded-[1600px] p-1 shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)]">
               <div className="relative flex">
-                {(['carbonExpert', 'brandOwner', 'supplyChain'] as const).map((role, index) => (
+                {(['carbonExpert', 'brandOwner', 'supplyChain'] as const).map((role) => (
                   <button
                     key={role}
                     onClick={() => setActiveAIRole(role)}
